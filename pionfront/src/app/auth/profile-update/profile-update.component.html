@@ -1,0 +1,86 @@
+<section class="block_registration" alock="true"  *ngIf="toLoad <= 0">
+    <div>
+        <h1>ОБНОВЛЕНИЕ ДАННЫХ</h1>
+        <form  [formGroup]="profileUpdateForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">E-mail:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Фамилия:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="lastname">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Имя:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="firstname">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Отчество:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="middlename">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Регион:</p>
+            </div>
+            <div class="col-4">
+                <input type="text" name="user_name" formControlName="region">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Организация:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="organization">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Веб-сайт или адрес организации<br>в социальных сетях:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="website">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Должность:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="position">
+            </div>
+        </div>
+
+        <p class="polit_block"><button type="submit" class="add_button">Обновить</button></p>
+        </form>
+    </div>
+</section>

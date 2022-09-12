@@ -1,0 +1,19 @@
+<section class="block_form">
+    <div>
+        <div class="row head_result">
+            <div class="col-4 blue_item">
+                <h1>Панель мониторинга программ</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row user-row" *ngFor="let userRequest of userRequests">
+                <div class="col-5 border-right" [class]="{'disabled': !userRequest.user_ref}">{{userRequest.lastname}} {{userRequest.firstname}} {{userRequest.middlename}} ({{userRequest.organization}})</div>
+                <div class="col-7">
+                    <ul *ngIf="userRequest.user_ref">
+                        <li *ngFor="let programForUser of programsForUser(userRequest.user_ref)"><a [routerLink]="['/program', programForUser.id]">{{programForUser.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

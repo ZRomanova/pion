@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/base.py", line 305, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/commands/runserver.py", line 58, in execute
+    super(Command, self).execute(*args, **options)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/base.py", line 356, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/commands/runserver.py", line 69, in handle
+    if not settings.DEBUG and not settings.ALLOWED_HOSTS:
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 41, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 112, in __init__
+    setattr(self, setting, setting_value)
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 83, in __setattr__
+    raise ImproperlyConfigured("If set, %s must end with a slash" % name)
+django.core.exceptions.ImproperlyConfigured: If set, STATIC_URL must end with a slash
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/__init__.py", line 367, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/__init__.py", line 359, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/base.py", line 317, in run_from_argv
+    connections.close_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 229, in close_all
+    for alias in self:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 223, in __iter__
+    return iter(self.databases)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 156, in databases
+    self._databases = settings.DATABASES
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 41, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 112, in __init__
+    setattr(self, setting, setting_value)
+  File "/usr/local/lib/python3.4/dist-packages/django/conf/__init__.py", line 83, in __setattr__
+    raise ImproperlyConfigured("If set, %s must end with a slash" % name)
+django.core.exceptions.ImproperlyConfigured: If set, STATIC_URL must end with a slash

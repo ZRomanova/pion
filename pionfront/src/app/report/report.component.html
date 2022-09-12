@@ -1,0 +1,211 @@
+<section class="block_form " *ngIf="toLoad <= 0">
+    <div>
+        <div class="row head_result">
+            <div class="col-4 blue_item"><h1>ОТЧЁТ ОБ ОЦЕНКЕ</h1></div>
+            <div class="col-4 back_btn"><a class="cursor_pointer" (click)="goBack($event)">Назад</a></div>
+        </div>
+        <div class="content_block">
+            <div class="row">
+                <div class="col-5 border_right">
+                    <h3 class="marg_h_top">Вид оценки:</h3>
+                    <p *ngFor="let et of evaluationTypes" class="line_include" [ngClass]="{'check': et.current}"><span>{{et.name}}</span></p>
+
+                    <h3 class="marg_h_top">Метод:</h3>
+                    <ng-container *ngFor="let method of methods" >
+                        <p class="line_include" [ngClass]="{'check': method.checked}" *ngIf="!method.parent_ref">
+                            <span>{{method.name}}</span>
+                        </p>
+                        <div *ngFor="let child of methods" style="padding-left: 3rem;" >
+                            <p class="line_include" [ngClass]="{'check': child.checked}" *ngIf="child.parent_ref == method.id && !method.parent_ref">
+                                <span>{{child.name}}</span>
+                            </p>
+                        </div>
+                    </ng-container>
+
+                    <h3 class="marg_h_top">Метод анализа данных:</h3>
+                    <p *ngFor="let el of analysisMethods" class="line_include" [ngClass]="{'check': el.current}"><span>{{el.name}}</span></p>
+
+                    <h3 class="marg_h_top">Вид представления данных в отчете:</h3>
+                    <p *ngFor="let el of representationMethods" class="line_include" [ngClass]="{'check': el.current}"><span>{{el.name}}</span></p>
+
+
+                </div>
+                <div class="col-7">
+                    <h3 class="marg_h_top uppercase">Тип оценки</h3> 
+                        <p>{{report.type}}</p>
+
+                    <h3 class="marg_h_top uppercase">Ключевые вопросы оценки</h3> 
+                        <p>{{report.key_questions}}</p>
+
+                    <h3 class="marg_h_top uppercase">Социальные результаты</h3> 
+                        <p *ngFor="let outcome of report.outcome_refs" class="arrow_right"><a [routerLink]="['/result', outcome.id]">{{outcome.name}}</a></p>
+
+                    <h3 class="marg_h_top uppercase">Другие результаты, включенные в оценку</h3> 
+                        <p>{{report.other_results}}</p>
+
+                    <button *ngIf="report.evaluation_file && authenticated" class="add_button" (click)="downloadFile()">Скачать отчёт</button> 
+                    <button *ngIf="authenticated && report.case_ref.createdby.id == transport.user.id" class="add_button" (click)="editReport($event)">Редактировать отчёт</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="popap_kontst dark_block blue_head big_form" *ngIf="formPage == 1">
+    <div>
+        <div class="head">
+            <p class="close_btn">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png" (click)="closeForm()">
+            </p>
+            <p class="center font_500">Редактирование отчёта об оценке</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="editReportForm">
+                <p class="line_descSel">Название кейса:</p>
+                <br><span class="font_500">
+                    {{report.case_ref.name}}
+                </span>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Оценка внешняя или внутренняя <span>(1)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <select class="big_sellect" formControlName="type"> 
+                    <option value="" disabled>Выберите</option>
+                    <option value="Внешняя">Внешняя</option>
+                    <option value="Внутренняя">Внутренняя</option>
+                </select>
+              
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Вид оценки <span>(2)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <select class="big_sellect" formControlName="evaluation_type_ref" (change)="changeEvType()"> 
+                    <option value="" disabled>Выберите вид оценки</option>
+                    <option *ngFor="let et of evaluationTypes" [value]="et.id">{{et.name}}</option>
+                </select>
+                <ng-container *ngIf="otherEvType">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_evaluation_type"></textarea>
+                </ng-container>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Ключевые вопросы оценки <span>(3)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <textarea class="text_item" formControlName="key_questions"></textarea>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Социальный результат <span>(4)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="outcome_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let outcome of outcomes; index as i" class="container_checked" style="text-align: left;"> 
+                                {{outcome.name}}
+                                <input type="checkbox" [formControlName]="i">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Другие результаты <span>(5)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <textarea class="text_item" formControlName="other_results"></textarea>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Методы <span>(6)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block">
+                    <div class="row" formArrayName="method_refs" style="text-align: left;">
+                        <div class="col-12">
+                            <ng-container *ngFor="let method of methods; index as i"> 
+                                <label class="container_checked" style="text-align: left;" *ngIf="!method.parent_ref">
+                                    {{method.name}}
+                                    <input type="checkbox" [formControlName]="i" (change)="changeMethod()">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="editReportForm.value.method_refs[i] && !methods[i].parent_ref">
+                                    <div *ngFor="let child of methods; index as j" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == methods[i].id">
+                                            <label class="container_checked" style="text-align: left;">
+                                                {{child.name}}
+                                                <input type="checkbox" [formControlName]="j" (change)="changeMethod()">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="otherMethod">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_method"></textarea>
+                </ng-container>
+
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Метод анализа данных <span>(7)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="analysis_method_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let am of analysisMethods; index as i" class="container_checked" style="text-align: left;"> 
+                                {{am.name}}
+                                <input type="checkbox" [formControlName]="i" (change)="changeAnMethod()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="otherAnMethod">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_analysis_method"></textarea>
+                </ng-container>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Вид представления данных в отчете <span>(8)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="representation_method_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let rm of representationMethods; index as i" class="container_checked" style="text-align: left;"> 
+                                {{rm.name}}
+                                <input type="checkbox" [formControlName]="i" (change)="changeRepMethod()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="otherRepMethod">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_representation_method"></textarea>
+                </ng-container>
+
+                <div class="row class_btns">
+                    <div class="col-12">
+                        <input type="file" style="display: none;" #file_rep (change)="repFileUpload($event)">
+                        <button (click)="triggerRepFile()" class="center"
+                        [ngClass]="{'selected_file': repFile || report.evaluation_file, 'no_file': !repFile && !report.evaluation_file}"
+                        >Загрузить отчёт </button>
+                    </div>
+                </div>
+
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="methodsSubmit($event)" [disabled]="editReportForm.disabled || editReportForm.invalid">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+

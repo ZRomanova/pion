@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="news">
+        <div class="news_top">
+            <div class="container">
+                <div class="news_top-title">
+                    Новости ПИОН
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="news_body">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                <div class="news_wrapper">
+
+                    {% for new in news %}
+                         <div class="news_item">
+                            <div class="news_item-img" style="background: url({{new.image.url}})">
+
+                            </div>
+                            <div class="news_item-info">
+                                <div class="news_item-title">
+                                    {{ new.name }}
+                                </div>
+                                <div class="news_item-date">
+                                    {{ new.create|date:"d.m.Y" }}
+                                </div>
+                                <div class="news_item-text">
+                                    {{ new.minitext|safe }}
+                                </div>
+                                <a href="/news/item/{{ new.slug }}" target="_blank" class="news_item-btn">ПОДРОБНЕЕ</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <div class="news_aside">
+                    {% include 'right_block.html'  %}
+
+                </div>
+            </div>
+        </div>
+
+
+
+<div class = "pagination">
+    {% if page_obj.number != 1 %}
+        <a href="?page=1" class="arrow">&laquo;</a>
+    {% endif %}
+
+	{% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="arrow">‹</a>
+    {% endif %}
+
+	{% for pages in page_obj.paginator.page_range %}
+		{% if page_obj.number == pages %}
+			<a href=""><strong>{{ pages }}</strong></a>
+		{% elif pages > page_obj.number|add:'-3' and pages < page_obj.number|add:'3' %}
+			<a href="?page={{ pages }}">
+				<span>{{ pages }}</span>
+			</a>
+		{% endif %}
+	{% endfor %}
+
+	{% if page_obj.has_next %}
+		<a href="?page={{ page_obj.next_page_number }}" class="arrow">›</a>
+    {% endif %}
+
+    {% if page_obj.number != page_obj.paginator.num_pages %}
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="arrow">»</a>
+    {% endif %}
+</div>
+
+
+        </div>
+    </section>
+
+
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+timestamp() {
+  date +%Y%m%d%H%M%S
+}
+
+echo "CLEANING PORT"
+fuser 8000/tcp -k
+echo "STOPPED"
+echo "-LOG START--------------------------------------"
+cat result
+echo "-LOG FINISH-------------------------------------"
+echo "SAVING LOG TO \"./logs/\" folder..."
+mv result logs/$(timestamp)
+nohup python3 manage.py runserver 0.0.0.0:8000 1>result 2>&1 &

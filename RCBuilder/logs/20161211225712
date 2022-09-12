@@ -1,0 +1,885 @@
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 68, in resolve_template
+    return get_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 2: 'static'. Did you forget to register or load this tag?
+[11/Dec/2016 19:00:28] "GET /accounts/login/ HTTP/1.1" 500 121065
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:00:25
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:01:18
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:01:26] "GET /accounts/login/ HTTP/1.1" 200 1162
+[11/Dec/2016 19:01:26] "GET /static/material/fonts/material-design-icons/material-icons.css HTTP/1.1" 200 999
+[11/Dec/2016 19:01:26] "GET /static/material/css/materialize.forms.css HTTP/1.1" 200 2639
+[11/Dec/2016 19:01:26] "GET /static/material/css/jquery.datetimepicker.css HTTP/1.1" 200 18988
+[11/Dec/2016 19:01:26] "GET /static/material/js/jquery.formset.js HTTP/1.1" 200 8479
+[11/Dec/2016 19:01:26] "GET /static/material/js/materialize.forms.js HTTP/1.1" 200 1407
+[11/Dec/2016 19:01:26] "GET /static/material/js/jquery.datetimepicker.js HTTP/1.1" 200 65024
+[11/Dec/2016 19:01:26] "GET /static/material/css/materialize.css HTTP/1.1" 200 151328
+[11/Dec/2016 19:01:26] "GET /static/material/js/jquery-2.2.0.js HTTP/1.1" 200 258388
+[11/Dec/2016 19:01:26] "GET /static/material/js/materialize.js HTTP/1.1" 200 308856
+[11/Dec/2016 19:01:26] "GET /static/material/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 200 49236
+[11/Dec/2016 19:01:26] "GET /static/material/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 200 50224
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:01:24
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:02:21
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:02:30] "GET /accounts/login/ HTTP/1.1" 200 524
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:02:26
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:23:06
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:23:13] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[11/Dec/2016 19:23:13] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:23:13] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 19:23:13] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 19:23:13] "GET /static/css/main.css HTTP/1.1" 200 9043
+[11/Dec/2016 19:23:13] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 19:23:13] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 19:23:13] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 19:23:13] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 19:23:13] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 19:23:13] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 19:23:13] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 19:23:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:23:13] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 19:23:13] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 19:23:13] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 19:23:13] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 19:23:14] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 19:23:14] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 68, in resolve_template
+    return get_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 17: 'static'. Did you forget to register or load this tag?
+[11/Dec/2016 19:23:19] "GET /accounts/login/ HTTP/1.1" 500 126379
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:23:12
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 68, in resolve_template
+    return get_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 17: 'static'. Did you forget to register or load this tag?
+[11/Dec/2016 19:23:38] "GET /accounts/login/ HTTP/1.1" 500 126379
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 68, in resolve_template
+    return get_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 17: 'static'. Did you forget to register or load this tag?
+[11/Dec/2016 19:23:39] "GET /accounts/login/ HTTP/1.1" 500 126379
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:23:36
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:23:43] "GET /accounts/login/ HTTP/1.1" 200 1720
+[11/Dec/2016 19:23:43] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:23:43] "GET /static/css/login.css HTTP/1.1" 200 831
+[11/Dec/2016 19:23:43] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:23:43] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+Not Found: /accounts/login/favicon.ico
+[11/Dec/2016 19:23:43] "GET /accounts/login/favicon.ico HTTP/1.1" 404 4856
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:23:41
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:28:07
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:28:16] "GET /accounts/login/ HTTP/1.1" 200 1899
+[11/Dec/2016 19:28:16] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:28:16] "GET /static/css/login.css HTTP/1.1" 200 831
+[11/Dec/2016 19:28:16] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:28:16] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:28:26] "POST /accounts/login/ HTTP/1.1" 200 1899
+[11/Dec/2016 19:28:27] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:28:27] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:28:27] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:28:27] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:28:30] "POST /accounts/login/ HTTP/1.1" 200 1899
+[11/Dec/2016 19:28:30] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:28:30] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:28:30] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:28:30] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:28:13
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:30:41] "GET /accounts/login/ HTTP/1.1" 200 1899
+[11/Dec/2016 19:30:41] "GET /static/css/login.css HTTP/1.1" 200 831
+[11/Dec/2016 19:30:41] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:30:41] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:30:41] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:30:43] "POST /accounts/login/ HTTP/1.1" 200 1899
+[11/Dec/2016 19:30:43] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:43] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:43] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:43] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:30:39
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:30:46] "GET /accounts/login/ HTTP/1.1" 200 1935
+[11/Dec/2016 19:30:46] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:46] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:46] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:46] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:48] "POST /accounts/login/ HTTP/1.1" 302 0
+[11/Dec/2016 19:30:48] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 19:30:48] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 19:30:48] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 19:30:48] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:48] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 19:30:48] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 19:30:48] "GET /static/css/main.css HTTP/1.1" 200 9043
+[11/Dec/2016 19:30:48] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 19:30:48] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 19:30:48] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 19:30:48] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 19:30:48] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 19:30:48] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 19:30:48] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 19:30:48] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 19:30:48] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 19:30:49] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 19:30:51] "GET /accounts/logout/ HTTP/1.1" 200 48
+[11/Dec/2016 19:30:51] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:30:51] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[11/Dec/2016 19:30:51] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:51] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /accounts/login/ HTTP/1.1" 200 1935
+[11/Dec/2016 19:30:52] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:52] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Not Found: /accounts/login/favicon.ico
+[11/Dec/2016 19:30:52] "GET /accounts/login/favicon.ico HTTP/1.1" 404 4856
+[11/Dec/2016 19:30:52] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[11/Dec/2016 19:30:54] "POST /accounts/login/ HTTP/1.1" 302 0
+[11/Dec/2016 19:30:54] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 19:30:54] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:30:54] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /accounts/logout/ HTTP/1.1" 200 48
+[11/Dec/2016 19:31:01] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:31:01] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[11/Dec/2016 19:31:01] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:31:02] "GET /accounts/login/ HTTP/1.1" 200 1935
+[11/Dec/2016 19:31:02] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:02] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:31:02] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Not Found: /accounts/login/favicon.ico
+[11/Dec/2016 19:31:02] "GET /accounts/login/favicon.ico HTTP/1.1" 404 4856
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:30:45
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:32:31
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:32:38] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:32:38] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:32:38] "GET /static/css/login.css HTTP/1.1" 200 830
+[11/Dec/2016 19:32:38] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:32:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:32:43] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:32:43] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:32:43] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:32:43] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:32:43] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:32:46] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:32:46] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:32:46] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:32:46] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:32:46] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:07] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:33:07] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:07] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:07] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:07] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:33:08] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:33:08] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /accounts/login/ HTTP/1.1" 200 1914
+[11/Dec/2016 19:33:08] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:33:08] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:32:37
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:33:20] "GET /accounts/login/ HTTP/1.1" 200 1908
+[11/Dec/2016 19:33:20] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:33:20] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:33:20] "GET /static/css/login.css HTTP/1.1" 200 830
+[11/Dec/2016 19:33:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:33:14
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:33:20
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:34:05] "GET /accounts/login/ HTTP/1.1" 200 1908
+[11/Dec/2016 19:34:05] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:34:05] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:34:05] "GET /static/css/login.css HTTP/1.1" 200 830
+[11/Dec/2016 19:34:05] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:34:07] "GET /accounts/login/ HTTP/1.1" 200 1949
+[11/Dec/2016 19:34:07] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:07] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:07] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:07] "GET /static/css/login.css HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:34:02
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:34:08
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:34:25
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:34:31] "GET /accounts/login/ HTTP/1.1" 200 1953
+[11/Dec/2016 19:34:31] "GET /static/css/login.css HTTP/1.1" 200 830
+[11/Dec/2016 19:34:31] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:34:31] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:34:31] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:34:43] "POST /accounts/login/ HTTP/1.1" 302 0
+[11/Dec/2016 19:34:43] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 19:34:43] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:43] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 19:34:43] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 19:34:43] "GET /static/css/main.css HTTP/1.1" 200 9043
+[11/Dec/2016 19:34:43] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 19:34:43] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 19:34:43] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 19:34:43] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 19:34:43] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 19:34:43] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 19:34:43] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 19:34:43] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 19:34:43] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 19:34:43] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 19:34:43] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 19:34:43] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 19:34:50] "GET /accounts/logout/ HTTP/1.1" 200 48
+[11/Dec/2016 19:34:50] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:34:50] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:34:50] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[11/Dec/2016 19:34:51] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[11/Dec/2016 19:34:52] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[11/Dec/2016 19:34:56] "GET /accounts/login/ HTTP/1.1" 200 1953
+[11/Dec/2016 19:34:56] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:56] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:56] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:56] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "POST /accounts/login/ HTTP/1.1" 302 0
+[11/Dec/2016 19:34:58] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 19:34:58] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:34:58] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /portal/1 HTTP/1.1" 200 13297
+[11/Dec/2016 19:35:06] "GET /portal/1 HTTP/1.1" 200 13297
+[11/Dec/2016 19:35:06] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:35:06] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET / HTTP/1.1" 200 12119
+[11/Dec/2016 19:40:13] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[11/Dec/2016 19:40:13] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[11/Dec/2016 19:40:15] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 19:40:16] "GET /accounts/logout/ HTTP/1.1" 200 48
+[11/Dec/2016 19:40:16] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:40:17] "GET /accounts/login/ HTTP/1.1" 200 1953
+[11/Dec/2016 19:40:17] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:17] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:40:17] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:41:33] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[11/Dec/2016 19:41:33] "GET / HTTP/1.1" 200 12083
+[11/Dec/2016 19:41:33] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[11/Dec/2016 19:41:33] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[11/Dec/2016 19:41:33] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon-precomposed.png
+[11/Dec/2016 19:41:33] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /favicon.ico
+[11/Dec/2016 19:41:33] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon.png
+[11/Dec/2016 19:41:33] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /apple-touch-icon.png
+[11/Dec/2016 19:41:33] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+[11/Dec/2016 19:41:34] "GET /accounts/register/ HTTP/1.1" 200 1048
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:34:30
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:46:40
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:46:43] "GET /accounts/register/ HTTP/1.1" 200 1048
+[11/Dec/2016 19:46:45] "GET /accounts/register/ HTTP/1.1" 200 1048
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:46:41
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:46:47] "GET /accounts/register/ HTTP/1.1" 200 3042
+[11/Dec/2016 19:46:47] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:46:47] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:46:47] "GET /static/css/login.css HTTP/1.1" 200 830
+[11/Dec/2016 19:46:47] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:46:46
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:47:44] "GET /accounts/register/ HTTP/1.1" 200 3042
+[11/Dec/2016 19:47:44] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:47:44] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:47:44] "GET /static/css/login.css HTTP/1.1" 200 962
+[11/Dec/2016 19:47:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:47:40
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:47:45
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:49:00
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:49:06] "GET /accounts/register/ HTTP/1.1" 200 2454
+[11/Dec/2016 19:49:06] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:49:06] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:49:06] "GET /static/css/login.css HTTP/1.1" 200 956
+[11/Dec/2016 19:49:06] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:49:05
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:50:02
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:50:08] "GET /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:50:08] "GET /static/css/login.css HTTP/1.1" 200 907
+[11/Dec/2016 19:50:08] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:50:08] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:50:08] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:50:14] "GET /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:50:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:50:14] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:50:14] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:50:14] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:50:07
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:51:36
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:51:37
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[11/Dec/2016 19:51:48] "GET /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:51:48] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 200 433
+[11/Dec/2016 19:51:48] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 200 2130
+[11/Dec/2016 19:51:48] "GET /static/css/login.css HTTP/1.1" 200 1039
+[11/Dec/2016 19:51:48] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 19:52:11] "POST /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:52:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:11] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:11] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:11] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Not Found: /accounts/
+[11/Dec/2016 19:52:18] "GET /accounts/ HTTP/1.1" 404 4805
+[11/Dec/2016 19:52:23] "GET /accounts/login/ HTTP/1.1" 200 1949
+[11/Dec/2016 19:52:23] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:23] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:23] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:23] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:52:26] "POST /accounts/login/ HTTP/1.1" 200 1949
+[11/Dec/2016 19:52:29] "POST /accounts/login/ HTTP/1.1" 302 0
+[11/Dec/2016 19:52:29] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 19:52:29] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:29] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 19:52:29] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 19:52:29] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 19:52:29] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 19:52:29] "GET /static/css/main.css HTTP/1.1" 200 9043
+[11/Dec/2016 19:52:29] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 19:52:29] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 19:52:29] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 19:52:30] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 19:52:30] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 19:52:30] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 19:52:30] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 19:52:30] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 19:52:30] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 19:52:30] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 19:52:53] "GET /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:52:53] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:53] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:52:53] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:52:53] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:53:13] "GET /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:53:13] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:53:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:53:13] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:53:13] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:06] "POST /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:54:06] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:06] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:06] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:06] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:54:21] "GET /admin/ HTTP/1.1" 200 13986
+[11/Dec/2016 19:54:21] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[11/Dec/2016 19:54:21] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[11/Dec/2016 19:54:23] "GET /admin/auth/user/ HTTP/1.1" 200 6782
+[11/Dec/2016 19:54:23] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6117
+[11/Dec/2016 19:54:23] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[11/Dec/2016 19:54:23] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[11/Dec/2016 19:54:23] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[11/Dec/2016 19:54:34] "GET /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:54:34] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:34] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:34] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:34] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+[11/Dec/2016 19:54:56] "POST /accounts/register/ HTTP/1.1" 200 2472
+[11/Dec/2016 19:54:56] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:56] "GET /static/css/ie10-viewport-bug-workaround.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:56] "GET /static/css/login.css HTTP/1.1" 304 0
+[11/Dec/2016 19:54:56] "GET /static/js/ie-emulation-modes-warning.js HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:51:42
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 19:56:50
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

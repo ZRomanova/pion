@@ -1,0 +1,536 @@
+<section class="block_form">
+    <div>
+        <div class="row blank_li">
+            <div class="col-5" [ngClass]="{'deactive': displayMyLibrary}" name="block_lib"
+                (click)="selectMyLibrary(false)">Библиотека инструментов</div>
+            <div *ngIf="authenticated" class="col-5" [ngClass]="{'deactive': !displayMyLibrary}" name="block_my"
+                (click)="selectMyLibrary(true)">Моя библиотека инструментов</div>
+            <div class="col-2 add_block" *ngIf="authenticated && toLoad <= 0" (click)="addForm($event)">
+              Добавить
+            </div>
+        </div>
+
+        <ng-container *ngIf="toLoad <= 0; else load">
+            <div class="content_block block_my lib" *ngIf="displayMyLibrary">
+                <div class="row">
+                    <div class="col-5 border_right">
+                        <form [formGroup]="myFilterRoot">
+                        <br>
+                        <label class="container_checked">
+                            <b>Тематическая группа:</b>
+                            <input type="checkbox" formControlName="tg" (change)="changeMyRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.tg">
+                            <label *ngFor="let tg of thematicGroups" class="container_checked">{{tg.name}}({{myCounter('thematic_group', tg)}})
+                                <input type="checkbox" [value]="tg.id"
+                                    (change)="onMyCheckChange('tgFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Целевые группы:</b>
+                            <input type="checkbox" formControlName="target" (change)="changeMyRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.target">
+                            <ng-container *ngFor="let target of targets">
+                                <label class="container_checked" *ngIf="!target.parent_ref">{{target.name}}({{myCounter('target', target)}})
+                                    <input type="checkbox" [value]="target.id" (change)="onMyCheckChange('targetFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="target.checkedMy">
+                                    <div *ngFor="let child of targets" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == target.id">
+                                            <label class="container_checked">{{child.name}}({{myCounter('target', child)}})
+                                                <input type="checkbox" [value]="child.id" (change)="onMyCheckChange('targetFilters', $event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Практика:</b>
+                            <input type="checkbox" formControlName="practice" (change)="changeMyRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.practice">
+                            <label *ngFor="let practice of practices" class="container_checked">{{practice.name}}({{myCounter('practice', practice)}})
+                                <input type="checkbox" [value]="practice.id"
+                                    (change)="onMyCheckChange('practiceFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Метод:</b>
+                            <input type="checkbox" formControlName="method" (change)="changeMyRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.method">
+                            <ng-container *ngFor="let method of methods">
+                                <label class="container_checked" *ngIf="!method.parent_ref">{{method.name}}({{myCounter('method', method)}})
+                                    <input type="checkbox" [value]="method.id" (change)="onMyCheckChange('methodFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="method.checkedMy">
+                                    <div *ngFor="let child of methods" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == method.id">
+                                            <label class="container_checked">{{child.name}}({{myCounter('method', child)}})
+                                                <input type="checkbox" [value]="child.id" (change)="onMyCheckChange('methodFilters', $event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Уровень результата:</b>
+                            <input type="checkbox" formControlName="ol" (change)="changeMyRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.ol">
+                            <label *ngFor="let ol of outcomeLevels" class="container_checked">{{ol.name}}({{myCounter('outcome_level', ol)}})
+                                <input type="checkbox" [value]="ol.id"
+                                    (change)="onMyCheckChange('olFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Социальные результаты:</b>
+                            <input type="checkbox" formControlName="outcome" (change)="changeMyRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.outcome">
+                            <label *ngFor="let outcome of outcomes" class="container_checked">{{outcome.name}}({{myCounter('outcome', outcome)}})
+                                <input type="checkbox" [value]="outcome.id"
+                                    (change)="onMyCheckChange('outcomeFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        </form>
+                    </div>
+                    <div class="col-7 block_method_search">
+                        <h2>инструменты:</h2>
+
+                        <div class="item_seatchMethod" *ngFor="let tool of myTools">
+                            <div class="name_block open_accessadd" (click)="openAddPersonal(tool)"
+                            [ngClass]="{'check': transport.user && (!tool.createdby || tool.createdby.id != transport.user.id) && tool.current_user_library, 
+                            'checkMy': tool.createdby && transport.user && tool.createdby.id == transport.user.id && tool.current_user_library,
+                            'uncheck': !tool.current_user_library && (!tool.createdby || !transport.user || tool.createdby.id != transport.user.id), 
+                            'uncheckMy': tool.createdby && transport.user && !tool.current_user_library && tool.createdby.id == transport.user.id}">
+                                <p>{{tool.name}}</p>
+                                <span *ngFor="let tag of tool.tool_tag_refs; index as i">
+                                    <span style="color: grey; font-weight: 200;">
+                                        {{i ==(tool.tool_tag_refs.length - 1) ? tag.name : (tag.name + ' | ')}}
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="more_info" (click)="openDetails(tool)">
+                                <p class="center"><img
+                                        src="/newpion/static/pionfront/assets/img/info_mini.png" >Подробнее</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_block block_lib" *ngIf="!displayMyLibrary">
+                <div class="row">
+                    <div class="col-5 border_right">
+                    <form [formGroup]="filterRoot">
+                        <br>
+                        <label class="container_checked">
+                            <b>Тематическая группа:</b>
+                            <input type="checkbox" formControlName="tg">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.tg">
+                            <label *ngFor="let tg of thematicGroups" class="container_checked">{{tg.name}}({{counter('thematic_group', tg)}})
+                                <input type="checkbox" [value]="tg.id"
+                                    (change)="onCheckChange('tgFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+
+                        <br>
+                        <label class="container_checked">
+                            <b>Целевые группы:</b>
+                            <input type="checkbox" formControlName="target" (change)="changeRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.target">
+                            <ng-container *ngFor="let target of targets">
+                                <label class="container_checked" *ngIf="!target.parent_ref">{{target.name}}({{counter('target', target)}})
+                                    <input type="checkbox" [value]="target.id" (change)="onCheckChange('targetFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="target.checked">
+                                    <div *ngFor="let child of targets" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == target.id">
+                                            <label class="container_checked">{{child.name}}({{counter('target', child)}})
+                                                <input type="checkbox" [value]="child.id" (change)="onCheckChange('targetFilters', $event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Практика:</b>
+                            <input type="checkbox" formControlName="practice" (change)="changeRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.practice">
+                            <label *ngFor="let practice of practices" class="container_checked">{{practice.name}}({{counter('practice', practice)}})
+                                <input type="checkbox" [value]="practice.id"
+                                    (change)="onCheckChange('practiceFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+
+                        <br>
+                        <label class="container_checked">
+                            <b>Метод:</b>
+                            <input type="checkbox" formControlName="method" (change)="changeRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.method">
+                            <ng-container *ngFor="let method of methods">
+                                <label class="container_checked" *ngIf="!method.parent_ref">{{method.name}}({{counter('method', method)}})
+                                    <input type="checkbox" [value]="method.id" (change)="onCheckChange('methodFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="method.checked">
+                                    <div *ngFor="let child of methods" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == method.id">
+                                            <label class="container_checked">{{child.name}}({{counter('method', child)}})
+                                                <input type="checkbox" [value]="child.id" (change)="onCheckChange('methodFilters', $event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+
+                        <br>
+                        <label class="container_checked">
+                            <b>Уровень результата:</b>
+                            <input type="checkbox" formControlName="ol" (change)="changeRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.ol">
+                            <label *ngFor="let ol of outcomeLevels" class="container_checked">{{ol.name}}({{counter('outcome_level', ol)}})
+                                <input type="checkbox" [value]="ol.id"
+                                    (change)="onCheckChange('olFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+
+                        <br>
+                        <label class="container_checked">
+                            <b>Социальные результаты:</b>
+                            <input type="checkbox" formControlName="outcome" (change)="changeRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.outcome">
+                            <label *ngFor="let outcome of outcomes" class="container_checked">{{outcome.name}}({{counter('outcome', outcome)}})
+                                <input type="checkbox" [value]="outcome.id"
+                                    (change)="onCheckChange('outcomeFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                    </form>
+
+                    </div>
+                    <div class="col-7 block_method_search">
+                        <!-- <input class="search_input" placeholder="Поиск по ключевым словам" ctype="text" name=""> -->
+                        <h2>инструменты:</h2>
+
+                        <div class="item_seatchMethod" *ngFor="let tool of tools">
+                            <div class="name_block open_accessadd" (click)="openAddPersonal(tool)"
+                            [ngClass]="{'check': transport.user && (!tool.createdby || tool.createdby.id != transport.user.id) && tool.current_user_library, 
+                            'checkMy': tool.createdby && transport.user && tool.createdby.id == transport.user.id && tool.current_user_library,
+                            'uncheck': !tool.current_user_library && (!tool.createdby || !transport.user || tool.createdby.id != transport.user.id), 
+                            'uncheckMy': tool.createdby && transport.user && !tool.current_user_library && tool.createdby.id == transport.user.id}">
+                                <p>{{tool.name}}</p>
+                                <span *ngFor="let tag of tool.tool_tag_refs; index as i">
+                                    <span style="color: grey; font-weight: 200;">
+                                        {{i ==(tool.tool_tag_refs.length - 1) ? tag.name : (tag.name + ' | ')}}
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="more_info" (click)="openDetails(tool)">
+                                <p class="center"><img
+                                        src="/newpion/static/pionfront/assets/img/info_mini.png">Подробнее</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #load>
+            <div class="content_block">
+                <h4 class="center">{{status}}</h4>
+            </div>
+        </ng-template>
+    </div>
+</section>
+
+<div class="popap_kontst dark_block blue_head big_form" *ngIf="formPage == 1">
+    <div>
+        <form [formGroup]="createToolForm">
+            <div class="head">
+                <p class="close_btn">
+                    <img src="/newpion/static/pionfront/assets/img/close_btn.png" (click)="closeForm()">
+                </p>
+                <p class="center font_500">{{createToolForm.value.isNew ? 'Добавление нового' : 'Редактирование'}} инструмента</p>
+            </div>
+            <div class="text_block">
+
+                    <p class="line_descSel">Название инструмента:</p>
+                    <textarea class="text_item" formControlName="name"></textarea>
+
+                    <p class="line_descSel">Аннотация:</p>
+                    <textarea class="text_item" formControlName="info"></textarea>
+
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Теги краткого описания:</p>
+                        <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                    </div>
+                    <div class="check_block" style="text-align: left;">
+                        <div class="row" formArrayName="tool_tag_refs">
+                            <div class="col-md-12">
+                                <label *ngFor="let tag of toolTags; index as i" class="container_checked" style="text-align: left;"> 
+                                    {{tag.name}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Тематическая группа <span>(1)</span>:</p>
+                        <!-- <div class="desc_item3"> Тематическая группа - нужен текст от Ольги </div> -->
+                    </div>
+
+                
+                    <select class="big_sellect" formControlName="thematic_group_ref"> 
+                        <option value="" disabled>Выберите тематическую группу</option>
+                        <option *ngFor="let group of thematicGroups" [value]="group.id">{{group.name}}</option>
+                    </select>
+                    
+
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Целевые группы <span>(2)</span>:</p>
+                        <!-- <div class="desc_item3"> Целевая группа - нужен текст от Ольги </div> -->
+                    </div>
+                    <div class="check_block">
+                        <div class="row" formArrayName="target_refs" style="text-align: left;">
+                            <div class="col-12">
+                                <ng-container *ngFor="let target of targets; index as i"> 
+                                    <label class="container_checked" style="text-align: left;" *ngIf="!target.parent_ref">
+                                        {{target.name}}
+                                        <input type="checkbox" [formControlName]="i">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <div *ngIf="createToolForm.value.target_refs[i] && !targets[i].parent_ref">
+                                        <div *ngFor="let child of targets; index as j" class="col">
+                                            <div style="padding-left: 3rem;" *ngIf="child.parent_ref == targets[i].id">
+                                                <label class="container_checked" style="text-align: left;">
+                                                    {{child.name}}
+                                                    <input type="checkbox" [formControlName]="j">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Тип практики <span>(3)</span>:</p>
+                        <!-- <div class="desc_item3"> Тип практики - нужен текст от Ольги </div> -->
+                    </div>
+
+                    
+                    <select class="big_sellect" formControlName="practice_ref"> 
+                        <option value="" disabled>Выберите тип практики</option>
+                        <option *ngFor="let practice of practices" [value]="practice.id">{{practice.name}}</option>
+                    </select>
+
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Метод <span>(4)</span>:</p>
+                        <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                    </div>
+
+                    <select class="big_sellect" formControlName="method_ref" (change)="changeMethod()"> 
+                        <option value="" disabled>Выберите метод</option>
+                        <option *ngFor="let method of methods" [value]="method.id" [disabled]="method.has_children">{{!method.has_children && method.parent_ref? '➤ ' : ''}}{{method.name}}</option>
+                    </select>
+
+                    <ng-container *ngIf="otherMethod">
+                        <p class="line_descSel">Укажите другое:</p>
+                        <textarea class="text_item" formControlName="method_new"></textarea>
+                    </ng-container>
+
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Уровень результата <span>(5)</span>:</p>
+                        <!-- <div class="desc_item3">нужен текст от Ольги </div> -->
+                    </div>
+
+                    <select class="big_sellect" formControlName="outcome_level_ref"> 
+                        <option value="" disabled>Выберите уровень результата</option>
+                        <option *ngFor="let outcome_level of outcomeLevels" [value]="outcome_level.id">{{outcome_level.name}}</option>
+                    </select>
+
+                    <div class="item_wDesc">
+                        <p class="line_descSel" style=" margin-bottom: 0px !important;">Социальный результат <span>(6)</span>:</p>
+                        <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                    </div>
+                    <div class="check_block" style="text-align: left;">
+                        <div class="row" formArrayName="outcome_refs">
+                            <div class="col-md-12">
+                                <label *ngFor="let outcome of outcomes; index as i" class="container_checked" style="text-align: left;"> 
+                                    {{outcome.name}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="line_descSel">Cсылка на инструмент:</p>
+                    <textarea class="text_item" formControlName="url"></textarea>
+
+                    <div class="row class_btns">
+                        <div class="col-12">
+                            <input type="file" style="display: none;" #file_input (change)="fileUpload($event)">
+                            <button (click)="triggerFile()" 
+                            [ngClass]="{'selected_file': file || (currentTool && currentTool.tool_file), 'no_file': !file && !(currentTool && currentTool.tool_file)}"
+                            class="center">Загрузить инструмент</button>
+                        </div>
+                    </div>
+
+                    <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="createMethod($event)" [disabled]="createToolForm.disabled || createToolForm.invalid">{{createToolForm.value.isNew ? 'Добавить' : 'Обновить'}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popap_kontst dark_block blue_head" *ngIf="formPage == 2">
+    <div>
+        <div class="head">
+            <p class="close_btn">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png" (click)="closeForm()">
+            </p>
+            <p class="center font_500">Инструмент</p>
+        </div>
+        <div class="text_block">
+            <form class="ng-untouched ng-pristine ng-invalid block_sendfor">
+                <div class="midle_text">
+                    <img src="/newpion/static/pionfront/assets/img/info.png">
+                    <p>Инструмент успешно добавлен. Опубликовать в общей библиотеке?</p>
+                </div>
+                <button class="add_button" style="width: auto;" (click)="addToAllLibrary($event)">Да</button>
+                <button class="add_button" style="width: auto;" (click)="closeForm()">Нет</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_projInfo dark_block blue_head" *ngIf="displayDetails">
+    <div>
+        <div class="head">
+            <p (click)="closeDetails()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Инструмент</p>
+        </div>
+        <div class="text_block">
+            <p>Название инструмента:<br><strong><span class="font_500">{{currentTool.name}}</span></strong></p>
+            <p>Аннотация:<br><strong><span class="font_500">{{currentTool.info}}</span></strong></p>
+            <p>Теги краткого описания:<br>
+                <span *ngFor="let tag of currentTool.tool_tag_refs">
+                <span class="font_500">
+                    ➤ {{tag.name}}
+                <br></span>
+                </span></p>
+            <p>Тематическая группа:<br><span class="font_500" *ngIf="currentTool.thematic_group_ref">
+                {{currentTool.thematic_group_ref.name}}
+            </span></p>
+            <p>Целевая группа:<br>
+                <span *ngFor="let target of targets">
+                <span class="font_500" *ngIf="findTarget(target)">
+                    {{target.parent_ref || target.parent_ref == 0 ? '➤ ': ''}}{{target.name}}
+                <br></span>
+                </span></p>
+            <p>Тип практики:<span *ngIf="currentTool.practice_ref"><br><span
+                        class="font_500">{{currentTool.practice_ref.name}}</span></span></p>
+            <p>Метод:
+                <span *ngIf="currentTool.method_ref && currentTool.method_ref[0]"><br>
+                    <span class="font_500">{{currentTool.method_ref[0].name}}</span> <br>
+                    <span *ngIf="currentTool.method_ref[1]" class="font_500">➤ {{currentTool.method_ref[1].name}}</span>
+                </span>
+                <span *ngIf="currentTool.method_ref && currentTool.method_ref.name"><br>
+                    <span class="font_500">{{currentTool.method_ref.name}}</span> 
+                </span>
+            </p>
+            <p>Уровень результата:<span *ngIf="currentTool.outcome_level_ref"><br><span
+                class="font_500">{{currentTool.outcome_level_ref.name}}</span></span></p>
+
+            <p class="no_bottom">Социальный результат:</p>
+            <ul class="results">
+                <li *ngFor="let outcome of currentTool.outcome_refs">{{outcome.name}}</li>
+            </ul>
+            <div class="row" *ngIf="currentTool.tool_file && authenticated">
+                <div class="col-12"><button (click)="downloadFile(currentTool.tool_file)" class="add_button"><img
+                            src="/newpion/static/pionfront/assets/img/cloud_save.png">Открыть инструмент</button></div>
+            </div>
+
+            <div class="row" *ngIf="currentTool.url">
+                <div class="col-12"><button (click)="downloadFile(currentTool.url)" class="add_button"><img
+                            src="/newpion/static/pionfront/assets/img/cloud_save.png">Открыть ссылку на инструмент</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popap_accessadd dark_block" *ngIf="displayAddPersonal">
+    <div>
+        <p (click)="closeAddPersonal()" class="close_btn"><img
+                src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/info.png">
+            <p>Включить в личную библиотеку инструментов{{currentTool.createdby && currentTool.createdby.id == transport.user.id ? ' или редактировать' : ''}}?</p>
+            <button (click)="addToLibrary()" style="width: auto;" class="add_button">Включить</button>
+            <button *ngIf="currentTool.createdby && currentTool.createdby.id == transport.user.id" (click)="editForm($event)" style="width: auto;" class="add_button">Редактировать</button>
+        </div>
+    </div>
+</div>
+<div class="popap_accessadd dark_block" *ngIf="displayRemovePersonal">
+    <div>
+        <p (click)="closeAddPersonal()" class="close_btn"><img
+                src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/info.png">
+            <p>Исключить из личной библиотеки инструментов{{currentTool.createdby && currentTool.createdby.id == transport.user.id ? ' или редактировать' : ''}}?</p>
+            <button (click)="removeFromLibrary()" style="width: auto;" class="add_button">Исключить</button>
+            <button *ngIf="currentTool.createdby && currentTool.createdby.id == transport.user.id" (click)="editForm($event)" style="width: auto;" class="add_button">Редактировать</button>
+        </div>
+    </div>
+</div>

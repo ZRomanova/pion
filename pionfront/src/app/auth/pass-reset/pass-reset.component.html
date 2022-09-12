@@ -1,0 +1,20 @@
+<section class="block_registration" alock="true">
+    <div>
+        <h1>СБРОС ПАРОЛЯ</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">E-mail:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="username">
+            </div>
+        </div>
+
+        <p class="polit_block">
+            <button type="submit" [disabled]="!loginForm.valid" class="add_button">Сбросить пароль</button>
+            <a class="registration_button" routerLink="/auth/login"> Войти </a>
+        </p>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+[22/Nov/2016 13:04:31] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\xe0\x01\x00\x00\xdc\x03\x03X4B_\xe9\xe8A\xfa9T\xa6Y_')
+[22/Nov/2016 13:04:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[22/Nov/2016 13:04:32] code 400, message Bad request version ('Y9\xd4/)\xa9X\x10\xc8\x00\x00"\x00\xffV\x00\xc0$\xc0#\xc0')
+[22/Nov/2016 13:04:32] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[22/Nov/2016 13:04:33] code 400, message Bad request syntax ('\x16\x03\x01\x00\xe0\x01\x00\x00\xdc\x03\x03X4BaX\x94\x01\xce\xac\x04P\xd8|,\rhd\x7f\xbd\x1d\xdd\xf2\xc2\xcd\x90@K\x1f\xce$\xf0\xd8\x00\x00,\x00\xff\xc0,\xc0+\xc0$\xc0#\xc0')
+[22/Nov/2016 13:04:33] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[22/Nov/2016 13:04:33] code 400, message Bad request version ('\xa6M^\x17c\xba\xeb\xf4\x91\xe6,\xeb\xd4\x00\x00"\x00\xffV\x00\xc0$\xc0#\xc0')
+[22/Nov/2016 13:04:33] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[22/Nov/2016 13:04:35] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\xe0\x01\x00\x00\xdc\x03\x03X4Bc\xb1\xfe\xfd\xb3\xb3s$\xcc\xcb\xaf:b\x8c\x97\xba<\x9c\xder\xfe\xc4?8\x89r')
+[22/Nov/2016 13:04:35] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[22/Nov/2016 13:04:35] code 400, message Bad request version ('Dm\xa5\xf4(5\x9e\x9e\x00\x00"\x00\xffV\x00\xc0$\xc0#\xc0')
+[22/Nov/2016 13:04:35] You're accessing the development server over HTTPS, but it only supports HTTP.
+

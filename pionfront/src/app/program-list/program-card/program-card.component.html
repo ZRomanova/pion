@@ -1,0 +1,87 @@
+<section class="block_program_list">
+    <div>
+        <div class="row head_result">
+            <div class="col-4 blue_item ">
+                <h1 class="uppercase">Программа</h1>
+            </div>
+            <div class="col-6">
+                <ng-container *ngIf="currentUserRequest">
+                    <p class="name_program">{{currentUserRequest.organization}}</p>
+                    <p class="desc_program">{{currentUserRequest.region}}</p>
+                </ng-container>
+            </div>
+            <div class="col-2 right">
+                <!-- <button class="open_button open_prog" sost="close"><img
+                        src="/newpion/static/pionfront/assets/img/arrow_open.png"></button> -->
+                <button (click)="openProgram(program)" class="open_button orange_inform "><img
+                        src="/newpion/static/pionfront/assets/img/pencil_white.png"></button>
+            </div>
+        </div>
+        <div class="block_programDesc">
+            <div class="row">
+                <div class="col-9 border_right">
+                    <textarea disabled rows="1" class="name" placeholder="Название вашей программы">{{program.name}}</textarea>
+                    <textarea disabled rows="1" placeholder="Описание">{{program.description}}</textarea>
+                </div>
+                <div class="col-3">
+                    <input disabled type="text" name="" placeholder="дд.мм.гг - дд.мм.гг" value="{{program.period}}">
+                </div>
+            </div>
+            <div class="row close_block">
+                <div class="col-4 user_info">
+                    <h3>Практики</h3>
+
+                    <label *ngFor="let practice of program.practice_refs">
+                        {{practice.name}}<br><br>
+                    </label>
+                </div>
+                <div class="col-1 inter_link"></div>
+                <div class="col-4 inter_link">
+                    <h3>Целевые группы</h3>
+
+                    <label *ngFor="let target of program.target_refs">
+                        {{target.name}}<br><br>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row btn_newProg close_block">
+            <div class="col-6 center">
+                <button (click)="openProgram(program)" class="add_button"><img src="/newpion/static/pionfront/assets/img/graf.png">
+                    <p>Цепочка социальных результатов</p>
+                </button>
+            </div>
+            <div class="col-6 center">
+                <button (click)="idToDownload = program.id" class="add_button open_download"><img src="/newpion/static/pionfront/assets/img/cloud_save2.png">
+                    <p>Продукты для скачивания</p>
+                </button> 
+            </div>
+        </div>
+    </div>   
+</section>
+
+
+<div class="popap_download dark_block blue_head" *ngIf="idToDownload">
+    <div>
+        <div class="head">
+            <p class="close_btn" (click)="idToDownload = null"><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Продукты для скачивания</p>
+        </div>
+        <div (click)="downloadProgram($event)" class="text_block" style="cursor: pointer;">
+            <img src="/newpion/static/pionfront/assets/img/ower_img1.png">
+            <p>Цепочка социальных результатов (таблица)</p>
+        </div>
+        <!-- <div class="text_block" style="cursor: pointer;">
+            <img src="/newpion/static/pionfront/assets/img/ower_img2.png">
+            <p>Цепочка социальных результатов (схема)</p>
+        </div> -->
+        <div (click)="downloadPlan($event)" class="text_block" style="cursor: pointer;">
+            <img src="/newpion/static/pionfront/assets/img/ower_img3.png">
+            <p>План мониторинга</p>
+        </div>
+        <div (click)="downloadForm($event)" class="text_block" style="cursor: pointer;">
+            <img src="/newpion/static/pionfront/assets/img/ower_img4.png">
+            <p>Рабочая форма мониторинга</p>
+        </div>
+    </div>
+</div>

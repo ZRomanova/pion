@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "CLEANING PORT"
+fuser 8080/tcp -k
+echo "STARTING"
+nohup python3 manage.py runserver 0.0.0.0:8080 1>result 2>&1 &

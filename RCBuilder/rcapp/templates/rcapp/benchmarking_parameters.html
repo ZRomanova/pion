@@ -1,0 +1,545 @@
+{%load static%}{% load fk_filters %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale = 1.4,maximum-scale = 1.4" />
+    <script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <title>{{page_title}}</title>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/new_styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow|Arsenal|Open+Sans|Philosopher|Roboto|Tenor+Sans" rel="stylesheet">
+    <script>
+        function htmlDecode(input){
+            var e = document.createElement('div');
+            e.innerHTML = input;
+            return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+        }
+        var displayAll = true;
+
+        // Setting up variables for lists
+        var targets_names = [
+            // {% for targets_name in targets_names %}
+            '{{targets_name}}',
+            // {% endfor %}
+        ];
+        var outcomes_names = [
+            // {% for outcomes_name in outcomes_names %}
+            '{{outcomes_name}}',
+            // {% endfor %}
+        ];
+        var impacts_names = [
+            // {% for impacts_name in impacts_names %}
+            '{{impacts_name}}',
+            // {% endfor %}
+        ];
+        var outcomeIndicators_names = [
+            // {% for outcomeIndicators_name in outcomeIndicators_names %}
+            '{{outcomeIndicators_name}}',
+            // {% endfor %}
+        ];
+        var impactIndicators_names = [
+            // {% for impactIndicators_name in impactIndicators_names %}
+            '{{impactIndicators_name}}',
+            // {% endfor %}
+        ];
+
+        var selected_targets_names = [
+            // {% for selected_targets_name in selected_targets_names %}
+            '{{selected_targets_name}}',
+            // {% endfor %}
+        ];
+
+        var selected_outcomes_names = [
+            // {% for selected_outcomes_name in selected_outcomes_names %}
+            '{{selected_outcomes_name}}',
+            // {% endfor %}
+        ];
+
+        var selected_impacts_names = [
+            // {% for selected_impacts_name in selected_impacts_names %}
+            '{{selected_impacts_name}}',
+            // {% endfor %}
+        ];
+
+        var selected_outcomeIndicators_names = [
+            // {% for selected_outcomeIndicators_name in selected_outcomeIndicators_names %}
+            '{{selected_outcomeIndicators_name}}',
+            // {% endfor %}
+        ];
+
+        var selected_impactIndicators_names = [
+            // {% for selected_impactIndicators_name in selected_impactIndicators_names %}
+            '{{selected_impactIndicators_name}}',
+            // {% endfor %}
+        ];
+
+        var listsNames = {
+            'selected_targets_names' : selected_targets_names,
+            'selected_outcomes_names' : selected_outcomes_names,
+            'selected_impacts_names' : selected_impacts_names,
+            'selected_outcomeIndicators_names' : selected_outcomeIndicators_names,
+            'selected_impactIndicators_names' : selected_impactIndicators_names,
+        };
+
+        var targetsByOutcomes = {
+            // {% for outcomes_name in outcomes_names %}
+            '{{outcomes_name}}': [
+                // {% for target_name in outcomes_name.targets_names %}
+                '{{target_name}}',
+                // {% endfor %}
+            ],
+            // {% endfor %}
+        };
+
+        var outcomesByImpacts = {
+            // {% for impacts_name in impacts_names %}
+            '{{impacts_name}}': [
+                // {% for outcome_name in impacts_name.outcomes_names %}
+                '{{outcome_name}}',
+                // {% endfor %}
+            ],
+            // {% endfor %}
+        };
+
+        var outcomesByIndicators = {
+            // {% for outcomeIndicators_name in outcomeIndicators_names %}
+            '{{outcomeIndicators_name}}': [
+                // {% for outcome_name in outcomeIndicators_name.outcomes_names %}
+                '{{outcome_name}}',
+                // {% endfor %}
+            ],
+            // {% endfor %}
+        };
+
+        var impactsByIndicators = {
+            // {% for impactIndicators_name in impactIndicators_names %}
+            '{{impactIndicators_name}}': [
+                // {% for impact_name in impactIndicators_name.impacts_names %}
+                '{{impact_name}}',
+                // {% endfor %}
+            ],
+            // {% endfor %}
+        };
+
+        function clickLine (elem) {
+            var name = $($(elem).find(".bm-contents-line-title")[0]).html();
+
+            var necessaryList = $(elem).parent().parent();
+            var listId = necessaryList.attr('id');
+            var listName = listId.replace("contents-", "selected_") + "_names";
+            var list = listsNames[listName];
+            if ($(elem).hasClass("selected")) {
+                $(elem).removeClass("selected");
+
+                var index = list.indexOf(name);
+                if (index > -1) {
+                    list.splice(index, 1);
+                }
+            } else {
+                $(elem).addClass("selected");
+                list.push(name);
+            }
+            
+            updateParametersCardParams();
+            fillContents();
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top templatemo-nav navbar__background-color_3fa3b1 navbar__no-border" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                            </button>
+                <a href="" onclick="window.location = '/';" class="navbar-brand navbar-brand__padding-top_10px navbar-brand__color_white"><img src="/static/img/svg/rose.svg" class="rose-"> <span class="rc-name">Пион</span></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="http://socialvalue.ru" target="_blank"><span class="navbar-element__on_hover">База знаний об оценке</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/companies-view"><span class="navbar-element__on_hover">Пользователи</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/new_helper/rc"><span class="navbar-element__on_hover">Руководство пользователя</span></a></li>
+                    {% if not is_authenticated %}
+                    <li><a class="login-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1" href="https://pion.org.ru/newpion/auth/login"><span class="navbar-element__with_border">Вход</span></a></li>
+                    <li><a class="register-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1 padding-left-0" href="https://pion.org.ru/newpion/auth/registration"><span class="navbar-element__inverse_with_border">Регистрация</span></a></li>
+                    {% else %}
+                    <li><a class="login-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1" href="/portal/"><span class="navbar-element__with_border">Мои программы</span></a></li>
+                    <li><a class="register-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1 padding-left-0" href="/accounts/logout/"><span class="navbar-element__inverse_with_border">Выйти</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="header">
+        <div class="container height-100">
+            <div class="row height-100">
+                <span class="header_text col-xs-12 height-100">
+                    Бенчмаркинг
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container margin-top-16">
+        <div class="row">
+            <div class="col-md-12 container">
+                <div class="row">
+                    <div class="col-md-3 bm-switch bm-switch-left bm-top-button use-all-true selected">
+                        Отображать все условия
+                    </div>
+                    <div class="col-md-3 bm-switch bm-switch-right bm-top-button use-all-false">
+                        Фильтровать условия
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3 bm-top-button bm-reset-button" id="bm-reset-button">
+                        Сбросить всё
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bm-parameters-card col-md-12">
+                        <div class="bm-parameters-card-title">Я хочу список программ, у которых:</div>
+                        <div id="bm-parameters-card-params" class="bm-parameters-card-params container">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <input placeholder="Введите слово для поиска" type="text" name="bm-parameters-search-field" id="bm-parameters-search" class="bm-parameters-search col-md-12" />
+                </div>
+                <div class="row">
+                    <div id="trigger-targets" class="bm-parameters-card-collapse-trigger col-md-12">
+                        <img class="arrow-down" src='{% static "img/down-arrow.png" %}' height="20">
+                        <img class="arrow-up" src='{% static "img/up-arrow.png" %}' height="20">
+                        Целевые группы <span id="counter_targets"></span>
+                    </div>
+                </div>
+                <div id="contents-targets" style="display: none;">
+                    
+                </div>
+
+                <div class="row">
+                    <div id="trigger-outcomes" class="bm-parameters-card-collapse-trigger col-md-12">
+                        <img class="arrow-down" src='{% static "img/down-arrow.png" %}' height="20">
+                        <img class="arrow-up" src='{% static "img/up-arrow.png" %}' height="20">
+                        Социальные результаты <span id="counter_outcomes"></span>
+                    </div>
+                </div>
+                <div id="contents-outcomes" style="display: none;">
+                    
+                </div>
+                
+                <div class="row">
+                    <div id="trigger-impacts" class="bm-parameters-card-collapse-trigger col-md-12">
+                        <img class="arrow-down" src='{% static "img/down-arrow.png" %}' height="20">
+                        <img class="arrow-up" src='{% static "img/up-arrow.png" %}' height="20">
+                        Социальные эффекты <span id="counter_impacts"></span>
+                    </div>
+                </div>
+                <div id="contents-impacts" style="display: none;">
+                    
+                </div>
+                
+                <div class="row">
+                    <div id="trigger-outcomeIndicators" class="bm-parameters-card-collapse-trigger col-md-12">
+                        <img class="arrow-down" src='{% static "img/down-arrow.png" %}' height="20">
+                        <img class="arrow-up" src='{% static "img/up-arrow.png" %}' height="20">
+                        Показатели социальных результатов <span id="counter_outcomeIndicators"></span>
+                    </div>
+                </div>
+                <div id="contents-outcomeIndicators" style="display: none;">
+                    
+                </div>
+                
+                <div class="row">
+                    <div id="trigger-impactIndicators" class="bm-parameters-card-collapse-trigger col-md-12">
+                        <img class="arrow-down" src='{% static "img/down-arrow.png" %}' height="20">
+                        <img class="arrow-up" src='{% static "img/up-arrow.png" %}' height="20">
+                        Показатели социальных эффектов <span id="counter_impactIndicators"></span>
+                    </div>
+                </div>
+                <div id="contents-impactIndicators" style="display: none;">
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                        <div class="bm-parameters-submit-button" onclick="submitForm()">Показать подходящие программы</div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="col-md-12 rc-footer margin-top-56 ">
+        © АНО «Эволюция и Филантропия», 2020 <br>Все права защищены. При использовании ссылка на правообладателя и источник заимствования обязательна
+    </section>
+    <script>
+        function updateParametersCardParams() {
+            newHtml = "";
+            if (selected_targets_names && selected_targets_names.length != 0) {
+                newHtml += "<div class='row bm-parameters-card-param'><div class='col-md-4 bm-parameters-card-param-title'>Целевые группы</div><div class='col-md-8'>";
+                for (var i = 0; i < selected_targets_names.length; i++) {
+                    newHtml += "<div class='bm-parameters-card-param-line'>" + selected_targets_names[i] + "</div>";
+                }
+                newHtml += "</div></div>";
+            }
+            if (selected_outcomes_names && selected_outcomes_names.length != 0) {
+                newHtml += "<div class='row bm-parameters-card-param'><div class='col-md-4 bm-parameters-card-param-title'>Социальные результаты</div><div class='col-md-8'>";
+                for (var i = 0; i < selected_outcomes_names.length; i++) {
+                    newHtml += "<div class='bm-parameters-card-param-line'>" + selected_outcomes_names[i] + "</div>";
+                }
+                newHtml += "</div></div>";
+            }
+            if (selected_impacts_names && selected_impacts_names.length != 0) {
+                newHtml += "<div class='row bm-parameters-card-param'><div class='col-md-4 bm-parameters-card-param-title'>Социальные эффекты</div><div class='col-md-8'>";
+                for (var i = 0; i < selected_impacts_names.length; i++) {
+                    newHtml += "<div class='bm-parameters-card-param-line'>" + selected_impacts_names[i] + "</div>";
+                }
+                newHtml += "</div></div>";
+            }
+            if (selected_outcomeIndicators_names && selected_outcomeIndicators_names.length != 0) {
+                newHtml += "<div class='row bm-parameters-card-param'><div class='col-md-4 bm-parameters-card-param-title'>Показатели социальных результатов</div><div class='col-md-8'>";
+                for (var i = 0; i < selected_outcomeIndicators_names.length; i++) {
+                    newHtml += "<div class='bm-parameters-card-param-line'>" + selected_outcomeIndicators_names[i] + "</div>";
+                }
+                newHtml += "</div></div>";
+            }
+            if (selected_impactIndicators_names && selected_impactIndicators_names.length != 0) {
+                newHtml += "<div class='row bm-parameters-card-param'><div class='col-md-4 bm-parameters-card-param-title'>Показатели социальных эффектов</div><div class='col-md-8'>";
+                for (var i = 0; i < selected_impactIndicators_names.length; i++) {
+                    newHtml += "<div class='bm-parameters-card-param-line'>" + selected_impactIndicators_names[i] + "</div>";
+                }
+                newHtml += "</div></div>";
+            }
+
+            if (newHtml == "") {
+                newHtml = '<div id="bm-parameters-card-params-none">Выберите условия подбора программ ниже</div>';
+            }
+
+            $("#bm-parameters-card-params").html(newHtml);
+        }
+        function fillContent(elemId, elemList, selectedList, searchString) {
+            var newHtml = "";
+            var newList = elemList.filter(elem => (!searchString || elem.toLowerCase().includes(searchString.toLowerCase())));
+            var arrayLength = newList.length;
+            for (var i = 0; i < arrayLength; i++) {
+                var specClass = "";
+                if (selectedList.includes(htmlDecode(newList[i]))) {
+                    specClass = " selected";
+                }
+                var newHtmlPart = `
+                <div class="row">
+                    <div class="bm-contents-line col-md-12` + specClass + `" onclick="clickLine(this)">
+                        <img class="plus-sign" src='{% static "img/plus-sign.png" %}' height="20">
+                        <img class="minus-sign" src='{% static "img/minus-sign.png" %}' height="20">
+                        <span class="bm-contents-line-title">` + newList[i] + `</span>
+                    </div>
+                </div>
+                `;
+                newHtml += "\n" + newHtmlPart;
+            }
+
+            $("#" + elemId).html(newHtml);
+// counter_targets
+// counter_outcomes
+// counter_impacts
+// counter_outcomeIndicators
+// counter_impactIndicators
+            $(elemId.replace("contents-", "#counter_")).html(" (" + arrayLength + " вариантов)");
+        }
+
+        function removeDuplicates(arr) {
+            let s = new Set(arr);
+            let it = s.values();
+            return Array.from(it);
+        }
+
+        function preFillFilter(initList, connectorDict, selectedList, fullList) {
+            var subSelectedList = selectedList;
+            if (!selectedList || selectedList.length == 0) {
+                subSelectedList = fullList;
+            }
+
+            var resultingList = [];
+
+            for (var subSelectedListCounter = 0; subSelectedListCounter < subSelectedList.length; subSelectedListCounter++) {
+                for (var initListCounter = 0; initListCounter < initList.length; initListCounter++) {
+                    var connections = connectorDict[initList[initListCounter]];
+                    if (connections.includes(subSelectedList[subSelectedListCounter])) {
+                        resultingList.push(initList[initListCounter]);
+                    }
+                }
+            }
+
+            return removeDuplicates(resultingList);
+        }
+
+        function fillContents() {
+            var value = $("#bm-parameters-search").val();
+
+            if (!value) {
+                value = "";
+            }
+            
+            var targets = targets_names;
+            var outcomes = outcomes_names;
+            var impacts = impacts_names;
+            var outcomeIndicators = outcomeIndicators_names;
+            var impactIndicators = impactIndicators_names;
+
+            if (!displayAll 
+            && ((selected_targets_names && selected_targets_names.length != 0)
+             || (selected_outcomes_names && selected_outcomes_names.length != 0)
+             || (selected_impacts_names && selected_impacts_names.length != 0)
+             || (selected_outcomeIndicators_names && selected_outcomeIndicators_names.length != 0)
+             || (selected_impactIndicators_names && selected_impactIndicators_names.length != 0)
+             )) {
+                debugger;
+                var outcomes = preFillFilter(outcomes_names, targetsByOutcomes, selected_targets_names, targets);
+                var impacts = preFillFilter(impacts_names, outcomesByImpacts, selected_outcomes_names, outcomes);
+                var outcomeIndicators = preFillFilter(outcomeIndicators_names, outcomesByIndicators, selected_outcomes_names, outcomes);
+                var impactIndicators = preFillFilter(impactIndicators_names, impactsByIndicators, selected_impacts_names, impacts);
+            }
+
+            fillContent("contents-targets", targets, selected_targets_names, value);
+            
+            fillContent("contents-outcomes", outcomes, selected_outcomes_names, value);
+            fillContent("contents-impacts", impacts, selected_impacts_names, value);
+            
+            fillContent("contents-outcomeIndicators", outcomeIndicators, selected_outcomeIndicators_names, value);
+            fillContent("contents-impactIndicators", impactIndicators, selected_impactIndicators_names, value);
+        }
+
+        function submitForm() {
+            var form = document.createElement("form");
+            
+            form.method = "POST";
+
+            var element_selected_targets_names = document.createElement("input");
+            element_selected_targets_names.type = "hidden";
+            element_selected_targets_names.value = JSON.stringify(selected_targets_names);
+            element_selected_targets_names.name = "selected_targets_names";
+            form.append(element_selected_targets_names);
+
+            var element_selected_outcomes_names = document.createElement("input");
+            element_selected_outcomes_names.type = "hidden";
+            element_selected_outcomes_names.value = JSON.stringify(selected_outcomes_names);
+            element_selected_outcomes_names.name = "selected_outcomes_names";
+            form.append(element_selected_outcomes_names);
+
+            var element_selected_impacts_names = document.createElement("input");
+            element_selected_impacts_names.type = "hidden";
+            element_selected_impacts_names.value = JSON.stringify(selected_impacts_names);
+            element_selected_impacts_names.name = "selected_impacts_names";
+            form.append(element_selected_impacts_names);
+
+            var element_selected_outcomeIndicators_names = document.createElement("input");
+            element_selected_outcomeIndicators_names.type = "hidden";
+            element_selected_outcomeIndicators_names.value = JSON.stringify(selected_outcomeIndicators_names);
+            element_selected_outcomeIndicators_names.name = "selected_outcomeIndicators_names";
+            form.append(element_selected_outcomeIndicators_names);
+
+            var element_selected_impactIndicators_names = document.createElement("input");
+            element_selected_impactIndicators_names.type = "hidden";
+            element_selected_impactIndicators_names.value = JSON.stringify(selected_impactIndicators_names);
+            element_selected_impactIndicators_names.name = "selected_impactIndicators_names";
+            form.append(element_selected_impactIndicators_names);
+
+            var csrfToken = document.createElement("input");
+            csrfToken.type = "hidden";
+            csrfToken.value = "{{csrf_token}}";
+            csrfToken.name = "csrfmiddlewaretoken";
+            form.append(csrfToken);
+
+            document.body.appendChild(form);
+
+            form.submit();
+        }
+
+        $(function() {                       //run when the DOM is ready
+            $(".use-all-true").click(function() {
+                displayAll = true;
+                fillContents();
+            });
+
+            $(".use-all-false").click(function() {
+                displayAll = false;
+                fillContents();
+            });
+
+            $(".bm-switch").click(function() {
+                var elem = $(this);
+
+                $(".bm-switch").each(function() {
+                    if ($(this).hasClass("selected") && $(this) != elem) {
+                        $(this).removeClass("selected");
+                    }
+                });
+                if (!elem.hasClass("selected")) {
+                    elem.addClass("selected");
+                }
+            });
+
+            $("#bm-reset-button").click(function() {
+                selected_targets_names = [];
+                selected_outcomes_names = [];
+                selected_impacts_names = [];
+                selected_outcomeIndicators_names = [];
+                selected_impactIndicators_names = [];
+                listsNames = {
+                    'selected_targets_names' : selected_targets_names,
+                    'selected_outcomes_names' : selected_outcomes_names,
+                    'selected_impacts_names' : selected_impacts_names,
+                    'selected_outcomeIndicators_names' : selected_outcomeIndicators_names,
+                    'selected_impactIndicators_names' : selected_impactIndicators_names,
+                };
+
+                fillContents();
+                updateParametersCardParams();
+            });
+
+            $(".bm-parameters-card-collapse-trigger").click(function() {  //use a class, since your ID gets mangled
+
+                var triggerId = $(this).attr('id');
+                var contentsId = triggerId.replace("trigger-", "contents-");
+
+                if ($(this).hasClass("expanded")) {
+                    $(this).removeClass("expanded");
+                    $("#" + contentsId).hide();
+                } else {
+                    $(this).addClass("expanded");
+                    $("#" + contentsId).show();
+                }
+                $(".bm-parameters-card-collapse-trigger").each(function() {
+                    var toCollapseId = $(this).attr('id');
+                    var contentsId = toCollapseId.replace("trigger-", "contents-");
+
+                    if ($(this).hasClass("expanded") && toCollapseId != triggerId) {
+                        $(this).removeClass("expanded");
+                        $("#" + contentsId).hide();
+                    }
+                });
+            });
+
+            $("#bm-parameters-search").keyup(function() {
+                fillContents();
+            });
+
+            fillContents();
+            updateParametersCardParams();
+        });
+
+    </script>
+</body>
+
+</html>

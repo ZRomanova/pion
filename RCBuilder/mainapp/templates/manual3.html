@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <section class="manual">
+        <div class="manual_top">
+            <div class="container">
+                <div class="manual-title">
+                    Руководство по работе
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="manual_wrapper">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                {% include 'manual_left.html' with page=page_number %}
+                <div class="manual_body">
+                    <div class="manual_body-title">
+                        Деятельность (активности)
+                    </div>
+                    <p>
+                        <span> Деятельность (активности)</span> - конкретные действия,осуществляемые в рамках проека
+                        для
+                        достижения его целей и задач
+                    </p>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Деятельность
+                        </div>
+                        <p>
+                            Ответ на вопрос "В чем именно примут участие Целевые группы?"
+                        </p>
+                    </div>
+                    <div class="manual_item">
+                        <div class="manual_item-title">
+                            Примеры:
+                        </div>
+                        <div class="manual_item-text">
+                            • Проведение тренингов или обучающих занятий
+                        </div>
+                        <div class="manual_item-text">
+                            • Оказание услуг сопровождения
+                        </div>
+                        <div class="manual_item-text">
+                            • Проведение коучиновых сессий или супервизий
+                        </div>
+                        <div class="manual_item-text">
+                            • Проведение юридических консультаций
+                        </div>
+                        <div class="manual_item-text">
+                            • Выпуск журнала
+                        </div>
+                        <div class="manual_item-text">
+                            • обеспечение питанием,раздача порций еды
+                        </div>
+                        <div class="manual_item-text">
+                            • Предоставление временного жилья
+                        </div>
+                    </div>
+
+                    <div class="manual_img">
+                        <img src="{% static 'images/skrin_deyatelnost.png' %}" alt="">
+                    </div>
+                    <div class="manual_tab">
+                        <div class="manual_tab-title">
+                            Дополнительные материалы
+                        </div>
+                        <div class="manual_tab-text">
+                            <a href="https://pion.org.ru/static/files/sbornik.pdf" target="_blank" class="manual-link-material link">Сборник кейсов по проекту "Общая
+                        информационно-технологическая платформа для оценки социальных результатов"</a>
+                    <a href="https://www.youtube.com/watch?v=nv0VF4Yn12Y&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар "Теория изменений для планирования и оценки
+                        социальных результатов"</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/TCD_Print_Theory_Of_Changes_Handbook_145x210_2014_Preview_v02.pdf" target="_blank" class="manual-link-material pdf">Теория изменений: общие рекомендации к применению (из
+                        опыта
+                        БДФ "Виктория".М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/ozenka_soc-economy_effectivnosty.pdf" target="_blank" class="manual-link-material file">Рекомендации по оценке социально-экономической
+                        эффективности социальных программ: определение, подходы, практический опыт М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2016/05/impact-141031050233-conversion-gate01.pdf" target="_blank" class="manual-link-material pdf">Практическое руководство по измерению социального
+                        воздействия (A Practical Guide to Measuring and Managing Impact),EVPA,2013</a>
+                    <a href="https://socialvalue.ru/wp-content/uploads/2016/05/pokazateli_detstvo_2015.pdf" target="_blank" class="manual-link-material pdf">"Показатели для измерения социальных результатов в
+                        сфере
+                        детства: российский и международный опыт."М.2015</a>
+                    <a href="https://www.youtube.com/watch?v=lCvDXASp7os&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар на тему "Введение в оценку"</a>
+                    <a href="https://socialvalue.ru/?p=1781" target="_blank" class="manual-link-material link">Вебинар на тему "Стоимостные подходы в оценке"</a>
+                    <a href="https://socialvalue.ru/?p=1713" target="_blank" class="manual-link-material link">Вебинар на тему "Оценка.Подготовка к проведению"</a>
+                        </div>
+                    </div>
+
+                    <div class="manual_link-wrapper">
+                        <a href="/manual/2/" class="manual_link">
+                            предыдущая тема
+                        </a>
+                        <a href="/manual/4/" class="manual_link">
+                            К следующей теме
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock content %}

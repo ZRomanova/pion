@@ -1,0 +1,72 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale = 1.4,maximum-scale = 1.4" />
+    <script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <title>{{page_title}}</title>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/new_styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow|Arsenal|Open+Sans|Philosopher|Roboto|Tenor+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top templatemo-nav navbar__background-color_3fa3b1 navbar__no-border" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                            </button>
+                <a href="" onclick="window.location = '/';" class="navbar-brand navbar-brand__padding-top_10px navbar-brand__color_white"><img src="/static/img/svg/rose.svg" class="rose-"> <span class="rc-name">Пион</span></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="http://socialvalue.ru" target="_blank"><span class="navbar-element__on_hover">База знаний об оценке</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/companies-view"><span class="navbar-element__on_hover">Пользователи</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/new_helper/rc"><span class="navbar-element__on_hover">Руководство пользователя</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="header">
+        <span class="header_text">
+            Администрирование
+        </span>
+    </section>
+
+    <section class="container margin-top-16">
+        <div class="row">
+            <div class="col-md-12 container">
+                <div class="row margin-top-16">
+                    <div class="col-xs-12 bold-header">
+                        Запросы на регистрацию
+                    </div>
+                </div>
+                <div class="row margin-top-16">
+                    <div class="col-12">
+                        <table class="table width-100 table-hover">
+                            {% for request in requests %}
+                            <tr class="cursor-pointer" onclick="window.location = '{{request.get_absolute_url}}';">
+                                <td>{{request.username}}</td>
+                                <td>{{request.last_name}} {{request.first_name}} {{request.middle_name}}</td>
+                                <td>{{request.organization}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="col-md-12 rc-footer margin-top-56">
+        © АНО «Эволюция и Филантропия», 2020 <br>Все права защищены. При использовании ссылка на правообладателя и источник заимствования обязательна
+    </section>
+</body>
+
+</html>

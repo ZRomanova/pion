@@ -1,0 +1,130 @@
+[17/Nov/2016 17:22:05] "GET / HTTP/1.1" 200 16437
+[17/Nov/2016 17:22:05] "GET /static/%20css/font-awesome.min.css%20 HTTP/1.1" 404 1699
+[17/Nov/2016 17:22:05] "GET /static/%20css/bootstrap.min.css%20 HTTP/1.1" 404 1690
+[17/Nov/2016 17:22:05] "GET /static/%20css/animate.css%20 HTTP/1.1" 404 1672
+[17/Nov/2016 17:22:05] "GET /static/%20css/owl.carousel.css%20 HTTP/1.1" 404 1687
+[17/Nov/2016 17:22:05] "GET /static/%20css/prettyPhoto.css%20 HTTP/1.1" 404 1684
+[17/Nov/2016 17:22:05] "GET /static/%20css/main.css%20 HTTP/1.1" 404 1663
+[17/Nov/2016 17:22:05] "GET /static/%20js/vendor/modernizr-2.6.2.min.js%20 HTTP/1.1" 404 1723
+Not Found: /js/vendor/jquery-1.10.2.min.js
+[17/Nov/2016 17:22:05] "GET /js/vendor/jquery-1.10.2.min.js HTTP/1.1" 404 2116
+Not Found: /js/plugins.js
+[17/Nov/2016 17:22:05] "GET /js/plugins.js HTTP/1.1" 404 2065
+Not Found: /js/bootstrap.min.js
+[17/Nov/2016 17:22:05] "GET /js/bootstrap.min.js HTTP/1.1" 404 2083
+Not Found: /js/wow.min.js
+[17/Nov/2016 17:22:05] "GET /js/wow.min.js HTTP/1.1" 404 2065
+Not Found: /js/prettyPhoto.js
+[17/Nov/2016 17:22:05] "GET /js/prettyPhoto.js HTTP/1.1" 404 2077
+Not Found: /js/owl.carousel.min.js
+[17/Nov/2016 17:22:05] "GET /js/owl.carousel.min.js HTTP/1.1" 404 2092
+Not Found: /js/main.js
+[17/Nov/2016 17:22:05] "GET /js/main.js HTTP/1.1" 404 2056
+Not Found: /img/logo.png
+[17/Nov/2016 17:22:05] "GET /img/logo.png HTTP/1.1" 404 2062
+Not Found: /img/app-preview-empty.png
+[17/Nov/2016 17:22:05] "GET /img/app-preview-empty.png HTTP/1.1" 404 2101
+[17/Nov/2016 17:22:07] "GET / HTTP/1.1" 200 16437
+[17/Nov/2016 17:22:07] "GET /static/%20css/bootstrap.min.css%20 HTTP/1.1" 404 1690
+[17/Nov/2016 17:22:07] "GET /static/%20css/font-awesome.min.css%20 HTTP/1.1" 404 1699
+[17/Nov/2016 17:22:07] "GET /static/%20css/animate.css%20 HTTP/1.1" 404 1672
+[17/Nov/2016 17:22:07] "GET /static/%20css/owl.carousel.css%20 HTTP/1.1" 404 1687
+[17/Nov/2016 17:22:07] "GET /static/%20css/main.css%20 HTTP/1.1" 404 1663
+[17/Nov/2016 17:22:07] "GET /static/%20css/prettyPhoto.css%20 HTTP/1.1" 404 1684
+[17/Nov/2016 17:22:07] "GET /static/%20js/vendor/modernizr-2.6.2.min.js%20 HTTP/1.1" 404 1723
+Not Found: /js/vendor/jquery-1.10.2.min.js
+[17/Nov/2016 17:22:07] "GET /js/vendor/jquery-1.10.2.min.js HTTP/1.1" 404 2116
+Not Found: /js/plugins.js
+[17/Nov/2016 17:22:07] "GET /js/plugins.js HTTP/1.1" 404 2065
+Not Found: /js/bootstrap.min.js
+[17/Nov/2016 17:22:07] "GET /js/bootstrap.min.js HTTP/1.1" 404 2083
+Not Found: /js/wow.min.js
+[17/Nov/2016 17:22:07] "GET /js/wow.min.js HTTP/1.1" 404 2065
+Not Found: /js/prettyPhoto.js
+[17/Nov/2016 17:22:07] "GET /js/prettyPhoto.js HTTP/1.1" 404 2077
+Not Found: /js/owl.carousel.min.js
+[17/Nov/2016 17:22:07] "GET /js/owl.carousel.min.js HTTP/1.1" 404 2092
+Not Found: /js/main.js
+[17/Nov/2016 17:22:07] "GET /js/main.js HTTP/1.1" 404 2056
+Not Found: /img/logo.png
+[17/Nov/2016 17:22:07] "GET /img/logo.png HTTP/1.1" 404 2062
+Not Found: /img/app-preview-empty.png
+[17/Nov/2016 17:22:07] "GET /img/app-preview-empty.png HTTP/1.1" 404 2101
+[17/Nov/2016 17:22:08] "GET / HTTP/1.1" 200 16437
+[17/Nov/2016 17:22:08] "GET /static/%20css/bootstrap.min.css%20 HTTP/1.1" 404 1690
+[17/Nov/2016 17:22:08] "GET /static/%20css/font-awesome.min.css%20 HTTP/1.1" 404 1699
+[17/Nov/2016 17:22:08] "GET /static/%20css/animate.css%20 HTTP/1.1" 404 1672
+[17/Nov/2016 17:22:08] "GET /static/%20css/main.css%20 HTTP/1.1" 404 1663
+[17/Nov/2016 17:22:08] "GET /static/%20css/prettyPhoto.css%20 HTTP/1.1" 404 1684
+[17/Nov/2016 17:22:08] "GET /static/%20css/owl.carousel.css%20 HTTP/1.1" 404 1687
+[17/Nov/2016 17:22:08] "GET /static/%20js/vendor/modernizr-2.6.2.min.js%20 HTTP/1.1" 404 1723
+Not Found: /js/vendor/jquery-1.10.2.min.js
+[17/Nov/2016 17:22:08] "GET /js/vendor/jquery-1.10.2.min.js HTTP/1.1" 404 2116
+Not Found: /js/plugins.js
+[17/Nov/2016 17:22:08] "GET /js/plugins.js HTTP/1.1" 404 2065
+Not Found: /js/bootstrap.min.js
+[17/Nov/2016 17:22:08] "GET /js/bootstrap.min.js HTTP/1.1" 404 2083
+Not Found: /js/wow.min.js
+[17/Nov/2016 17:22:08] "GET /js/wow.min.js HTTP/1.1" 404 2065
+Not Found: /js/prettyPhoto.js
+[17/Nov/2016 17:22:08] "GET /js/prettyPhoto.js HTTP/1.1" 404 2077
+Not Found: /js/owl.carousel.min.js
+[17/Nov/2016 17:22:08] "GET /js/owl.carousel.min.js HTTP/1.1" 404 2092
+Not Found: /js/main.js
+[17/Nov/2016 17:22:08] "GET /js/main.js HTTP/1.1" 404 2056
+Not Found: /img/logo.png
+[17/Nov/2016 17:22:08] "GET /img/logo.png HTTP/1.1" 404 2062
+Not Found: /img/app-preview-empty.png
+[17/Nov/2016 17:22:08] "GET /img/app-preview-empty.png HTTP/1.1" 404 2101
+[17/Nov/2016 17:22:08] "GET / HTTP/1.1" 200 16437
+[17/Nov/2016 17:22:08] "GET /static/%20css/bootstrap.min.css%20 HTTP/1.1" 404 1690
+[17/Nov/2016 17:22:08] "GET /static/%20css/font-awesome.min.css%20 HTTP/1.1" 404 1699
+[17/Nov/2016 17:22:08] "GET /static/%20css/prettyPhoto.css%20 HTTP/1.1" 404 1684
+[17/Nov/2016 17:22:08] "GET /static/%20css/main.css%20 HTTP/1.1" 404 1663
+[17/Nov/2016 17:22:08] "GET /static/%20css/owl.carousel.css%20 HTTP/1.1" 404 1687
+[17/Nov/2016 17:22:08] "GET /static/%20css/animate.css%20 HTTP/1.1" 404 1672
+[17/Nov/2016 17:22:08] "GET /static/%20js/vendor/modernizr-2.6.2.min.js%20 HTTP/1.1" 404 1723
+Not Found: /js/vendor/jquery-1.10.2.min.js
+[17/Nov/2016 17:22:08] "GET /js/vendor/jquery-1.10.2.min.js HTTP/1.1" 404 2116
+Not Found: /js/plugins.js
+[17/Nov/2016 17:22:08] "GET /js/plugins.js HTTP/1.1" 404 2065
+Not Found: /js/bootstrap.min.js
+[17/Nov/2016 17:22:08] "GET /js/bootstrap.min.js HTTP/1.1" 404 2083
+Not Found: /js/wow.min.js
+[17/Nov/2016 17:22:08] "GET /js/wow.min.js HTTP/1.1" 404 2065
+Not Found: /js/prettyPhoto.js
+[17/Nov/2016 17:22:08] "GET /js/prettyPhoto.js HTTP/1.1" 404 2077
+Not Found: /js/owl.carousel.min.js
+[17/Nov/2016 17:22:08] "GET /js/owl.carousel.min.js HTTP/1.1" 404 2092
+Not Found: /js/main.js
+[17/Nov/2016 17:22:08] "GET /js/main.js HTTP/1.1" 404 2056
+Not Found: /img/logo.png
+[17/Nov/2016 17:22:08] "GET /img/logo.png HTTP/1.1" 404 2062
+Not Found: /img/app-preview-empty.png
+[17/Nov/2016 17:22:08] "GET /img/app-preview-empty.png HTTP/1.1" 404 2101
+[17/Nov/2016 17:22:09] "GET / HTTP/1.1" 200 16437
+[17/Nov/2016 17:22:09] "GET /static/%20css/bootstrap.min.css%20 HTTP/1.1" 404 1690
+[17/Nov/2016 17:22:09] "GET /static/%20css/animate.css%20 HTTP/1.1" 404 1672
+[17/Nov/2016 17:22:09] "GET /static/%20css/font-awesome.min.css%20 HTTP/1.1" 404 1699
+[17/Nov/2016 17:22:09] "GET /static/%20css/main.css%20 HTTP/1.1" 404 1663
+[17/Nov/2016 17:22:09] "GET /static/%20css/prettyPhoto.css%20 HTTP/1.1" 404 1684
+[17/Nov/2016 17:22:09] "GET /static/%20css/owl.carousel.css%20 HTTP/1.1" 404 1687
+[17/Nov/2016 17:22:09] "GET /static/%20js/vendor/modernizr-2.6.2.min.js%20 HTTP/1.1" 404 1723
+Not Found: /js/vendor/jquery-1.10.2.min.js
+[17/Nov/2016 17:22:09] "GET /js/vendor/jquery-1.10.2.min.js HTTP/1.1" 404 2116
+Not Found: /js/plugins.js
+[17/Nov/2016 17:22:09] "GET /js/plugins.js HTTP/1.1" 404 2065
+Not Found: /js/bootstrap.min.js
+[17/Nov/2016 17:22:09] "GET /js/bootstrap.min.js HTTP/1.1" 404 2083
+Not Found: /js/wow.min.js
+[17/Nov/2016 17:22:09] "GET /js/wow.min.js HTTP/1.1" 404 2065
+Not Found: /js/prettyPhoto.js
+[17/Nov/2016 17:22:09] "GET /js/prettyPhoto.js HTTP/1.1" 404 2077
+Not Found: /js/owl.carousel.min.js
+[17/Nov/2016 17:22:09] "GET /js/owl.carousel.min.js HTTP/1.1" 404 2092
+Not Found: /js/main.js
+[17/Nov/2016 17:22:09] "GET /js/main.js HTTP/1.1" 404 2056
+Not Found: /img/logo.png
+[17/Nov/2016 17:22:09] "GET /img/logo.png HTTP/1.1" 404 2062
+Not Found: /img/app-preview-empty.png
+[17/Nov/2016 17:22:09] "GET /img/app-preview-empty.png HTTP/1.1" 404 2101

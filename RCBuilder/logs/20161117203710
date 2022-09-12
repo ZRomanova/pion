@@ -1,0 +1,16 @@
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x7f940a32c7b8>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/base.py", line 431, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+?: (urls.E004) Your URL pattern [<RegexURLPattern None ^static\/(?P<path>.*)$>] is invalid. Ensure that urlpatterns is a list of url() instances.
+
+System check identified 1 issue (0 silenced).
+Performing system checks...
+

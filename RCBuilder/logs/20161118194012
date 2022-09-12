@@ -1,0 +1,15 @@
+[18/Nov/2016 16:35:44] "GET /admin/ HTTP/1.1" 200 5496
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 18, 2016 - 16:35:38
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 18, 2016 - 16:40:00
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

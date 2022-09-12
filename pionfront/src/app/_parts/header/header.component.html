@@ -1,0 +1,81 @@
+<header>
+    <div *ngIf="toLoad <= 0">
+        <div class="row">
+            <div class="col-2">
+                <a [href]="baseUrl"><img src="/newpion/static/pionfront/assets/img/logo.png"></a>
+            </div>
+            <div class="col-6">		    	  
+                <ul class="top_menu">
+                    <li><a routerLink="/index">МОИ ПРОГРАММЫ</a></li>
+                    <li><a href="{{baseUrl+'manual/'}}" target="_blank">руководство пользователя</a></li>
+                    <!-- <li><a href="">вернуться на степик</a></li>  -->
+                </ul>
+            </div>
+            <div class="col-1">
+                <div class="hamburger" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="display: flex;">
+                        <a (click)="displayAdminSelect=true" *ngIf="currentUser && currentUser.is_superuser"><img src="/newpion/static/pionfront/assets/img/crown.png"></a>
+                    </div>
+                    <div style="display: flex;">
+                        <a (click)="displayLibrarySelect=true"><img src="/newpion/static/pionfront/assets/img/hamburger.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="currentUser" (click)="exit()" class="col-3 login_block">
+                <img src="/newpion/static/pionfront/assets/img/user_img.png">
+                <p><strong>Мой профиль</strong></p>
+                <p>Здравствуйте, {{currentUser.first_name}}</p>
+            </div>
+            <div *ngIf="!currentUser" class="col-3 login_block">
+                <button (click)="goLogin()" class="add_button">Вход</button>
+                <button (click)="goRegister()" class="add_button">Регистрация</button>
+           </div>
+        </div>
+    </div>
+</header>
+
+<div class="popap_download dark_block blue_head" *ngIf="displayLibrarySelect">
+    <div>
+        <div class="head">
+            <p (click)="displayLibrarySelect=false" class="close_btn"><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Перейти в библиотеку</p>
+        </div>
+        <div (click)="goLibrary('library')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img1.png"> -->
+            <p>Библиотека логических моделей и деревьев результатов</p>
+        </div>
+        <div (click)="goLibrary('outcomes')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img2.png"> -->
+            <p>Библиотека социальных результатов</p>
+        </div>
+        <div (click)="goLibrary('tools')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img2.png"> -->
+            <p>Библиотека инструментов</p>
+        </div>
+        <div (click)="goLibrary('cases')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img2.png"> -->
+            <p>Библиотека кейсов</p>
+        </div>
+        <div (click)="goLibrary('select-library')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img2.png"> -->
+            <p>О библиотеках</p>
+        </div>
+    </div>
+</div>
+
+<div class="popap_download dark_block blue_head" *ngIf="displayAdminSelect">
+    <div>
+        <div class="head">
+            <p (click)="displayAdminSelect=false" class="close_btn"><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Страницы администратора</p>
+        </div>
+        <div (click)="goLibrary('admin/user-requests')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img1.png"> -->
+            <p>Пользователи</p>
+        </div>
+        <div (click)="goLibrary('admin/programs-monitor')" class="text_block cursor_pointer">
+            <!-- <img src="/newpion/static/pionfront/assets/img/ower_img1.png"> -->
+            <p>Мониторинг программ</p>
+        </div>
+    </div>
+</div>

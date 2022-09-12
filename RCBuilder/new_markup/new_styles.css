@@ -1,0 +1,268 @@
+.rose- {
+    width: 30px;
+    height: 32px;
+    object-fit: contain;
+    display: inline !important;
+}
+
+.rc-name {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.navbar-brand__padding-top_10px {
+    padding-top: 10px !important;
+}
+
+.navbar-brand__color_white {
+    color: white !important;
+}
+
+.navbar__background-color_3fa3b1 {
+    background-color: #3fa3b1;
+}
+
+.navbar__no-border {
+    border: 0px;
+}
+
+.navbar-element__color_ffffff {
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+.navbar-element__weight_bold {
+    font-weight: bold;
+}
+
+.navbar-element__on_hover:hover,
+.navbar-element__underline {
+    border-bottom: solid white 2px;
+    color: white;
+}
+
+.navbar-element__with_border {
+    border-radius: 2px;
+    border: solid 1px #ffffff;
+    padding: 5px 26px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.navbar-element__inverse_with_border {
+    border-radius: 2px;
+    border: solid 1px #ffffff;
+    background-color: #ffffff;
+    color: #3fa3b1;
+    padding: 5px 26px;
+    font-weight: bold;
+}
+
+.opacity-1_on_hover:hover,
+.opacity-1 {
+    opacity: 1 !important;
+}
+
+.header {
+    background-color: #41b8c8;
+    margin-top: 50px;
+    height: 116px;
+}
+
+.header_text {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    color: white;
+    font-weight: 400;
+    margin-left: 70px;
+}
+
+.padding-left-0 {
+    padding-left: 0px !important;
+}
+
+.margin-top-16 {
+    margin-top: 16px;
+}
+
+.margin-top-26 {
+    margin-top: 26px;
+}
+
+.margin-top-56 {
+    margin-top: 56px;
+}
+
+.bold-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.striped-bg {
+    background-image: url("img/striped_bg.png");
+    padding: 23px;
+    border-left: solid 2px #41b8c8;
+    margin-top: 20px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+
+.font-32 {
+    font-size: 32px;
+}
+
+.margin-bottom-12 {
+    margin-bottom: 12px;
+}
+
+ul.numbered-circled-list {
+    counter-reset: li;
+    list-style-type: none;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 10px;
+}
+
+ul.numbered-circled-list .ordered-li {
+    position: relative;
+    padding: 5px 0 5px 30px;
+}
+
+ul.numbered-circled-list .ordered-li:before {
+    content: counter(li);
+    counter-increment: li;
+    height: 20px;
+    width: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+    color: black;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    opacity: 0.4;
+    font-weight: 500;
+}
+
+.numbered-list-title {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.numbered-list-title li,
+.ticked-list li,
+.disc-marker li {
+    margin-top: 13px;
+}
+
+.disc-marker {
+    list-style-type: disc;
+}
+
+.ticked-list {
+    list-style: none;
+    list-style-position: outside;
+    padding-left: 0px;
+}
+
+.ticked-list>li:before {
+    content: '✓';
+    color: #41b8c8;
+    margin-right: 10px;
+}
+
+.color-41b8c8,
+.color-41b8c8-on-hover:hover {
+    color: #41b8c8;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-bold {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.ic-picture-as-pdf-48px-copy {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.Group-2 {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.Shape-Copy-2 {
+    width: 116px;
+    height: 16px;
+    object-fit: contain;
+    /* background-color: #0091d0; */
+}
+
+.rc-footer {
+    height: 100px;
+    background-color: #ececec;
+    font-size: 14px;
+    opacity: 0.7;
+    padding-top: 30px;
+    padding-left: 64px;
+}
+
+.gray-table,
+.gray-table th,
+.gray-table td {
+    border: 1px solid #e5e5e5;
+}
+
+.gray-table-header {
+    background-color: #e5e5e5;
+    color: black;
+    font-weight: bold;
+    height: 48px;
+}
+
+.gray-table-row {
+    height: 72px;
+}
+
+.blue-hr {
+    width: 151%;
+    margin-left: -43%;
+    border-top: dashed 1px #41b8c8;
+}
+
+.Group-Copy-4 {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.vebinar-button {
+    background-color: #41b8c8;
+    color: white;
+    font-size: 32px;
+}
+
+.max-width-100 {
+    max-width: 100%;
+}

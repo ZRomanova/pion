@@ -1,0 +1,180 @@
+[11/Dec/2016 14:06:24] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 14:06:24] "GET / HTTP/1.1" 200 12119
+[11/Dec/2016 14:06:24] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 14:06:24] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 14:06:24] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 14:06:24] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 14:06:24] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 14:06:24] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 14:06:24] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 14:06:24] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[11/Dec/2016 14:06:24] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 14:06:24] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 14:06:24] "GET /static/css/main.css HTTP/1.1" 200 8828
+[11/Dec/2016 14:06:24] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 14:06:24] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 14:06:24] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 14:06:25] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 14:06:25] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 14:06:26] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[11/Dec/2016 14:06:29] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 14:06:29] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:29] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 14:06:31] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+Internal Server Error: /portal/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1021, in find_library
+    return parser.libraries[name]
+KeyError: 'fk_filters'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1078, in load
+    lib = find_library(parser, name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1025, in find_library
+    name, "\n".join(sorted(parser.libraries.keys())),
+django.template.exceptions.TemplateSyntaxError: 'fk_filters' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_static
+admin_urls
+cache
+i18n
+l10n
+log
+static
+staticfiles
+tz
+[11/Dec/2016 14:06:31] "GET /static/css/animate.css HTTP/1.1" 304 0
+Internal Server Error: /portal/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1021, in find_library
+    return parser.libraries[name]
+KeyError: 'fk_filters'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1078, in load
+    lib = find_library(parser, name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1025, in find_library
+    name, "\n".join(sorted(parser.libraries.keys())),
+django.template.exceptions.TemplateSyntaxError: 'fk_filters' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_static
+admin_urls
+cache
+i18n
+l10n
+log
+static
+staticfiles
+tz
+[11/Dec/2016 14:06:31] "GET /portal/1 HTTP/1.1" 500 144464
+[11/Dec/2016 14:06:31] "GET /portal/1 HTTP/1.1" 500 144464

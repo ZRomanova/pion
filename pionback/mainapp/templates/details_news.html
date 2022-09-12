@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div style="display: none;">
+{% block title %}{{ news_detail.title }}{% endblock %}
+{% block description %}{{ news_detail.desc }}{% endblock %}
+</div>
+
+
+<section class="news">
+        <div class="news_top">
+            <div class="container">
+                <div class="news_top-title">
+                    Новости ПИОН
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="news_body">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                <div class="news_wrapper">
+
+					<div class="gender-area frame" style=" max-width: 100%;">
+
+						<p class="breadcrumbs">
+							<a href="/">Главная</a> / <a href="/news/">Новости</a> / <a href="#">{{ news_detail.name }}</a>
+						</p>
+
+						<div class="det_text">
+							<h1>{{ news_detail.name }}</h1>
+
+							<img class="news_detailImg" src="{{MEDIA_URL}}{{news_detail.image.url}}/" alt="">
+
+							<div>
+								{{ news_detail.maintext|safe }}
+							</div>
+
+						</div>
+
+					</div>
+
+
+
+                </div>
+                <div class="news_aside">
+                    {% include 'right_block.html'  %}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+{% endblock content %}

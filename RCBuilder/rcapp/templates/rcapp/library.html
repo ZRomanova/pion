@@ -1,0 +1,139 @@
+{%load static%}{% load fk_filters %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale = 1.4,maximum-scale = 1.4" />
+    <script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <title>{{page_title}}</title>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/new_styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow|Arsenal|Open+Sans|Philosopher|Roboto|Tenor+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top templatemo-nav navbar__background-color_3fa3b1 navbar__no-border" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                            </button>
+                <a href="" onclick="window.location = '/';" class="navbar-brand navbar-brand__padding-top_10px navbar-brand__color_white"><img src="/static/img/svg/rose.svg" class="rose-"> <span class="rc-name">Пион</span></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="http://socialvalue.ru" target="_blank"><span class="navbar-element__on_hover">База знаний об оценке</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/companies-view"><span class="navbar-element__on_hover">Пользователи</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/new_helper/rc"><span class="navbar-element__on_hover">Руководство пользователя</span></a></li>
+                    {% if not is_authenticated %}
+                    <li><a class="login-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1" href="https://pion.org.ru/newpion/auth/login"><span class="navbar-element__with_border">Вход</span></a></li>
+                    <li><a class="register-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1 padding-left-0" href="https://pion.org.ru/newpion/auth/registration"><span class="navbar-element__inverse_with_border">Регистрация</span></a></li>
+                    {% else %}
+                    <li><a class="login-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1" href="/portal/"><span class="navbar-element__with_border">Мои программы</span></a></li>
+                    <li><a class="register-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1 padding-left-0" href="/accounts/logout/"><span class="navbar-element__inverse_with_border">Выйти</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="header">
+        <div class="container height-100">
+            <div class="row height-100">
+                <span class="header_text col-xs-12 height-100">
+                    Библиотека показателей {% if is_output %}непосредственных результатов{% endif %}{% if is_outcome %}социальных результатов{% endif %}{% if is_impact %}социальных эффектов{% endif %}                
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container margin-top-16">
+        <div class="row">
+            <div class="col-md-12 container">
+                <div class="row">
+                    <a href="/portal/indicators_library" class="text-center col-md-3 {% if is_all %}active-link{% endif %}">Все показатели</a>
+                    <a href="/portal/indicators_library?content=outputindicators" class="text-center col-md-3 {% if is_output %}active-link{% endif %}">Показатели непосредственных результатов</a>
+                    <a href="/portal/indicators_library?content=outcomeindicators" class="text-center col-md-3 {% if is_outcome %}active-link{% endif %}">Показатели социальных результатов</a>
+                    <a href="/portal/indicators_library?content=impactindicators" class="text-center col-md-3 {% if is_impact %}active-link{% endif %}">Показатели социальных эффектов</a>
+                </div>
+                {% for indicator in indicators %}
+                <div class="row indicator-row" id="indicator-{{ forloop.counter0 }}">
+                    <div class="col-md-12 container">
+                        <div class="row" id="trigger-{{ forloop.counter0 }}" style="cursor:pointer;">
+                            <div class="indicator-header col-md-12"><img id="down-arrow-{{ forloop.counter0 }}" src='{% static "img/down-arrow.png" %}' height="20"><img id="up-arrow-{{ forloop.counter0 }}" src='{% static "img/up-arrow.png" %}' height="20" style="display: none;"> {{indicator}}</div>
+                        </div>
+                        <div id="tohide-{{ forloop.counter0 }}" style="display: none;">
+                            <div class="row table-row">
+                                <div class="col-md-3 text-right table-title-left">
+                                    {% if indicator.is_output %}Непосредственный результат{% endif %}
+                                    {% if indicator.is_outcome %}Социальный результат{% endif %}
+                                    {% if indicator.is_impact %}Социальный эффект{% endif %}
+                                </div>
+                                <div class="col-md-9 table-content-right">
+                                    {% if indicator.is_output %}{{indicator.output_ref}}{% endif %}
+                                    {% if indicator.is_outcome %}{{indicator.outcome_ref}}{% endif %}
+                                    {% if indicator.is_impact %}{{indicator.impact_ref}}{% endif %}
+                                </div>
+                            </div>
+                            <div class="row table-row">
+                                <div class="col-md-3 text-right table-title-left odd">
+                                    Программа
+                                </div>
+                                <div class="col-md-9 table-content-right">
+                                    {{indicator.rc_ref}}
+                                </div>
+                            </div>
+                            <div class="row table-row">
+                                <div class="col-md-3 text-right table-title-left">
+                                    {% if indicator.is_output %}Деятельности{% endif %}
+                                    {% if indicator.is_outcome %}Непосредственные результаты{% endif %}
+                                    {% if indicator.is_impact %}Социальные результаты{% endif %}
+                                </div>
+                                <div class="col-md-9 table-content-right">
+                                    {% if indicator.is_output %}{{indicator.output_ref.activities}}{% endif %}
+                                    {% if indicator.is_outcome %}{{indicator.outcome_ref.outputs}}{% endif %}
+                                    {% if indicator.is_impact %}{{indicator.impact_ref.outcomes}}{% endif %}
+                                </div>
+                            </div>
+                            {% if indicator.is_output or indicator.is_outcome %}
+                            <div class="row table-row">
+                                <div class="col-md-3 text-right table-title-left odd">
+                                    Методы сбора данных
+                                </div>
+                                <div class="col-md-9 table-content-right">
+                                    {{indicator.methods}}
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $("#trigger-{{ forloop.counter0 }}").on("click", () => {
+                        if ($("#tohide-{{ forloop.counter0 }}").is(":hidden")) {
+                            $("#tohide-{{ forloop.counter0 }}").show();
+                            $("#down-arrow-{{ forloop.counter0 }}").hide();
+                            $("#up-arrow-{{ forloop.counter0 }}").show();
+                        } else {
+                            $("#tohide-{{ forloop.counter0 }}").hide();
+                            $("#down-arrow-{{ forloop.counter0 }}").show();
+                            $("#up-arrow-{{ forloop.counter0 }}").hide();
+                        }
+                    });
+                </script>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="col-md-12 rc-footer margin-top-56 ">
+        © АНО «Эволюция и Филантропия», 2020 <br>Все права защищены. При использовании ссылка на правообладателя и источник заимствования обязательна
+    </section>
+</body>
+
+</html>

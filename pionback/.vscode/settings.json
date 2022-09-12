@@ -1,0 +1,8 @@
+{
+    "editor.renderWhitespace": "selection",
+    "workbench.colorCustomizations": {    
+        "editorWhitespace.foreground": "#d1d418"
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+}

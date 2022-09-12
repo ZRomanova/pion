@@ -1,0 +1,113 @@
+Internal Server Error: /portal/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 86, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 323, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 323, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 217, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 159, in render
+    values = self.sequence.resolve(context, True)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/etc/side_projects/RCBuilder/rcapp/templatetags/fk_filters.py", line 16, in with_ref_to_impact
+    return impact_submodels.filter(impact_ref=current_impact_ref)
+AttributeError: 'NoneType' object has no attribute 'filter'
+[11/Dec/2016 17:54:04] "GET /portal/1 HTTP/1.1" 500 177264
+Internal Server Error: /portal/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 86, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 323, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 323, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 217, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 159, in render
+    values = self.sequence.resolve(context, True)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/etc/side_projects/RCBuilder/rcapp/templatetags/fk_filters.py", line 16, in with_ref_to_impact
+    return impact_submodels.filter(impact_ref=current_impact_ref)
+AttributeError: 'NoneType' object has no attribute 'filter'
+[11/Dec/2016 17:54:08] "GET /portal/1 HTTP/1.1" 500 177264
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 17:54:04
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 17:55:30
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 17:55:32
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

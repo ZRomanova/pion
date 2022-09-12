@@ -1,0 +1,25 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ПИОН | Библиотеки</title>
+  <base href="/newpion/">  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <app-root></app-root>
+<script src="{% static 'pionfront/runtime-es2015.js' %}" type="module"></script>
+<script src="{% static 'pionfront/runtime-es5.js' %}" nomodule defer></script>
+<script src="{% static 'pionfront/polyfills-es5.js' %}" nomodule defer></script>
+<script src="{% static 'pionfront/polyfills-es2015.js' %}" type="module"></script>
+<script src="{% static 'pionfront/styles-es2015.js' %}" type="module"></script>
+<script src="{% static 'pionfront/styles-es5.js' %}" nomodule defer></script>
+<script src="{% static 'pionfront/vendor-es2015.js' %}" type="module"></script>
+<script src="{% static 'pionfront/vendor-es5.js' %}" nomodule defer></script>
+<script src="{% static 'pionfront/main-es2015.js' %}" type="module"></script>
+<script src="{% static 'pionfront/main-es5.js' %}" nomodule defer></script></body>
+</html>

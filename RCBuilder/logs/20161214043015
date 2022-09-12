@@ -1,0 +1,77 @@
+[14/Dec/2016 01:28:42] "GET /admin/rcapp/targetslistitem/add/ HTTP/1.1" 200 5448
+[14/Dec/2016 01:28:42] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[14/Dec/2016 01:28:45] "GET /admin/rcapp/targetslistitem/ HTTP/1.1" 200 4717
+[14/Dec/2016 01:28:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[14/Dec/2016 01:28:47] "GET /admin/rcapp/targetslistitem/add/ HTTP/1.1" 200 5448
+[14/Dec/2016 01:28:47] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[14/Dec/2016 01:29:01] "POST /admin/rcapp/targetslistitem/add/ HTTP/1.1" 302 0
+[14/Dec/2016 01:29:01] "GET /admin/rcapp/targetslistitem/ HTTP/1.1" 200 5283
+[14/Dec/2016 01:29:01] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[14/Dec/2016 01:29:32] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[14/Dec/2016 01:29:32] "GET /portal/ HTTP/1.1" 200 12542
+[14/Dec/2016 01:29:32] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[14/Dec/2016 01:29:32] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[14/Dec/2016 01:29:32] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[14/Dec/2016 01:29:32] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[14/Dec/2016 01:29:32] "GET /static/css/main.css HTTP/1.1" 200 9497
+[14/Dec/2016 01:29:32] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[14/Dec/2016 01:29:32] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[14/Dec/2016 01:29:32] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[14/Dec/2016 01:29:32] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[14/Dec/2016 01:29:32] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[14/Dec/2016 01:29:32] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[14/Dec/2016 01:29:32] "GET /static/js/main.js HTTP/1.1" 200 1554
+[14/Dec/2016 01:29:32] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[14/Dec/2016 01:29:32] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[14/Dec/2016 01:29:33] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[14/Dec/2016 01:29:33] "GET /portal/ HTTP/1.1" 200 12542
+[14/Dec/2016 01:29:35] "GET /portal/5 HTTP/1.1" 200 10371
+[14/Dec/2016 01:29:38] "GET /portal/edit/5 HTTP/1.1" 200 10606
+Internal Server Error: /portal/edit/5/target-create
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 86, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 1050, in render
+    return render_value_in_context(output, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 1028, in render_value_in_context
+    value = force_text(value)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/encoding.py", line 76, in force_text
+    s = six.text_type(s)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/html.py", line 391, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 123, in __str__
+    return self.as_table()
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 271, in as_table
+    errors_on_separate_row=False)
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 226, in _html_output
+    'field': six.text_type(bf),
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/html.py", line 391, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/boundfield.py", line 43, in __str__
+    return self.as_widget()
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/boundfield.py", line 101, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/widgets.py", line 527, in render
+    options = self.render_options([value])
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/widgets.py", line 550, in render_options
+    for option_value, option_label in self.choices:
+ValueError: need more than 1 value to unpack
+[14/Dec/2016 01:29:40] "GET /portal/edit/5/target-create HTTP/1.1" 500 154906

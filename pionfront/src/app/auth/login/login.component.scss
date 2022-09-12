@@ -1,0 +1,19 @@
+.registration_button {
+    margin-left: 15px;
+}
+
+.password {
+	position: relative;
+}
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url('/newpion/static/pionfront/assets/img/no-view.svg') 0 0 no-repeat;
+}
+.password-control.view {
+	background: url('/newpion/static/pionfront/assets/img/view.svg') 0 0 no-repeat;
+}

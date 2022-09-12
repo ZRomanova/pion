@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <td class="ur-table-cell">email</td>
+        <td class="ur-table-cell">lastname</td>
+        <td class="ur-table-cell">firstname</td>
+        <td class="ur-table-cell">middlename</td>
+        <td class="ur-table-cell">region</td>
+        <td class="ur-table-cell">organization</td>
+        <td class="ur-table-cell">website</td>
+        <td class="ur-table-cell">position</td>
+        <td class="ur-table-cell">createdon</td>
+        <td class="ur-table-cell">accept/decline</td>
+    </tr>
+    <tr *ngFor="let userrequest of userrequests">
+        <td class="ur-table-cell">{{userrequest.email}}</td>
+        <td class="ur-table-cell">{{userrequest.lastname}}</td>
+        <td class="ur-table-cell">{{userrequest.firstname}}</td>
+        <td class="ur-table-cell">{{userrequest.middlename}}</td>
+        <td class="ur-table-cell">{{userrequest.region}}</td>
+        <td class="ur-table-cell">{{userrequest.organization}}</td>
+        <td class="ur-table-cell">{{userrequest.website}}</td>
+        <td class="ur-table-cell">{{userrequest.position}}</td>
+        <td class="ur-table-cell">{{userrequest.createdon|date:"yyyy-MM-dd HH:mm:ss"}}</td>
+        <td class="ur-table-cell">
+            <ng-container *ngIf="!userrequest.verifiedon">
+                <button (click)="accept(userrequest)">accept</button>
+                <button (click)="decline(userrequest)">decline</button>
+            </ng-container>
+            <ng-container *ngIf="userrequest.verifiedon">
+                <span *ngIf="userrequest.user_ref">Accepted</span>
+                <span *ngIf="!userrequest.user_ref">Declined</span>
+            </ng-container>
+        </td>
+    </tr>
+</table>

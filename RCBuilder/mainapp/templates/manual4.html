@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <section class="manual">
+        <div class="manual_top">
+            <div class="container">
+                <div class="manual-title">
+                    Руководство по работе
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="manual_wrapper">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                {% include 'manual_left.html' with page=page_number %}
+                <div class="manual_body">
+                    <div class="manual_body-title">
+                        Непосредственные результаты
+                        и показатели
+                    </div>
+                    <p>
+                        <span> Непосредственные результаты
+                            и показатели (Outputs)</span> - все то,что непосредственно производится в процессе
+                        Деятельности по проекту.
+                    </p>
+                    <p>
+                        Измерение <span>непосредственных результатов,</span> как правило,осуществляется через
+                        подсчет
+                        числа проведенных мероприятий (деятельности), их участников.
+                    </p>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Показатели непосредственныйх результатов
+                        </div>
+                        <div class="manual_body-block_text">
+
+                            Ответ на вопрос "Сколько?"
+
+                        </div>
+                    </div>
+                    <a data-fancybox="" href="{% static 'images/table1.jpg' %}" class="manual_table">
+                        <img src="{% static 'images/table1.jpg' %}" alt="">
+                    </a>
+                    <div class="manual_item-title">
+                        Что нужно знать о непосредственных результатах?
+                    </div>
+                    <p>
+                        Сами по себе непосредственные результаты не говорят о достижении целей проекта и социальных
+                        результатов,а измеряют тот объем работы и усилий,который предпринимается в рамках
+                        проекта(например,проведение психологических консультаций не означает, что у подростков
+                        действительно решены психологические проблемы,скорректирована самооцена и пр.)
+                    </p>
+                    <p>
+                        Без достижения непосредственных результатов не достигнут и социальных результатов
+                        (например,если
+                        не провести психологические консультации,то подростки не решат психологических проблем,
+                        скорректируют самооценку и пр.)
+                    </p>
+                    <p>
+                        Непосредственные результаты могут быть достигнуты как преднамеренно, так и непреднамеренно
+                        (что
+                        особенно важно при описании проека после его реализации)
+                    </p>
+
+
+                    <div class="manual_img">
+                        <img src="{% static 'images/41.png' %}" alt="">
+                    </div>
+
+
+                    <center>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gDky8MwfjcU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </center>
+                    <p></p>
+
+
+                    <div class="manual_tab">
+                        <div class="manual_tab-title">
+                            Дополнительные материалы
+                        </div>
+                        <div class="manual_tab-text">
+                            <a href="https://pion.org.ru/static/files/sbornik.pdf" target="_blank" class="manual-link-material link">Сборник кейсов по проекту "Общая
+                        информационно-технологическая платформа для оценки социальных результатов"</a>
+                    <a href="https://www.youtube.com/watch?v=nv0VF4Yn12Y&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар "Теория изменений для планирования и оценки
+                        социальных результатов"</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/TCD_Print_Theory_Of_Changes_Handbook_145x210_2014_Preview_v02.pdf" target="_blank" class="manual-link-material pdf">Теория изменений: общие рекомендации к применению (из
+                        опыта
+                        БДФ "Виктория".М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/ozenka_soc-economy_effectivnosty.pdf" target="_blank" class="manual-link-material file">Рекомендации по оценке социально-экономической
+                        эффективности социальных программ: определение, подходы, практический опыт М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2016/05/impact-141031050233-conversion-gate01.pdf" target="_blank" class="manual-link-material pdf">Практическое руководство по измерению социального
+                        воздействия (A Practical Guide to Measuring and Managing Impact),EVPA,2013</a>
+                    <a href="https://socialvalue.ru/wp-content/uploads/2016/05/pokazateli_detstvo_2015.pdf" target="_blank" class="manual-link-material pdf">"Показатели для измерения социальных результатов в
+                        сфере
+                        детства: российский и международный опыт."М.2015</a>
+                    <a href="https://www.youtube.com/watch?v=lCvDXASp7os&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар на тему "Введение в оценку"</a>
+                    <a href="https://socialvalue.ru/?p=1781" target="_blank" class="manual-link-material link">Вебинар на тему "Стоимостные подходы в оценке"</a>
+                    <a href="https://socialvalue.ru/?p=1713" target="_blank" class="manual-link-material link">Вебинар на тему "Оценка.Подготовка к проведению"</a>
+                        </div>
+                    </div>
+
+                    <div class="manual_link-wrapper">
+                        <a href="/manual/3/" class="manual_link">
+                            предыдущая тема
+                        </a>
+                        <a href="/manual/5/" class="manual_link">
+                            К следующей теме
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}

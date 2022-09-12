@@ -1,0 +1,41 @@
+[18/Nov/2016 15:26:58] "GET / HTTP/1.1" 200 12947
+[18/Nov/2016 15:26:58] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[18/Nov/2016 15:26:58] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[18/Nov/2016 15:26:58] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[18/Nov/2016 15:26:58] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[18/Nov/2016 15:26:58] "GET /static/css/main.css HTTP/1.1" 200 8033
+[18/Nov/2016 15:26:58] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[18/Nov/2016 15:26:58] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[18/Nov/2016 15:26:58] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[18/Nov/2016 15:26:58] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[18/Nov/2016 15:26:58] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[18/Nov/2016 15:26:58] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[18/Nov/2016 15:26:58] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[18/Nov/2016 15:26:58] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[18/Nov/2016 15:26:58] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[18/Nov/2016 15:26:58] "GET /static/js/main.js HTTP/1.1" 200 1554
+[18/Nov/2016 15:26:58] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[18/Nov/2016 15:26:58] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[18/Nov/2016 15:26:58] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+[18/Nov/2016 15:26:59] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 18, 2016 - 15:26:55
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 18, 2016 - 15:41:28
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 18, 2016 - 15:41:29
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

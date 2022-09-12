@@ -1,0 +1,498 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header_wrapper">
+                <div class="header_inner">
+                    <div class="menu_burger">
+                        <span></span>
+                    </div>
+                    <div class="menu">
+                        <div class="menu_wrapper">
+                            <div class="menu_top">
+                                <div class="menu_burger-active">
+                                    <span></span>
+                                </div>
+                                <div class="menu_title">
+                                    <img src="{% static 'images/menu_logo.png' %}" alt="">
+                                </div>
+                                <div class="menu_close">
+                                </div>
+                            </div>
+                            <div class="menu_profile">
+                                <div class="menu_profile-img" style="background-image: url({% static 'images/profile_img.png' %});">
+                                </div>
+                                <div class="menu_profile-info">
+                                    <div class="menu_profile-title">
+                                        Мой профиль
+                                    </div>
+                                    <div class="menu_profile-subtitle">
+                                        Здравствуйте, Ольга
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_links">
+                                <a href="/news/" class="menu_link">Новости</a>
+                                <a href="https://socialvalue.ru/" class="menu_link">База знаний</a>
+                                <a href="https://pion.org.ru/newpion/select-library" class="menu_link">Библиотеки моделей</a>
+                                <a href="#" class="menu_link">FAQ</a>
+                                <a href="https://pion.org.ru/portal/new_helper/rc" class="menu_link">Руководство пользователя</a>
+                                <a href="#" class="menu_link">Мои программы</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/" class="header_logo">
+                        <img src="{% static 'images/header_logo.png' %}" alt="">
+                    </a>
+                </div>
+                <div class="header_btns">
+                    <a href="#" class="header_btn">
+                        <img src="{% static 'images/header_btn1.png' %}" alt="">
+                    </a>
+                    <a href="#" class="header_btn">
+                        <img src="{% static 'images/header_btn2.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="gender-area frame message_block">
+	    <div class="container ">
+            {{ message }}
+            <span>x</span>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+{% block content %}
+
+    <section class="main">
+        <div class="main_slider">
+            <div class="main_slider-item" style="background-image: url({% static 'images/main_bg.jpg' %});">
+            </div>
+            <div class="main_slider-item" style="background-image: url({% static 'images/main_bg.jpg' %});">
+            </div>
+            <div class="main_slider-item" style="background-image: url({% static 'images/main_bg.jpg' %});">
+            </div>
+            <div class="main_slider-item" style="background-image: url({% static 'images/main_bg.jpg' %});">
+            </div>
+        </div>
+        <div class="container">
+            <div class="main_wrapper">
+                <div class="main_title">
+                    Профессиональное решение для всех, кто реализует программы в сфере защиты детства и профилактики
+                    социального сиротства
+                </div>
+                <div class="main_btns">
+                    <a href="https://pion.org.ru/newpion/auth/login" class="main_btn">Вход</a>
+                    <a href="https://pion.org.ru/newpion/auth/registration" class="main_btn">регистрация</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="service">
+        <div class="container">
+            <div class="service_title">
+                Для кого online-сервис
+            </div>
+            <div class="service_subtitle">
+                <span> Руководители и программные сотрудники организаций и программ в сфере детства,</span>
+                заинтересованные в
+                развитии системы мониторинга и оценки могут использовать сервис для:
+            </div>
+            <div class="service_wrapper">
+                <div class="service_item">
+                    <div class="service_item-img">
+                        <img src="{% static 'images/service_item1.png' %}" alt="">
+                    </div>
+                    <div class="service_item-text">
+                        Представления программ в удобном формате для обсуждения с командой или партнёрами
+                    </div>
+                </div>
+                <div class="service_item">
+                    <div class="service_item-img">
+                        <img src="{% static 'images/service_item2.png' %}" alt="">
+                    </div>
+                    <div class="service_item-text">
+                        Cравнения своего опыта с опытом других организаций, обеспечения единого подхода к мониторингу
+                        всех программ организации
+                    </div>
+                </div>
+                <div class="service_item">
+                    <div class="service_item-img">
+                        <img src="{% static 'images/service_item3.png' %}" alt="">
+                    </div>
+                    <div class="service_item-text">
+                        Принятия управленческих решений на основе данных, внесенных в формы мониторинга
+                    </div>
+                </div>
+                <div class="service_item">
+                    <div class="service_item-img">
+                        <img src="{% static 'images/service_item4.png' %}" alt="">
+                    </div>
+                    <div class="service_item-text">
+                        Подбора результатов и показателей для мониторинга и оценки программ
+                    </div>
+                </div>
+                <div class="service_item">
+                    <div class="service_item-img">
+                        <img src="{% static 'images/service_item5.png' %}" alt="">
+                    </div>
+                    <div class="service_item-text">
+                        Использования удобных форм для создания цепочки социальных результатов программы и ведения
+                        мониторинга
+                    </div>
+                </div>
+                <div class="service_item">
+                    <div class="service_item-img">
+                        <img src="{% static 'images/service_item6.png' %}" alt="">
+                    </div>
+                    <div class="service_item-text">
+                        Подбора инструментов сбора данных из интегрированной в сервис онлайн-базы «Слушай с пользой!»
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="service_btn">
+                читать подробнее
+            </a>
+        </div>
+    </section>
+
+    <section class="advantage">
+        <div class="container">
+            <div class="advantage_wrapper">
+                <div class="advantage_column">
+                    <div class="advantage_title">
+                        ПИОН объединяет
+                    </div>
+                    <div class="advantage_item">
+                        <div class="advantage_item-img">
+                            <img src="{% static 'images/advantage_item1.jpg' %}" alt="">
+                        </div>
+                        <div class="advantage_item-text">
+                            Теоретические наработки в области мониторинга и оценки, отраженные в руководстве
+                            пользователя и базе знаний
+                        </div>
+                    </div>
+                    <div class="advantage_item">
+                        <div class="advantage_item-img">
+                            <img src="{% static 'images/advantage_item2.jpg' %}" alt="">
+                        </div>
+                        <div class="advantage_item-text">
+                            Практический опыт, собранный в библиотеках социальных результатов, логических моделей и
+                            деревьев результатов программ в сфере детства
+                        </div>
+                    </div>
+                    <div class="advantage_item">
+                        <div class="advantage_item-img">
+                            <img src="{% static 'images/advantage_item3.jpg' %}" alt="">
+                        </div>
+                        <div class="advantage_item-text">
+                            Инструменты для создания собственной системы мониторинга и оценки: форма для создания
+                            цепочки социальных результатов, план и рабочая форма мониторинга
+                        </div>
+                    </div>
+                </div>
+                <div class="advantage_column">
+                    <div class="advantage_title">
+                        ПИОН позволяет
+                    </div>
+                    <div class="advantage_item">
+                        <div class="advantage_item-img">
+                            <img src="{% static 'images/advantage_item4.jpg' %}" alt="">
+                        </div>
+                        <div class="advantage_item-text">
+                            Получать методическую и консультационную поддержку по
+                            вопросами мониторинга и оценки
+                        </div>
+                    </div>
+                    <div class="advantage_item">
+                        <div class="advantage_item-img">
+                            <img src="{% static 'images/advantage_item5.jpg' %}" alt="">
+                        </div>
+                        <div class="advantage_item-text">
+                            Участвовать в сетевом сообществе практиков и получать обратную связь от коллег по вопросам
+                            мониторинга и оценки
+                        </div>
+                    </div>
+                    <div class="advantage_item">
+                        <div class="advantage_item-img">
+                            <img src="{% static 'images/advantage_item6.jpg' %}" alt="">
+                        </div>
+                        <div class="advantage_item-text">
+                            Участвовать в сетевом сообществе практиков и получать обратную связь от коллег по вопросам
+                            мониторинга и оценки
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="https://pion.org.ru/newpion/auth/registration" class="advantage_btn">
+                СОЗДАТЬ ЛИЧНЫЙ КАБИНЕТ
+            </a>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about_wrapper">
+                <div class="about_info">
+                    <div class="about_info-title">
+                        Об online-сервисе
+                    </div>
+                    <div class="about_info-text">
+                        Уникальный онлайн-курс «Оценка проектов и программ в сфере детства», основанный напередовом
+                        международном и российском опыте, дает обширную теоретическую базу знаний по
+                        оценке cоциальных программ, предлагает освоение практических навыков, инструментов длявнедрения
+                        и развития в организациях сферы детства процессов и практик мониторинга и оценки.Курс разработан
+                        сотрудниками АНО «Эволюция и Филантропия», а также ведущими экспертами вобласти оценки программ
+                        и специалистами в сфере детства.
+                    </div>
+                </div>
+                <div class="about_video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BHACKCNDMW8" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="users">
+        <div class="container">
+            <div class="users_title">
+                Пользователи
+            </div>
+            <div class="users_slider">
+                <div class="users_item">
+                    <img src="{% static 'images/users1.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users2.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users3.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users4.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users1.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users2.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users3.png' %}" alt="">
+                </div>
+                <div class="users_item">
+                    <img src="{% static 'images/users4.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe">
+        <div class="container">
+            <form method="post" action="/subscription/" class="subscribe_form">
+                <div class="subscribe_title">
+                    Хотите быть в курсе последних новостей?
+                </div>
+                <div class="subscribe_btns">
+
+                    {% csrf_token %}
+                    <input type="email" name="mail" maxlength="254" required="" id="id_mail" class="subscribe_inp" placeholder="E-mail"> 
+                    <button class="subscribe_btn">Подписаться</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact form_ms" >
+        <div class="container">
+            <div class="contact_title">
+                Связаться с нами
+            </div>
+            <div class="contact_subtitle">
+                Задать вопрос или обратиться за консультацией
+            </div>
+            <form action="/info_form/" method="post" class="contact_form">
+                {% csrf_token %}
+                <div class="contact_inps">
+
+                    <input type="text" name="fname" maxlength="255" required="" id="id_fname" class="contact_inp" placeholder="Имя">
+
+                    <input type="text" name="lname" maxlength="255" required="" id="id_lname" class="contact_inp" placeholder="Фамилия">
+
+                    <input type="text" name="phone" maxlength="15" required="" id="id_phone" class="contact_inp" placeholder="Телефон">
+
+                    <input type="text" name="mail" maxlength="254" required="" id="id_mail" class="contact_inp" placeholder="E-mail">
+                </div>
+
+                <textarea name="msg" cols="40" rows="10" required="" id="id_msg" placeholder="Тест сообщения" class="contact_area"></textarea>
+                <button class="contact_btn">Задать вопрос</button>
+            </form>
+        </div>
+    </section>
+
+
+    <section class="bottom_menu">
+        <div class="bottom_menu-wrapper">
+            <a href="https://ep.org.ru/" class="bottom_menu-link">О нас </a>
+            <div class="bottom_menu-link">Наши продукты
+                <div class="bottom_menu-body">
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/TCD_Print_Theory_Of_Changes_Handbook_145x210_2014_Preview_v02.pdf" target="_blank" class="bottom_menu-item">
+                        Методическое пособие по применению Теории измерений при планировании программы
+                    </a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2016/05/02032017-170306110722.pdf" target="_blank" class="bottom_menu-item">
+                        Методика построения системы измерения и оценки социальных результатов
+                    </a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/ozenka_soc-economy_effectivnosty.pdf" target="_blank" class="bottom_menu-item">
+                        Рекомендации по оценке социально-экономической эффектиности социальных программ
+                    </a>
+                    <a href="https://socialvalue.ru/wp-content/uploads/2020/07/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82_2.1.2.pdf" target="_blank" class="bottom_menu-item">
+                        Стандарт доказательности
+                    </a>
+                    <a href="o	https://base.socialvalue.ru/upload/files/%D0%9E%D0%A1_%20%D0%BE%D1%82_%20%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20_%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5_%20%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8.pdf" target="_blank" class="bottom_menu-item">
+                        Методика сбора и анализа обратной связи
+                    </a>
+                </div>
+            </div>
+            <div class="bottom_menu-link">наши Услуги
+                <div class="bottom_menu-body">
+                    <span href="" class="bottom_menu-item">
+                        Проектирование и корректировка систем измерения и оценки результатов
+                    </span>
+                    <span href="" class="bottom_menu-item">
+                        Разработка Теории изменений
+                    </span>
+                    <span href="" class="bottom_menu-item">
+                        Оценка программ
+                    </span>
+                    <span href="" class="bottom_menu-item">
+                        Проведение тренингов и косультирование
+                    </span>
+                    <span href="" class="bottom_menu-item">
+                        Анализ релевантного международного опыта
+                    </span>
+                </div>
+            </div>
+            <div class="bottom_menu-link">Наши ресурсы
+                <div class="bottom_menu-body">
+                    <a href="https://socialvalue.ru" class="bottom_menu-item">
+                        База знаний по оценке
+                    </a>
+                    <a href="https://pion.org.ru" class="bottom_menu-item">
+                        IT-сервис ПИОН
+                    </a>
+                    <a href="https://base.socialvalue.ru" class="bottom_menu-item">
+                        Слушай с пользой!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_wrapper">
+                <div class="footer_info">
+                    <div class="footer_item">
+                        <div class="footer_item-img">
+                            <img src="{% static 'images/footer_item1.png' %}" alt="">
+                        </div>
+                        <div class="footer_item-title">
+                            <a href="https://ep.org.ru/" style="color: white;">АНО “Эволюция и филантропия”</a>
+                        </div>
+                    </div>
+                    <a href="#" class="footer_item">
+                        <div class="footer_item-img">
+                            <img src="{% static 'images/footer_item2.png' %}" alt="">
+                        </div>
+                        <div class="footer_item-title">
+                            info@ep.org.ru
+                        </div>
+                    </a>
+                </div>
+                <div class="footer_links">
+                    <div class="footer_links-title">
+                        Вам может быть интересно
+                    </div>
+                    <a href="https://ep.org.ru/" class="footer_links-item">О нас</a>
+                    <a href="/news/" class="footer_links-item">Новости</a>
+                    <a href="#" class="footer_links-item">Политика конфиденциальности</a>
+                </div>
+
+                <div class="footer_form">
+                    <form method="post" action="/subscription/" class="footer_form-wrapper">
+                        {% csrf_token %}
+                        <input type="email" name="mail" maxlength="254" required="" id="id_mail" class="footer_form-inp" placeholder="E-mail">
+                        <button class="footer_form-btn">Подписаться</button>
+                    </form>
+                    <div class="footer_form-links">
+                        <a href="/?main_form=true" class="footer_form-link">Связаться с нами</a>
+                        <a href="https://www.facebook.com/EvolutionAndPhilanthropy" target="_blank" class="footer_form-messange">
+                            <img src="{% static 'images/footer_messange.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_right">
+            <div class="footer_right-title">
+                © 2021 АНО «Эволюция и Филантропия». Все права защищены. <br>
+                При использовании материалов сайта ссылка на первоисточник обязательна.
+            </div>
+        </div>
+        <div class="footer_dev">
+            <a href="#" class="footer_dev-link">
+                Данный сайт создан с использованием гранта Президента Российской Федерации, предоставленного Фондом
+                президентских грантов и при стратегической поддержке Фонда Тимченко
+            </a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% if main_form == True %}
+
+        <script>
+            $( document ).ready(function() {
+                var destination = $(".form_ms").offset().top;
+                $('html, body').animate({ scrollTop: destination }, 600);
+            });
+        </script>
+    {% endif %}
+</body>
+
+</html>

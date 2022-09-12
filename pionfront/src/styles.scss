@@ -1,0 +1,1561 @@
+//newpion/static/pionfront
+// Both native and custom selects must have the same width/height.
+.selectNative,
+.selectCustom {
+  position: relative;
+  width: 100%;
+  height: 58px;
+  display: table-cell;
+  font-size: 16px;
+}
+
+// Make sure the custom select does not mess with the layout
+.selectCustom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+@media (hover: hover) {
+  .selectCustom {
+    display: block;
+  }
+  .selectNative:focus + .selectCustom {
+    display: none;
+  }
+}
+
+/* Add the focus states too, They matter, always! */
+.selectNative:focus,
+.selectCustom.isActive .selectCustom-trigger {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 6px #70d2de;
+  border-radius: 5px;
+}
+.select {
+  position: relative;
+}
+.selectLabel {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+.selectWrapper {
+  position: relative;
+}
+
+.selectNative {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 0.8rem;
+  padding: 0rem 0.8rem;
+}
+
+.selectCustom-trigger {
+	position: absolute;
+  	width: 100%;
+  	height: 100%;
+	padding: 18px 5px;
+  cursor: pointer;
+}
+
+.selectCustom-trigger::after {
+  content: "▾";
+  position: absolute;
+  top: 18px;
+  right: 0.8rem;
+}
+
+.selectCustom-trigger:hover {
+  border-color: #48AAB8;
+}
+
+.selectCustom-options {
+  position: absolute;
+  top: calc(3.8rem + 0.8rem);
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 4px #e9e1f8;
+  z-index: 1;
+  padding: 0.8rem 0;
+  display: none;
+}
+
+.selectCustom.isActive .selectCustom-options {
+  display: block;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.selectCustom-option {
+	position: relative;
+	padding: 0.8rem;
+	padding-left: 2.5rem;
+	width: 100%;
+  	border-bottom: 1px solid #d3d3d3;
+	z-index: 5;
+}
+
+.selectCustom-option.isHover,
+.selectCustom-option:hover {
+	background-color: #48AAB8; 
+	color: white;
+	cursor: default;
+	z-index: 10;
+}
+
+body * {
+  box-sizing: inherit;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 1.6rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  margin: 2rem auto;
+  max-width: calc(100% - 2rem);
+  width: 40rem;
+  background: white;
+  padding: 3rem;
+  box-shadow: 0.2rem 0.2rem #e9e1f8;
+}
+
+.inst {
+  margin-bottom: 1rem;
+}
+
+.note {
+  font-size: 1.4rem;
+  margin: 2rem 0 0;
+  color: #6b6b6b;
+}
+
+.link {
+  display: inline-block;
+  color: inherit;
+  text-decoration-color: #C6F7FC;
+  padding: 0.1rem 0.2rem;
+  transform: translateX(-0.1em);
+  margin-right: -0.1em;
+
+  &:hover {
+    color: #48AAB8;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: #e9e1f8;
+  }
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	background-image: url("/newpion/static/pionfront/assets/img/body_bg.png");
+	background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    font-family: 'Montserrat', sans-serif;
+}
+input, textarea, select{
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+	resize: vertical;
+    font-weight: 500;
+}
+button{
+	cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+button:active, button:focus, input:active, input:focus, textarea:active, textarea:focus, select:active, select:focus, option:active, option:focus , option:hover {
+  outline: none;
+}
+button::-moz-focus-inner, input::-moz-focus-inner, textarea::-moz-focus-inner, select::-moz-focus-inner, option::-moz-focus-inner {
+  border: 0;
+}
+header{
+	padding: 25px 0px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	height: 97px;
+}
+footer{
+	padding: 25px 0px;
+	background-color: #212122;
+	height: 301px;
+}
+header>div, section>div, footer>div{
+	width: 1200px;
+	max-width: 100%;
+	margin: 0px auto;
+}
+.polit_block a{
+	color: #25c0d9;
+	text-decoration: none;
+}
+.polit_block{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-top: 40px;
+	text-align: center;
+}
+.row{
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	padding: 0px !important;
+}
+.head_chain{
+	background: #02acc8;
+}
+
+.act_m_line{
+	background: #C6F7FC !important;
+	border: 2px solid #48AAB8;
+}
+.block_program_list textarea,.block_program_list input[type="text"], .block_program textarea,.block_program input[type="text"]{
+	background: none;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	resize: none;
+	border: none;
+}
+.block_form>div, .block_program>div, .block_program_list>div{
+	background: white;
+	background-image: url("/newpion/static/pionfront/assets/img/form_bg.png");
+	background-position: top right;
+    background-repeat: no-repeat;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.block_chain>div{
+	padding-bottom: 1px;
+	background: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.desc_chain span{
+	font-weight: 600;
+}
+.desc_chain>div>div>img, .row_name img{
+	float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+.white_block{
+	padding: 0px 5px 1px 5px;
+}
+.white_block .item p{
+	margin: 10px 0px;
+}
+.white_block .item{
+	cursor: pointer;
+	margin-bottom: 5px;
+background: white;
+padding: 5px;
+}
+
+.row_name img{
+    margin-top: 10px;
+	margin-bottom: 20px;
+}
+.row_name p{
+margin-bottom: 0px;
+	font-size: 14px;
+}
+.row_name{
+	min-height: 75px;
+	padding: 1px 10px;
+}
+.block_form{
+	padding: 65px 0px 105px 0px;
+}
+.block_program{
+	padding: 65px 0px 65px 0px;
+}
+.block_program_list{
+	padding: 0px 0px 55px 0px;
+}
+.block_chain{
+	padding: 0px 0px 65px 0px;
+}
+.name_program{
+font-weight: 500;
+margin-bottom: 0px;
+}
+.desc_program{
+color: #908f8f;
+margin-top: 0px;
+}
+
+.head_chain h2{
+	font-size: 18px;
+	color: white;
+}
+
+
+.desc_p{
+	    top: 50%;
+    position: relative;
+    transform: translate(0, -50%);
+}
+.arrow_right{
+	padding-left: 40px;
+	background-image: url("/newpion/static/pionfront/assets/img/arrow_blue_right.png");
+	background-position:15px center ;
+    background-repeat: no-repeat;
+}
+.arrow_right>a{
+	color: #02acc8;
+}
+.marg_h{
+	margin-bottom: 47px;
+}
+h3.marg_h_top{
+	margin-top: 47px;
+}
+ul{
+	margin-left: 0px;
+	padding-left: 17px;
+}
+li{
+	margin-bottom: 17px;
+}
+.marg_h_bottom{
+	margin-bottom: 65px;
+}
+h2.marg_h_top{
+	margin-bottom: 0px;
+	margin-top: 33px;
+}
+.sub_line{margin-top: 0px;padding-top: 0px;}
+
+
+
+.block_my .marg_h{
+	margin-top: 0px;
+}
+.add_button img{
+	float: left;
+	margin-right: 15px;
+}
+.add_button p{
+	margin: 0px;
+	padding-top: 5px;
+}
+.block_registration{
+	padding-top: 20px;
+	padding-bottom: 65px;
+}
+.block_registration .row{
+	color: #737373;
+	margin-bottom: 25px;
+}
+.input_necessary:after{
+	content: "*";
+    position: absolute;
+    padding-left: 10px;
+}
+.block_registration input{
+	border: none;
+	padding: 12px 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	width: 100%;
+}
+.block_registration .row p{
+	margin: 0px;
+	text-align: right;
+}
+.add_button{
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 500;
+	width: 250px;
+	max-width: 100%;
+	background: #F78219;
+	color: white;
+	border-radius: 7px;
+	border: none;
+	margin-right: 3px;
+	margin-bottom: 3px;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.add_button:hover{
+	background: #db5c07;
+}
+.editor{
+	overflow: scroll;
+	height: 500px;
+}
+
+
+.el_type1{
+	background: #9ee8f4;border-color: #45c6db !important;
+}
+.el_type2{
+	background: #adfbdd;border-color: #2ca978 !important;
+}
+.el_type3{
+	background: #fee6b1;border-color: #ee860b !important;
+}
+.el_type4{
+	background: #f3c9ee;border-color: #bf44af !important;
+}
+.el_type5{
+	background: #c1b9f4;border-color: #6a5faf !important;
+}
+.el_type6{
+	background: #f4c2b9;border-color: #ff330b !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+.block_ed{
+	position: absolute;
+    height: auto;
+    margin: 0px;
+    font-size: 16px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 250px;
+    border: 2px solid;
+}
+
+.block_result .line_access, .open_pr, .open_kontst{
+	cursor: pointer;
+}
+.results{
+	font-weight: 500;
+	margin: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+	text-decoration: none;
+	text-align: left;
+	list-style: none;
+}
+.block_select .select-styled{
+	box-shadow: none !important;
+}
+
+.popap_projInfo .text_block p{
+	color: #737373;
+	font-size: 15px;
+}
+.popap_projInfo .text_block span,
+.popap_projInfo .text_block strong{
+	color: black;
+	font-size: 16px;
+}
+.popap_projInfo .text_block .level p{
+	margin-bottom: 12px !important;
+	margin-top: 3px;
+}
+
+.results li{
+	margin-bottom: 5px;
+	margin-top: 20px;
+}
+.results li:before{
+	margin-right: 15px;
+    margin-top: 0px;
+    float: left;
+    content: url('/newpion/static/pionfront/assets/img/check_2.png');
+    margin-bottom: 5px;
+}
+ .dark_block{
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.2);
+	height: 100vh;
+	width: 100%;
+	z-index: 110;
+}
+.no_bottom{margin-bottom: 0px !important;}
+.dark_block .text_block img{
+	margin-top: -3px;
+    float: left;
+    margin-right: 15px;
+}
+
+.dark_block .text_block p{
+	margin: 30px 0px 30px 0px;
+}
+
+#access_link{
+	padding-left: 60px;
+	margin-top: 0px;
+}
+.dark_block p{
+	text-align: left;
+}
+.popap_projInfo .text_block{
+	padding:  5px 20px;
+}
+
+.dark_block>div{
+	max-height: 90%;
+	overflow-y: auto !important;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	text-align: center;
+	width: 410px;
+	max-width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: white;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.dark_block > .newForm{
+	width: 570px;
+}
+.dark_block .newForm img{
+	margin-top: -10px;
+
+}
+
+.close_btn img{
+	cursor: pointer;
+}
+.close_btn{
+	text-align: right !important;
+	margin: 0px;
+}
+
+.no_padding_p{
+	margin-top: 0px !important;
+	margin-bottom: 20px !important;
+}
+.no_padding_p span{
+	padding: 0px !important;
+}
+.block_result{
+	padding-left: 30px !important;
+}
+.line_access span, .line_include span{
+    /* top: 50%; */
+    /* transform: translate(0%, -50%); */
+    /* position: absolute;*/
+	text-decoration: underline;
+	display: block;
+    padding: 10px 0px;
+}
+.block_my>div{
+	margin-bottom: 80px;
+	margin-top: 40px;
+}
+.line_access, .line_include{
+	background-position: 10px center;
+	font-weight: 500;
+	color: #02acc8;
+	margin: 5px 0px;
+  position: relative;
+	padding-left: 45px;
+    min-height: 38px;
+
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.line_access.check{background-position: 0px center;background-image: url('/newpion/static/pionfront/assets/img/check.png');}
+.line_access.uncheck{background-position: 0px center;background-image: url('/newpion/static/pionfront/assets/img/uncheck.png');}
+
+.line_access.checkMy{background-position: 0px center;background-image: url('/newpion/static/pionfront/assets/img/user_orange.png');}
+.line_access.uncheckMy{background-position: 0px center;background-image: url('/newpion/static/pionfront/assets/img/user_grey.png');}
+
+.line_include{
+	margin: 0px;
+	color: black;
+	text-decoration: none;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+
+.border_right{
+	border-right: 1px solid transparent;
+    border-image: linear-gradient(to bottom,  #CAD4D5 ,rgba(255,255,255,0));
+    -moz-border-image: -moz-linear-gradient(to bottom, #CAD4D5 ,rgba(255,255,255,0));
+    -webkit-border-image: -webkit-linear-gradient(to bottom,  #CAD4D5 ,rgba(255,255,255,0));
+    border-image-slice: 1;
+}
+.border_botton{
+	border-bottom: 1px solid transparent;
+    border-image: linear-gradient(to right,  #CAD4D5 ,rgba(255,255,255,0));
+    -moz-border-image: -moz-linear-gradient(to right, #CAD4D5 ,rgba(255,255,255,0));
+    -webkit-border-image: -webkit-linear-gradient(to right, #CAD4D5 ,rgba(255,255,255,0));
+    border-image-slice: 1;
+}
+
+.line_include span{
+	text-decoration: none;
+}
+.line_include.check{
+	background-position: 10px center;
+	background-color: #ceeef1;
+	background-image: url(/newpion/static/pionfront/assets/img/check_2.png);
+}
+
+
+.login_block img{
+	margin-top: 5px;
+    float: left;
+    margin-right: 10px;
+}
+.login_block{
+	margin-top: 2px;
+}
+.login_block strong{
+	font-weight: 700;
+}
+.login_block p{
+margin: 0px;
+}
+.underline{
+	font-size: 14px;
+	text-align: center;
+	border-top: 1px solid #606060;
+	padding-top: 65px;
+	margin-bottom: 0px;
+	color: #606060;
+}
+.top_menu{
+	padding-left: 0px;
+	margin-top: 12px;
+	list-style: none;
+}
+.login_block button{
+	width: auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.block_registration h1{
+padding-bottom: 15px;
+color: white;
+margin-bottom: 65px;
+font-size: 30px;
+border-bottom: 1px solid transparent;
+border-image: linear-gradient(to right, white ,rgba(255,255,255,0));
+-moz-border-image: -moz-linear-gradient(to right, white ,rgba(255,255,255,0));
+-webkit-border-image: -webkit-linear-gradient(to right, white ,rgba(255,255,255,0));
+border-image-slice: 1;
+}
+.top_menu li a{
+	text-transform: uppercase;
+	font-size: 14px;
+	color: black;
+	padding: 0px 10px;
+	text-decoration: none;
+}
+footer .top_menu li a{
+	color: white;
+	padding: 0px 25px;
+}
+.block_select .row:first div{
+	border-right: 1px solid black;
+}
+footer .row>div, .block_select .row>div{
+	padding: 0px;
+}
+footer .row{
+	margin-bottom: 35px;
+}
+.top_menu li{
+	display: inline;
+}
+.hamburger{
+	text-align: center;
+	height: 97px;
+	position: absolute;
+	top: -25px;
+}
+.arrow_totop{
+	text-align: right;
+}
+.arrow_totop>img{
+	cursor: pointer;
+}
+.logo_footer{
+	padding-top: 5px;
+}
+.logo_footer img{
+	margin-right: 15px;
+	float: left;
+}
+.media_block{
+	padding-top: 7px !important;
+	text-align: right;
+}
+.polit a{
+	color: white;
+	padding: 0px 10px ;
+}
+.polit p{
+	text-align: center;
+	font-size: 14px;
+	font-weight: 400;
+}
+.no_padding>div{
+	padding: 0px !important;
+	padding-right: 10px !important;
+}
+
+.add_button span{
+	padding-top: 3px;
+    display: inline-table;
+}
+.add_tolib{
+	width: auto;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.right{
+	text-align: right !important;
+}
+.center{
+	text-align: center !important;
+}
+
+.blank_li div{
+	text-transform: uppercase;
+	padding: 25px 10px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background: #ceeef1;
+}
+.back_btn a{
+	background-image: url('/newpion/static/pionfront/assets/img/arrow_blue.png');
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    color: #02acc8;
+    box-shadow: 0 0 black;
+}
+.back_btn{
+	font-weight: 500;
+	    padding-top: 27px;
+    font-size: 16px;
+
+}
+.deactive{
+	background: none !important;
+}
+.blue_item{
+	background: #ceeef1;
+	text-align: center;
+}
+.blue_item h1{
+	margin:  25px 0px;
+	font-size: 18px;
+}
+
+.blank_li .col-5:hover{
+	background: #ceeef1 !important;
+}
+.open_button img{
+	margin-top: 3px;
+}
+.open_button{
+	background: #02acc8;
+	border: 2px solid white;
+    height: 38px;
+    width: 40px;
+    border-radius: 5px;
+    top: 50%;
+    position: relative;
+    transform: translate(0, -50%);
+}
+.content_block{
+	padding: 10px 20px 45px 20px;
+}
+.block_programDesc{
+	padding: 25px 20px 25px 20px;
+}
+.font_500{
+	font-weight: 500;
+}
+.content_block h3{
+	font-size: 17px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+sup{
+	color: #f78219;
+    padding-left: 5px;
+    position: absolute;
+    margin-top: -5px;
+}
+.container_checked {
+  display: block;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding-top: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    user-select: none;
+    padding-bottom: 5px;
+    min-height: 38px;
+}
+
+.container_checked input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+// .container_checked:hover input ~ .checkmark {
+// }
+
+.container_checked input:checked ~ .checkmark {
+  background-color: #f78219;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container_checked input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container_checked .checkmark:after {
+        left: 10px;
+    top: 4px;
+    width: 10px;
+    height: 17px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.cloud_form p{
+	margin: 0px;
+	color: white;
+	padding-top: 12px;
+
+}
+.cloud_form:before {
+	content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -18px;
+    /* top: 100px; */
+    border: 9px solid;
+    border-color:  #f78219 #f78219 transparent  transparent   ;
+    right: 10px;
+}
+.cloud_form img{
+	float: left;
+	margin-right: 20px;
+}
+.cloud_form{
+	cursor: pointer;
+	width: 340px;
+	padding: 10px;
+	z-index: 39;
+	position: fixed;
+	right: 20px;
+	bottom: 35px;
+	background: #f78219;
+}
+.save_button{
+	margin-top: 6px;
+	padding: 7px 10px;
+	width: auto;
+	min-width: 180px;
+	max-width: 100%;
+	background: #02acc8 !important;
+	border: 2px solid white;
+}
+.save_button p{
+	padding-top: 2px;
+}
+.desc_chain{
+	margin: 10px;
+    background: #ceeef1;
+}
+.desc_chain .open_button{
+	border: none !important;
+	background: none !important;
+}
+
+table, thead, tbody{
+	border-spacing: 0px;
+  width: 100%;table-layout: fixed;
+}
+td input, td textarea{
+	resize: none;
+	text-align: center;
+	margin: 0px;
+	border: none;
+	max-width: 100%;
+	min-width: 100%;
+	padding-top: 15px;
+}
+
+.num6_table tbody td,
+.num3_table tbody td,
+.num4_table tbody td,
+.num5_table tbody td{
+	background: white;
+	padding: 0px;
+}
+.block_qw td{
+	background: white;
+	padding: 10px 20px;
+}
+.block_select td{
+	margin: 0px;
+	padding: 0px;
+}
+.block_select select{
+	margin: 0px;
+	width: 100%;
+	padding: 10px 10px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+//    background-image: url(...);   /* Add custom arrow */
+}
+select::-ms-expand {
+    display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+}
+
+thead td{
+	background: #ceeef1;
+	padding: 10px 10px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+td, table{
+	border: 1px solid #02acc8;
+}
+table{
+
+	border-left: none;
+	border-right: none;
+}
+
+.desc_item{
+	display: none;
+	    border-radius: 6px;
+    position: absolute;
+    margin-top: -7px;
+    left: 50%;
+    text-align: center;
+    max-width: 400px;
+    width: 400px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 20;
+}
+.desc_item:after {
+       left: 5px;
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* top: 100px; */
+    top: -10px;
+    border: 5px solid;
+    border-color: transparent transparent rgba(0,0,0,0.6) rgba(0,0,0,0.6);
+    right: 10px;
+}
+
+
+.item:hover .desc_item{
+	display: block;
+}
+
+.add_tableline>button, .table_chain_gruppe button{
+background: none !important;
+color: #02acc8 ;
+width: 205px;
+}
+.table_chain_gruppe button{
+	width: 150px;
+}
+.add_tableline>button p, .table_chain_gruppe button p{
+	text-decoration: underline;
+}
+.add_tableline{
+	padding: 12px 0px;
+}
+
+.desc_chain.active{
+	border: 2px solid #02acc8;
+	background: #c5f7fc;
+}
+
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+.select {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  width: 100%;
+}
+.select-styled{
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+	border-radius: 8px;
+background-color: white;
+    padding: 15px;
+    padding-right: 30px;
+    background-image: url("/newpion/static/pionfront/assets/img/arrow_select.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+.select-options>li{
+	padding:10px 15px ;
+	margin: 0px;
+}
+.select-options>li:hover{
+	background: #F78219;
+	color: white;
+}
+.select-options{
+	 display: none;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.25);
+	padding-left: 0px;
+	z-index: 15;
+	list-style: none;
+	position: absolute;
+    background: white;
+    width: 100%;
+    margin-top: 3px;
+}
+.select-options li[rel="hide"] {
+    display: none;
+}
+.select-styled.active{
+	background-image: url("/newpion/static/pionfront/assets/img/arrow_select_active.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-position: right 10px center;
+}
+.table_chain_gruppe textarea{
+	width: 100%;
+	resize: none;
+	border: none;
+	border-bottom: 3px solid #02ACC8;
+}
+.block_select textarea, .table_chain_gruppe textarea{
+text-align: left;
+padding: 15px !important;
+font-size: 16px;
+}
+.one_btn div,
+.two_btn div{
+	height: 49px;
+	width: 49px;
+	text-align: center;
+	padding-top: 11px;
+	float: right;
+	cursor: pointer;
+}
+.one_btn textarea{
+	width: calc(100% - 49px);
+	min-width: auto !important;
+}
+.two_btn textarea{
+	width: calc(100% - 98px);
+	min-width: auto !important;
+}
+.block_qw td:hover{
+	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.num2_table thead td p{
+margin: 0px;
+padding: 8px 0px 8px 40px;
+background-image: url("/newpion/static/pionfront/assets/img/book.png");
+background-repeat: no-repeat;
+background-position: left center;
+}
+.inter_link a{
+	color: black;
+}
+.inter_link img{
+float: left;
+margin-top: 12px;
+margin-right: 15px;
+}
+.user_info span{
+	color: #737373;
+}
+.orange_inform{
+	background: #F78219;
+}
+.line_descSel{
+	margin-bottom: 8px !important;
+	margin-top: 25px !important;
+	padding: 0px 10px;
+}
+.text_block button{
+	margin: 20px 2px;
+}
+ .text_block .select-options{
+ 	width: calc(100% - 20px);
+	box-shadow: none;
+	border: 1px solid rgba(0,0,0,0.15);
+	text-align: left;
+	margin: 0px 10px;
+}
+.text_block .select-styled, .text_block input {
+	box-shadow: none;
+	border: 1px solid rgba(0,0,0,0.15);
+	text-align: left;
+	margin: 0px 10px;
+}
+ .text_block input{
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(100% - 22px);
+}
+.block_program_list .block_programDesc textarea.name, .block_program_list .block_programDesc input,
+.block_program .block_programDesc textarea.name, .block_program .block_programDesc input{
+ 	font-size: 18px;
+	margin-bottom: 25px;
+}
+.block_program_list .block_programDesc textarea, .block_program .block_programDesc textarea{
+	margin-bottom: 35px;
+}
+.block_program_add{
+	padding-bottom: 40px;
+}
+.block_select{
+	background: white;
+}
+.btn_newProg .add_button{
+	width: 420px;
+	max-width: 100%;
+}
+.btn_newProg{
+	margin-top: 15px;
+	background: #ceeef1;
+}
+.btn_newProg>div{
+	padding: 30px 0px ;
+}
+.btn_newProg .add_button img{
+ margin-left: 15px;
+}
+.btn_newProg .add_button p {
+	padding-top: 7px;
+}
+.block_program_list .head_result button, .head_result button{
+	float: right;
+}
+.blue_head>div{
+	overflow: hidden;
+	padding: 0px;
+	width: 500px;
+	border-bottom: 6px solid #CEEEF1;
+}
+.name_block.uncheck{
+	cursor: pointer;
+	background: url("/newpion/static/pionfront/assets/img/check_grey.png");
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+}
+.name_block.checkMy{
+	cursor: pointer;
+	background: url("/newpion/static/pionfront/assets/img/user_orange.png");
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+}
+.name_block.uncheckMy{
+	cursor: pointer;
+	background: url("/newpion/static/pionfront/assets/img/user_grey.png");
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+}
+.name_block.check{
+	cursor: pointer;
+	background: url("/newpion/static/pionfront/assets/img/check.png");
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+}
+.item_seatchMethod{
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	background: white;
+	margin-bottom: 30px;
+}
+.name_block img{
+	float: left;
+	margin: 0px 10px;
+}
+
+.search_input{
+	background-color: white;
+	background-image: url("/newpion/static/pionfront/assets/img/lens.png");
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.15);
+    text-align: left;
+    margin:20px 0px ;
+padding-right: 60px;
+}
+
+.name_block{
+	font-weight: bold;
+	z-index: 20;
+	padding: 20px 10px;
+	padding-right: 52px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.more_info p img{
+	margin-top: 2px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+}
+.more_info p{
+	cursor: pointer;
+	margin: 6px 0px 8px  0px;
+	color: #02acc8;
+}
+.more_info{
+	padding: 2px 5px;
+	background: #ceeef1;
+}
+.lib>.row{margin: 0px !important;}
+.add_toLib{cursor: pointer;}
+.add_toLib img{
+	margin-left: 15px;
+}
+.add_toLib p{
+	margin-top: 15px !important;color: #02ACC8; text-decoration: underline;
+}
+.tox.tox-tinymce{
+	height: 250px !important;
+}
+
+.table_chain_gruppe{
+	background: white;
+}
+.table_chain_gruppe>div{
+	padding: 0px;
+	margin-top: 12px;
+	padding-right: 10px;
+}
+.table_chain_gruppe>div>div{
+	background: #CEEEF1;
+	border-bottom: 5px solid #02ACC8;
+}
+.table_chain_gruppe>div:last-child{
+	padding: 0px;
+}
+.blue_head .head{
+padding:  10px;
+	background: #ceeef1;
+}
+.blue_head .head .center{
+margin-top: 0px;
+}
+.popap_download>div{
+	width: 500px;
+}
+.popap_download .text_block{
+	padding: 0px 20px;
+}
+.popap_download .text_block p{
+	text-decoration: underline;
+	margin-top: 40px;
+}
+.popap_download .text_block img{
+	margin-top: -12px;
+}
+.table_head{
+	background: #ceeef1;
+	padding: 10px;
+}
+.table_head button{
+	border: none;
+}
+.block_img_list p{
+	padding: 40px 0px 30px 0px;
+	float: left;
+
+	margin-right: 15px;
+}
+.block_img_list img{
+	padding: 0px 2px ;
+	margin-top: 40px;
+}
+.table_head h3{
+	padding: 15px;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+.info_dia span{
+	width: 20px;
+    margin-top: 2px;
+    height: 20px;
+    background: black;
+    border: 2px solid grey;
+    display: block;
+    float: left;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.dia_generator{
+	padding: 35px 10px;
+}
+
+.block_sendfor .midle_text{
+	margin-left: 40px;
+	margin-top: 30px;
+	margin-right: 40px;
+margin-bottom: -10px;
+}
+
+.block_sendfor button{
+	width: 100px !important;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.big_sellect{
+	padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: calc(100% - 22px);
+}
+
+
+
+ .dark_block .text_block p {
+    margin: 30px 0px 30px 0px;
+}
+.dark_block p {
+    text-align: left;
+}
+.line_descSel {
+    margin-bottom: 8px !important;
+    margin-top: 25px !important;
+    padding: 0px 10px;
+}
+
+.text_item{
+	width: calc(100% - 22px);
+    height: 70px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.add_tems{
+	text-align: left;
+}
+.add_tems input{
+	width: calc(100% - 62px);
+
+}
+.add_tems button{
+	background: url("/newpion/static/pionfront/assets/img/add_btn.png");
+	width: 33px;
+    border: none;
+    height: 33px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.r_btn button{
+	    position: sticky;
+	    top: 0;
+    transform: translate(0);
+    margin-left: 10px;
+    background: #F78219 !important;
+    border-color: #F78219;
+    height: 38px;
+}
+.min-btn{
+	transform: translate(0, 2px) !important;
+}
+
+button.z_color{
+	background: none !important;
+	border-color: #02ACC8 !important;
+}
+
+
+.item_wDesc{
+	margin-bottom: 13px;
+
+}
+.item_wDesc .desc_item3{
+    display: none;
+    border-radius: 6px;
+    position: absolute;
+    margin-top: 0px;
+    left: 20px;
+    text-align: center;
+    max-width: 250px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.85);
+    color: black;
+    box-shadow: 0 0 10px rgb(0 0 0 / 25%);
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 20;
+}
+.desc_item3:hover,
+.item_wDesc:hover .desc_item3{
+	display: block;
+}
+.more_input input{
+	margin-bottom: 10px;
+
+}
+
+.block_list .item_list{
+cursor: pointer;
+	box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    text-align: left;
+    margin: 0px 10px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: url('/newpion/static/pionfront/assets/img/arrow_select.png');
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+}
+.check_block{
+	background: rgba(0,0,0,0.02);
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	padding: 20px 20px 10px 20px;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-right: 15px;
+
+}
+.big_form>div{
+    width: 650px;
+}
+.item_wDesc span{
+	color: #F78219;
+}
+.date_item input{
+    width: 170px;
+}
+.date_item{
+	text-align: left;
+}
+
+.date_list{
+	margin-top: 0px !important;
+	padding: 0px 10px;
+
+}
+.date_list input{
+    width: 150px;
+}
+
+.class_btns button{
+	border-radius: 10px;
+	padding-left: 55px;
+	border: none;
+	background: white;
+	box-shadow: 0 0 3px rgba(0,0,0,0.15);
+	width: 100%;
+	height: 55px;
+
+}
+
+.selected_file{
+	background: url('/newpion/static/pionfront/assets/img/clip.png') !important;
+	background-position: left 10px center !important;
+	background-repeat: no-repeat !important;
+}
+
+.no_file{
+	background: url('/newpion/static/pionfront/assets/img/clip_grey.png') !important;
+	background-position: left 10px center !important;
+	background-repeat: no-repeat !important;
+}
+
+.add_block{
+  color: #F78219;
+	background-color: rgba(255,255,255,0) !important;
+	background-image: url('/newpion/static/pionfront/assets/img/add_btn.png') !important;
+	padding-top: 24px !important;
+	border: none;
+	background-position: 10px 20px !important;
+	background-repeat: no-repeat !important
+}
+.add_block:hover{
+    color: #F78219 !important;
+    background-color: rgba(255,255,255,0) !important;
+    background-image: url('/newpion/static/pionfront/assets/img/add_btn.png') !important;
+
+}
+
+.add_button.remove, .add_button.remove:hover {
+    background-color: #aeaeae;
+}

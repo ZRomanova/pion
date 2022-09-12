@@ -1,0 +1,6 @@
+[21/Nov/2016 20:48:54] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\xe0\x01\x00\x00\xdc\x03\x03X3]\xb6\x86\xe8\xd3\xe4VI\xf9\x96\xaf@oW.\xbd\x9e\x80\x90\xa7\xdaN\xfb')
+[21/Nov/2016 20:48:54] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[21/Nov/2016 20:48:54] code 400, message Bad request syntax ('\x16\x03\x01\x00\xc0\x01\x00\x00\xbc\x03\x01X3]\xb6}S\xd7\x93\xa6^CBes\xba+\x8eT\xe5l5T\'\xe6H\xd72\xe9\x93\x12X\xc1\x00\x00"\x00\xffV\x00\xc0$\xc0#\xc0')
+[21/Nov/2016 20:48:54] You're accessing the development server over HTTPS, but it only supports HTTP.
+

@@ -1,0 +1,54 @@
+Internal Server Error: /portal/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/etc/side_projects/RCBuilder/rcapp/views.py", line 13, in get
+    return super(ListView, self).get(self, request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/generic/list.py", line 159, in get
+    self.object_list = self.get_queryset()
+  File "/etc/side_projects/RCBuilder/rcapp/views.py", line 11, in get_queryset
+    return ResultsChain.objects.orderby('-formation_date')
+NameError: name 'ResultsChain' is not defined
+[06/Dec/2016 20:01:10] "GET /portal/ HTTP/1.1" 500 79837
+Internal Server Error: /portal/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/etc/side_projects/RCBuilder/rcapp/views.py", line 13, in get
+    return super(ListView, self).get(self, request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/generic/list.py", line 159, in get
+    self.object_list = self.get_queryset()
+  File "/etc/side_projects/RCBuilder/rcapp/views.py", line 11, in get_queryset
+    return ResultsChain.objects.orderby('-formation_date')
+NameError: name 'ResultsChain' is not defined
+[06/Dec/2016 20:01:12] "GET /portal/ HTTP/1.1" 500 79837
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 06, 2016 - 20:01:08
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 06, 2016 - 20:02:07
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

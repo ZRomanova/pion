@@ -1,0 +1,177 @@
+{%load static%} {%load fk_filters%}
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>ЦР: {{ object.name }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts - which you want to use - (rest you can just remove) -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link rel="stylesheet" href='{% static "css/prettyPhoto.css" %}'>
+    <link rel="stylesheet" href='{% static "css/owl.carousel.css" %}'>
+    <link rel="stylesheet" href='{% static "css/main.css" %}'>
+    <link rel="stylesheet" href='{% static "css/responsive.css" %}'>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker();
+            select_changed();
+        });
+    </script>
+    <script>
+        function set_select() {
+            //{{ compare1 }}
+            var classes = document.getElementsByClassName("selector_from_context");
+            if (classes.length > 0) {
+                var elem = classes[0];
+                elem.innerHTML = '{% autoescape off %}{{ resulting_choices_html }}{% endautoescape %}';
+            }
+            select_changed();
+        }
+        window.onload = set_select;
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Навигация</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- LOGO -->
+                    <a class="navbar-brand page-scroll" href="/">
+                        <img width="234" height="40" src='{% static "img/logo-2.png"%}' alt="">
+                    </a>
+                    <!-- END LOGO -->
+
+                </div>
+
+                <!-- TOGGLE NAV -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        {% if not is_authenticated %}
+                        <li><a class="library-button" href="https://pion.org.ru/newpion/select-library">Библиотека</a></li><li><a class="login-button" href="https://pion.org.ru/newpion/auth/login">Вход</a>
+                        </li>
+                        <li><a class="regtr-button" href="https://pion.org.ru/newpion/auth/registration">Регистрация</a>
+                        </li>
+                        {% else %}
+                        <li><a class="page-scroll" href="/portal/{{rc}}">Назад</a>
+                        </li>
+                        <li><a class="create-button" href="/portal/">Мои программы</a>
+                        </li>
+                        <!--
+                        <li><a class="logout-button" href="/accounts/logout/">Выйти</a>
+                        </li>
+                        -->
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- TOGGLE NAV -->
+
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- END NAVIGATION -->
+    </header>
+
+    <section id="main" class="section text-center">
+        <div class="container">
+            <iframe src="http://docs.google.com/gview?url=https://pion.org.ru/portal/{{rc}}/pdf&embedded=true" style="width:100%; height:90%;" frameborder="0"></iframe>
+        </div>
+    </section>
+
+    <br><br><br>
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <!-- FOOTER MENU -->
+                <div class="col-md-6">
+                    <div class="footer-menu">
+                        <ul class="list-inline">
+                            <li><a class="page-scroll" href="#top">Вверх</a>
+                            </li>
+                            <li><a class="page-scroll" href="/portal/">Мои программы</a>
+                            </li>
+                            <li><a class="page-scroll" href="/">Главная</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END FOOTER MENU -->
+
+                <!-- FOOTER CONTENT -->
+                <div class="col-md-6">
+                    <div class="footer-content text-right">
+                        <!--<p>&copy; 2016 All Rights Reserved, 
+                            <a href=""></a>
+                        </p>-->
+                    </div>
+                </div>
+                <!-- END FOOTER CONTENT -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- ./container -->
+    </footer>
+
+
+
+    <!--<script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>-->
+    <script src='{% static "js/plugins.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/wow.min.js" %}'></script>
+    <script src='{% static "js/prettyPhoto.js" %}'></script>
+    <script src='{% static "js/owl.carousel.min.js" %}'></script>
+    <script src='{% static "js/main.js" %}'></script>
+
+
+    <script>
+        if (document.getElementsByClassName("selector")[0].innerHTML == '\n<option value="custom">Введите свой вариант</option>\n') {
+            document.getElementsByClassName("selector")[0].parentNode.parentNode.style.visibility = "hidden";
+        }
+
+        function custom_changed() {
+            if (document.getElementById("id_custom_value").value != '') {
+                document.getElementsByClassName("selector")[0].value = "custom";
+            }
+        }
+
+        document.getElementById("id_custom_value").oninput = custom_changed;
+
+        function select_changed() {
+            //var x = document.getElementsByClassName("selector")[0].value;
+            //alert(document.getElementsByClassName("selector")[0].innerHTML == '\n<option value="custom">Введите свой вариант</option>\n');
+            //console.log(">" + document.getElementsByClassName("selector")[0].innerHTML + "<");
+            //document.getElementById("id_custom_value").disabled = (x != 'custom');
+        }
+    </script>
+</body>
+
+</html>

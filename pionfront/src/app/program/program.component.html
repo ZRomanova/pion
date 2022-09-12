@@ -1,0 +1,1917 @@
+<div class="fixed_block" *ngIf="program && program.name">
+	<div class="title_fixed_block">{{program.name}}</div>
+</div>
+
+<section class="help_block" #help_block>
+	<div class="full-width" style="text-align: center;">
+		Нажмите на текстовый блок для начала его редактирования
+	</div>
+</section>
+
+<section class="menu_block" *ngIf="displayProgressLine">
+    <div class="full-width"> 
+        <div class="photo">
+            <div class="item_text" id="itemNum1" [class]="{'active': itemNum1Active || programForm.value.name}"><div>Название программы</div></div>
+            <div class="desc_item3">
+                Введите название программы. Если программа (практика) проходила верификацию и/или включена в реестр доказательных практик, и/или в другой реестр (банк) практик, используйте то же название, что и ранее.
+            </div>
+        </div> 
+
+        <div class="photo">
+            <div class="item_text" id="itemNum2" [class]="{'active': itemNum2Active || programForm.value.period}"><div>Введите сроки реализации программы</div></div>
+            <div class="desc_item3">
+                Укажите год начала реализации программы и год окончания. Если программа продолжается, напишите н.в. Например, 2017 – н.в.
+            </div>
+        </div> 
+
+        <div class="photo">
+            <div class="item_text" id="itemNum3" [class]="{'active': itemNum3Active || programForm.value.description}"><div>Введите описание программы</div></div>
+            <div class="desc_item3">
+                Введите  краткий текст с доступным описанием программы. Выделите самое главное и уникальное. Желательно, чтобы объем текста не превышал 300 символов с пробелами. 
+            </div>
+        </div> 
+
+        <div class="photo">
+            <div class="item_text" id="itemNum4" [class]="{'active': itemNum4Active || programForm.value.practice_refs.length > 0}"><div>Выберите тип практики</div></div>
+            <div class="desc_item3">
+                В перечне практик отметьте галочкой пункты, которые точно и однозначно характеризуют основную деятельность по  программе.  Можно выбрать как один пункт, так и несколько. Предпочтительно выбирать 1-2 пункта.
+            </div>
+        </div> 
+
+        <div class="photo">
+            <div class="item_text" id="itemNum5" [class]="{'active': itemNum5Active || programForm.value.target_refs.length > 0}"><div>Выберите целевые группы</div></div>
+            <div class="desc_item3">
+                Отметьте галочкой в перечне ниже целевую группу или группы программы.  Для каждой отмеченной целевой группы далее необходимо будет построить цепочку социальных результатов. Добавить целевую группу или убрать выбранную можно будет в процессе работы. Для этого необходимо поставить или убрать галочку в списке, нажать кнопку «Сохранить», выйти и снова зайти в программу.  
+            </div>
+        </div>  
+
+        <div class="photo">
+            <div class="item_text" id="itemNum6" [class]="{'active': itemNum6Active || id}"><div>Сохраните программу</div></div>
+            <div class="desc_item3">
+                Нажмите кнопку «Сохранить». После сохранения программы часть информации будет скрыта. Для изменения данных раскройте карточку программы полностью, нажав на галочку в правом верхнем углу.
+            </div>
+        </div>   
+
+        <div class="photo">
+            <div class="item_text" id="itemNum7" [class]="{'active': itemNum7Active || displayChain}"><div>Переходите к ЦСР</div></div>
+            <div class="desc_item3">
+                Все готово для работы над цепочкой социальных результатов. Постепенно раскрывайте блоки и вносите необходимую информации.  Двигайтесь сверху вниз, тогда все внесенные данные автоматически будут появляться на своих местах в блоках ниже.
+            </div>
+        </div>   
+        <p (click)="displayProgressLine = false" class="item_Close"><span><img src="/newpion/static/pionfront/assets/img/arrow_open.png"></span></p>
+    </div>
+</section>
+
+<section class="block_program">
+    <div>
+        <form [formGroup]="programForm" (ngSubmit)="onSubmit()">
+            <div class="row head_result">
+                <div class="col-4 blue_item">                    
+                    <h1 class="uppercase" >
+                        <!-- <p (click)="displayProgressLine = true"><span><img src="/newpion/static/pionfront/assets/img/book.png"></span></p> -->
+                        <img src="/newpion/static/pionfront/assets/img/book.png" (click)="displayProgressLine = true"> 
+                        Программа
+                    </h1>
+                </div>
+                <div class="col-4"> 
+                    <ng-container *ngIf="currentUserRequest">
+                        <p class="name_program">{{currentUserRequest.organization}}</p>
+                        <p class="desc_program">{{currentUserRequest.region}}</p>
+                    </ng-container>
+                </div>
+                <div class="col-4 right">
+                    <div class="desc_itemHelp desc_itemHelp_pencil" #helpItem2>
+                        Нажмите для редактирования 
+                    </div>
+                    <button (click)="displayProgramDetails = !displayProgramDetails; hideHelpItem(2)" class="open_button op_btn" type="button"
+                        sost="close" openItem=".op_num1"><img
+                            src="/newpion/static/pionfront/assets/img/arrow_open.png"></button>
+                    <!-- <button class="open_button orange_inform"><img src="/newpion/static/pionfront/assets/img/pencil_white.png"></button>		 -->
+                </div>
+            </div>
+            <div class="block_programDesc" (mouseover)="showShadow()" (mouseout)="hideShadow()">
+
+                <div class="row">
+                    <div class="col-9 border_right">
+                        <textarea autosize [minRows]="1" class="name" placeholder="Название вашей программы" class="shadow_program_label"
+                            formControlName="name" (click)="hideHelpBlock()"></textarea>
+                        <textarea autosize [minRows]="1" class="shadow_program_label"
+                            placeholder="Опишите суть практики «простым языком», доступным для не-специалистов. Если применимо, опишите суть практики так, чтобы она была понятна вашим благополучателям."
+                            formControlName="description" (click)="hideHelpBlock()"></textarea>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" name="" placeholder="дд.мм.гг - дд.мм.гг" formControlName="period" class="shadow_program_label"
+                        (click)="hideHelpBlock()">
+                    </div>
+                </div>
+                <div class="row op_num1" *ngIf="displayProgramDetails && practices && targets">
+                    <div class="col-7 user_info">
+                        <h3>Практики</h3>
+
+                        <label class="container_checked" *ngFor="let practice of practices">{{practice.name}}
+                            <input [checked]="practiceShouldBeChecked(practice)" type="checkbox" [value]="practice.id"
+                                (change)="onCheckChange ('practice_refs', $event)">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-1 inter_link"></div>
+                    <div class="col-4 inter_link">
+                        <h3>Целевые группы</h3>
+
+                        <label class="container_checked" *ngFor="let target of targets">{{target.name}}
+                            <input [checked]="targetShouldBeChecked(target)" type="checkbox" [value]="target.id"
+                                (change)="onCheckChange('target_refs', $event)">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="row op_num1 btn_newProg" style="display: none;">
+            <div class="col-6 center"> 
+                <button class="add_button"><img src="/newpion/static/pionfront/assets/img/graf.png"><p>Цепочка социальных результатов</p></button> 
+            </div>
+            <div class="col-6 center">
+                <button class="add_button open_download"><img src="/newpion/static/pionfront/assets/img/cloud_save2.png"><p>Продукты для скачивания</p></button> 
+            </div>
+        </div> -->
+            <div class="row op_num1 btn_newProg">
+                <div class="col-12 center">
+                    <input type="hidden" name="" formControlName="user_ref">
+                    <button type="submit" [disabled]="!programForm.valid" class="add_button">
+                        <p>Сохранить</p>
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<section class="block_chain" *ngIf="this.id">
+    <div>
+        <form [formGroup]="programEdit">
+            <div class="row head_chain">
+                <div class="col-8">
+                    <h2 class="uppercase">Цепочка социальных результатов (таблица)</h2>
+                </div> 
+                <div class="col-4 right r_btn">
+                    <button (click)="downloadProgram($event)" class="add_button save_button"><img
+                            src="/newpion/static/pionfront/assets/img/cloud_save.png">
+                        <p>Скачать</p>
+                    </button>
+                    <button style="width: auto;" class="open_button op_btn min-btn">
+                        <img 
+                            src="/newpion/static/pionfront/assets/img/play_btn.png"></button>
+                    <button (click)="displayChain = !displayChain" style="width: auto;" class="open_button op_btn z_color min-btn"
+                        sost="close" openItem=".op_num5" (click)="hideHelpItem(1)"><img
+                            src="/newpion/static/pionfront/assets/img/arrow_open2.png"></button>
+                    <div class="desc_itemHelp" #helpItem1>
+                        Нажмите для редактирования 
+                    </div>
+                </div>
+            </div>
+            <div class="desc_chain op_num5" *ngIf="displayChain && assumptions" formArrayName="assumptions">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <img src="/newpion/static/pionfront/assets/img/book.png">
+                        <p>Предположения <span>{{assumptions.length}}</span></p>
+                        <div class="desc_item3">
+                            Предположения программы – это убеждения о программе, о том, как она будет происходить, которые не нашли отражения в цепочке социальных результатов.
+                        </div>
+                    </div>
+                    <div class="col-1 arrow right">
+                        <!-- <button style="width: auto;" class="open_button op_btn" sost="close" openItem=".op_num2"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button> -->
+                    </div>
+                    <div (click)="openAssumptionAdd()" class="col-2 open_kontst">
+                        <img src="/newpion/static/pionfront/assets/img/pencil.png">
+                        <p>Добавить</p>
+                    </div>
+                </div>
+                <div class="row table_chain_gruppe op_num2" *ngIf="assumptions.length == 0">
+                    <p>Не заполнено</p>
+                </div>
+                <div class="table_chain_gruppe op_num2 uline" *ngFor="let assumption of assumptions; index as i" [formGroupName]="i">
+                    <p>{{assumption.text}}</p>
+                    <textarea *ngIf="programEdit.value.assumptions[i].assumption_edit" formControlName="assumption_name"></textarea>
+                    <button *ngIf="programEdit.value.assumptions[i].assumption_edit" class="add_button" (click)="onAssumptionEdit(i)">Обновить</button>
+                    <div class="row" *ngIf="!programEdit.value.assumptions[i].assumption_edit">
+                        <button class="add_button" (click)="clickEditAssumption(i)">Редактировать</button>
+                        <button class="add_button" (click)="deleteAssumption(i)">Удалить</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desc_chain op_num5" *ngIf="displayChain && contexts" formArrayName="contexts">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <img src="/newpion/static/pionfront/assets/img/book.png">
+                        <p>Контексты <span>{{contexts.length}}</span></p>
+                        <div class="desc_item3">
+                            Контекст – это среда (включая социальную, культурную и физическую среду), в которой будет осуществляться программа. Укажите, характеристики среды, важные для реализации программы.
+                        </div>
+                    </div>
+                    <div class="col-1 arrow right">
+                        <!-- <button style="width: auto;" class="open_button op_btn" sost="close" openItem=".op_num3"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button> -->
+                    </div>
+                    <div (click)="openContextAdd()" class="col-2 open_pr">
+                        <img src="/newpion/static/pionfront/assets/img/pencil.png">
+                        <p>Добавить</p>
+                    </div>
+                </div>
+                <div class="row table_chain_gruppe op_num2" *ngIf="contexts.length == 0">
+                    <p>Не заполнено</p>
+                </div>
+                <div class="table_chain_gruppe op_num2 uline" *ngFor="let context of contexts; index as i" [formGroupName]="i">                  
+                    <p>{{context.text}}</p>
+                    <textarea *ngIf="programEdit.value.contexts[i].context_edit" formControlName="context_name"></textarea>
+                    <button *ngIf="programEdit.value.contexts[i].context_edit" class="add_button" (click)="onContextEdit(i)">Обновить</button>
+                    <div class="row" *ngIf="!programEdit.value.contexts[i].context_edit">
+                        <button class="add_button" (click)="clickEditContext(i)">Редактировать</button>
+                        <button class="add_button" (click)="deleteContext(i)">Удалить</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desc_chain op_num5" *ngIf="displayChain">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <a target="_blank" href="{{baseUrl + 'manual/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                        <p>Целевые группы, активности, результаты</p>
+                        <div class="desc_item3">
+                            Основные элементы  цепочки социальных результатов – целевые группы,  осуществляемая деятельность, а также результаты – непосредственные и социальные (изменения, которые происходят благодаря осуществляемой деятельности).
+                            Цепочка социальных результатов – это наглядное описание того, что составляет суть программы; за счет чего происходят позитивные изменения в жизни благополучателей (участников, партнеров) программы.<br>
+                            Нажмите на этот значок, чтобы получить дополнительную информацию.
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <!-- <img src="/newpion/static/pionfront/assets/img/pencil.png">
+                            <p>Редактировать</p> -->
+                    </div>
+                    <div class="col-1 arrow right">
+                        <button (click)="displayInnerChain = !displayInnerChain" style="width: auto;"
+                            class="open_button op_btn" sost="close" openItem=".op_num4"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                    </div>
+                </div>
+                <div class="row table_chain_gruppe op_num4" *ngIf="displayInnerChain && program && activities && programOutputs && programShortOutcomes && programMidOutcomes && programImpacts">
+                    <div class="col-2">
+                        <div>
+                            <div class="row_name hintblock">
+                                <a target="_blank" href="{{baseUrl + 'manual/1/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                                <p>Целевые группы</p>
+                                <div class="desc_item3">
+                                    Целевые группы – это основные группы участников, благополучателей программы. Это те, ради кого осуществляется программа.<br>
+                                    Нажмите на этот значок, чтобы получить дополнительную информацию. <br>Чтобы добавить целевую группу, вернитесь в описание программы и  выберите новую целевую группу из списка.
+                                </div>
+                            </div>
+                            <div class="white_block">
+                                <div class="item" *ngFor="let target of program.target_refs"
+                                    (mouseenter)="makeHighlighted(target)" (mouseleave)="makeUnhighlighted(target)"
+                                    [class]="{'highlighted': target.shouldBeHighlighted}"
+                                    (click)="openTargetDescriptionEdit(target)">
+                                    <p class="center">{{target.name}}</p>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <!-- <button class="add_button open_prgrouppe"><img
+                                        src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                                    <p>Добавить</p>
+                                </button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div>
+                            <div class="row_name hintblock">
+                                <a target="_blank" href="{{baseUrl + 'manual/3/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                                <p>Активности</p>
+                                <div class="desc_item3">
+                                    Активности - конкретные действия, осуществляемые в рамках программы для достижения ее целей и задач.<br>
+                                    Нажмите на этот значок, чтобы получить дополнительную информацию.
+                                </div>
+                            </div>
+                            <div class="white_block">
+                                <div class="item" *ngFor="let activity of activities" (click)="openActivityEdit(activity)"
+                                    [class]="{'highlighted': activity.shouldBeHighlighted}">
+                                    <p class="center">{{activity.name}}</p>
+                                    <div class="desc_item">
+                                        {{activity.info}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <button (click)="openActivityAdd()" class="add_button open_TargetActive">
+                                    <!-- <img src="/newpion/static/pionfront/assets/img/plus_orange.png"> -->
+                                    Добавить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div>
+                            <div class="row_name hintblock">
+                                <a target="_blank" href="{{baseUrl + 'manual/4/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                                <p>Непосредственные результаты</p>
+                                <div class="desc_item3">
+                                    Непосредственные результаты – всё то, что непосредственно производится в процессе реализации  действий по программе.
+                                    Нажмите на этот значок, чтобы получить дополнительную информацию.
+                                </div>
+                            </div>
+                            <div class="white_block">
+                                <div class="item" *ngFor="let programOutput of programOutputs"
+                                    (click)="openProgramOutputEdit(programOutput)"
+                                    [class]="{'highlighted': programOutput.shouldBeHighlighted}">
+                                    <p class="center">{{programOutput.name}}</p>
+                                    <div class="desc_item">
+                                        {{programOutput.info}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <button (click)="openProgramOutputAdd()" class="add_button open_Direct ">
+                                    <!-- <img src="/newpion/static/pionfront/assets/img/plus_orange.png"> -->
+                                    Добавить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div>
+                            <div class="row_name hintblock">
+                                <a target="_blank" href="{{baseUrl + 'manual/5/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                                <p>Краткосрочные социальные результаты</p>
+                                <div class="desc_item3">
+                                    Краткосрочные социальные результаты – это изменения в жизни участников программы, которые логически и непосредственно вытекают из деятельности по программе. 
+                                    Нажмите на этот значок, чтобы получить дополнительную информацию.
+                                </div>
+                            </div>
+                            <div class="white_block">
+                                <div class="item" *ngFor="let programShortOutcome of programShortOutcomes"
+                                    (click)="openShortProgramOutcomeEdit(programShortOutcome)"
+                                    [class]="{'highlighted': programShortOutcome.shouldBeHighlighted}">
+                                    <p class="center">{{programShortOutcome.name}}</p>
+                                    <div class="desc_item">
+                                        {{programShortOutcome.info}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <button (click)="openShortProgramOutcomeAdd()" class="add_button open_ShortRez">
+                                    <!-- <img src="/newpion/static/pionfront/assets/img/plus_orange.png"> -->
+                                    Добавить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div>
+                            <div class="row_name hintblock">
+                                <a target="_blank" href="{{baseUrl + 'manual/5/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                                <p>Среднесрочные социальные результаты</p>
+                                <div class="desc_item3">
+                                    Среднесрочные социальные результаты – это последствия для участников программы, которые непосредственно и логически возникают после достижения краткосрочных социальных результатов программы.
+                                    Нажмите на этот значок, чтобы получить дополнительную информацию.
+                                </div>
+                            </div>
+                            <div class="white_block">
+                                <div class="item" *ngFor="let programMidOutcome of programMidOutcomes"
+                                    (click)="openMidProgramOutcomeEdit(programMidOutcome)"
+                                    [class]="{'highlighted': programMidOutcome.shouldBeHighlighted}">
+                                    <p class="center">{{programMidOutcome.name}}</p>
+                                    <div class="desc_item">
+                                        {{programMidOutcome.info}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <button (click)="openMidProgramOutcomeAdd()" class="add_button open_MidRez">
+                                    <!-- <img src="/newpion/static/pionfront/assets/img/plus_orange.png"> -->
+                                    Добавить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div>
+                            <div class="row_name hintblock">
+                                <a target="_blank" href="{{baseUrl + 'manual/6/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                                <p>Социальный эффект</p>
+                                <div class="desc_item3">
+                                    Социальные эффекты - позитивные изменения, которые ожидаются от реализации программы. Последствия для участников программы, их окружения (сообществ) или общества в целом, которые логически вытекают из среднесрочных социальных результатов.
+                                    Нажмите на этот значок, чтобы получить дополнительную информацию.
+                                </div>
+                            </div>
+                            <div class="white_block">
+                                <div class="item" *ngFor="let programImpact of programImpacts"
+                                    (click)="openProgramImpactEdit(programImpact)"
+                                    [class]="{'highlighted': programImpact.shouldBeHighlighted}">
+                                    <p class="center">{{programImpact.name}}</p>
+                                    <div class="desc_item">
+                                        {{programImpact.info}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <button (click)="openProgramImpactAdd()" class="add_button open_FinEffect">
+                                    <!-- <img src="/newpion/static/pionfront/assets/img/plus_orange.png"> -->
+                                    Добавить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- <section class="block_chain" *ngIf="false">
+    <div>
+        <div class="row head_chain">
+            <div class="col-9">
+                <h2 class="uppercase">Цепочка социальных результатов (схема)</h2>
+            </div>
+            <div class="col-2 right">
+                 <button class="add_button save_button"><img src="/newpion/static/pionfront/assets/img/cloud_save.png"><p>Скачать</p></button> 
+            </div>
+
+            <div class="col-1 right">
+                <button style="width: auto;" class="open_button op_btn" sost="close" openItem=".op_num6"><img
+                        src="/newpion/static/pionfront/assets/img/arrow_open.png"></button>
+            </div>
+        </div>
+        <div class="table_head op_num6" style="display:none">
+            <h3>Дизайн:</h3>
+            <div class="row">
+                <div class="col-4">
+                    <p>Ширина: </p>
+                    <select>
+                        <option>Никакой предел</option>
+                        <option>Никакой предел 1</option>
+                        <option>Никакой предел 2</option>
+                        <option>Никакой предел 3</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <p>Размер шрифта: </p>
+                    <select>
+                        <option>10</option>
+                        <option>12</option>
+                        <option>14</option>
+                        <option>16</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <p>Расположение: </p>
+                    <select>
+                        <option>Нормальное</option>
+                        <option>Нормальное 1</option>
+                        <option>Нормальное 2</option>
+                        <option>Нормальное 3</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <p>Цвет: </p>
+                    <select>
+                        <option>Есть</option>
+                        <option>Нет</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-9 block_img_list">
+                    <p class="font_500">Экспорт:</p>
+                    <img src="/newpion/static/pionfront/assets/img/imp.png">
+                    <img src="/newpion/static/pionfront/assets/img/gif.png">
+                    <img src="/newpion/static/pionfront/assets/img/jpeg.png">
+                    <img src="/newpion/static/pionfront/assets/img/pdf.png">
+                    <img src="/newpion/static/pionfront/assets/img/png.png">
+                    <img src="/newpion/static/pionfront/assets/img/svg.png">
+                    <img src="/newpion/static/pionfront/assets/img/tiff.png">
+
+                </div>
+                <div class="col-3 right button_block">
+                    <button class="open_button orange_inform"><img
+                            src="/newpion/static/pionfront/assets/img/reload.png"></button>
+                    <button class="open_button orange_inform"><img
+                            src="/newpion/static/pionfront/assets/img/pencil_white.png"></button>
+                    <button class="open_button orange_inform"><img
+                            src="/newpion/static/pionfront/assets/img/discet.png"></button>
+                </div>
+            </div>
+        </div>
+        <div class="dia_generator op_num6">
+            <div class="row">
+                <div class="col-9 border_right">
+                    <h2 class="center">Диаграмма путей</h2>
+                    <div id="np-scheme-wrapper">
+                        <canvas id="np-canvas" width="851" height="500">
+                        </canvas>
+                        <div id="np-button-wrapper">
+                            <input class='np-button' type="button" id="plus" value="+"><input class='np-button' type="button" id="minus" value="-">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 info_dia">
+                    <p class="font_500">Легенда:</p>
+                    <p class="font_500"><span style="background: #9ee8f4;border-color: #45c6db;"></span>Целевая группа
+                    </p>
+                    <p class="font_500"><span style="background: #adfbdd;border-color: #2ca978;"></span>Активность</p>
+                    <p class="font_500"><span style="background: #fee6b1;border-color: #ee860b;"></span>Непосредственный
+                        результат</p>
+                    <p class="font_500"><span style="background: #f3c9ee;border-color: #bf44af;"></span>Краткосрочный
+                        социальный результат</p>
+                    <p class="font_500"><span style="background: #c1b9f4;border-color: #6a5faf;"></span>Среднесрочный
+                        социальный результат</p>
+                    <p class="font_500"><span style="background: #f4c2b9;border-color: #ff330b;"></span>Социальный
+                        эффект</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="block_chain" *ngIf="this.id">
+    <div>
+        <div class="row head_chain">
+            <div class="col-8">
+                <h2 class="uppercase">Показатели и план мониторинга</h2>
+            </div>
+
+
+            <div class="col-4 right r_btn">
+                <button (click)="downloadPlanAndForm($event)" class="add_button save_button"><img
+                        src="/newpion/static/pionfront/assets/img/cloud_save.png">
+                    <p>Скачать</p>
+                </button>
+                <button style="width: auto;" class="open_button op_btn min-btn">
+                    <img 
+                        src="/newpion/static/pionfront/assets/img/play_btn.png"></button>
+                <button (click)="displayPlanForm = !displayPlanForm" style="width: auto;" class="open_button op_btn z_color min-btn"
+                    sost="close" openItem=".op_num5"><img
+                        src="/newpion/static/pionfront/assets/img/arrow_open2.png"></button>
+            </div> 
+        </div>
+
+
+        <ng-container *ngIf="displayPlanForm">
+            <div class="desc_chain op_num9">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <img src="/newpion/static/pionfront/assets/img/book.png">
+                        <p>План мониторинга</p>
+                        <div class="desc_item3">
+                            План мониторинга – документ, которым руководствуются при проведении мониторинга достижений результатов программы. Он включает ключевые оценочные вопросы и стратегию получения на них ответов (показатели, методы, инструменты, частоту сбора и правила использования собранной информации). Оценочные вопросы – это то, что вы хотите узнать о программе, они должны исходить из модели программы (например, приводит ли действие Х к результату У)
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button (click)="downloadPlan($event)" class="add_button save_button"><img
+                                src="/newpion/static/pionfront/assets/img/cloud_save.png">
+                            <p>Скачать</p>
+                        </button>
+                    </div>
+                    <div class="col-1 arrow right">
+                        <button (click)="displayPlan = !displayPlan" style="width: auto;" class="open_button op_btn"
+                            sost="close" openItem=".op_num30"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desc_chain act_m_line op_num30" *ngIf="displayPlan">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <a target="_blank" href="{{baseUrl + 'manual/4/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                        <p>Непосредственные результаты</p>
+                        <div class="desc_item3">
+                            Измерение непосредственных результатов, как правило, осуществляется через подсчет числа проведенных мероприятий (деятельности), их участников.
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-1 arrow right">
+                        <button (click)="displayPlanOutput = !displayPlanOutput" style="width: auto;"
+                            class="open_button op_btn" sost="close" openItem=".op_num28"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                    </div>
+                </div>
+                <div class="table_chain op_num28" *ngIf="displayPlanOutput && mplOutputs && programOutputs">
+                    <table class="num10_table">
+                        <app-thead-plan></app-thead-plan>
+                        <div class="tbody">
+                            <tbody>
+                                <ng-container *ngFor="let mplOutput of mplOutputs; index as i">
+                                    <tr class="block_qw">
+                                        <td style="word-wrap: break-word;" (click)="setDisplayResultRef(mplOutput)"><span
+                                                *ngIf="mplOutput.result_ref">{{mplOutput.result_ref.name}}</span></td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayName(mplOutput)">
+                                            {{mplOutput.name}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayIndicator(mplOutput)">
+                                            {{mplOutput.indicator}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayMethod(mplOutput)">
+                                            {{mplOutput.method}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayTool(mplOutput)">
+                                            {{mplOutput.tool}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayFrequency(mplOutput)">
+                                            {{mplOutput.frequency}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayReporting(mplOutput)">
+                                            {{mplOutput.reporting}}</td>
+                                        <td>
+                                            <button class="add_button" (click)="mplOutputDelete($event, mplOutput)">Удалить</button>
+                                            <button class="add_button" (click)="addMplOutput(i)">Добавить</button>
+                                            <!-- <button class="add_button" (click)="addMplOutput(i+1)">Добавить строку снизу</button> -->
+                                        </td>
+                                    </tr>
+                                    <tr class="block_select">
+                                        <td style="word-wrap: break-word;" colspan="8">
+                                            <div *ngIf="mplOutput.displayResultRef">
+                                                <select (change)="changeOutputRef(mplOutput, $event, 'output')"
+                                                    class="no-border">
+                                                    <option value="" disabled
+                                                        [selected]="outputShouldBeSelected(mplOutput, null)"
+                                                        style='display:none;'>Выберите данные из
+                                                        списка</option>
+                                                    <option *ngFor="let programOutput of programOutputs"
+                                                        [selected]="outputShouldBeSelected(mplOutput, programOutput)"
+                                                        value="{{programOutput.id}}">{{programOutput.name}}</option>
+                                                </select>
+                                            </div>
+
+                                            <div *ngIf="mplOutput.displayName">
+                                                <textarea (focusout)="changeName(mplOutput, $event, 'output')" rows="1"
+                                                    placeholder="Что именно вы хотите измерить?"
+                                                    value='{{mplOutput.name}}'>{{mplOutput.Name}}</textarea>
+                                            </div>
+
+                                            <div class="one_btn" *ngIf="mplOutput.displayIndicator">
+                                                <textarea (focusout)="changeIndicator(mplOutput, $event, 'output')" rows="1"
+                                                    placeholder="Введите данные или выберите из библиотеки"
+                                                    value='{{mplOutput.indicator}}'></textarea>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplOutput.displayMethod">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeMethod(mplOutput, $event, 'output')"
+                                                            rows="1" placeholder="Введите данные"
+                                                            value='{{mplOutput.method}}'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="display: none;" class="js-selectNative" 
+                                                            (change)="changeMethod(mplOutput, $event, 'output')">
+                                                                <option value="null" disabled selected style='display:none;'>
+                                                                    Выберите из списка
+                                                                </option>
+                                                                <option *ngFor="let method of methods" [value]="method.name">
+                                                                    {{method.name}}
+                                                                </option>
+                                                        </select>
+                                                        <div class="selectCustom js-selectCustom" aria-hidden="true" (click)="select(mplOutput)">
+                                                            <div class="selectCustom-trigger" data-value="null">Выберите из списка</div>
+                                                            <div class="selectCustom-options">
+                                                                <div class="selectCustom-option" *ngFor="let method of methods" (mouseover)="method.showInfo = true" (mouseout)="method.showInfo = false">
+                                                                    <div [attr.data-value]="method.name">{{method.name}}</div>
+                                                                    <div *ngIf="method.info && method.showInfo" style="font-size: 13px;"> - {{method.info}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="mplOutput.displayTool">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeTool(mplOutput, $event, 'output')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            [value]='mplOutput.tool'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;" (change)="changeTool(mplOutput, $event, 'output')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span *ngIf="(!mplOutput.suitable_tools || mplOutput.suitable_tools.length == 0) && (!mplOutput.suitable_from_tools || mplOutput.suitable_from_tools.length == 0)">Ничего не найдено</span>
+                                                                <span *ngIf="mplOutput.suitable_tools && mplOutput.suitable_tools.length > 0 || mplOutput.suitable_from_tools && mplOutput.suitable_from_tools.length > 0">Выберите из списка</span></option>
+                                                                <ng-container *ngIf="mplOutput.suitable_tools && mplOutput.suitable_tools.length > 0">
+                                                                    <option *ngFor="let suitable_tool of mplOutput.suitable_tools" [value]="suitable_tool + '$$$' + 'OutcomeMethods'">{{suitable_tool}}</option>
+                                                                </ng-container>
+                                                                <ng-container *ngIf="mplOutput.suitable_from_tools && mplOutput.suitable_from_tools.length > 0">
+                                                                    <option *ngFor="let suitable_from_tool of mplOutput.suitable_from_tools" [value]="suitable_from_tool + '$$$' + 'Tools'">{{suitable_from_tool}}</option>
+                                                                </ng-container>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div>
+                                        <div><img src="/newpion/static/pionfront/assets/img/clip.png"></div> -->
+                                            </div>
+
+                                            <div class="one_btn" *ngIf="mplOutput.displayFrequency">
+                                                <textarea (focusout)="changeFrequency(mplOutput, $event, 'output')" rows="1"
+                                                    placeholder="Введите данные" value='{{mplOutput.frequency}}'></textarea>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/date.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplOutput.displayReporting">
+                                                <textarea (focusout)="changeReporting(mplOutput, $event, 'output')" rows="1"
+                                                    placeholder="Введите данные" value='{{mplOutput.reporting}}'></textarea>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </div>
+                    </table>
+                    <div class="center add_tableline">
+                        <button (click)="createMplOutput(null, true)" name="num3_table" *ngIf="mplOutputs && mplOutputs.length > 0"
+                            class="add_button">
+                            <p>Сохранить</p>
+                        </button>
+                        <button (click)="addMplOutput()" name="num10_table" class="add_button"><img
+                                src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                            <p>Добавить строку</p>
+                        </button>
+                        <a *ngIf="mplOutputs && mplOutputs.length > 0" (click)="deleteLastMplOutput($event)"
+                            class="delete-mpl-line">Удалить последнюю строку</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desc_chain act_m_line op_num30" *ngIf="displayPlan">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <a target="_blank" href="{{baseUrl + 'manual/5/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                        <p>Краткосрочные социальные результаты</p>
+                        <div class="desc_item3">
+                            Краткосрочные социальные результаты – это изменения в жизни участников программы, которые логически и непосредственно вытекают из деятельности по программе. 
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-1 arrow right">
+                        <button (click)="displayPlanShortOutcome = !displayPlanShortOutcome" style="width: auto;"
+                            class="open_button op_btn" sost="close" openItem=".op_num26"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                    </div>
+                </div>
+                <div class="table_chain op_num26" *ngIf="displayPlanShortOutcome && mplShortOutcomes && programShortOutcomes">
+                    <table class="num9_table">
+                        <app-thead-plan></app-thead-plan>
+                        <tbody>
+                            <div class="tbody">
+                                <ng-container *ngFor="let mplShortOutcome of mplShortOutcomes; index as i">
+                                    <tr class="block_qw">
+                                        <td style="word-wrap: break-word;" (click)="setDisplayResultRef(mplShortOutcome)">
+                                            <span
+                                                *ngIf="mplShortOutcome.result_ref">{{mplShortOutcome.result_ref.name}}</span>
+                                        </td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayName(mplShortOutcome)">
+                                            {{mplShortOutcome.name}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayIndicator(mplShortOutcome)">
+                                            {{mplShortOutcome.indicator}}
+                                        </td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayMethod(mplShortOutcome)">
+                                            {{mplShortOutcome.method}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayTool(mplShortOutcome)">
+                                            {{mplShortOutcome.tool}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayFrequency(mplShortOutcome)">
+                                            {{mplShortOutcome.frequency}}
+                                        </td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayReporting(mplShortOutcome)">
+                                            {{mplShortOutcome.reporting}}
+                                        </td>
+                                        <td>
+                                            <button class="add_button" (click)="mplShortOutcomeDelete($event, mplShortOutcome)">Удалить</button>
+                                            <button class="add_button" (click)="addMplShortOutcome(i)">Добавить</button>
+                                            <!-- <button class="add_button" (click)="addMplShortOutcome(i+1)">Добавить строку снизу</button> -->
+                                        </td>
+                                    </tr>
+                                    <tr class="block_select">
+                                        <td style="word-wrap: break-word;" colspan="8">
+                                            <div *ngIf="mplShortOutcome.displayResultRef">
+                                                <select
+                                                    (change)="changeShortOutcomeRef(mplShortOutcome, $event, 'shortoutcome')"
+                                                    class="no-border">
+                                                    <option value="" disabled
+                                                        [selected]="outputShouldBeSelected(mplShortOutcome, null)"
+                                                        style='display:none;'>Выберите данные из
+                                                        списка</option>
+                                                    <option *ngFor="let programOutput of programShortOutcomes"
+                                                        [selected]="outputShouldBeSelected(mplShortOutcome, programOutput)"
+                                                        value="{{programOutput.id}}">{{programOutput.name}}</option>
+                                                </select>
+                                            </div>
+
+                                            <div *ngIf="mplShortOutcome.displayName">
+                                                <textarea (focusout)="changeName(mplShortOutcome, $event, 'shortoutcome')"
+                                                    rows="1" placeholder="Что именно вы хотите измерить?"
+                                                    value='{{mplShortOutcome.name}}'>{{mplShortOutcome.Name}}</textarea>
+                                            </div>
+
+                                            <div *ngIf="mplShortOutcome.displayIndicator">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea
+                                                            (focusout)="changeIndicator(mplShortOutcome, $event, 'shortoutcome')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            value='{{mplShortOutcome.indicator}}'></textarea></div>
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;"
+                                                            (change)="changeIndicator(mplShortOutcome, $event, 'shortoutcome')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span
+                                                                    *ngIf="!mplShortOutcome.suitable_indicators || mplShortOutcome.suitable_indicators.length == 0">Ничего
+                                                                    не найдено</span>
+                                                                <span
+                                                                    *ngIf="mplShortOutcome.suitable_indicators && mplShortOutcome.suitable_indicators.length > 0">Выберите
+                                                                    из списка</span></option>
+                                                            <option
+                                                                *ngFor="let suitable_tool of mplShortOutcome.suitable_indicators"
+                                                                value="{{suitable_tool}}">{{suitable_tool}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplShortOutcome.displayMethod">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea
+                                                            (focusout)="changeMethod(mplShortOutcome, $event, 'shortoutcome')"
+                                                            rows="1" placeholder="Введите данные"
+                                                            value='{{mplShortOutcome.method}}'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select (change)="changeMethod(mplShortOutcome, $event, 'shortoutcome')"
+                                                         style="display: none;" class="js-selectNative">
+                                                            <option value="null" disabled selected style='display:none;'>
+                                                                Выберите из списка
+                                                            </option>
+                                                            <option *ngFor="let method of methods" [value]="method.name">
+                                                                {{method.name}}
+                                                            </option>
+                                                        </select>
+                                                        <div class="selectCustom js-selectCustom" aria-hidden="true" (click)="select(mplShortOutcome)">
+                                                            <div class="selectCustom-trigger" data-value="null">Выберите из списка</div>
+                                                            <div class="selectCustom-options">
+                                                                <div *ngFor="let method of methods" class="selectCustom-option" (mouseover)="method.showInfo = true" (mouseout)="method.showInfo = false">
+                                                                    <div [attr.data-value]="method.name">{{method.name}} </div>
+                                                                    <div *ngIf="method.info && method.showInfo" style="font-size: 13px;"> - {{method.info}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="mplShortOutcome.displayTool">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeTool(mplShortOutcome, $event, 'shortoutcome')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            [value]="mplShortOutcome.tool"></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;" (change)="changeTool(mplShortOutcome, $event, 'shortoutcome')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span *ngIf="(!mplShortOutcome.suitable_tools || mplShortOutcome.suitable_tools.length == 0) && (!mplShortOutcome.suitable_from_tools || mplShortOutcome.suitable_from_tools.length == 0)">Ничего не найдено</span>
+                                                                <span *ngIf="mplShortOutcome.suitable_tools && mplShortOutcome.suitable_tools.length > 0 || mplShortOutcome.suitable_from_tools && mplShortOutcome.suitable_from_tools.length > 0">Выберите из списка</span></option>
+                                                                <ng-container *ngIf="mplShortOutcome.suitable_tools && mplShortOutcome.suitable_tools.length > 0">
+                                                                    <option *ngFor="let suitable_tool of mplShortOutcome.suitable_tools" [value]="suitable_tool + '$$$' + 'OutcomeMethods'">{{suitable_tool}}</option>
+                                                                </ng-container>
+                                                                <ng-container *ngIf="mplShortOutcome.suitable_from_tools && mplShortOutcome.suitable_from_tools.length > 0">
+                                                                    <option *ngFor="let suitable_from_tool of mplShortOutcome.suitable_from_tools" [value]="suitable_from_tool + '$$$' + 'Tools'">{{suitable_from_tool}}</option>
+                                                                </ng-container>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div>
+                                            <div><img src="/newpion/static/pionfront/assets/img/clip.png"></div> -->
+                                            </div>
+
+                                            <div class="one_btn" *ngIf="mplShortOutcome.displayFrequency">
+                                                <textarea
+                                                    (focusout)="changeFrequency(mplShortOutcome, $event, 'shortoutcome')"
+                                                    rows="1" placeholder="Введите данные"
+                                                    value='{{mplShortOutcome.frequency}}'></textarea>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/date.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplShortOutcome.displayReporting">
+                                                <textarea
+                                                    (focusout)="changeReporting(mplShortOutcome, $event, 'shortoutcome')"
+                                                    rows="1" placeholder="Введите данные"
+                                                    value='{{mplShortOutcome.reporting}}'></textarea>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </div>
+                        </tbody>
+                    </table>
+                    <div class="center add_tableline">
+                        <button (click)="createMplShortOutcome(null, true)" name="num3_table" *ngIf="mplShortOutcomes && mplShortOutcomes.length > 0"
+                            class="add_button">
+                            <p>Сохранить</p>
+                        </button>
+                        <button (click)="addMplShortOutcome(mplShortOutcomes.length)" name="num9_table"
+                            class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                            <p>Добавить строку</p>
+                        </button>
+                        <a *ngIf="mplShortOutcomes && mplShortOutcomes.length > 0"
+                            (click)="deleteLastMplShortOutcome($event)" class="delete-mpl-line">Удалить последнюю
+                            строку</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desc_chain act_m_line op_num30" *ngIf="displayPlan">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <a target="_blank" href="{{baseUrl + 'manual/6/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                        <p>Среднесрочные социальные результаты</p>
+                        <div class="desc_item3">
+                            Среднесрочные социальные результаты – это последствия для участников программы, которые непосредственно и логически возникают после достижения краткосрочных социальных результатов программы.
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-1 arrow right">
+                        <button (click)="displayPlanMidOutcome = !displayPlanMidOutcome" style="width: auto;"
+                            class="open_button op_btn" sost="close" openItem=".op_num25"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                    </div>
+                </div>
+                <div class="table_chain op_num25" *ngIf="displayPlanMidOutcome && mplMidOutcomes && programMidOutcomes">
+                    <table class="num8_table">
+                        <app-thead-plan></app-thead-plan>
+                        <tbody>
+                            <div class="tbody">
+                                <ng-container *ngFor="let mplMidOutcome of mplMidOutcomes; index as i">
+                                    <tr class="block_qw">
+                                        <td style="word-wrap: break-word;" (click)="setDisplayResultRef(mplMidOutcome)">
+                                            <span *ngIf="mplMidOutcome.result_ref">{{mplMidOutcome.result_ref.name}}</span>
+                                        </td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayName(mplMidOutcome)">
+                                            {{mplMidOutcome.name}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayIndicator(mplMidOutcome)">
+                                            {{mplMidOutcome.indicator}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayMethod(mplMidOutcome)">
+                                            {{mplMidOutcome.method}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayTool(mplMidOutcome)">
+                                            {{mplMidOutcome.tool}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayFrequency(mplMidOutcome)">
+                                            {{mplMidOutcome.frequency}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayReporting(mplMidOutcome)">
+                                            {{mplMidOutcome.reporting}}</td>
+                                        <td>
+                                            <button class="add_button" (click)="mplMidOutcomeDelete($event, mplMidOutcome)">Удалить</button>
+                                            <button class="add_button" (click)="addMplMidOutcome(i)">Добавить</button>
+                                            <!-- <button class="add_button" (click)="addMplMidOutcome(i+1)">Добавить строку снизу</button> -->
+                                        </td>
+                                    </tr>
+                                    <tr class="block_select">
+                                        <td style="word-wrap: break-word;" colspan="8">
+                                            <div *ngIf="mplMidOutcome.displayResultRef">
+                                                <select (change)="changeMidOutcomeRef(mplMidOutcome, $event, 'midoutcome')"
+                                                    class="no-border">
+                                                    <option value="" disabled
+                                                        [selected]="outputShouldBeSelected(mplMidOutcome, null)"
+                                                        style='display:none;'>Выберите данные из
+                                                        списка</option>
+                                                    <option *ngFor="let programOutput of programMidOutcomes"
+                                                        [selected]="outputShouldBeSelected(mplMidOutcome, programOutput)"
+                                                        value="{{programOutput.id}}">{{programOutput.name}}</option>
+                                                </select>
+                                            </div>
+
+                                            <div *ngIf="mplMidOutcome.displayName">
+                                                <textarea (focusout)="changeName(mplMidOutcome, $event, 'midoutcome')"
+                                                    rows="1" placeholder="Что именно вы хотите измерить?"
+                                                    value='{{mplMidOutcome.name}}'>{{mplMidOutcome.Name}}</textarea>
+                                            </div>
+
+                                            <div *ngIf="mplMidOutcome.displayIndicator">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea
+                                                            (focusout)="changeIndicator(mplMidOutcome, $event, 'midoutcome')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            value='{{mplMidOutcome.indicator}}'></textarea>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;"
+                                                            (change)="changeIndicator(mplMidOutcome, $event, 'midoutcome')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span
+                                                                    *ngIf="(!mplMidOutcome.suitable_indicators || mplMidOutcome.suitable_indicators.length == 0)">Ничего
+                                                                    не найдено</span>
+                                                                <span
+                                                                    *ngIf="mplMidOutcome.suitable_indicators && mplMidOutcome.suitable_indicators.length > 0">Выберите
+                                                                    из списка</span></option>
+                                                            <option
+                                                                *ngFor="let suitable_tool of mplMidOutcome.suitable_indicators"
+                                                                value="{{suitable_tool}}">{{suitable_tool}}</option>
+                                                                
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplMidOutcome.displayMethod">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea
+                                                            (focusout)="changeMethod(mplMidOutcome, $event, 'midoutcome')"
+                                                            rows="1" placeholder="Введите данные"
+                                                            value='{{mplMidOutcome.method}}'></textarea>
+                                                    </div>
+                                                    <div class="col-6" >
+                                                        <select style="display: none;" class="js-selectNative"
+                                                        (change)="changeMethod(mplMidOutcome, $event, 'midoutcome')">
+                                                            <option value="null" disabled selected style='display:none;'>
+                                                                Выберите из списка
+                                                            </option>
+                                                            <option *ngFor="let method of methods" [value]="method.name">
+                                                                {{method.name}}
+                                                            </option>
+                                                    </select>
+                                                    <div class="selectCustom js-selectCustom" aria-hidden="true" (click)="select(mplMidOutcome)">
+                                                        <div class="selectCustom-trigger" data-value="null">Выберите из списка</div>
+                                                        <div class="selectCustom-options">
+                                                            <div *ngFor="let method of methods" class="selectCustom-option" (mouseover)="method.showInfo = true" (mouseout)="method.showInfo = false">
+                                                                <div [attr.data-value]="method.name">{{method.name}}</div>
+                                                                <div *ngIf="method.info && method.showInfo" style="font-size: 13px;"> - {{method.info}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="mplMidOutcome.displayTool">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeTool(mplMidOutcome, $event, 'midoutcome')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            [value]='mplMidOutcome.tool'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;" (change)="changeTool(mplMidOutcome, $event, 'midoutcome')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span *ngIf="(!mplMidOutcome.suitable_tools || mplMidOutcome.suitable_tools.length == 0) && (!mplMidOutcome.suitable_from_tools || mplMidOutcome.suitable_from_tools.length == 0)">Ничего не найдено</span>
+                                                                <span *ngIf="mplMidOutcome.suitable_tools && mplMidOutcome.suitable_tools.length > 0 || mplMidOutcome.suitable_from_tools && mplMidOutcome.suitable_from_tools.length > 0">Выберите из списка</span></option>
+                                                                <ng-container *ngIf="mplMidOutcome.suitable_tools && mplMidOutcome.suitable_tools.length > 0">
+                                                                    <option *ngFor="let suitable_tool of mplMidOutcome.suitable_tools" [value]="suitable_tool + '$$$' + 'OutcomeMethods'">{{suitable_tool}}</option>
+                                                                </ng-container>
+                                                                <ng-container *ngIf="mplMidOutcome.suitable_from_tools && mplMidOutcome.suitable_from_tools.length > 0">
+                                                                    <option *ngFor="let suitable_from_tool of mplMidOutcome.suitable_from_tools" [value]="suitable_from_tool + '$$$' + 'Tools'">{{suitable_from_tool}}</option>
+                                                                </ng-container>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div>
+                                            <div><img src="/newpion/static/pionfront/assets/img/clip.png"></div> -->
+                                            </div>
+
+                                            <div class="one_btn" *ngIf="mplMidOutcome.displayFrequency">
+                                                <textarea (focusout)="changeFrequency(mplMidOutcome, $event, 'midoutcome')"
+                                                    rows="1" placeholder="Введите данные"
+                                                    value='{{mplMidOutcome.frequency}}'></textarea>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/date.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplMidOutcome.displayReporting">
+                                                <textarea (focusout)="changeReporting(mplMidOutcome, $event, 'midoutcome')"
+                                                    rows="1" placeholder="Введите данные"
+                                                    value='{{mplMidOutcome.reporting}}'></textarea>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </div>
+                        </tbody>
+                    </table>
+                    <div class="center add_tableline">
+                        <button (click)="createMplMidOutcome(null, true)" name="num3_table" *ngIf="mplMidOutcomes && mplMidOutcomes.length > 0"
+                            class="add_button">
+                            <p>Сохранить</p>
+                        </button>
+                        <button (click)="addMplMidOutcome()" name="num8_table"
+                            class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                            <p>Добавить строку</p>
+                        </button>
+                        <a *ngIf="mplMidOutcomes && mplMidOutcomes.length > 0" (click)="deleteLastMplMidOutcome($event)"
+                            class="delete-mpl-line">Удалить последнюю строку</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desc_chain act_m_line op_num30" *ngIf="displayPlan">
+                <div class="row">
+                    <div class="col-9 hintblock">
+                        <a target="_blank" href="{{baseUrl + 'manual/6/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                        <p>Социальные эффекты</p>
+                        <div class="desc_item3">
+                            Социальные эффекты - позитивные изменения, которые ожидаются от реализации программы. Последствия для участников программы, их окружения (сообществ) или общества в целом, которые логически вытекают из среднесрочных социальных результатов.
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-1 arrow right">
+                        <button (click)="displayPlanImpact = !displayPlanImpact" style="width: auto;"
+                            class="open_button op_btn" sost="close" openItem=".op_num24"><img
+                                src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                    </div>
+                </div>
+                <div class="table_chain op_num24" *ngIf="displayPlanImpact && mplImpacts && programImpacts">
+                    <table class="num7_table">
+                        <app-thead-plan></app-thead-plan>
+                        <tbody>
+                            <div class="tbody">
+                                <ng-container *ngFor="let mplImpact of mplImpacts; index as i">
+                                    <tr class="block_qw">
+                                        <td style="word-wrap: break-word;" (click)="setDisplayResultRef(mplImpact)"><span
+                                                *ngIf="mplImpact.result_ref">{{mplImpact.result_ref.name}}</span></td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayName(mplImpact)">
+                                            {{mplImpact.name}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayIndicator(mplImpact)">
+                                            {{mplImpact.indicator}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayMethod(mplImpact)">
+                                            {{mplImpact.method}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayTool(mplImpact)">
+                                            {{mplImpact.tool}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayFrequency(mplImpact)">
+                                            {{mplImpact.frequency}}</td>
+                                        <td style="word-wrap: break-word;" (click)="setDisplayReporting(mplImpact)">
+                                            {{mplImpact.reporting}}</td>
+                                        <td>
+                                            <button class="add_button" (click)="mplImpactDelete($event, mplImpact)">Удалить</button>
+                                            <button class="add_button" (click)="addMplImpact(i)">Добавить</button>
+                                            <!-- <button class="add_button" (click)="addMplImpact(i+1)">Добавить строку снизу</button> -->
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr class="block_select">
+                                        <td style="word-wrap: break-word;" colspan="8">
+                                            <div *ngIf="mplImpact.displayResultRef">
+                                                <select (change)="changeImpactRef(mplImpact, $event, 'impact')"
+                                                    class="no-border">
+                                                    <option value="" disabled
+                                                        [selected]="outputShouldBeSelected(mplImpact, null)"
+                                                        style='display:none;'>Выберите данные из
+                                                        списка</option>
+                                                    <option *ngFor="let programOutput of programImpacts"
+                                                        [selected]="outputShouldBeSelected(mplImpact, programOutput)"
+                                                        value="{{programOutput.id}}">{{programOutput.name}}</option>
+                                                </select>
+                                            </div>
+
+                                            <div *ngIf="mplImpact.displayName">
+                                                <textarea (focusout)="changeName(mplImpact, $event, 'impact')" rows="1"
+                                                    placeholder="Что именно вы хотите измерить?"
+                                                    value='{{mplImpact.name}}'>{{mplImpact.Name}}</textarea>
+                                            </div>
+
+                                            <div *ngIf="mplImpact.displayIndicator">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeIndicator(mplImpact, $event, 'impact')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            value='{{mplImpact.indicator}}'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;"
+                                                            (change)="changeIndicator(mplImpact, $event, 'impact')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span
+                                                                    *ngIf="!mplImpact.suitable_indicators || mplImpact.suitable_indicators.length == 0">Ничего
+                                                                    не найдено</span>
+                                                                <span
+                                                                    *ngIf="mplImpact.suitable_indicators && mplImpact.suitable_indicators.length > 0">Выберите
+                                                                    из списка</span></option>
+                                                            <option
+                                                                *ngFor="let suitable_tool of mplImpact.suitable_indicators"
+                                                                value="{{suitable_tool}}">{{suitable_tool}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="mplImpact.displayMethod">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeMethod(mplImpact, $event, 'impact')"
+                                                            rows="1" placeholder="Введите данные"
+                                                            value='{{mplImpact.method}}'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="display: none;" class="js-selectNative"
+                                                            (change)="changeMethod(mplImpact, $event, 'impact')">
+                                                            <option value="null" disabled selected style='display:none;'>
+                                                                Выберите из списка
+                                                            </option>
+                                                            <option *ngFor="let method of methods" [value]="method.name">
+                                                                {{method.name}}
+                                                            </option>
+                                                    </select>
+                                                    <div class="selectCustom js-selectCustom" aria-hidden="true" (click)="select(mplImpact)">
+                                                        <div class="selectCustom-trigger" data-value="null">Выберите из списка</div>
+                                                        <div class="selectCustom-options">
+                                                            <div *ngFor="let method of methods" class="selectCustom-option" (mouseover)="method.showInfo = true" (mouseout)="method.showInfo = false">
+                                                                <div [attr.data-value]="method.name">{{method.name}}</div>
+                                                                <div [hidden]="!method.info || !method.showInfo" style="font-size: 13px;"> - {{method.info}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="mplImpact.displayTool">
+                                                <div class="row">
+                                                    <div class="border_right col-6">
+                                                        <textarea (focusout)="changeTool(mplImpact, $event, 'impact')"
+                                                            rows="1" placeholder="Введите данные или выберите из библиотеки"
+                                                            [value]='mplImpact.tool'></textarea>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <select style="height: 59px;border: none;" (change)="changeTool(mplImpact, $event, 'impact')">
+                                                            <option value="" disabled selected style='display:none;'>
+                                                                <span *ngIf="(!mplImpact.suitable_tools || mplImpact.suitable_tools.length == 0) && (!mplImpact.suitable_from_tools || mplImpact.suitable_from_tools.length == 0)">Ничего не найдено</span>
+                                                                <span *ngIf="mplImpact.suitable_tools && mplImpact.suitable_tools.length > 0 || mplImpact.suitable_from_tools && mplImpact.suitable_from_tools.length > 0">Выберите из списка</span></option>
+                                                                <ng-container *ngIf="mplImpact.suitable_tools && mplImpact.suitable_tools.length > 0">
+                                                                    <option *ngFor="let suitable_tool of mplImpact.suitable_tools" [value]="suitable_tool + '$$$' + 'OutcomeMethods'">{{suitable_tool}}</option>
+                                                                </ng-container>
+                                                                <ng-container *ngIf="mplImpact.suitable_from_tools && mplImpact.suitable_from_tools.length > 0">
+                                                                    <option *ngFor="let suitable_from_tool of mplImpact.suitable_from_tools" [value]="suitable_from_tool + '$$$' + 'Tools'">{{suitable_from_tool}}</option>
+                                                                </ng-container>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/hamburger.png"></div>
+                                            <div><img src="/newpion/static/pionfront/assets/img/clip.png"></div> -->
+                                            </div>
+
+                                            <div class="one_btn" *ngIf="mplImpact.displayFrequency">
+                                                <textarea (focusout)="changeFrequency(mplImpact, $event, 'impact')" rows="1"
+                                                    placeholder="Введите данные" value='{{mplImpact.frequency}}'></textarea>
+                                                <!-- <div><img src="/newpion/static/pionfront/assets/img/date.png"></div> -->
+                                            </div>
+
+                                            <div *ngIf="mplImpact.displayReporting">
+                                                <textarea (focusout)="changeReporting(mplImpact, $event, 'impact')" rows="1"
+                                                    placeholder="Введите данные" value='{{mplImpact.reporting}}'></textarea>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </div>
+                        </tbody>
+                    </table>
+                    <div class="center add_tableline">
+                        <button (click)="createMplImpact(null, true)" name="num3_table" *ngIf="mplImpacts && mplImpacts.length > 0"
+                            class="add_button">
+                            <p>Сохранить</p>
+                        </button>
+                        <button (click)="addMplImpact()" name="num7_table"
+                            class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                            <p>Добавить строку</p>
+                        </button>
+                        <a *ngIf="mplImpacts && mplImpacts.length > 0" (click)="deleteLastMplImpact($event)"
+                            class="delete-mpl-line">Удалить последнюю строку</a></div>
+                </div>
+            </div>
+
+        </ng-container>
+
+        <!-- Рабочая форма мониторинга -->
+        <div class="desc_chain op_num9" *ngIf="displayPlanForm">
+            <div class="row">
+                <div class="col-9 hintblock">
+                    <img src="/newpion/static/pionfront/assets/img/book.png">
+                    <p>Рабочая форма мониторинга</p>
+                    <div class="desc_item3">
+                        Рабочая форма мониторинга – документ, который формируется на основе разработанного плана мониторинга и предназначен для фиксации данных,  помогает оценить степень расхождения фактических значений с плановыми. 
+                    </div>
+                </div>
+                <div (click)="downloadForm($event)" class="col-2"><button class="add_button save_button"><img
+                            src="/newpion/static/pionfront/assets/img/cloud_save.png">
+                        <p>Скачать</p>
+                    </button></div>
+                <div class="col-1 arrow right">
+                    <button (click)="displayForm = !displayForm" style="width: auto;" class="open_button op_btn"
+                        sost="close" openItem=".op_num31"><img
+                            src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="desc_chain act_m_line op_num31" *ngIf="displayForm && displayPlanForm">
+            <div class="row">
+                <div class="col-9 hintblock">
+                    <a target="_blank" href="{{baseUrl + 'manual/4/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                    <p>Непосредственные результаты</p>
+                    <div class="desc_item3">
+                        Измерение непосредственных результатов, как правило, осуществляется через подсчет числа проведенных мероприятий (деятельности), их участников.
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-1 arrow right">
+                    <button (click)="displayFormOutput = !displayFormOutput" style="width: auto;"
+                        class="open_button op_btn" sost="close" openItem=".op_num23"><img
+                            src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                </div>
+            </div>
+            <div class="table_chain op_num23" *ngIf="displayFormOutput">
+                <table class="num6_table">
+                    <app-thead-form></app-thead-form>
+                    <tbody>
+                        <div class="tbody">
+                            <tr *ngFor="let mflOutput of mflOutputs; index as i">
+                                <td><textarea class="td-textarea-indicator" placeholder="Введите данные"
+                                        (focusout)="indicatorChanged(mflOutput, $event, 'output')"
+                                        value="{{mflOutput.indicator}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="planChanged(mflOutput, $event, 'output')" value="{{mflOutput.plan}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period1Changed(mflOutput, $event, 'output')"
+                                        value="{{mflOutput.period1}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact1Changed(mflOutput, $event, 'output')" value="{{mflOutput.fact1}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period2Changed(mflOutput, $event, 'output')"
+                                        value="{{mflOutput.period2}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact2Changed(mflOutput, $event, 'output')" value="{{mflOutput.fact2}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period3Changed(mflOutput, $event, 'output')"
+                                        value="{{mflOutput.period3}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact3Changed(mflOutput, $event, 'output')" value="{{mflOutput.fact3}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period4Changed(mflOutput, $event, 'output')"
+                                        value="{{mflOutput.period4}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact4Changed(mflOutput, $event, 'output')" value="{{mflOutput.fact4}}">
+                                </td>
+                                <td>
+                                    <button class="add_button" (click)="mflOutputDelete($event, mflOutput)">Удалить</button>
+                                    <button class="add_button" (click)="addMflOutput(i)">Добавить</button>
+                                    <!-- <button class="add_button" (click)="addMflOutput(i+1)">Добавить строку снизу</button> -->
+                                </td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+                <div class="center add_tableline">
+                    <button (click)="createMflOutput()" name="num3_table" *ngIf="mflOutputs && mflOutputs.length > 0"
+                        class="add_button">
+                        <p>Сохранить</p>
+                    </button>
+                    <button (click)="addMflOutput(mflOutputs.length)" name="num6_table"
+                    class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                    <p>Добавить строку</p>
+                </button>
+                <a *ngIf="mflOutputs && mflOutputs.length > 0"
+                    (click)="mflOutputDelete($event)" class="delete-mpl-line">Удалить последнюю
+                    строку</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="desc_chain act_m_line op_num31" *ngIf="displayForm && displayPlanForm">
+            <div class="row">
+                <div class="col-9 hintblock">
+                    <a target="_blank" href="{{baseUrl + 'manual/5/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                    <p>Краткосрочные социальные результаты</p>
+                    <div class="desc_item3">
+                        Краткосрочные социальные результаты – это изменения в жизни участников программы, которые логически и непосредственно вытекают из деятельности по программе. 
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-1 arrow right">
+                    <button (click)="displayFormShortOutcome = !displayFormShortOutcome" style="width: auto;"
+                        class="open_button op_btn" sost="close" openItem=".op_num8"><img
+                            src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                </div>
+            </div>
+            <div class="table_chain op_num8" *ngIf="displayFormShortOutcome">
+                <table class="num5_table">
+                    <app-thead-form></app-thead-form>
+                    <tbody>
+                        <div class="tbody">
+                            <tr *ngFor="let mflShortOutcome of mflShortOutcomes; index as i" class="block_qw">
+                                <td><textarea class="td-textarea-indicator" placeholder="Введите данные"
+                                        (focusout)="indicatorChanged(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.indicator}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="planChanged(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.plan}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period1Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.period1}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact1Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.fact1}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period2Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.period2}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact2Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.fact2}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period3Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.period3}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact3Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.fact3}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period4Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.period4}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact4Changed(mflShortOutcome, $event, 'shortoutcome')"
+                                        value="{{mflShortOutcome.fact4}}">
+                                </td>
+                                <td>
+                                    <button class="add_button" (click)="mflShortOutcomeDelete($event, mflShortOutcome)">Удалить</button>
+                                    <button class="add_button" (click)="addMflShortOutcome(i)">Добавить</button>
+                                    <!-- <button class="add_button" (click)="addMflShortOutcome(i+1)">Добавить строку снизу</button> -->
+                                </td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+                <div class="center add_tableline">
+                    <button (click)="createMflShortOutcome()" name="num3_table" *ngIf="mflShortOutcomes && mflShortOutcomes.length > 0"
+                        class="add_button">
+                        <p>Сохранить</p>
+                    </button>
+                    <button (click)="addMflShortOutcome(mflShortOutcomes.length)" name="num5_table"
+                        class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                        <p>Добавить строку</p>
+                    </button>
+                    <a *ngIf="mflShortOutcomes && mflShortOutcomes.length > 0"
+                        (click)="mflShortOutcomeDelete($event)" class="delete-mpl-line">Удалить последнюю
+                        строку</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="desc_chain act_m_line op_num31" *ngIf="displayForm && displayPlanForm">
+            <div class="row">
+                <div class="col-9 hintblock">
+                    <a target="_blank" href="{{baseUrl + 'manual/5/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                    <p>Среднесрочные социальные результаты</p>
+                    <div class="desc_item3">
+                        Среднесрочные социальные результаты – это последствия для участников программы, которые непосредственно и логически возникают после достижения краткосрочных социальных результатов программы.
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-1 arrow right">
+                    <button (click)="displayFormMidOutcome = !displayFormMidOutcome" style="width: auto;"
+                        class="open_button op_btn" sost="close" openItem=".op_num21"><img
+                            src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png"></button>
+                </div>
+            </div>
+            <div class="table_chain op_num21" *ngIf="displayFormMidOutcome">
+                <table class="num4_table">
+                    <app-thead-form></app-thead-form>
+                    <tbody>
+                        <div class="tbody">
+                            <tr *ngFor="let mflMidOutcome of mflMidOutcomes; index as i">
+                                <td><textarea class="td-textarea-indicator" placeholder="Введите данные"
+                                        (focusout)="indicatorChanged(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.indicator}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="planChanged(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.plan}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period1Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.period1}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact1Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.fact1}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period2Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.period2}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact2Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.fact2}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period3Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.period3}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact3Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.fact3}}"></td>
+                                <td><textarea placeholder="дата"
+                                        (focusout)="period4Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.period4}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact4Changed(mflMidOutcome, $event, 'midoutcome')"
+                                        value="{{mflMidOutcome.fact4}}">
+                                </td>
+                                <td>
+                                    <button class="add_button" (click)="mflMidOutcomeDelete($event, mflMidOutcome)">Удалить</button>
+                                    <button class="add_button" (click)="addMflMidOutcome(i)">Добавить</button>
+                                    <!-- <button class="add_button" (click)="addMflMidOutcome(i+1)">Добавить строку снизу</button> -->
+                                </td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+                <div class="center add_tableline">
+                    <button (click)="createMflMidOutcome()" name="num3_table" *ngIf="mflMidOutcomes && mflMidOutcomes.length > 0"
+                        class="add_button">
+                        <p>Сохранить</p>
+                    </button>
+                    <button (click)="addMflMidOutcome(mflMidOutcomes.length)" name="num4_table"
+                        class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                        <p>Добавить строку</p>
+                    </button>
+                    <a *ngIf="mflMidOutcomes && mflMidOutcomes.length > 0"
+                        (click)="mflMidOutcomeDelete($event)" class="delete-mpl-line">Удалить последнюю
+                        строку</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="desc_chain act_m_line op_num31" *ngIf="displayForm && displayPlanForm">
+            <div class="row">
+                <div class="col-9 hintblock">
+                    <a target="_blank" href="{{baseUrl + 'manual/6/'}}"><img src="/newpion/static/pionfront/assets/img/book.png"></a>
+                    <p>Социальные эффекты</p>
+                    <div class="desc_item3">
+                        Социальные эффекты - позитивные изменения, которые ожидаются от реализации программы. Последствия для участников программы, их окружения (сообществ) или общества в целом, которые логически вытекают из среднесрочных социальных результатов.
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-1 arrow right">
+                    <button (click)="displayFormImpact = !displayFormImpact" style="width: auto;"
+                        class="open_button op_btn" sost="close" openItem=".op_num22">
+                        <img src="/newpion/static/pionfront/assets/img/arrow_blue_bottom.png">
+                    </button>
+                </div>
+            </div>
+            <div class="table_chain op_num22" *ngIf="displayFormImpact">
+                <table class="num3_table">
+                    <app-thead-form></app-thead-form>
+                    <tbody>
+                        <div class="tbody">
+                            <tr *ngFor="let mflImpact of mflImpacts; index as i">
+                                <td><textarea class="td-textarea-indicator" placeholder="Введите данные"
+                                        (focusout)="indicatorChanged(mflImpact, $event, 'impact')"
+                                        value="{{mflImpact.indicator}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="planChanged(mflImpact, $event, 'impact')" value="{{mflImpact.plan}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period1Changed(mflImpact, $event, 'impact')"
+                                        value="{{mflImpact.period1}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact1Changed(mflImpact, $event, 'impact')" value="{{mflImpact.fact1}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period2Changed(mflImpact, $event, 'impact')"
+                                        value="{{mflImpact.period2}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact2Changed(mflImpact, $event, 'impact')" value="{{mflImpact.fact2}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period3Changed(mflImpact, $event, 'impact')"
+                                        value="{{mflImpact.period3}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact3Changed(mflImpact, $event, 'impact')" value="{{mflImpact.fact3}}">
+                                </td>
+                                <td><textarea placeholder="дата" (focusout)="period4Changed(mflImpact, $event, 'impact')"
+                                        value="{{mflImpact.period4}}"></textarea></td>
+                                <td><input type="number" name="" placeholder="- %"
+                                        (focusout)="fact4Changed(mflImpact, $event, 'impact')" value="{{mflImpact.fact4}}">
+                                </td>
+                                <td>
+                                    <button class="add_button" (click)="mflImpactDelete($event, mflImpact)">Удалить</button>
+                                    <button class="add_button" (click)="addMflImpact(i)">Добавить</button>
+                                    <!-- <button class="add_button" (click)="addMflImpact(i+1)">Добавить строку снизу</button> -->
+                                </td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+                <div class="center add_tableline">
+                    <button (click)="createMflImpact()" name="num3_table" *ngIf="mflImpacts && mflImpacts.length > 0"
+                        class="add_button">
+                        <p>Сохранить</p>
+                    </button>
+                    <button (click)="addMflImpact(mflImpacts.length)" name="num3_table"
+                        class="add_button"><img src="/newpion/static/pionfront/assets/img/plus_orange.png">
+                        <p>Добавить строку</p>
+                    </button>
+                    <a *ngIf="mflImpacts && mflImpacts.length > 0"
+                        (click)="mflImpactDelete($event)" class="delete-mpl-line">Удалить последнюю
+                        строку</a>
+                </div>
+            </div>
+        </div>
+        <!-- Рабочая форма мониторинга конец -->
+
+
+
+    </div>
+</section>
+
+
+
+<div class="popap_download dark_block blue_head" *ngIf="displayDownloader">
+    <div>
+        <div class="head">
+            <p class="close_btn"><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Продукты для скачивания</p>
+        </div>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/ower_img1.png">
+            <p>Цепочка социальных результатов (таблица)</p>
+        </div>
+        <!-- <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/ower_img2.png">
+            <p>Цепочка социальных результатов (схема)</p>
+        </div> -->
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/ower_img3.png">
+            <p>План мониторинга</p>
+        </div>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/ower_img4.png">
+            <p>Рабочая форма мониторинга</p>
+        </div>
+    </div>
+</div>
+
+<div class="popap_Direct dark_block blue_head" *ngIf="showProgramOutputAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeProgramOutputAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500"><span *ngIf="!editingProgramOutput">Добавить</span><span
+                    *ngIf="editingProgramOutput">Изменить</span> непосредственный результат</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="programOutputAddForm" (ngSubmit)="onProgramOutputAdd()">
+                <p class="line_descSel">Выбрать активность:</p>
+                <select formControlName="activity_ref" class="select-styling">
+                    <option value="" [selected]="!editingProgramOutput || !editingProgramOutput.activity_ref">Выберите
+                        из списка</option>
+                    <option *ngFor="let activity of activities" value="{{activity.id}}"
+                        [selected]="editingProgramOutput && editingProgramOutput.activity_ref && editingProgramOutput.activity_ref.id == activity.id">
+                        {{activity.name}}</option>
+                </select>
+                <p class="line_descSel">Формулировка:</p>
+                <input type="text" formControlName="name">
+                <p class="line_descSel">Описание:</p>
+                <textarea formControlName="info" class="assumption-context-textarea"></textarea>
+                <button type="submit" style="width: auto;" class="add_button"><span
+                        *ngIf="!editingProgramOutput">Добавить</span><span
+                        *ngIf="editingProgramOutput">Изменить</span></button>
+                <br><a class="del-but" href="" *ngIf="editingProgramOutput"
+                    (click)="deleteOutput(editingProgramOutput, $event)">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_ShortRez dark_block blue_head" *ngIf="showShortProgramOutcomeAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeShortProgramOutcomeAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500"><span *ngIf="!editingShortProgramOutcome">Добавить</span><span
+                    *ngIf="editingShortProgramOutcome">Изменить</span> краткосрочный социальный результат</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="programShortOutcomeAddForm" (ngSubmit)="onProgramShortOutcomeAdd()">
+                <p class="line_descSel">Выбрать непосредственный результат:</p>
+                <select formControlName="program_output_ref" class="select-styling" disabled>
+                    <option value=""
+                        [selected]="!editingShortProgramOutcome || !editingShortProgramOutcome.program_output_ref">
+                        Выберите из списка</option>
+                    <option *ngFor="let programOutput of programOutputs" value="{{programOutput.id}}"
+                        [selected]="editingShortProgramOutcome && editingShortProgramOutcome.program_output_ref && (editingShortProgramOutcome.program_output_ref == programOutput.id || editingShortProgramOutcome.program_output_ref.id == programOutput.id)">
+                        {{programOutput.name}}</option>
+                </select>
+
+                <label class="checker-inbox container_checked" *ngFor="let programOutput of programOutputs">{{programOutput.name}}
+                    <input [checked]="programOutputShouldBeChecked(programOutput)" type="checkbox" value="{{programOutput.id}}"
+                        (change)="onCheckChange('program_output_many_refs', $event)">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div (click)='goToLibrary("program-short-outcomes")' class="add_toLib">
+                    <img src="/newpion/static/pionfront/assets/img/hamburger.png">
+                    <p>Выбрать результаты из библиотеки</p>
+                </div>
+                <p class="line_descSel">Формулировка:</p>
+                <input type="text" formControlName="name">
+                <p class="line_descSel">Описание:</p>
+                <textarea formControlName="info" class="assumption-context-textarea"></textarea>
+                <button type="submit" style="width: auto;" class="add_button"><span
+                        *ngIf="!editingShortProgramOutcome">Добавить</span><span
+                        *ngIf="editingShortProgramOutcome">Изменить</span></button>
+                <br><a class="del-but" href="" *ngIf="editingShortProgramOutcome"
+                    (click)="deleteShortOutcome(editingShortProgramOutcome, $event)">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_MidRez dark_block blue_head" *ngIf="showTargetDescription">
+    <div>
+        <div class="head">
+            <p (click)="closeTargetDescription()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500"><span *ngIf="!editingTargetDescription">Добавить</span><span
+                    *ngIf="editingTargetDescription">Изменить</span> описание целевой группы</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="targetDescriptionAddForm" (ngSubmit)="onTargetDescriptionAdd()">
+                <p class="line_descSel">Формулировка:</p>
+                <input type="text" value="{{editingTargetDescriptionSubject.name}}" disabled>
+                <input type="hidden" formControlName="target_ref">
+                <p class="line_descSel">Описание:</p>
+                <textarea formControlName="info" class="assumption-context-textarea"></textarea>
+                <button style="width: auto;" class="add_button"><span
+                        *ngIf="!editingTargetDescription">Добавить</span><span
+                        *ngIf="editingTargetDescription">Изменить</span></button>
+                <br><a class="del-but" href="" *ngIf="editingTargetDescription"
+                    (click)="deleteTargetDescription(editingTargetDescription, $event)">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_MidRez dark_block blue_head" *ngIf="showMidProgramOutcomeAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeMidProgramOutcomeAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500"><span *ngIf="!editingMidProgramOutcome">Добавить</span><span
+                    *ngIf="editingMidProgramOutcome">Изменить</span> среднесрочный социальный результат</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="programMidOutcomeAddForm" (ngSubmit)="onProgramMidOutcomeAdd()">
+                <p class="line_descSel">Выбрать краткосрочный социальный результат:</p>
+
+                <select formControlName="program_short_outcome_ref" class="select-styling" disabled>
+                    <option value=""
+                        [selected]="!editingMidProgramOutcome || !editingMidProgramOutcome.program_short_outcome_ref">
+                        Выберите из списка</option>
+                    <option *ngFor="let programShortOutcome of programShortOutcomes" value="{{programShortOutcome.id}}"
+                        [selected]="editingMidProgramOutcome && editingMidProgramOutcome.program_short_outcome_ref && editingMidProgramOutcome.program_short_outcome_ref.id == programShortOutcome.id">
+                        {{programShortOutcome.name}}</option>
+                </select>
+
+                <label class="checker-inbox container_checked" *ngFor="let programShortOutcome of programShortOutcomes">{{programShortOutcome.name}}
+                    <input [checked]="programShortOutcomeShouldBeChecked(programShortOutcome)" type="checkbox" value="{{programShortOutcome.id}}"
+                        (change)="onCheckChange('program_short_outcome_many_refs', $event)">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div (click)='goToLibrary("program-mid-outcomes")' class="add_toLib">
+                    <img src="/newpion/static/pionfront/assets/img/hamburger.png">
+                    <p>Выбрать результаты из библиотеки</p>
+                </div>
+                <p class="line_descSel">Формулировка:</p>
+                <input type="text" formControlName="name">
+                <p class="line_descSel">Описание:</p>
+                <textarea formControlName="info" class="assumption-context-textarea"></textarea>
+                <button style="width: auto;" class="add_button"><span
+                        *ngIf="!editingMidProgramOutcome">Добавить</span><span
+                        *ngIf="editingMidProgramOutcome">Изменить</span></button>
+                <br><a class="del-but" href="" *ngIf="editingMidProgramOutcome"
+                    (click)="deleteMidOutcome(editingMidProgramOutcome, $event)">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_FinEffect dark_block blue_head" *ngIf="showProgramImpactAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeProgramImpactAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500"><span *ngIf="!editingProgramImpact">Добавить</span><span
+                    *ngIf="editingProgramImpact">Изменить</span> социальный эффект</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="programImpactAddForm" (ngSubmit)="onProgramImpactAdd()">
+                <p class="line_descSel">Выбрать среднесрочный социальный результат:</p>
+
+                <select formControlName="program_mid_outcome_ref" class="select-styling">
+                    <option value="" [selected]="!editingProgramImpact || editingProgramImpact.program_mid_outcome_ref">
+                        Выберите из списка</option>
+                    <option *ngFor="let programMidOutcome of programMidOutcomes" value="{{programMidOutcome.id}}"
+                        [selected]="editingProgramImpact && editingProgramImpact.program_mid_outcome_ref && editingProgramImpact.program_mid_outcome_ref.id == programMidOutcome.id">
+                        {{programMidOutcome.name}}</option>
+                </select>
+
+                <label class="checker-inbox container_checked" *ngFor="let programMidOutcome of programMidOutcomes">{{programMidOutcome.name}}
+                    <input [checked]="programMidOutcomeShouldBeChecked(programMidOutcome)" type="checkbox" value="{{programMidOutcome.id}}"
+                        (change)="onCheckChange('program_mid_outcome_many_refs', $event)">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div (click)='goToLibrary("program-impacts")' class="add_toLib">
+                    <img src="/newpion/static/pionfront/assets/img/hamburger.png">
+                    <p>Выбрать результаты из библиотеки</p>
+                </div>
+                <p class="line_descSel">Формулировка:</p>
+                <input type="text" formControlName="name">
+                <p class="line_descSel">Описание:</p>
+                <textarea formControlName="info" class="assumption-context-textarea"></textarea>
+                <button type="submit" style="width: auto;" class="add_button"><span
+                        *ngIf="!editingProgramImpact">Добавить</span><span
+                        *ngIf="editingProgramImpact">Изменить</span></button>
+                <br><a class="del-but" href="" *ngIf="editingProgramImpact"
+                    (click)="deleteImpact(editingProgramImpact, $event)">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_TargetActive dark_block blue_head" *ngIf="showActivityAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeActivityAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500"><span *ngIf="!editingActivity">Добавить</span><span
+                    *ngIf="editingActivity">Изменить</span> активности</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="activityAddForm" (ngSubmit)="onActivityAdd()">
+                <p class="line_descSel">Выберите целевую группу:</p>
+                <select formControlName="target_ref" class="select-styling">
+                    <option value=""
+                        [selected]="!editingActivity || editingActivity.target_ref == null || editingActivity.target_ref == undefined">
+                        Выберите из списка</option>
+                    <option *ngFor="let target of program.target_refs" value="{{target.id}}"
+                        [selected]="editingActivity && editingActivity.target_ref && (editingActivity.target_ref == target.id || editingActivity.target_ref.id == target.id)">
+                        {{target.name}}</option>
+                </select>
+                <p class="line_descSel">Название:</p>
+                <input type="text" formControlName="name">
+                <p class="line_descSel">Описание:</p>
+                <textarea formControlName="info" class="assumption-context-textarea"></textarea>
+                <button type="submit" style="width: auto;" class="add_button"><span
+                        *ngIf="!editingActivity">Добавить</span><span *ngIf="editingActivity">Изменить</span></button>
+                <br><a class="del-but" href="" *ngIf="editingActivity"
+                    (click)="deleteActivity(editingActivity, $event)">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_kontst dark_block blue_head" *ngIf="showAssumptionAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeAssumptionAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Добавить предположение</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="assumptionAddForm" (ngSubmit)="onAssumptionAdd()">
+                <textarea formControlName="text" class="assumption-context-textarea"></textarea>
+                <button style="width: auto;" class="add_button">Добавить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_pr dark_block blue_head" *ngIf="showContextAdd">
+    <div>
+        <div class="head">
+            <p (click)="closeContextAdd()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Добавить контексты</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="contextAddForm" (ngSubmit)="onContextAdd()">
+                <textarea formControlName="text" class="assumption-context-textarea"></textarea>
+                <button style="width: auto;" class="add_button">Добавить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="popap_accessadd dark_block" style="display: none;">
+    <div>
+        <p class="close_btn"><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/info.png">
+            <p>«Включить в личную библиотеку социальных результатов?</p>
+            <button style="width: auto;" class="add_button">Включить</button>
+        </div>
+    </div>
+</div> -->
+<ng-template appRef></ng-template>

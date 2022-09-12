@@ -1,0 +1,314 @@
+{%load static%} {%load fk_filters%}
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>ЦР: {{ object.name }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts - which you want to use - (rest you can just remove) -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link rel="stylesheet" href='{% static "css/prettyPhoto.css" %}'>
+    <link rel="stylesheet" href='{% static "css/owl.carousel.css" %}'>
+    <link rel="stylesheet" href='{% static "css/main.css" %}'>
+    <link rel="stylesheet" href='{% static "css/responsive.css" %}'>
+    <script src='{% static "js/vendor/modernizr-2.6.2.min.js" %}'></script>
+
+    <link rel="stylesheet" href='https://unpkg.com/tippy.js@1.2.0/dist/tippy.css'>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+    <script src="https://unpkg.com/tippy.js@1.2.0/dist/tippy.min.js"></script>
+
+    <script src='{% static "js/edit-scripts.js" %}'></script>
+
+</head>
+
+<body>
+    <header>
+        <form id="duplicateform" action="/portal/edit/duplicate/{{object.pk}}" method="post">
+            {% csrf_token %}
+
+            <!-- NAVIGATION -->
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header page-scroll">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Навигация</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                        <!-- LOGO -->
+                        <a class="navbar-brand page-scroll" href="/">
+                            <img width="234" height="40" src='{% static "img/logo-2.png"%}' alt="">
+                        </a>
+                        <!-- END LOGO -->
+
+                    </div>
+
+                    <!-- TOGGLE NAV -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="hidden">
+                                <a href="#page-top"></a>
+                            </li>
+                            <li><a class="color-black page-scroll" target="_blank" href="/portal/benchmarking_parameters">Бенчмаркинг</a>
+                            </li>
+                            <li><a class="color-black page-scroll" href="/portal/calendar/{{object.pk}}">Календарь</a>
+                            </li>
+                            <li><a class="color-black page-scroll" href="/portal/{{object.pk}}/rc-download">Скачать</a>
+                            </li>
+                            {% if is_my %}
+                            <li><a class="color-black page-scroll" href="/portal/edit/{{object.pk}}">Редактировать</a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <input class="color-black page-scroll inputasa" type="submit" value="Дублировать">
+                            </li>
+                            {% if not is_authenticated %}
+                            <li><a class="library-button" href="https://pion.org.ru/newpion/select-library">Библиотека</a></li><li><a class="login-button" href="https://pion.org.ru/newpion/auth/login">Вход</a>
+                            </li>
+                            <li><a class="regtr-button" href="https://pion.org.ru/newpion/auth/registration">Регистрация</a>
+                            </li>
+                            {% else %}
+                            <li><a class="create-button" href="/portal/">Мои программы</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!-- TOGGLE NAV -->
+
+                </div>
+                <!-- /.container -->
+            </nav>
+        </form>
+        <!-- END NAVIGATION -->
+    </header>
+
+    <section id="main" class="section text-center">
+        <div class="container">
+            {% if object %}
+            <!--<h4 class="wow fadeInLeft" data-wow-duration="1s">Архив цепочек результатов</h4>-->
+            <h2 title="Основная информация" class="section-title">Основная информация</h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Название программы</td>
+                        <td>{{ object.name }}</td>
+                    </tr>
+                    {% if organization %}
+                    <tr>
+                        <td>Название организации</td>
+                        <td><a href="{{ organization.get_absolute_url }}" target="_blank">{{ organization.company_name }}</a></td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td>Сайт организации</td>
+                        <td><a href="{{ object.website }}" target="_blank">{{ object.website }}</a></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>Дата формирования</td>
+                        <td>{{ object.formation_date }}</td>
+                    </tr> -->
+                    <!-- 'durability', 'loop_beginning_date', 'loop_ending_date' -->
+                    <!-- {% if object.durability %}
+                    <tr>
+                        <td>Длительность проектного цикла</td>
+                        <td>{{ object.durability }}</td>
+                    </tr>
+                    {% endif %} {% if object.loop_beginning_date %}
+                    <tr>
+                        <td>Дата начала проектного цикла</td>
+                        <td>{{ object.loop_beginning_date }}</td>
+                    </tr>
+                    {% endif %} {% if object.loop_ending_date %}
+                    <tr>
+                        <td>Дата окончания проектного цикла</td>
+                        <td>{{ object.loop_ending_date }}</td>
+                    </tr>
+                    {% endif %} -->
+                </tbody>
+            </table>
+
+
+            {% if target %}
+            <h2 title="Целевые группы" folded="unfolded" id="targets-table" class="section-title section-title-pointer"><img id='targets-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='targets-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Целевые группы</h2>
+            {% for trg in target %}
+            <h4 class="wow fadeInLeft hard-h4 targets-element" data-wow-duration="1s">{% ifequal trg.value "custom" %} {{ trg.custom_value }} {% else %} {{ trg.value }} {% endifequal %}</h4>
+            {% endfor %} {% endif %} {% if resource %}<br>
+            <h2 title="Ресурсы" folded="unfolded" id="resources-table" class="section-title section-title-pointer"><img id='resources-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='resources-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Ресурсы</h2>
+            {% for rsc in resource %}
+            <h4 class="wow fadeInLeft hard-h4 resources-element" data-wow-duration="1s">{% ifequal rsc.value "custom" %} {{ rsc.custom_value }} {% else %} {{ rsc.value }} {% endifequal %}</h4>
+            {% endfor %} {% endif %} {% if activity %}<br>
+            <h2 title="Деятельность" folded="unfolded" id="activities-table" class="section-title section-title-pointer"><img id='activities-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='activities-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Деятельность</h2>
+            {% for act in activity %}
+            <h4 class="wow fadeInLeft hard-h4 activities-element" data-wow-duration="1s">{{ act.value }}</h4>
+            {% endfor %} {% endif %}
+            <!-- Непосредственные результаты -->
+            {% if outputs_table %}<br>
+            <h2 title="Непосредственные результаты" folded="unfolded" id="outputs-table" class="section-title section-title-pointer"><img id='outputs-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='outputs-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Непосредственные результаты</h2>
+            <!-- New part -->
+            <table id="outputs-table-content" class="table table-bordered outputs-element table-data">
+                <!-- {% for opt_line in outputs_table %} -->
+                <tr>
+                    <!-- {% for opt_cell in opt_line %} -->
+                    <td>{% autoescape off %}{{opt_cell}}{% endautoescape %}</td>
+                    <!-- {% endfor %} -->
+                </tr>
+                <!-- {% endfor %} -->
+            </table>
+            <!-- New part end -->
+            {% endif %}
+
+            <!-- Конец непосредственных результатов -->
+
+            <!-- Социальные результаты -->
+
+            {% if outcomes_table %}<br>
+            <h2 title="Социальные результаты" folded="unfolded" id="outcomes-table" class="section-title section-title-pointer"><img id='outcomes-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='outcomes-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Социальные результаты</h2>
+
+            <!-- New part -->
+            <table id="outcomes-table-content" class="table table-bordered outcomes-element table-data">
+                <!-- {% for ocm_line in outcomes_table %} -->
+                <tr>
+                    <!-- {% for ocm_cell in ocm_line %} -->
+                    <td>{% autoescape off %}{{ocm_cell}}{% endautoescape %}</td>
+                    <!-- {% endfor %} -->
+                </tr>
+                <!-- {% endfor %} -->
+            </table>
+            <!-- New part end -->
+            {% endif %}
+
+
+            <!-- Конец соц.результатов -->
+
+
+            <!-- Социальные эффекты -->
+
+            {% if impacts_table %}<br>
+            <h2 title="Социальные эффекты" folded="unfolded" id="impacts-table" class="section-title section-title-pointer"><img id='impacts-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='impacts-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Социальные эффекты</h2>
+
+            <!-- New part -->
+            <table id="impacts-table-content" class="table table-bordered impacts-element table-data">
+                <!-- {% for imp_line in impacts_table %} -->
+                <tr>
+                    <!-- {% for imp_cell in imp_line %} -->
+                    <td>{% autoescape off %}{{imp_cell}}{% endautoescape %}</td>
+                    <!-- {% endfor %} -->
+                </tr>
+                <!-- {% endfor %} -->
+            </table>
+            <!-- New part end -->
+
+            {% endif %}
+
+
+            <!-- Конец соц.эффектов -->
+
+            <div class="text-center">
+                <a href="{{delete_link}}" class="btn btn-danger">Удалить программу</a>
+            </div>
+
+            <!-- Конец представления -->
+            {% else %}
+            <h4 class="wow fadeInLeft" data-wow-duration="1s">Ошибка открытия ЦР</h4> {% endif %}
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <!-- FOOTER MENU -->
+                <div class="col-md-6">
+                    <div class="footer-menu">
+                        <ul class="list-inline">
+                            <li><a class="page-scroll" href="#top">Вверх</a>
+                            </li>
+                            <li><a class="page-scroll" href="/portal/">Мои программы</a>
+                            </li>
+                            <li><a class="page-scroll" href="/">Главная</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="comment_create" target="_blank">Добавить комментарий</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END FOOTER MENU -->
+
+                <!-- FOOTER CONTENT -->
+                <div class="col-md-6">
+                    <div class="footer-content text-right">
+                    </div>
+                </div>
+                <!-- END FOOTER CONTENT -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- ./container -->
+    </footer>
+
+    <script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>
+    <script src='{% static "js/plugins.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/wow.min.js" %}'></script>
+    <script src='{% static "js/prettyPhoto.js" %}'></script>
+    <script src='{% static "js/owl.carousel.min.js" %}'></script>
+    <script src='{% static "js/main.js" %}'></script>
+
+    <script src='{% static "js/linkify.min.js" %}'></script>
+    <script src='{% static "js/linkify-jquery.min.js" %}'></script>
+    <script src='{% static "js/jquery.rowspanizer.min.js" %}'></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.table-data').linkify();
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+        tippy('.section-title', {
+            size: 'big'
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#outputs-table-content").rowspanizer({
+                vertical_align: 'middle'
+            });
+            $("#outcomes-table-content").rowspanizer({
+                vertical_align: 'middle'
+            });
+            $("#impacts-table-content").rowspanizer({
+                vertical_align: 'middle'
+            });
+        }());
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "KBURQKTxGh" | pbcopy
+
+echo "Press command+V twice to scp and ssh"
+
+scp -r * root@92.63.100.219:/etc/side_projects/RCBuilder/
+ssh root@92.63.100.219

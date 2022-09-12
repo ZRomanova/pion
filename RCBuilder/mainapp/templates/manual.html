@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+    <section class="manual">
+        <div class="manual_top">
+            <div class="container">
+                <div class="manual-title">
+                    Руководство по работе
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="manual_wrapper">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                {% include 'manual_left.html' with page=page_number %}
+                <div class="manual_body">
+                    <div class="manual_body-title">
+                        Цепочка социальных результатов
+                    </div>
+                    <p>
+                        Цепочка социальных результатов <span>(ЦСР, цепочка достижения социальных результатов)</span>
+                        –
+                        это наглядное
+                        описание того, что составляет суть проекта; за счет чего происходят позитивные изменения в
+                        жизни
+                        благополучателей (участников, партнеров) проекта.
+                    </p>
+
+                    <p>
+                        В социальном проектировании <span>ЦСР</span> – это синоним логической модели (или логической
+                        рамки) проекта.
+                        <span>ЦСР</span> используется при планировании, реализации, мониторинге и оценке проектов.
+                        Визуальное
+                        представление <span>ЦСР</span> проекта (таблица, рисунок, слайд и пр.) значительно облегчает
+                        работу команды
+                        проекта, помогает в коммуникациях с партнерами, донорами, участниками проекта и пр.
+                    </p>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Что включает в себя цепочка социальных результатов?
+                        </div>
+                        <div class="manual_body-block_text">
+                            Основные элементы <span>ЦСР</span> – ресурсы, необходимые для реализации проекта,
+                            осуществляемая
+                            деятельность, а также результаты – непосредственные и социальные (изменения, которые
+                            происходят благодаря осуществляемой деятельности).
+                        </div>
+                    </div>
+                    <div class="manual_points">
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Ресурсы
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Inputs
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Деятельность
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Activities
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Непосредственный результат
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Outputs
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Социальный результат
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Outcomes
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Социальный эффект
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Impact
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manual_item">
+                        <div class="manual_item-title">
+                            Ресурсы (Inputs)
+                        </div>
+                        <div class="manual_item-text">
+                            • Люди, деньги, помещения, оборудование, технологические платформы, методики
+                        </div>
+                        <div class="manual_item-text">
+                            • Все, что организация вкладывает для достижения целей проекта
+                        </div>
+                    </div>
+                    <div class="manual_item">
+                        <div class="manual_item-title">
+                            Деятельность (Activities)
+                        </div>
+                        <div class="manual_item-text">
+                            • Все, что организация осуществляет в рамках проекта (консультации, тренинги, обучающие и
+                            развлекательные мероприятия и пр.), чтобы достичь позитивных изменений в жизни целевых групп
+                            (благополучателей)
+                        </div>
+                    </div>
+                    <div class="manual_item">
+                        <div class="manual_item-title">
+                            Непосредственные результаты (Outputs)
+                        </div>
+                        <div class="manual_item-text">
+                            • Количественные результаты осуществленной Деятельности - количество проведенных
+                            мероприятий, оказанных услуг, участников программы и пр.
+                        </div>
+                    </div>
+                    <div class="manual_item">
+                        <div class="manual_item-title">
+                            Социальные результаты (Outcomes)
+                        </div>
+                        <div class="manual_item-text">
+                            • Изменения в уровне знаний и навыков
+                        </div>
+                        <div class="manual_item-text">
+                            • Изменение мнения, отношения по конкретным темам
+                        </div>
+                        <div class="manual_item-text">
+                            • Изменение моделей поведения
+                        </div>
+                        <div class="manual_item-text">
+                            • Изменения социального статуса (материального положения, трудоустройство, вступление в
+                            брак, создание семьи и пр.)
+                        </div>
+                    </div>
+                    <div class="manual_item">
+                        <div class="manual_item-title">
+                            Социальные эффекты (Impacts)
+                        </div>
+                        <div class="manual_item-text">
+                            • Позитивные изменения, которые ожидаются от реализации проекта (изменение подходов к
+                            воспитанию детей, улучшение здоровья благополучателей и пр.)
+                        </div>
+                        <div class="manual_item-text">
+                            • Как правило, долговременные, отложенные изменения в жизни благополучателей или в жизни
+                            сообщества в целом (например, изменение нормативной базы и пр.)
+                        </div>
+                    </div>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Пример
+                        </div>
+                        <div class="manual_body-block_text">
+                            Цепочка социальных результатов программы Благотворительного детского фонда «Виктория»
+                            «Устройство детей в семью и подготовка приемных родителей.
+                        </div>
+                    </div>
+                    <div class="manual_points">
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Ресурсы
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Inputs
+                            </div>
+                            <div class="manual_points-text">
+                                Финансовые вложения
+                            </div>
+                            <div class="manual_points-text">
+                                Сотрудники, в т.ч психологи
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Деятельность
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Activities
+                            </div>
+                            <div class="manual_points-text">
+                                Встречи с потенциальными семьями
+                            </div>
+                            <div class="manual_points-text">
+                                Отбор кандидатов
+                            </div>
+                            <div class="manual_points-text">
+                                Подготовительные мероприятия с детьми-сиротами
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Непосредственный результат
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Outputs
+                            </div>
+                            <div class="manual_points-text big">
+                                Проведение встречи с потенциальными родителями Потенциальные приемные семьиприняли
+                                участие во встречах (например, не менее 2 встреч)
+                            </div>
+                            <div class="manual_points-text">
+                                Подготовлены заключения-рекомендации о возможности быть приемными родителями
+                            </div>
+                            <div class="manual_points-text">
+                                Подведены подготовительные мероприятия с детьми Дети-сироты приняли участие в
+                                мероприятиях
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Социальный результат
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Outcomes
+                            </div>
+                            <div class="manual_points-text">
+                                Приемные родители приняли в семью детей-сирот
+                            </div>
+                            <div class="manual_points-text">
+                                Снижение уровня тревожности у детей
+                            </div>
+                        </div>
+                        <div class="manual_point">
+                            <div class="manual_point-title">
+                                Социальный эффект
+                            </div>
+                            <div class="manual_point-subtitle">
+                                Impact
+                            </div>
+                            <div class="manual_points-text big">
+                                Дети, ставшиеся без попечения родителей, остаются на воспитании в приемной семье до 18
+                                лет
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manual_item-title big_bot">
+                        Особенности планирования цепочки социальных результатов
+                    </div>
+                    <p>
+                        Единственно правильного способа разработки <span>ЦСР/ЛМП</span> не существует. Выбор
+                        подходаможет зависеть от
+                        этапа развития вашей программы (имеются в виду такие этапы, как«планирование, «реализация»
+                        либо
+                        «поддержание рабочего режима») и/или от того, каквы намерены использовать этот продукт. Два
+                        основных подхода к созданию <span>ЦСР/ЛМП</span> – это «реверсивная/обратная логика» и
+                        «прямая
+                        логика». Эти
+                        два подхода можнокомбинировать.
+                    </p>
+                    <div class="manual_points custom">
+                        <div class="manual_points-title">
+                            Два подхода,как создать логическую модель
+                        </div>
+                        <div class="manual_points-item ">
+                            <span class="first">1</span>
+                            <div class="manual_points-item_title">
+                                Обратная логика (справо налево)
+                            </div>
+                            <div class="manual_points-item_text">
+                                Задаем вопрос "а как?".Легкая версия теории изменений
+                            </div>
+                        </div>
+                        <div class="manual_points-item">
+                            <span>2</span>
+                            <div class="manual_points-item_title">
+                                Прямая логика (слева направо)
+                            </div>
+                            <div class="manual_points-item_text">
+                                Используем утверждения "Если,то..."
+                            </div>
+                        </div>
+                        <div class="manual_points-wrapper">
+                            <div class="manual_point">
+                                <div class="manual_point-title">
+                                    Ресурсы
+                                </div>
+                                <div class="manual_point-subtitle">
+                                    Inputs
+                                </div>
+                                <div class="manual_point-text">
+                                    Если есть ресурсы,то...
+                                </div>
+                            </div>
+                            <div class="manual_point">
+                                <div class="manual_point-title">
+                                    Деятельность
+                                </div>
+                                <div class="manual_point-subtitle">
+                                    Activities
+                                </div>
+                                <div class="manual_point-text">
+                                    Если будут выполнены активности,то мы получим
+                                </div>
+                            </div>
+                            <div class="manual_point">
+                                <div class="manual_point-title">
+                                    Непосредственный результат
+                                </div>
+                                <div class="manual_point-subtitle">
+                                    Outputs
+                                </div>
+                                <div class="manual_point-text">
+                                    Если благополучатели получат,то...
+                                </div>
+                            </div>
+                            <div class="manual_point">
+                                <div class="manual_point-title">
+                                    Социальный результат
+                                </div>
+                                <div class="manual_point-subtitle">
+                                    Outcomes
+                                </div>
+                                <span> А как будет достигнут результат?</span>
+                            </div>
+                            <div class="manual_point">
+                                <div class="manual_point-title">
+                                    Социальный эффект
+                                </div>
+                                <div class="manual_point-subtitle">
+                                    Impact
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p>
+                        Независимо от того, какой подход вы выберете (прямой или обратный),
+                        проработкапоследовательных
+                        взаимосвязей «если так... то...» или поиск ответов на вопрос «какимобразом?», позволит
+                        увидеть
+                        пробелы в логике, прояснить предположения и гипотезы(assumptions), и намного лучше осознать,
+                        каким образом инвестиции и мероприятияпрограммы смогут поспособствовать получению намеченных
+                        результатов и/илиизменений.
+                    </p>
+                    <center>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gDky8MwfjcU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </center>
+                    <p></p>
+                    <div class="manual_tab">
+                        <div class="manual_tab-title">
+                            Дополнительные материалы
+                        </div>
+                        <div class="manual_tab-text">
+                            <a href="https://pion.org.ru/static/files/sbornik.pdf" target="_blank" class="manual-link-material link">Сборник кейсов по проекту "Общая
+                        информационно-технологическая платформа для оценки социальных результатов"</a>
+                    <a href="https://www.youtube.com/watch?v=nv0VF4Yn12Y&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар "Теория изменений для планирования и оценки
+                        социальных результатов"</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/TCD_Print_Theory_Of_Changes_Handbook_145x210_2014_Preview_v02.pdf" target="_blank" class="manual-link-material pdf">Теория изменений: общие рекомендации к применению (из
+                        опыта
+                        БДФ "Виктория".М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/ozenka_soc-economy_effectivnosty.pdf" target="_blank" class="manual-link-material file">Рекомендации по оценке социально-экономической
+                        эффективности социальных программ: определение, подходы, практический опыт М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2016/05/impact-141031050233-conversion-gate01.pdf" target="_blank" class="manual-link-material pdf">Практическое руководство по измерению социального
+                        воздействия (A Practical Guide to Measuring and Managing Impact),EVPA,2013</a>
+                    <a href="https://socialvalue.ru/wp-content/uploads/2016/05/pokazateli_detstvo_2015.pdf" target="_blank" class="manual-link-material pdf">"Показатели для измерения социальных результатов в
+                        сфере
+                        детства: российский и международный опыт."М.2015</a>
+                    <a href="https://www.youtube.com/watch?v=lCvDXASp7os&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар на тему "Введение в оценку"</a>
+                    <a href="https://socialvalue.ru/?p=1781" target="_blank" class="manual-link-material link">Вебинар на тему "Стоимостные подходы в оценке"</a>
+                    <a href="https://socialvalue.ru/?p=1713" target="_blank" class="manual-link-material link">Вебинар на тему "Оценка.Подготовка к проведению"</a>
+                        </div>
+                    </div>
+                    <a href="/manual/1/"  class="manual_link">
+                        К следующей теме
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}

@@ -1,0 +1,1279 @@
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1442, in do_with
+    "assignment" % bits[0])
+django.template.exceptions.TemplateSyntaxError: 'with' expected at least one variable assignment
+[25/Nov/2016 18:03:19] "GET / HTTP/1.1" 500 140576
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:03:16
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:04:04
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'counter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1446, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 568, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 147: 'counter', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+[25/Nov/2016 18:04:42] "GET / HTTP/1.1" 500 169248
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:04:10
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:05:29
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'counter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1446, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 568, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 148: 'counter', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+[25/Nov/2016 18:05:44] "GET / HTTP/1.1" 500 169200
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'counter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1446, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 568, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 148: 'counter', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+[25/Nov/2016 18:05:45] "GET / HTTP/1.1" 500 169200
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:05:35
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:07:00
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1446, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 1439, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 1098, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '+1' from 'counter+1'
+[25/Nov/2016 18:07:12] "GET / HTTP/1.1" 500 183014
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:07:06
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:11:14
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/smartif.py", line 174, in translate_token
+    op = OPERATORS[token]
+KeyError: 'forloop.counter%3==0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 884, in __init__
+    super(TemplateIfParser, self).__init__(*args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/smartif.py", line 165, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/smartif.py", line 176, in translate_token
+    return self.create_var(token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 887, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '%3==0' from 'forloop.counter%3==0'
+[25/Nov/2016 18:11:24] "GET / HTTP/1.1" 500 184749
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:11:19
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:12:55
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[25/Nov/2016 18:13:05] "GET / HTTP/1.1" 200 16208
+[25/Nov/2016 18:13:05] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[25/Nov/2016 18:13:05] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[25/Nov/2016 18:13:05] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[25/Nov/2016 18:13:05] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[25/Nov/2016 18:13:05] "GET /static/css/main.css HTTP/1.1" 200 8033
+[25/Nov/2016 18:13:05] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[25/Nov/2016 18:13:05] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[25/Nov/2016 18:13:05] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[25/Nov/2016 18:13:05] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[25/Nov/2016 18:13:05] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[25/Nov/2016 18:13:05] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[25/Nov/2016 18:13:05] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[25/Nov/2016 18:13:05] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[25/Nov/2016 18:13:05] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[25/Nov/2016 18:13:05] "GET /static/js/main.js HTTP/1.1" 200 1554
+[25/Nov/2016 18:13:05] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[25/Nov/2016 18:13:05] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[25/Nov/2016 18:13:05] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+[25/Nov/2016 18:13:06] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[25/Nov/2016 19:22:38] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+[25/Nov/2016 20:37:39] code 400, message Bad request syntax ('\x00')
+[25/Nov/2016 20:37:39] " " 400 -
+Not Found: /http:/httpheader.net/
+[25/Nov/2016 20:37:43] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[25/Nov/2016 20:38:03] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[25/Nov/2016 20:38:03] " P\xc0c\xf660 " 400 -
+[25/Nov/2016 20:38:24] code 400, message Bad request syntax ('\x05\x01\x00')
+[25/Nov/2016 20:38:24] " " 400 -
+[25/Nov/2016 21:02:41] code 400, message Bad request syntax ('\x00')
+[25/Nov/2016 21:02:41] " " 400 -
+Not Found: /http:/httpheader.net/
+[25/Nov/2016 21:02:43] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[25/Nov/2016 21:02:54] code 400, message Bad request syntax ('\x04\x01\x00P\xa3\xac\x07\xa20\x00')
+[25/Nov/2016 21:02:54] " P\xa3\xac\xa20 " 400 -
+[25/Nov/2016 21:03:04] code 400, message Bad request syntax ('\x05\x01\x00')
+[25/Nov/2016 21:03:04] " " 400 -
+Not Found: /http:/www.baidu.com/favicon.ico
+[25/Nov/2016 21:37:23] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /oauth.vk.com:443
+[25/Nov/2016 22:29:21] "CONNECT oauth.vk.com:443 HTTP/1.1" 404 1647
+[25/Nov/2016 23:00:17] "GET / HTTP/1.1" 200 16803
+[26/Nov/2016 04:47:51] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00Z\x01\x00\x00V\x03\x01X:\xf1U\xaag\xc5\xe5\xe70\xf0')
+[26/Nov/2016 04:47:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /http:/www.google.com/reader/about/
+[26/Nov/2016 07:21:14] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[26/Nov/2016 09:44:59] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[26/Nov/2016 10:33:55] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/www.baidu.com/favicon.ico
+[26/Nov/2016 12:06:08] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+[26/Nov/2016 14:29:07] "GET / HTTP/1.1" 200 16803
+Not Found: /http:/www.teddybrinkofski.com/ip_json.php
+[26/Nov/2016 15:24:15] "GET http://www.teddybrinkofski.com/ip_json.php HTTP/1.1" 404 1731
+Not Found: /http:/httpheader.net/
+[26/Nov/2016 17:50:59] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[26/Nov/2016 17:51:10] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[26/Nov/2016 17:51:10] " P\xc0c\xf660 " 400 -
+Not Found: /http:/httpheader.net/
+[26/Nov/2016 17:51:10] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[26/Nov/2016 17:51:20] code 400, message Bad request syntax ('\x05\x01\x00')
+[26/Nov/2016 17:51:20] " " 400 -
+[26/Nov/2016 17:51:20] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[26/Nov/2016 17:51:20] " P\xc0c\xf660 " 400 -
+[26/Nov/2016 17:51:30] code 400, message Bad request syntax ('\x05\x01\x00')
+[26/Nov/2016 17:51:30] " " 400 -
+[26/Nov/2016 17:51:30] code 400, message Bad request syntax ('\x05\x01\x00')
+[26/Nov/2016 17:51:30] " " 400 -
+[26/Nov/2016 17:51:41] code 400, message Bad request syntax ('\x05\x01\x00')
+[26/Nov/2016 17:51:41] " " 400 -
+[26/Nov/2016 19:50:01] "GET / HTTP/1.0" 200 16803
+[26/Nov/2016 19:50:02] "OPTIONS / HTTP/1.0" 200 0
+[26/Nov/2016 19:50:03] code 400, message Bad request version ('RTSP/1.0')
+[26/Nov/2016 19:50:03] "OPTIONS / RTSP/1.0" 400 -
+Not Found: /nice ports,/Trinity.txt.bak
+[26/Nov/2016 19:50:03] "GET /nice%20ports%2C/Tri%6Eity.txt%2ebak HTTP/1.0" 404 2465
+[26/Nov/2016 19:50:04] code 400, message Bad request syntax ('\x05\x04\x00\x01\x02\x80\x05\x01\x00\x03')
+[26/Nov/2016 19:50:04] " \x80 " 400 -
+[26/Nov/2016 19:50:10] code 400, message Bad request syntax ('\x04\x01\x00\x16\x7f\x00\x00\x01root\x00')
+[26/Nov/2016 19:50:10] "   root " 400 -
+[26/Nov/2016 19:50:16] code 400, message Bad request version ('\x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[26/Nov/2016 19:50:16] "\x80  (r\xfe        \x86\xa0 \x97|                    " 400 -
+[26/Nov/2016 19:50:21] code 400, message Bad HTTP/0.9 request type ('\x00')
+[26/Nov/2016 19:50:21] "          versionbind   " 400 -
+[26/Nov/2016 19:50:26] code 400, message Bad HTTP/0.9 request type ('\x00')
+[26/Nov/2016 19:50:26] "            " 400 -
+[26/Nov/2016 19:50:27] code 400, message Bad request syntax ('HELP')
+[26/Nov/2016 19:50:27] "HELP" 400 -
+[26/Nov/2016 19:50:27] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G\xd7\xf7\xba,\xee\xea\xb2`~\xf3\x00\xfd\x82{\xb9\xd5\x96\xc8w\x9b\xe6\xc4\xdb<=\xdbo\xef\x10n\x00\x00(\x00\x16\x00\x13\x00')
+[26/Nov/2016 19:50:27] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[26/Nov/2016 19:50:33] code 400, message Bad request syntax ('\x00\x00\x00\xa4\xffSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00')
+[26/Nov/2016 19:50:33] "   \xa4\xffSMBr    @              @    \x81 PC NETWORK PROGRAM 1.0 MICROSOFT NETWORKS 1.03 MICROSOFT NETWORKS 3.0 LANMAN1.0 LM1.2X002 Samba NT LANMAN 1.0 NT LM 0.12 " 400 -
+[26/Nov/2016 19:50:38] code 400, message Bad HTTP/0.9 request type ('l\x00')
+[26/Nov/2016 19:50:38] "l          " 400 -
+[26/Nov/2016 19:50:39] code 400, message Bad request syntax ('\x01default')
+[26/Nov/2016 19:50:39] "default" 400 -
+[26/Nov/2016 19:50:44] code 400, message Bad HTTP/0.9 request type ('0')
+[26/Nov/2016 19:50:44] "0` \x80 " 400 -
+[26/Nov/2016 19:50:45] code 400, message Bad request version ('SIP/2.0')
+[26/Nov/2016 19:50:45] "OPTIONS sip:nm SIP/2.0" 400 -
+[26/Nov/2016 19:50:50] code 400, message Bad request syntax ('TNMP\x04\x00\x00\x00TNME\x00\x00\x04\x00')
+[26/Nov/2016 19:50:50] "TNMP   TNME   " 400 -
+[26/Nov/2016 19:50:56] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00')
+[26/Nov/2016 19:50:56] "  \xe0     " 400 -
+[26/Nov/2016 19:51:01] code 400, message Bad request syntax ('DmdT\x00\x00\x00\x17\x00\x00\x00\x01\x00\x00\x00\x00\x11\x11\x00\xff\x01\xff\x13')
+[26/Nov/2016 19:51:01] "DmdT           \xff\xff" 400 -
+[26/Nov/2016 19:51:06] code 400, message Bad HTTP/0.9 request type (':\x00\x00\x00/\x00\x00\x00\x02\x00\x00@\x02\x0f\x00\x01\x00=\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/\x00\x00\x00\x00\x00\x00\x00\x00\x00@')
+[26/Nov/2016 19:51:06] ":   /     @  =            /         @                 " 400 -
+[26/Nov/2016 19:51:12] code 400, message Bad request syntax ('\x01\x00\x00\xfd\xce\xfa\x0b\xb0\xa0\x00\x00\x00MMS\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x12\x00\x00\x00\x01\x00\x03\x00\xf0\xf0\xf0\xf0\x0b\x00\x04\x00\x1c\x00\x03\x00N\x00S\x00P\x00l\x00a\x00y\x00e\x00r\x00/\x009\x00.\x000\x00.\x000\x00.\x002\x009\x008\x000\x00;\x00 \x00{\x000\x000\x000\x000\x00A\x00A\x000\x000\x00-\x000\x00A\x000\x000\x00-\x000\x000\x00a\x000\x00-\x00A\x00A\x000\x00A\x00-\x000\x000\x000\x000\x00A\x000\x00A\x00A\x000\x00A\x00A\x000\x00}\x00\x00\x00\xe0m\xdf_')
+[26/Nov/2016 19:51:12] "  \xfd\xce\xfa\xb0\xa0   MMS                    \xf0\xf0\xf0\xf0    N S P l a y e r / 9 . 0 . 0 . 2 9 8 0 ;   { 0 0 0 0 A A 0 0 - 0 A 0 0 - 0 0 a 0 - A A 0 A - 0 0 0 0 A 0 A A 0 A A 0 }   \xe0m\xdf_" 400 -
+[26/Nov/2016 19:51:17] code 400, message Bad HTTP/0.9 request type ('\x00Z\x00\x00\x01\x00\x00\x00\x016\x01,\x00\x00\x08\x00\x7f\xff\x7f\x08\x00\x00\x00\x01\x00')
+[26/Nov/2016 19:51:17] " Z     6,   \xff      :                4\xe6           (CONNECT_DATA=(COMMAND=version))" 400 -
+[26/Nov/2016 19:51:24] "GET / HTTP/1.0" 200 16803
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[26/Nov/2016 20:10:27] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/favicon.ico
+[26/Nov/2016 20:39:49] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+[27/Nov/2016 01:19:26] code 400, message Bad request syntax ('\x00')
+[27/Nov/2016 01:19:26] " " 400 -
+Not Found: /http:/httpheader.net/
+[27/Nov/2016 01:19:29] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[27/Nov/2016 01:19:49] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[27/Nov/2016 01:19:49] " P\xc0c\xf660 " 400 -
+[27/Nov/2016 01:20:10] code 400, message Bad request syntax ('\x05\x01\x00')
+[27/Nov/2016 01:20:10] " " 400 -
+Traceback (most recent call last):
+  File "/usr/lib/python3.4/socketserver.py", line 617, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.4/socketserver.py", line 344, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.4/socketserver.py", line 673, in __init__
+    self.handle()
+  File "/usr/local/lib/python3.4/dist-packages/django/core/servers/basehttp.py", line 159, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.4/socket.py", line 374, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+[27/Nov/2016 06:04:51] "GET / HTTP/1.0" 200 16803
+[27/Nov/2016 06:22:39] "GET / HTTP/1.0" 200 16803
+[27/Nov/2016 06:22:39] "GET / HTTP/1.1" 200 16803
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[27/Nov/2016 08:51:11] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[27/Nov/2016 10:06:10] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[27/Nov/2016 11:30:57] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /manager/html
+[27/Nov/2016 14:01:16] "GET /manager/html HTTP/1.1" 404 2416
+Not Found: /http:/httpheader.net/
+[27/Nov/2016 18:49:32] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[27/Nov/2016 18:49:52] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[27/Nov/2016 18:49:52] " P\xc0c\xf660 " 400 -
+[27/Nov/2016 18:50:12] code 400, message Bad request syntax ('\x05\x01\x00')
+[27/Nov/2016 18:50:12] " " 400 -
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[27/Nov/2016 19:05:15] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[27/Nov/2016 23:17:16] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[28/Nov/2016 02:16:52] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /oauth.vk.com:443
+[28/Nov/2016 05:41:17] "CONNECT oauth.vk.com:443 HTTP/1.1" 404 1647
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[28/Nov/2016 06:26:56] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/httpheader.net/
+[28/Nov/2016 08:51:46] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[28/Nov/2016 08:52:06] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[28/Nov/2016 08:52:06] " P\xc0c\xf660 " 400 -
+[28/Nov/2016 08:52:27] code 400, message Bad request syntax ('\x05\x01\x00')
+[28/Nov/2016 08:52:27] " " 400 -
+[28/Nov/2016 10:25:02] "GET / HTTP/1.1" 200 16803
+Not Found: /http:/www.baidu.com/favicon.ico
+[28/Nov/2016 10:25:54] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[28/Nov/2016 12:00:52] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+[28/Nov/2016 15:41:08] "GET / HTTP/1.1" 200 16803
+Not Found: /HNAP1/
+[28/Nov/2016 15:41:08] "GET /HNAP1/ HTTP/1.1" 404 2398
+[28/Nov/2016 15:57:43] "GET / HTTP/1.1" 200 16803
+Not Found: /HNAP1/
+[28/Nov/2016 15:57:43] "GET /HNAP1/ HTTP/1.1" 404 2398
+Not Found: /http:/www.google.com/reader/about/
+[28/Nov/2016 16:04:10] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+Not Found: /http:/httpheader.net/
+[28/Nov/2016 17:30:39] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+Not Found: /http:/httpheader.net/
+[28/Nov/2016 17:30:40] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[28/Nov/2016 17:30:49] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[28/Nov/2016 17:30:49] " P\xc0c\xf660 " 400 -
+[28/Nov/2016 17:30:50] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[28/Nov/2016 17:30:50] " P\xc0c\xf660 " 400 -
+[28/Nov/2016 17:30:59] code 400, message Bad request syntax ('\x05\x01\x00')
+[28/Nov/2016 17:30:59] " " 400 -
+[28/Nov/2016 17:31:00] code 400, message Bad request syntax ('\x05\x01\x00')
+[28/Nov/2016 17:31:00] " " 400 -
+[28/Nov/2016 17:31:10] code 400, message Bad request syntax ('\x05\x01\x00')
+[28/Nov/2016 17:31:10] " " 400 -
+[28/Nov/2016 17:31:11] code 400, message Bad request syntax ('\x05\x01\x00')
+[28/Nov/2016 17:31:11] " " 400 -
+Not Found: /http:/www.google.com/reader/about/
+[28/Nov/2016 17:53:35] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+Not Found: /http:/www.teddybrinkofski.com/ip_json.php
+[28/Nov/2016 18:46:24] "GET http://www.teddybrinkofski.com/ip_json.php HTTP/1.1" 404 1731
+Not Found: /cgi/common.cgi
+[28/Nov/2016 21:56:56] "GET /cgi/common.cgi HTTP/1.0" 404 2417
+Not Found: /stssys.htm
+[28/Nov/2016 21:56:57] "GET /stssys.htm HTTP/1.0" 404 2405
+[28/Nov/2016 21:56:57] "GET / HTTP/1.0" 200 16803
+Not Found: /command.php
+[28/Nov/2016 21:56:58] "POST /command.php HTTP/1.0" 404 2409
+Not Found: /http:/www.baidu.com/favicon.ico
+[28/Nov/2016 22:10:12] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+[29/Nov/2016 01:10:11] "GET / HTTP/1.1" 200 16803
+Not Found: /HNAP1/
+[29/Nov/2016 01:10:12] "GET /HNAP1/ HTTP/1.1" 404 2398
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[29/Nov/2016 01:31:01] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/httpheader.net/
+[29/Nov/2016 02:11:15] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[29/Nov/2016 02:11:25] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[29/Nov/2016 02:11:25] " P\xc0c\xf660 " 400 -
+[29/Nov/2016 02:11:35] code 400, message Bad request syntax ('\x05\x01\x00')
+[29/Nov/2016 02:11:35] " " 400 -
+[29/Nov/2016 02:11:46] code 400, message Bad request syntax ('\x05\x01\x00')
+[29/Nov/2016 02:11:46] " " 400 -
+Not Found: /manager/html
+[29/Nov/2016 02:38:49] "GET /manager/html HTTP/1.1" 404 2416
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[29/Nov/2016 03:30:07] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[29/Nov/2016 03:35:14] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+[29/Nov/2016 11:21:12] "GET / HTTP/1.0" 200 16803
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[29/Nov/2016 12:52:07] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /cgi-bin/authLogin.cgi
+[29/Nov/2016 18:22:07] "GET /cgi-bin/authLogin.cgi HTTP/1.1" 404 2434
+[29/Nov/2016 19:05:38] "GET / HTTP/1.1" 200 16803
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 19:05:38] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 19:05:38] "GET /favicon.ico HTTP/1.1" 404 2413
+[29/Nov/2016 19:05:38] "GET / HTTP/1.1" 200 16803
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 19:05:38] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 19:05:38] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 19:05:38] "GET /favicon.ico HTTP/1.1" 404 2413
+[29/Nov/2016 20:06:04] "GET / HTTP/1.1" 200 16803
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 20:06:04] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 20:06:04] "GET /favicon.ico HTTP/1.1" 404 2413
+[29/Nov/2016 20:06:04] "GET / HTTP/1.1" 200 16803
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 20:06:04] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[29/Nov/2016 20:06:04] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[29/Nov/2016 20:06:04] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /http:/www.baidu.com/favicon.ico
+[29/Nov/2016 23:25:36] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[30/Nov/2016 02:12:19] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/favicon.ico
+[30/Nov/2016 04:02:29] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+[30/Nov/2016 05:18:26] "GET / HTTP/1.1" 200 16803
+[30/Nov/2016 07:11:09] "GET / HTTP/1.1" 200 16803
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[30/Nov/2016 07:51:19] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/httpheader.net/
+[30/Nov/2016 13:01:42] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[30/Nov/2016 13:01:52] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[30/Nov/2016 13:01:52] " P\xc0c\xf660 " 400 -
+[30/Nov/2016 13:02:02] code 400, message Bad request syntax ('\x05\x01\x00')
+[30/Nov/2016 13:02:02] " " 400 -
+[30/Nov/2016 13:02:13] code 400, message Bad request syntax ('\x05\x01\x00')
+[30/Nov/2016 13:02:13] " " 400 -
+[30/Nov/2016 13:05:42] "GET / HTTP/1.1" 200 16208
+[30/Nov/2016 13:05:44] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[30/Nov/2016 13:05:44] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[30/Nov/2016 13:05:44] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[30/Nov/2016 13:05:44] "GET /static/css/main.css HTTP/1.1" 200 8033
+[30/Nov/2016 13:05:44] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[30/Nov/2016 13:05:44] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[30/Nov/2016 13:05:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[30/Nov/2016 13:05:45] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[30/Nov/2016 13:05:46] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[30/Nov/2016 13:05:46] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[30/Nov/2016 13:05:46] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+[30/Nov/2016 13:06:07] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+Not Found: /http:/www.baidu.com/favicon.ico
+[30/Nov/2016 14:13:29] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[30/Nov/2016 14:50:53] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/180.163.113.82/check_proxy
+[30/Nov/2016 17:34:13] "HEAD http://180.163.113.82/check_proxy HTTP/1.1" 404 1696
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[30/Nov/2016 19:45:41] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+[01/Dec/2016 00:28:25] code 400, message Bad request syntax ('\x04\x01\x00P\xb4\xa3qR\x00')
+[01/Dec/2016 00:28:25] " P\xb4\xa3qR " 400 -
+[01/Dec/2016 00:59:12] code 400, message Bad request syntax ('\x05\x02\x00\x02')
+[01/Dec/2016 00:59:12] " " 400 -
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[01/Dec/2016 03:23:02] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2016 - 18:13:00
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('188.19.58.40', 33598)
+----------------------------------------
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 01, 2016 - 04:10:26
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[01/Dec/2016 04:10:53] "GET / HTTP/1.1" 200 16252
+[01/Dec/2016 04:10:53] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[01/Dec/2016 04:10:53] "GET /static/css/main.css HTTP/1.1" 200 8033
+[01/Dec/2016 04:10:53] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[01/Dec/2016 04:10:53] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[01/Dec/2016 04:10:54] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[01/Dec/2016 04:10:54] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[01/Dec/2016 04:10:54] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[01/Dec/2016 04:10:54] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[01/Dec/2016 04:10:54] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[01/Dec/2016 04:10:54] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[01/Dec/2016 04:10:54] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[01/Dec/2016 04:10:54] "GET /static/js/main.js HTTP/1.1" 200 1554
+[01/Dec/2016 04:10:54] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[01/Dec/2016 04:10:55] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[01/Dec/2016 04:10:55] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[01/Dec/2016 04:10:56] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[01/Dec/2016 04:10:56] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[01/Dec/2016 04:10:56] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+[01/Dec/2016 04:10:57] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+Not Found: /favicon.ico
+[01/Dec/2016 04:10:57] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /script
+[01/Dec/2016 04:39:20] "GET /script HTTP/1.1" 404 2398
+Not Found: /manager/html
+[01/Dec/2016 09:14:39] "GET /manager/html HTTP/1.1" 404 2416
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[01/Dec/2016 12:16:05] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/www.baidu.com/favicon.ico
+[01/Dec/2016 13:41:39] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/www.teddybrinkofski.com/ip_json.php
+[01/Dec/2016 14:13:35] "GET http://www.teddybrinkofski.com/ip_json.php HTTP/1.1" 404 1731
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[01/Dec/2016 15:57:31] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+[01/Dec/2016 16:58:45] "GET / HTTP/1.1" 200 16847
+Not Found: /robots.txt
+[01/Dec/2016 16:58:46] "GET /robots.txt HTTP/1.1" 404 2410
+Not Found: /sitemap.xml
+[01/Dec/2016 16:58:46] "GET /sitemap.xml HTTP/1.1" 404 2413
+Traceback (most recent call last):
+  File "/usr/lib/python3.4/socketserver.py", line 617, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.4/socketserver.py", line 344, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.4/socketserver.py", line 673, in __init__
+    self.handle()
+  File "/usr/local/lib/python3.4/dist-packages/django/core/servers/basehttp.py", line 159, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.4/socket.py", line 374, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+Not Found: /status
+[01/Dec/2016 17:35:26] "GET /status HTTP/1.1" 404 2398
+Not Found: /http:/httpheader.net/
+[01/Dec/2016 21:51:13] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[01/Dec/2016 21:51:23] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[01/Dec/2016 21:51:23] " P\xc0c\xf660 " 400 -
+[01/Dec/2016 21:51:33] code 400, message Bad request syntax ('\x05\x01\x00')
+[01/Dec/2016 21:51:33] " " 400 -
+[01/Dec/2016 21:51:44] code 400, message Bad request syntax ('\x05\x01\x00')
+[01/Dec/2016 21:51:44] " " 400 -
+[01/Dec/2016 23:35:43] "GET / HTTP/1.1" 200 16847
+Not Found: /HNAP1/
+[01/Dec/2016 23:35:44] "GET /HNAP1/ HTTP/1.1" 404 2398
+[02/Dec/2016 00:06:47] "GET / HTTP/1.0" 200 16847
+[02/Dec/2016 01:06:33] "GET / HTTP/1.1" 200 16847
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[02/Dec/2016 04:53:02] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[02/Dec/2016 11:55:14] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+[02/Dec/2016 12:21:12] code 400, message Bad request syntax ('\x05\x01\x00')
+[02/Dec/2016 12:21:12] " " 400 -
+Not Found: /http:/82.146.38.46:8080/prox_ch.php
+[02/Dec/2016 12:51:29] "GET http://82.146.38.46:8080/prox_ch.php HTTP/1.1" 404 1707
+Not Found: /http:/www.baidu.com/favicon.ico
+[02/Dec/2016 13:44:41] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /yqypwckmq.ico
+[02/Dec/2016 13:51:41] "POST yqypwckmq.ico HTTP/1.0" 404 1643
+[02/Dec/2016 16:27:15] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03XB\x0f\xc0\xb9\x92$\xff\x12\x8b\xea\xb5c\x18Y>\xe8\xe0\xa4\xa7'\xaa\xe5\xa8\xb9\x0e\xd4\x97)l\xe6&\x00\x00*\xc0+\xc0#\xc0,\xc0$\xc0")
+[02/Dec/2016 16:27:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: //
+[02/Dec/2016 16:27:15] "GET // HTTP/1.1" 404 2383
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[02/Dec/2016 16:40:07] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/httpheader.net/
+[02/Dec/2016 16:49:16] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[02/Dec/2016 16:49:36] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[02/Dec/2016 16:49:36] " P\xc0c\xf660 " 400 -
+[02/Dec/2016 16:49:56] code 400, message Bad request syntax ('\x05\x01\x00')
+[02/Dec/2016 16:49:56] " " 400 -
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[02/Dec/2016 18:24:47] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.baidu.com/favicon.ico
+[02/Dec/2016 21:23:36] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/www.baidu.com/favicon.ico
+[03/Dec/2016 02:05:54] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/httpheader.net/
+[03/Dec/2016 06:26:12] "GET http://httpheader.net/ HTTP/1.1" 404 1662
+[03/Dec/2016 06:26:22] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+[03/Dec/2016 06:26:22] " P\xc0c\xf660 " 400 -
+[03/Dec/2016 06:26:32] code 400, message Bad request syntax ('\x05\x01\x00')
+[03/Dec/2016 06:26:32] " " 400 -
+[03/Dec/2016 06:26:43] code 400, message Bad request syntax ('\x05\x01\x00')
+[03/Dec/2016 06:26:43] " " 400 -
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[03/Dec/2016 06:29:51] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+[03/Dec/2016 10:11:40] code 400, message Bad request syntax ('\x05\x02\x00\x02')
+[03/Dec/2016 10:11:40] " " 400 -
+Not Found: /http:/www.google.com/reader/about/
+[03/Dec/2016 12:18:27] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+Not Found: /UD/act
+[03/Dec/2016 16:37:04] "POST /UD/act?1 HTTP/1.1" 404 2396
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[03/Dec/2016 19:36:13] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /http:/www.google.com/reader/about/
+[03/Dec/2016 21:00:19] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[03/Dec/2016 21:04:50] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+[03/Dec/2016 21:24:15] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[03/Dec/2016 21:24:15] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[03/Dec/2016 21:24:15] "GET /favicon.ico HTTP/1.1" 404 2413
+[03/Dec/2016 21:24:15] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[03/Dec/2016 21:24:15] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[03/Dec/2016 21:24:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[03/Dec/2016 21:24:15] "GET /favicon.ico HTTP/1.1" 404 2413
+[03/Dec/2016 22:29:52] "GET / HTTP/1.0" 200 16847
+[04/Dec/2016 02:56:07] "GET / HTTP/1.1" 200 16847
+Not Found: /HNAP1/
+[04/Dec/2016 02:56:07] "GET /HNAP1/ HTTP/1.1" 404 2398
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[04/Dec/2016 04:02:02] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: //jmx-console/HtmlAdaptor
+[04/Dec/2016 04:08:11] "GET //jmx-console/HtmlAdaptor HTTP/1.1" 404 2447
+[04/Dec/2016 04:10:08] "GET / HTTP/1.1" 200 16847
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[04/Dec/2016 08:16:45] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+[04/Dec/2016 08:17:52] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:17:52] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:17:52] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 08:17:52] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:17:52] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:17:52] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:17:52] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 08:33:57] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:33:57] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:33:57] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:33:57] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:33:57] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:33:57] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:33:57] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 08:33:57] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:33:58] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:33:58] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:33:58] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 08:33:58] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 08:33:58] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 08:33:58] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 11:07:22] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 11:07:22] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 11:07:22] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 11:07:22] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 11:07:22] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 11:07:22] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 11:07:22] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 11:11:20] "GET / HTTP/1.0" 200 16847
+[04/Dec/2016 12:27:39] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 12:27:39] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 12:27:39] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 12:27:39] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 12:27:39] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 12:27:39] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 12:27:39] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /cgi/common.cgi
+[04/Dec/2016 12:30:39] "GET /cgi/common.cgi HTTP/1.0" 404 2417
+Not Found: /stssys.htm
+[04/Dec/2016 12:30:39] "GET /stssys.htm HTTP/1.0" 404 2405
+[04/Dec/2016 12:30:40] "GET / HTTP/1.0" 200 16847
+Not Found: /command.php
+[04/Dec/2016 12:30:41] "POST /command.php HTTP/1.0" 404 2409
+Not Found: /language/Swedish${IFS}&&echo${IFS}610cker>qt&&tar${IFS}/string.js
+[04/Dec/2016 12:30:41] "GET /language/Swedish${IFS}&&echo${IFS}610cker>qt&&tar${IFS}/string.js HTTP/1.0" 404 2638
+Not Found: /../../../../../../../mnt/mtd/qt
+[04/Dec/2016 12:30:42] "GET /../../../../../../../mnt/mtd/qt HTTP/1.0" 404 2468
+Not Found: /http:/www.baidu.com/favicon.ico
+[04/Dec/2016 13:41:09] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+[04/Dec/2016 13:49:18] "GET / HTTP/1.1" 200 16847
+[04/Dec/2016 13:52:52] code 400, message Bad request syntax ('\xa7\x02\x00\x00')
+[04/Dec/2016 13:52:52] "\xa7  " 400 -
+[04/Dec/2016 16:21:47] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 16:21:47] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 16:21:47] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 16:21:47] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 16:21:47] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 16:21:47] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 16:21:47] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 16:21:47] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 16:21:48] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 16:21:48] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 16:21:48] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 16:21:48] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 16:21:48] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 16:21:48] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 17:51:07] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 17:51:08] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 17:51:08] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 17:51:08] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 17:51:08] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 17:51:08] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 17:51:08] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 18:35:40] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 18:35:40] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 18:35:40] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 18:35:40] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 18:35:40] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 18:35:40] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 18:35:40] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 19:37:06] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 19:37:06] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 19:37:06] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 19:37:06] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 19:37:06] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 19:37:06] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 19:37:06] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 20:37:15] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:37:15] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:37:15] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 20:37:15] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:37:15] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:37:15] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:37:15] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[04/Dec/2016 20:53:02] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+[04/Dec/2016 20:57:19] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:57:19] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:57:19] "GET /favicon.ico HTTP/1.1" 404 2413
+[04/Dec/2016 20:57:19] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:57:19] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[04/Dec/2016 20:57:19] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[04/Dec/2016 20:57:19] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[05/Dec/2016 01:25:29] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/www.google.com/reader/about/
+[05/Dec/2016 01:40:58] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+[05/Dec/2016 07:27:03] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 07:27:03] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 07:27:03] "GET /favicon.ico HTTP/1.1" 404 2413
+[05/Dec/2016 07:27:03] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 07:27:03] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 07:27:03] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 07:27:03] "GET /favicon.ico HTTP/1.1" 404 2413
+[05/Dec/2016 08:38:21] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 08:38:21] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 08:38:21] "GET /favicon.ico HTTP/1.1" 404 2413
+[05/Dec/2016 08:38:21] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 08:38:21] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 08:38:21] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 08:38:21] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /http:/testp1.piwo.pila.pl/testproxy.php
+[05/Dec/2016 09:28:52] "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1" 404 1721
+[05/Dec/2016 09:39:13] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 09:39:13] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 09:39:13] "GET /favicon.ico HTTP/1.1" 404 2413
+[05/Dec/2016 09:39:13] "GET / HTTP/1.1" 200 16847
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 09:39:13] "GET /favicon.ico HTTP/1.1" 404 2413
+Not Found: /apple-touch-icon-precomposed.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2476
+Not Found: /apple-touch-icon.png
+[05/Dec/2016 09:39:13] "GET /apple-touch-icon.png HTTP/1.1" 404 2440
+Not Found: /favicon.ico
+[05/Dec/2016 09:39:13] "GET /favicon.ico HTTP/1.1" 404 2413
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 01, 2016 - 04:10:29
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('194.190.80.26', 64198)
+----------------------------------------
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x7f2d61492950>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/management/base.py", line 431, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+rcapp.ResultsChain.date: (fields.E160) The options auto_now, auto_now_add, and default are mutually exclusive. Only one of these options may be present.
+
+System check identified 1 issue (0 silenced).
+Performing system checks...
+

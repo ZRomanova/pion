@@ -1,0 +1,43 @@
+<app-profile-card *ngIf="currentUserRequest" [currentUserRequest]="currentUserRequest"></app-profile-card>
+
+<section>
+    <div>
+        <h2 class="center">ВАШИ ПРОГРАММЫ</h2>
+    </div>
+</section>
+
+<div *ngIf="myPrograms && myPrograms.length; else empty">
+    <app-program-card *ngFor="let program of myPrograms" [program]="program" [currentUserRequest]="currentUserRequest"></app-program-card>
+</div>
+
+ <ng-template #empty>
+    <section>
+        <div>
+            <h4 class="center">{{status}}</h4>
+        </div>
+    </section>
+</ng-template>
+
+<section class="block_program_add">
+    <div class="center">
+        <button (click)="newProgram()" class="add_button"><img src="/newpion/static/pionfront/assets/img/plus.png">
+            <p>Добавить программу</p>
+        </button>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- <div class="popap_accessadd dark_block" style="display: none;">
+    <div>
+        <p class="close_btn"><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/info.png">
+            <p>«Включить в личную библиотеку социальных результатов?</p>
+            <button style="width: auto;" class="add_button">Включить</button>
+        </div>
+    </div>
+</div> -->

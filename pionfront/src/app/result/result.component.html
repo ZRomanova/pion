@@ -1,0 +1,138 @@
+<section class="block_form " *ngIf="toLoad <= 0">
+    <div>
+        <div class="row head_result">
+            <div class="col-4 blue_item"><h1>СОЦИАЛЬНЫЙ РЕЗУЛЬТАТ</h1></div>
+            <div class="col-4 back_btn"><a class="cursor_pointer" (click)="goBack($event)">Назад</a></div>
+            <div class="col-4 right">
+                <button *ngIf="!outcome.current_user_library && authenticated" (click)="addToLibrary()" style="width: auto;" class="add_button open_accessadd add_tolib"><img src="/newpion/static/pionfront/assets/img/check_white.png"><span>Добавить в мою библиотеку</span></button>
+                <button *ngIf="outcome.current_user_library && authenticated" (click)="removeFromLibrary()" style="width: auto;" class="add_button open_accessadd add_tolib remove"><img src="/newpion/static/pionfront/assets/img/check_white.png"><span>Убрать из моей библиотеки</span></button>
+            </div>
+        </div>
+        <div class="content_block">
+            <div class="row ">
+                <div class="col-5 border_right">
+                  <h3 class="marg_h_top">Тематические группы:</h3>
+                    <p *ngFor="let tg of thematicGroups" class="line_include" [ngClass]="{'check': tg.current}"><span>{{tg.name}}</span></p>
+
+                    <h3 class="marg_h_top">Целевые группы:</h3>
+
+                    <ng-container *ngFor="let target of targets" >
+                      <p class="line_include" [ngClass]="{'check': target.current}" *ngIf="!target.parent_ref">
+                          <span>{{target.name}}</span>
+                      </p>
+                      <div *ngFor="let child of targets" style="padding-left: 3rem;" >
+                          <p class="line_include" [ngClass]="{'check': child.current}" *ngIf="child.parent_ref == target.id && !target.parent_ref">
+                              <span>{{child.name}}</span>
+                          </p>
+                      </div>
+                    </ng-container>
+
+                    <h3 class="marg_h_top">Практика:</h3>
+                    <p *ngFor="let practice of practices" class="line_include" [ngClass]="{'check': practice.current}"><span>{{practice.name}}</span></p>
+                </div>
+                <div class="col-7">
+                    <h2 class="marg_h_top">{{outcome.name}}</h2>
+                    <p class="sub_line">(Общая формулировка)</p>
+
+                    <h3 class="marg_h_top uppercase">Частные формулировки</h3>
+                    <ul class="border_botton marg_h_bottom">
+                        <li *ngFor="let outcomeName of outcomeNames">{{outcomeName.name}}</li>
+                    </ul> 
+
+                    <h3 class="marg_h_top uppercase">Показатели</h3> 
+                        <p *ngFor="let outcomeIndicator of outcomeIndicators" class="arrow_right">{{outcomeIndicator.name}}</p>
+                        <div *ngIf="outcome.createdby && transport.user.id == outcome.createdby.id" class="col-2 add_block" 
+                        (click)="addIndicator()"
+                        style="padding: 20px 20px 20px 47px !important; background-position: left 7px center !important; color: black; font-weight: 400; cursor: pointer;"> 
+                            Добавить 
+                        </div>
+
+                    <h3 class="marg_h_top uppercase">Методы и инструменты сбора данных</h3> 
+                        <p *ngFor="let outcomeMethod of outcomeMethods" class="arrow_right"><a target="_blank" href="{{outcomeMethod.url}}">{{outcomeMethod.name}}</a></p>
+                        <p *ngFor="let tool of tools" class="arrow_right"><a target="_blank" [routerLink]="['/tools']" [queryParams]="{id: tool.id}">{{tool.name}}</a></p>
+                        <div *ngIf="outcome.createdby && transport.user.id == outcome.createdby.id" class="col-2 add_block" 
+                        (click)="addTool()"
+                        style="padding: 20px 20px 20px 47px !important; background-position: left 7px center !important; color: black; font-weight: 400; cursor: pointer;"> 
+                            Добавить 
+                        </div>
+
+                    <h3 class="marg_h_top uppercase">Отчёты об оценке</h3> 
+                    <p *ngFor="let report of reports" class="arrow_right"><a [routerLink]="['/report', report.id]">{{report.case_ref.name}}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="popap_kontst dark_block blue_head big_form" *ngIf="form == 1">
+    <div>
+      <div class="head">
+        <p class="close_btn" (click)="closeForm()">
+          <img src="/newpion/static/pionfront/assets/img/close_btn.png">
+        </p>
+        <p class="center font_500">Социальный результат</p>
+      </div>
+      <div class="text_block">
+        <form [formGroup]="toolForm">
+          <p class="line_descSel">Общая формулировка:</p>
+          <textarea class="text_item" [value]="outcome.name" disabled></textarea>
+
+          <p class="line_descSel">Инструмент:</p>
+          <select class="big_sellect" formControlName="tool">
+            <option value="" disabled>Выберите инструмент</option>
+            <option *ngFor="let tool of allTools" [value]="tool.id" [disabled]="isToolSelected(tool.id)">{{tool.name}}</option>
+          </select>
+  
+  
+          <button class="add_button" style="width: auto; margin-bottom: 20px;" [disabled]="toolForm.invalid || toolForm.disabled" (click)="toolFormSubmit()">Добавить</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+<div class="popap_kontst dark_block blue_head big_form"  *ngIf="form == 2">
+    <div>
+      <div class="head">
+        <p class="close_btn" (click)="closeForm()">
+          <img src="/newpion/static/pionfront/assets/img/close_btn.png">
+        </p>
+        <p class="center font_500">Социальный результат</p>
+      </div>
+      <div class="text_block">
+        <form [formGroup]="indicatorForm">
+          <p class="line_descSel">Общая формулировка:</p>
+          <textarea class="text_item" [value]="outcome.name" disabled></textarea>
+  
+          <p class="line_descSel">Название программы:</p>
+          <select  class="big_sellect" formControlName="program" (change)="changeLevel()">
+            <option value="">Выберите из списка</option>
+            <option [value]="program.id" *ngFor="let program of programs">{{program.name}}</option>
+          </select>
+  
+          <p class="line_descSel">Уровень социального результата:</p>
+            <select  class="big_sellect" formControlName="level" (change)="changeLevel()">
+                <option value="">Выберите из списка</option>
+                <option value="short-outcomes">Краткосрочные</option>
+                <option value="mid-outcomes">Среднесрочные</option>
+                <option value="impacts">Социальный эффект</option>
+            </select>
+
+            <p class="line_descSel">Результат:</p>
+            <select  class="big_sellect" formControlName="result" (change)="changeResult()">
+                <option value="">Выберите из списка</option>
+                <option [value]="result.id" *ngFor="let result of results">{{result.name}}</option>
+            </select>
+  
+          <p class="line_descSel">Показатель:</p>
+            <select  class="big_sellect" formControlName="indicator" (change)="changeResult()">
+                <option value="">Выберите из списка</option>
+                <option [value]="mplItem.indicator" *ngFor="let mplItem of mpl" [disabled]="isIndicatorSelected(mplItem.indicator)">{{mplItem.indicator}}</option>
+            </select>
+
+          <button class="add_button" style="width: auto; margin-bottom: 20px;" [disabled]="indicatorForm.invalid || indicatorForm.disabled" (click)="indicatorFormSubmit()">Добавить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+

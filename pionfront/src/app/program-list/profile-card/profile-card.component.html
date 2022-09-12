@@ -1,0 +1,34 @@
+<section class="block_program" *ngIf="currentUserRequest">
+    <div>
+        <div class="row head_result">
+            <div class="col-4 blue_item ">
+                <h1 class="uppercase">Организация</h1>
+            </div>
+            <div class="col-4">
+                <p class="name_program">{{currentUserRequest.organization}}</p>
+                <p class="desc_program">{{currentUserRequest.region}}</p>
+            </div>
+            <div class="col-4 right">
+                <button class="open_button orange_inform" (click)="updateProfile($event)"><img src="/newpion/static/pionfront/assets/img/pencil_white.png"></button>
+            </div>
+        </div>
+        <div class="block_programDesc">
+            <div class="row ">
+                <div class="col-4 user_info">
+                    <p class="font_500"><span>E-mail:</span> {{currentUserRequest.email}}</p>
+                    <p class="font_500"><span>Фамилия:</span> {{currentUserRequest.lastname}}</p>
+                    <p class="font_500"><span>Имя:</span> {{currentUserRequest.firstname}}</p>
+                    <p class="font_500"><span>Отчество:</span> {{currentUserRequest.middlename}}</p>
+                    <p class="font_500"><span>Должность:</span> {{currentUserRequest.position}}</p>
+                </div>
+                <div class="col-6 inter_link">
+                    <a class="font_500" href="{{currentUserRequest.website}}" target="_blank"><img
+                            src="/newpion/static/pionfront/assets/img/www.png">
+                        <p>{{currentUserRequest.website}}</p>
+                    </a>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
+</section>

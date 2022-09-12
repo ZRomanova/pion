@@ -1,0 +1,149 @@
+[18/Nov/2016 15:41:54] "GET / HTTP/1.1" 200 12234
+[18/Nov/2016 15:41:54] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[18/Nov/2016 15:41:54] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[18/Nov/2016 15:41:54] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[18/Nov/2016 15:41:54] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[18/Nov/2016 15:41:54] "GET /static/css/main.css HTTP/1.1" 200 8033
+[18/Nov/2016 15:41:54] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[18/Nov/2016 15:41:54] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[18/Nov/2016 15:41:54] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[18/Nov/2016 15:41:54] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[18/Nov/2016 15:41:54] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[18/Nov/2016 15:41:54] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[18/Nov/2016 15:41:54] "GET /static/js/main.js HTTP/1.1" 200 1554
+[18/Nov/2016 15:41:54] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[18/Nov/2016 15:41:54] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[18/Nov/2016 15:41:54] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[18/Nov/2016 15:41:54] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[18/Nov/2016 15:41:54] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[18/Nov/2016 15:41:54] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+[18/Nov/2016 15:41:55] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[18/Nov/2016 15:41:59] "GET / HTTP/1.1" 200 12234
+[18/Nov/2016 15:42:00] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/css/animate.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/css/main.css HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/main.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/img/logo.png HTTP/1.1" 304 0
+[18/Nov/2016 15:42:00] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[18/Nov/2016 15:42:01] "GET / HTTP/1.1" 200 12234
+[18/Nov/2016 15:42:01] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+[18/Nov/2016 15:42:01] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1653
+[18/Nov/2016 15:42:01] "GET /static/admin/css/base.css HTTP/1.1" 200 15937
+[18/Nov/2016 15:42:01] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+[18/Nov/2016 15:42:01] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[18/Nov/2016 15:42:02] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[18/Nov/2016 15:42:02] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[18/Nov/2016 15:42:02] "GET /admin HTTP/1.1" 301 0
+[18/Nov/2016 15:42:02] "GET /admin/ HTTP/1.1" 302 0
+[18/Nov/2016 15:42:02] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1653
+[18/Nov/2016 15:42:03] "GET /admin/ HTTP/1.1" 302 0
+[18/Nov/2016 15:42:03] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1653
+Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'rc_builder_app_data.auth_user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/admin/sites.py", line 377, in login
+    return login(request, **defaults)
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/auth/views.py", line 47, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/auth/views.py", line 81, in login
+    if form.is_valid():
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 169, in is_valid
+    return self.is_bound and not self.errors
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 161, in errors
+    self.full_clean()
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 371, in full_clean
+    self._clean_form()
+  File "/usr/local/lib/python3.4/dist-packages/django/forms/forms.py", line 398, in _clean_form
+    cleaned_data = self.clean()
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/auth/forms.py", line 190, in clean
+    self.user_cache = authenticate(username=username, password=password)
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/auth/__init__.py", line 74, in authenticate
+    user = backend.authenticate(**credentials)
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/auth/backends.py", line 17, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "/usr/local/lib/python3.4/dist-packages/django/contrib/auth/base_user.py", line 48, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/MySQLdb/connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'rc_builder_app_data.auth_user' doesn't exist")
+[18/Nov/2016 15:42:14] "POST /admin/login/?next=/admin/ HTTP/1.1" 500 243349

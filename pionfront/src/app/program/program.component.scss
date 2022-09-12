@@ -1,0 +1,384 @@
+.assumption-context-textarea {
+    width: calc(100% - 22px);
+    margin-top: 10px;
+    height: 100px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.uline {
+    border-bottom: 5px solid #02acc8;
+}
+
+.select-styling {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: calc(100% - 22px);
+}
+
+.no-border {
+    border: none;
+}
+
+.highlighted {
+    // border: 3px solid black;
+    -webkit-box-shadow: 3px 3px 32px 3px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: 3px 3px 32px 3px rgba(0, 0, 0, 0.74);
+    box-shadow: 3px 3px 32px 3px rgba(0, 0, 0, 0.74);
+}
+
+.del-but {
+    margin-bottom: 10px;
+}
+
+.delete-mpl-line {
+    margin-left: 30px;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.td-textarea-indicator {
+    height: 110px;
+}
+
+.checker-inbox {
+    margin-left: 13px;
+    margin-top: 10px;
+}
+
+#np-scheme-wrapper {
+    width: 851px;
+    height: 500px;
+    background: lightgrey;
+}
+
+#np-button-wrapper {
+    position: relative;
+    width: 30px;
+    top: -71px;
+    right: -5px;
+}
+
+.np-button {
+    padding: 5px;
+    width: 30px;
+    margin: 0px 0px 2px 0px;
+}
+
+// Ниже колхоз от верстальщика
+
+.photo:hover .desc_item3,
+.photo:hover .desc_item2 {
+    display: block;
+}
+.hintblock:hover .desc_item3,
+.hintblock:hover .desc_item2 {
+    display: block;
+}
+
+.relative:hover {
+    position: relative;
+}
+
+.photo {
+    cursor: pointer;
+    margin-left: 1px;
+    margin-top: 13px;
+    margin-right: 15px;
+    float: left;
+    display: inline-block; /* Строчно-блочный элемент */
+    position: relative; /* Относительное позиционирование */
+}
+.photo img {
+    margin: 0px !important;
+    float: none !important;
+}
+.row_name .photo {
+    margin-bottom: 20px;
+}
+.desc_item2 {
+    display: none;
+    border-radius: 6px;
+    position: absolute;
+    margin-top: -7px;
+    left: 50%;
+    text-align: center;
+    max-width: 250px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.85);
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 20;
+}
+.desc_item2:after {
+    left: 5px;
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* top: 100px; */
+    top: -10px;
+    border: 5px solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.85) rgba(255, 255, 255, 0.85);
+    right: 10px;
+}
+.item_name .photo {
+    margin-top: -2px;
+}
+.item_name {
+    max-width: 180px;
+    margin: 0px auto !important;
+}
+
+.block_programDesc {
+    margin-top: 15px;
+}
+.newProgramHead label {
+    color: #908f8f;
+    font-size: 16px;
+}
+.inf_item span {
+    font-size: 16px;
+    width: 40px;
+    margin: 0px 7px;
+}
+.inf_item input {
+    margin: 0px !important;
+    width: calc(50% - 20px);
+    border: none;
+    border-radius: 5px;
+    padding: 13px;
+    font-size: 14px !important;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.inf_item {
+    margin-top: 15px;
+}
+.newProgramHead textarea {
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 14px !important;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu_block {
+    margin-top: 35px;
+    margin-bottom: -45px;
+}
+.menu_block .item_text {
+    background: #0a91a7;
+    font-size: 14px;
+    min-height: 75px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.menu_block .item_text.active {
+    padding-left: 20px;
+    background-color: #f78219;
+    background-image: url("/newpion/static/pionfront/assets/img/arrow-pion.png");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.menu_block .item_text.active div {
+    width: calc(100% - 20px);
+}
+
+.menu_block .item_text > div {
+    width: 100%;
+    vertical-align: middle;
+    top: 50%;
+    position: absolute;
+    margin: 0px;
+    transform: translate(0px, -50%);
+}
+
+// .full-width {
+//     //  margin-left: -15px;
+//     // width: calc(100% + 30px);
+// }
+
+.full-width .photo {
+    margin: 0px !important;
+    height: 100%;
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: calc(100% / 7); /* Четыре ссылки одинаковой ширины */
+    text-align: center;
+}
+
+.navbar .photo.active {
+    background-color: #4caf50;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar .photo {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+}
+.container_checked {
+    color: black !important;
+}
+
+.desc_item3 {
+    display: none;
+    border-radius: 6px;
+    position: absolute;
+    margin-top: -15px;
+    left: 20px;
+    text-align: center;
+    max-width: 250px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.85);
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 20;
+}
+.desc_item3:after {
+    left: 5px;
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* top: 100px; */
+    top: -10px;
+    border: 5px solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.85) rgba(255, 255, 255, 0.85);
+    right: 10px;
+}
+
+.item_Close {
+    text-align: center;
+}
+.item_Close img {
+    cursor: pointer;
+    margin-top: 20px;
+    transform: rotate(180deg);
+}
+
+.block_programDesc input.active,
+.block_programDesc textarea.active,
+.block_programDesc input:hover,
+.block_programDesc textarea:hover,
+.shadow_program {
+	box-shadow: 0 0 6px rgb(112 210 222);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table_chain_gruppe textarea.active,
+.table_chain_gruppe textarea:hover{
+	box-shadow: 0 0 6px rgb(112 210 222);
+    border-radius: 5px;
+    border-bottom: 0px;
+    background: url("/newpion/static/pionfront/assets/img/pencil.png");
+    background-position: right 15px top 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.table_chain_gruppe button{
+	width: auto;
+    background: #F78219 !important;
+    border-color: #F78219;
+    height: 33px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.fixed_block {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 10;
+    left: 1vw;
+    margin-top: 2vh;
+    max-width: 30vw;
+    top: 1vw;
+}
+
+.title_fixed_block {
+    position: absolute;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.help_block div{
+	background: white;
+    padding: 20px 25px;
+    margin-top: 30px;
+    border-radius: 15px;
+    background-image: url('/newpion/static/pionfront/assets/img/form_bg.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.desc_itemHelp{
+	// display: none;
+    border-radius: 6px;
+    position: absolute; 
+    left: 130px;
+    top: -132%;
+    text-align: center;
+    max-width: 250px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.85);
+    color: black;
+    box-shadow: 0 0 10px rgb(0 0 0 / 25%);
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 20;
+}
+
+.desc_itemHelp_pencil{
+    top: -40px !important;
+}
+
+
+.desc_itemHelp:after{
+    right: 5px;
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -10px;
+    border: 5px solid;
+    border-color: rgba(255, 255, 255, 0.85) rgba(255, 255, 255, 0.85) transparent transparent;
+    right: 10px;
+} 
+
+app-thead-plan, app-thead-form, .tbody  {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+thead{
+    table-layout: auto;
+}
+
+td {
+    vertical-align: top;
+}

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <section class="manual">
+        <div class="manual_top">
+            <div class="container">
+                <div class="manual-title">
+                    Руководство по работе
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="manual_wrapper">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                {% include 'manual_left.html' with page=page_number %}
+                <div class="manual_body">
+
+                    <div class="manual_body-title">
+                        Целевые группы
+                    </div>
+                    <div class="manual_img">
+                        <img src="{% static 'images/group_img1.JPG' %}" alt="">
+                    </div>
+                    <p>
+                        <span>Целевые группы</span> - это основные группы участников,благополучателей проекта. Это
+                        те,ради
+                        кого осуществляется проект.
+                    </p>
+                    <p>
+                        Какие именно группы "выиграют",получат пользу от реализации проекта? У каких именно групп
+                        произойдут изменения? Все ли изменения являются позитивными?
+                    </p>
+                    <div class="manual_body-title">
+                        Важно
+                    </div>
+                    <p>
+                        При создании <span>ЦСР</span> в первую очередь ориентируйтесь на прямых (или непосредственных)
+                        благополучателей.
+                    </p>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            У кого произойдут изменения?
+                        </div>
+                        <div class="manual_body-block_text">
+                            Прямые благополучатели-участники проекта,которые непосредственно участвуют в проекте и
+                            получают "пользу". Например, прямые благополучатели-кризисные семьи,с которыми работают
+                            в
+                            рамках проекта. Непрямыми благополучателями могут быть представители близкого окружения
+                            семьи.
+                        </div>
+                    </div>
+                    <div class="manual_item-title">
+                        Учитывайте особенности, неоднородность целевых групп:
+                    </div>
+                    <div class="select">
+                        <img src="{% static 'images/tselev_goup.png' %}" alt="">
+                    </div>
+                    <div class="manual_item-title">
+                        Предварительно проведите анализ стейкхолдеров проекта.
+                    </div>
+                    <p>
+                        Составьте максимально широкий перечень возможных стейкхолдеров;<br>
+                        Выберите ключевых стейкхолдеров;
+                    </p>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Стейкхолдеры (заинтересованные стороны)
+                        </div>
+                        <div class="manual_body-block_text">
+                            Люди или организации,на которых влияет проект и/или которые влияют на него. Влияние
+                            может
+                            быть как позитивным, та и негативным
+                        </div>
+                    </div>
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Что ожидают стейкхолдеры от проекта и почему?
+                        </div>
+                        <div class="manual_body-block_text">
+                            По возможности,максимально вовлекайте ключевых стейкхолдеров в разработку системы
+                            измерения
+                            и оценки проекта.
+                        </div>
+                    </div>
+
+
+                    <center>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gDky8MwfjcU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </center>
+                    <p></p>
+
+                    <div class="manual_tab">
+                        <div class="manual_tab-title">
+                            Дополнительные материалы
+                        </div>
+                        <div class="manual_tab-text">
+                            <a href="https://pion.org.ru/static/files/sbornik.pdf" target="_blank" class="manual-link-material link">Сборник кейсов по проекту "Общая
+                        информационно-технологическая платформа для оценки социальных результатов"</a>
+                    <a href="https://www.youtube.com/watch?v=nv0VF4Yn12Y&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар "Теория изменений для планирования и оценки
+                        социальных результатов"</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/TCD_Print_Theory_Of_Changes_Handbook_145x210_2014_Preview_v02.pdf" target="_blank" class="manual-link-material pdf">Теория изменений: общие рекомендации к применению (из
+                        опыта
+                        БДФ "Виктория".М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/ozenka_soc-economy_effectivnosty.pdf" target="_blank" class="manual-link-material file">Рекомендации по оценке социально-экономической
+                        эффективности социальных программ: определение, подходы, практический опыт М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2016/05/impact-141031050233-conversion-gate01.pdf" target="_blank" class="manual-link-material pdf">Практическое руководство по измерению социального
+                        воздействия (A Practical Guide to Measuring and Managing Impact),EVPA,2013</a>
+                    <a href="https://socialvalue.ru/wp-content/uploads/2016/05/pokazateli_detstvo_2015.pdf" target="_blank" class="manual-link-material pdf">"Показатели для измерения социальных результатов в
+                        сфере
+                        детства: российский и международный опыт."М.2015</a>
+                    <a href="https://www.youtube.com/watch?v=lCvDXASp7os&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар на тему "Введение в оценку"</a>
+                    <a href="https://socialvalue.ru/?p=1781" target="_blank" class="manual-link-material link">Вебинар на тему "Стоимостные подходы в оценке"</a>
+                    <a href="https://socialvalue.ru/?p=1713" target="_blank" class="manual-link-material link">Вебинар на тему "Оценка.Подготовка к проведению"</a>
+                        </div>
+                    </div>
+                    <div class="manual_link-wrapper">
+                        <a href="/manual/" class="manual_link">
+                            предыдущая тема
+                        </a>
+                        <a href="/manual/2/" class="manual_link">
+                            К следующей теме
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}

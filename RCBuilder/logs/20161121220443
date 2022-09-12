@@ -1,0 +1,24 @@
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 68, in resolve_template
+    return get_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[21/Nov/2016 19:03:29] "GET /accounts/login/ HTTP/1.1" 500 77823
+[21/Nov/2016 19:03:34] "GET /accounts/register/ HTTP/1.1" 200 1039
+[21/Nov/2016 19:03:36] "GET /accounts/register/ HTTP/1.1" 200 1039
+Not Found: /register/
+[21/Nov/2016 19:04:12] "POST /register/ HTTP/1.1" 404 2272
+[21/Nov/2016 19:04:34] "GET /accounts/register/ HTTP/1.1" 200 1039
+[21/Nov/2016 19:04:35] "GET /accounts/register/ HTTP/1.1" 200 1039

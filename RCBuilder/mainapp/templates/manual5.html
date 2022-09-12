@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="manual">
+        <div class="manual_top">
+            <div class="container">
+                <div class="manual-title">
+                    Руководство по работе
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="manual_wrapper">
+                <div class="aside_burger">
+                    <span></span>
+                </div>
+                {% include 'manual_left.html' with page=page_number %}
+                <div class="manual_body">
+                    <div class="manual_body-title">
+                        Социальные результаты
+                        и показатели
+                    </div>
+                    <p>
+                        <span>Социальные результаты
+                            и показатели(Outcomes)</span> - изменения, которые произошли благодаря реализации
+                        проекта
+                    </p>
+                    <p>
+                        <span>Социальные результаты</span> - самый важный элемент Цепочки социальных результатво;
+                        ведь
+                        весь проект направлен именно на их достижение
+                    </p>
+
+                    <div class="manual_body-block">
+                        <div class="manual_body-block_title">
+                            Социальные результаты
+                        </div>
+                        <div class="manual_body-block_text">
+
+                            Ответ на вопрос "Какие изменения происходят у благополучателей благодаря нашей
+                            деятельности?" Показатель - это конкретная мера(чаще-числовая),показывающая,какой
+                            прогресс
+                            достигнут на пути достижения результата, или достигнут ли результат вообще
+
+                        </div>
+                    </div>
+                    <div class="manual_item-title">
+                        Что нужно знать о непосредственных результатах?
+                    </div>
+                    <p>
+                        Социальные результаты позволяют за счет осуществления Деятельности по пректу и достижения
+                        непосредственных результатов.
+                    </p>
+
+                    <p>
+                        Социальные результаты характеризуют изменения у Целевых групп благополучателей:
+                    </p>
+
+                    <div class="manual_item-text">
+                        • Уровень знаний и навыков
+                    </div>
+                    <div class="manual_item-text">
+                        • Мнений и отношения по конкретным темам
+                    </div>
+                    <div class="manual_item-text">
+                        • Моделей поведения
+                    </div>
+                    <div class="manual_item-text">
+                        • Социального статуса (материального положения, трудоустройство, появление брака и семьи и пр.)
+                    </div>
+                    <p>
+                        В большинстве проектов измеряются как краткосрочные, так и долгосрочные социальные
+                        результаты
+                    </p>
+                    <p>
+                        Социальные результаты могут быть преднамеренными и непреднамеренными
+                    </p>
+
+                    <p>
+                        Социальные результаты могут быть достигнуты за счет различных факторов, в т.ч. внешних,
+                        независящих от проекта
+                    </p>
+
+                    <div class="manual_item-title">
+                        Зачем измерять социальные результаты?
+                    </div>
+                    <div class="manual_item-text">
+                        • Большинство доноров и иных заинтересованных лиц хотят узнать именно о социальных, а не
+                        непосредственных результатах проекта (что изменится в жизни благополучателей благодаря поддержке
+                        проекта?)
+                    </div>
+                    <div class="manual_item-text">
+                        • Чтобы знать, какие ресурсы (расходы) потребуются для достижения того или иного объема
+                        социальных результатов
+                    </div>
+                    <div class="manual_item-text">
+                        • Чтобы оценить, каких именно запланированных изменений проект действительно достигает, а
+                        каких-не особо
+                    </div>
+                    <div class="manual_item-text">
+                        • Чтобы понять, как улучить проект, сделать его более соответствующим потребностям
+                        благополучателей
+                    </div>
+                    <a data-fancybox="" href="{% static 'images/table2.jpg' %}" class="manual_table">
+                        <img src="{% static 'images/table2.jpg' %}" alt="">
+                    </a>
+
+                    <p>
+                        Пользователей онлайн-приложения ПИОН может выбрать социальные результаты и показатели из
+                        имеющейся библиотеки или использовать собственные формулировки.
+                    </p>
+                    <p>
+                        Больше социальных результатов и показателей на ресурсе " Социальные результаты и показатели
+                        ":
+                        <a href="#">socialvalue.ru</a>
+                    </p>
+
+                    <div class="manual_body-title">
+                        Важно
+                    </div>
+
+                    <p>
+                        При разработке системы измерения, оценивайте свои ресурсы, выбирайте оптимальное количество
+                        соцальных ресурсов. Пусть это будет 4-5 социальных результатов; но они будут измеряться
+                        регулярно и качественно.
+                    </p>
+
+                    <p>
+                        Начните с формирования перечня и анализа тех показателей, которые уже собирает ваша
+                        организация
+                        по проекту. Для проведения этой работы можно воспользоваться готовым шаблоном.
+                    </p>
+
+                    <p>
+                        Сверяйтесь с результатами анализа стейкхолдеров: учтены ли все потребности в получении
+                        информации ключевых заинтересованных сторон.
+                    </p>
+
+                    <div class="manual_item-title">
+                        Основные вопросы, которые необходимо задать, при выборе социальных результатов и показателей.
+                    </div>
+                    <div class="manual_item-text">
+                        • В какой степени измеряется именно то, что нужно? (валидность)
+                    </div>
+                    <div class="manual_item-text">
+                        • Какова вероятность получения аналогичных результатов при повторном измерении? (надежность)
+                    </div>
+                    <div class="manual_item-text">
+                        • Насколько тонко и точно фискируются изменения? (точность)
+                    </div>
+                    <div class="manual_item-text">
+                        • Насколько сложно собрать достоверные данные? Насколько сильно данные подвержены влиянию
+                        внешних факторов (сложность получения данных)
+                    </div>
+                    <div class="manual_item-text">
+                        • Каковы затраты на сбор и анализ данных (стоимость)
+                    </div>
+                    <p></p>
+
+                    <div class="manual_img">
+                        <img src="{% static 'images/43.jpg' %}" alt="">
+                    </div>
+                    <div class="manual_tab">
+                        <div class="manual_tab-title">
+                            Дополнительные материалы
+                        </div>
+                        <div class="manual_tab-text">
+                            <a href="https://pion.org.ru/static/files/sbornik.pdf" target="_blank" class="manual-link-material link">Сборник кейсов по проекту "Общая
+                        информационно-технологическая платформа для оценки социальных результатов"</a>
+                    <a href="https://www.youtube.com/watch?v=nv0VF4Yn12Y&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар "Теория изменений для планирования и оценки
+                        социальных результатов"</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/TCD_Print_Theory_Of_Changes_Handbook_145x210_2014_Preview_v02.pdf" target="_blank" class="manual-link-material pdf">Теория изменений: общие рекомендации к применению (из
+                        опыта
+                        БДФ "Виктория".М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2015/02/ozenka_soc-economy_effectivnosty.pdf" target="_blank" class="manual-link-material file">Рекомендации по оценке социально-экономической
+                        эффективности социальных программ: определение, подходы, практический опыт М.2014</a>
+                    <a href="https://ep.org.ru/wp-content/uploads/2016/05/impact-141031050233-conversion-gate01.pdf" target="_blank" class="manual-link-material pdf">Практическое руководство по измерению социального
+                        воздействия (A Practical Guide to Measuring and Managing Impact),EVPA,2013</a>
+                    <a href="https://socialvalue.ru/wp-content/uploads/2016/05/pokazateli_detstvo_2015.pdf" target="_blank" class="manual-link-material pdf">"Показатели для измерения социальных результатов в
+                        сфере
+                        детства: российский и международный опыт."М.2015</a>
+                    <a href="https://www.youtube.com/watch?v=lCvDXASp7os&feature=youtu.be" target="_blank" class="manual-link-material link">Вебинар на тему "Введение в оценку"</a>
+                    <a href="https://socialvalue.ru/?p=1781" target="_blank" class="manual-link-material link">Вебинар на тему "Стоимостные подходы в оценке"</a>
+                    <a href="https://socialvalue.ru/?p=1713" target="_blank" class="manual-link-material link">Вебинар на тему "Оценка.Подготовка к проведению"</a>
+                        </div>
+                    </div>
+
+                    <div class="manual_link-wrapper">
+                        <a href="/manual/4/" class="manual_link">
+                            предыдущая тема
+                        </a>
+                        <a href="/manual/6/" class="manual_link">
+                            К следующей теме
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

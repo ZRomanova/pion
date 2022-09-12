@@ -1,0 +1,169 @@
+[19/Nov/2016 14:48:09] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 14:48:09] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:09] "GET /static/css/animate.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:09] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:09] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:09] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:09] "GET /static/css/main.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/main.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/img/logo.png HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+[19/Nov/2016 14:48:10] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+Not Found: /apple-touch-icon-precomposed.png
+[19/Nov/2016 14:48:11] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2122
+Not Found: /apple-touch-icon.png
+[19/Nov/2016 14:48:11] "GET /apple-touch-icon.png HTTP/1.1" 404 2086
+[19/Nov/2016 14:48:13] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 14:48:13] "GET /admin/ HTTP/1.1" 200 6476
+[19/Nov/2016 14:48:15] "GET /admin/ HTTP/1.1" 200 6476
+[19/Nov/2016 15:04:18] "GET /admin/rcb/description/ HTTP/1.1" 200 4265
+[19/Nov/2016 15:04:19] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[19/Nov/2016 15:04:21] "GET /admin/rcb/description/1/change/ HTTP/1.1" 200 5740
+[19/Nov/2016 15:04:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[19/Nov/2016 15:09:38] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 15:09:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 15:09:38] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/animate.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/animate.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/main.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/css/main.css HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:38] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/img/logo.png HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/js/main.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/js/main.js HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/img/logo.png HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+[19/Nov/2016 15:09:39] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+[19/Nov/2016 15:10:36] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 15:10:36] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[19/Nov/2016 15:10:36] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[19/Nov/2016 15:10:36] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[19/Nov/2016 15:10:36] "GET /static/css/main.css HTTP/1.1" 200 8033
+[19/Nov/2016 15:10:36] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[19/Nov/2016 15:10:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[19/Nov/2016 15:10:36] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[19/Nov/2016 15:10:36] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[19/Nov/2016 15:10:36] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[19/Nov/2016 15:10:36] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[19/Nov/2016 15:10:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[19/Nov/2016 15:10:36] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[19/Nov/2016 15:10:36] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[19/Nov/2016 15:10:36] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+[19/Nov/2016 15:10:36] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[19/Nov/2016 15:10:36] "GET /static/js/main.js HTTP/1.1" 200 1554
+[19/Nov/2016 15:10:37] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[19/Nov/2016 15:10:37] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[19/Nov/2016 15:10:38] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+Not Found: /favicon.ico
+[19/Nov/2016 15:10:39] "GET /favicon.ico HTTP/1.1" 404 2059
+[19/Nov/2016 15:12:18] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 15:46:40] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 15:46:40] "GET /static/css/animate.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:40] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:40] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:40] "GET /static/css/main.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:40] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:40] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/main.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/img/logo.png HTTP/1.1" 304 0
+[19/Nov/2016 15:46:41] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET / HTTP/1.1" 200 12995
+[19/Nov/2016 15:47:34] "GET /static/css/main.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/css/animate.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:34] "GET /static/js/main.js HTTP/1.1" 304 0
+[19/Nov/2016 15:47:35] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 15:47:35] "GET /static/img/logo.png HTTP/1.1" 304 0
+[19/Nov/2016 15:47:35] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[19/Nov/2016 15:47:35] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[19/Nov/2016 15:47:35] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 14:48:04
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 15:52:11
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 15:52:12
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 15:52:14
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 15:52:15
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

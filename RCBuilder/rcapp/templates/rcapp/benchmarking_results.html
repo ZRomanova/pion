@@ -1,0 +1,109 @@
+{%load static%}{% load fk_filters %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale = 1.4,maximum-scale = 1.4" />
+    <script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <title>{{page_title}}</title>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/new_styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow|Arsenal|Open+Sans|Philosopher|Roboto|Tenor+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top templatemo-nav navbar__background-color_3fa3b1 navbar__no-border" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                                <span class="icon icon-bar"></span>
+                            </button>
+                <a href="" onclick="window.location = '/';" class="navbar-brand navbar-brand__padding-top_10px navbar-brand__color_white"><img src="/static/img/svg/rose.svg" class="rose-"> <span class="rc-name">Пион</span></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="http://socialvalue.ru" target="_blank"><span class="navbar-element__on_hover">База знаний об оценке</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/companies-view"><span class="navbar-element__on_hover">Пользователи</span></a></li>
+                    <li><a class="navbar-element__color_ffffff navbar-element__weight_bold opacity-1_on_hover" href="/portal/new_helper/rc"><span class="navbar-element__on_hover">Руководство пользователя</span></a></li>
+                    {% if not is_authenticated %}
+                    <li><a class="login-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1" href="https://pion.org.ru/newpion/auth/login"><span class="navbar-element__with_border">Вход</span></a></li>
+                    <li><a class="register-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1 padding-left-0" href="https://pion.org.ru/newpion/auth/registration"><span class="navbar-element__inverse_with_border">Регистрация</span></a></li>
+                    {% else %}
+                    <li><a class="login-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1" href="/portal/"><span class="navbar-element__with_border">Мои программы</span></a></li>
+                    <li><a class="register-button navbar-element__color_ffffff navbar-element__weight_bold opacity-1 padding-left-0" href="/accounts/logout/"><span class="navbar-element__inverse_with_border">Выйти</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="header">
+        <div class="container height-100">
+            <div class="row height-100">
+                <span class="header_text col-xs-12 height-100">
+                    Результаты запроса
+                </span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container margin-top-16">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="backbutton" onclick="window.location='{{params_string}}'">
+                    <img class="arrow-left" src='{% static "img/left-arrow-black.png" %}' height="20"> Назад к параметрам запроса
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 container">
+                <div class="row">
+                    <div class="col-md-12 rcs-count">
+                        Количество выбранных программ: {{rcs|length}}
+                    </div>
+                </div>
+
+                {% for rc in rcs %}
+                <div class="row rc-row" id="rc-{{ forloop.counter0 }}">
+                    <div class="col-md-12 container">
+                        <div class="row" id="trigger-{{ forloop.counter0 }}" style="cursor:pointer;">
+                            <div class="rc-header col-md-12"><img id="down-arrow-{{ forloop.counter0 }}" src='{% static "img/down-arrow.png" %}' height="20"><img id="up-arrow-{{ forloop.counter0 }}" src='{% static "img/up-arrow.png" %}' height="20" style="display: none;"> {{rc}}</div>
+                        </div>
+                        <div id="tohide-{{ forloop.counter0 }}" style="display: none;">
+                            <div class="row table-row">
+                                <div class="col-md-12 table-title-left">
+                                    <a href="{{rc.get_absolute_url}}">Показать цепочку результатов</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $("#trigger-{{ forloop.counter0 }}").on("click", () => {
+                        if ($("#tohide-{{ forloop.counter0 }}").is(":hidden")) {
+                            $("#tohide-{{ forloop.counter0 }}").show();
+                            $("#down-arrow-{{ forloop.counter0 }}").hide();
+                            $("#up-arrow-{{ forloop.counter0 }}").show();
+                        } else {
+                            $("#tohide-{{ forloop.counter0 }}").hide();
+                            $("#down-arrow-{{ forloop.counter0 }}").show();
+                            $("#up-arrow-{{ forloop.counter0 }}").hide();
+                        }
+                    });
+                </script>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="col-md-12 rc-footer margin-top-56 ">
+        © АНО «Эволюция и Филантропия», 2020 <br>Все права защищены. При использовании ссылка на правообладателя и источник заимствования обязательна
+    </section>
+</body>
+
+</html>

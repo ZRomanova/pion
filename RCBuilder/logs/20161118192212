@@ -1,0 +1,14 @@
+[18/Nov/2016 16:09:42] "GET /admin/ HTTP/1.1" 200 4127
+[18/Nov/2016 16:09:42] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[18/Nov/2016 16:09:42] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[18/Nov/2016 16:09:42] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[18/Nov/2016 16:09:42] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[18/Nov/2016 16:09:42] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[18/Nov/2016 16:09:42] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[18/Nov/2016 16:09:44] "GET /admin/rcb/description/ HTTP/1.1" 200 4366
+[18/Nov/2016 16:09:44] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[18/Nov/2016 16:09:50] "GET /admin/rcb/description/1/change/ HTTP/1.1" 200 5777
+[18/Nov/2016 16:09:50] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[18/Nov/2016 16:10:05] "GET /admin/rcb/description/ HTTP/1.1" 200 4366
+[18/Nov/2016 16:10:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[18/Nov/2016 16:10:23] "GET /admin/ HTTP/1.1" 200 4127

@@ -1,0 +1,5 @@
+SECRET_KEY = 'm56v@fw5%t-5pk)*am+37c4lcsgpbz&4lbh6g@^azg$j8cezw*'
+DB_NAME = 'newpiondb'
+DB_USERNAME = 'newpionuser'
+DB_PASSWORD = 'N3aEf8933aSed'
+EMAIL_HOST_PASSWORD = 'Pion1410'

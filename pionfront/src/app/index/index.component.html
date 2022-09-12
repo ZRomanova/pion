@@ -1,0 +1,315 @@
+<section class="block_form">
+    <div>
+        <div class="row blank_li">
+            <div class="col-5" [ngClass]="{'deactive': displayMyLibrary}" name="block_lib" (click)="selectMyLibrary(false)">Библиотека социальных результатов</div>
+            <div *ngIf="authenticated" class="col-5" [ngClass]="{'deactive': !displayMyLibrary}" name="block_my" (click)="selectMyLibrary(true)">Моя библиотека социальных результатов</div>
+            <div class="col-2 add_block" (click)="openForm1()"  *ngIf="toLoad <= 0 && authenticated">
+              Добавить
+            </div>
+        </div>
+
+        <ng-container *ngIf="toLoad == 0; else load">
+            <div class="content_block block_my" *ngIf="displayMyLibrary">
+                <div class="row" *ngFor="let group of groupedOutcomes">
+                    <div class="col-2 border_right" >
+                        <h3 class="marg_h">Целевая группа:</h3>
+                        <p>{{group.target.name}}</p>
+                    </div>
+                    <div class="col-2 border_right" >
+                        <h3 class="marg_h">Практика:</h3>
+                        <p>{{group.practice.name}}</p>
+                    </div>
+                    <div class="col-8">
+                        <h3 class="marg_h">Список социальных результатов:</h3>
+                        <div class="row no_padding" *ngFor="let outcome of group.outcomes" (click)="goToOutcome(outcome.id)">
+                            <!-- if add button decrease col to 8 -->
+                            <div [ngClass]="{'col-8': fromProgram, 'col-12': !fromProgram}">
+                                <p class="no_padding_p line_access" [ngClass]="{'check': !outcome.createdby || outcome.createdby.id != transport.user.id, 'checkMy': outcome.createdby && outcome.createdby.id == transport.user.id}"><span>{{outcome.name}}</span></p>
+                            </div>
+                            <div class="col-4" *ngIf="fromProgram">
+                                <button (click)="addToProgram(outcome)" class="add_button open_accessadd"><img src="/newpion/static/pionfront/assets/img/plus.png"><p>Добавить в цепочку</p></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content_block block_lib"  *ngIf="!displayMyLibrary">
+                <div class="row">
+                    <div class="col-5 border_right">
+                        <form [formGroup]="filterRoot">
+                            <br>
+                            <label class="container_checked">
+                                <b>Тематическая группа:</b>
+                                <input type="checkbox" formControlName="tg" (change)="changeRoot()">
+                                <span class="checkmark"></span>
+                            </label>
+                            <ng-container *ngIf="filterRoot.value.tg">
+                                <label *ngFor="let tg of thematicGroups" class="container_checked">{{tg.name}}({{counter('thematic_group', tg)}})
+                                    <input type="checkbox" [value]="tg.id"
+                                        (change)="onCheckChange('tgFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </ng-container>
+                            <br>
+                            <label class="container_checked">
+                                <b>Целевые группы:</b>
+                                <input type="checkbox" formControlName="target" (change)="changeRoot()">
+                                <span class="checkmark"></span>
+                            </label>
+                            <ng-container *ngIf="filterRoot.value.target">
+                                <ng-container *ngFor="let target of targets">
+                                    <label class="container_checked" *ngIf="!target.parent_ref">{{target.name}}({{counter('target', target)}})
+                                        <input type="checkbox" [value]="target.id" (change)="onCheckChange('targetFilters', $event)">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <div *ngIf="target.checked">
+                                        <div *ngFor="let child of targets" class="col">
+                                            <div style="padding-left: 3rem;" *ngIf="child.parent_ref == target.id">
+                                                <label class="container_checked">{{child.name}}({{counter('target', child)}})
+                                                    <input type="checkbox" [value]="child.id" (change)="onCheckChange('targetFilters', $event)">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+    
+                            <br>
+                            <label class="container_checked">
+                                <b>Практики:</b>
+                                <input type="checkbox" formControlName="practice" (change)="changeRoot()">
+                                <span class="checkmark"></span>
+                            </label>
+                            <ng-container *ngIf="filterRoot.value.practice">
+                                <label *ngFor="let practice of practices" class="container_checked">{{practice.name}}({{counter('practice', practice)}})
+                                    <input type="checkbox" [value]="practice.id"
+                                        (change)="onCheckChange('practiceFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </ng-container>
+                        </form>
+
+                    </div>
+                    <div class="col-6 block_result">
+                        <h3 class="marg_h">Список социальных результатов:</h3>
+                            <p class="line_access" *ngFor="let outcome of outcomes" (click)="goToOutcome(outcome.id)" 
+                            [ngClass]="{'check': transport.user && (!outcome.createdby || outcome.createdby.id != transport.user.id) && outcome.current_user_library, 
+                            'checkMy': outcome.createdby && transport.user && outcome.createdby.id == transport.user.id && outcome.current_user_library,
+                            'uncheck': !outcome.current_user_library && (!outcome.createdby || !transport.user || outcome.createdby.id != transport.user.id), 
+                            'uncheckMy': outcome.createdby && transport.user && !outcome.current_user_library && outcome.createdby.id == transport.user.id}">
+                            <span>{{outcome.name}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #load>
+            <div class="content_block">
+                <h4 class="center">{{status}}</h4>
+            </div>
+        </ng-template>
+    </div>
+</section>
+
+<!-- Модерация СР согласие -->
+<div class="popap_kontst dark_block blue_head" *ngIf="form == 3">
+    <div>
+        <div class="head">
+            <p class="close_btn" (click)="closeForm()">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png">
+            </p>
+            <p class="center font_500">Социальный результат</p>
+        </div>
+        <div class="text_block">
+            <form class="ng-untouched ng-pristine ng-invalid block_sendfor">
+                <div class="midle_text">
+                    <img src="/newpion/static/pionfront/assets/img/info.png">
+                    <p>Социальный результат успешно добавлен. Опубликовать в общей библиотеке?</p>
+                </div>
+                <button class="add_button" style="width: auto;" (click)="openModal(true)">Да</button>
+                <button class="add_button" style="width: auto;" (click)="openModal(false)">Нет</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Добавление СР -->
+<div class="popap_kontst dark_block blue_head" *ngIf="form == 1">
+    <div>
+        <div class="head">
+            <p class="close_btn" (click)="closeForm()">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png">
+            </p>
+            <p class="center font_500">Социальный результат</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="selectForm">
+                <p class="line_descSel">Название программы:</p>
+                <select  class="big_sellect" formControlName="program" (change)="changeLevel()">
+                    <option value="">Выберите из списка</option>
+                    <option [value]="program.id" *ngFor="let program of programs">{{program.name}}</option>
+                </select>
+
+                <p class="line_descSel">Уровень социального результата:</p>
+                <select  class="big_sellect" formControlName="level" (change)="changeLevel()">
+                    <option value="">Выберите из списка</option>
+                    <option value="short-outcomes">Краткосрочные</option>
+                    <option value="mid-outcomes">Среднесрочные</option>
+                    <option value="impacts">Социальный эффект</option>
+                </select>
+
+                <p class="line_descSel">Социальный результат:</p>
+                <select  class="big_sellect" formControlName="result">
+                    <option value="" *ngIf="!results.length">Выберите программу и уровень социального результата</option>
+                    <option value="" *ngIf="results.length">Выберите из списка</option>
+                    <option [value]="result.id" *ngFor="let result of results">{{result.name}}</option>
+                </select>
+
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="openForm2()" [disabled]="selectForm.disabled || selectForm.invalid">Далее</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Редактирование СР -->
+<div class="popap_kontst dark_block blue_head big_form"  *ngIf="form == 2">
+    <div>
+        <div class="head">
+            <p class="close_btn" (click)="closeForm()">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png">
+            </p>
+            <p class="center font_500">Социальный результат</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="editForm">
+                <p class="line_descSel">Общая формулировка:</p>
+                <textarea class="text_item" formControlName="name"></textarea>
+                
+                <p class="line_descSel" style="margin-bottom: 0px !important;">Частные формулировки:</p>
+                <ng-container formArrayName="outcome_names">
+                    <ng-container *ngFor="let name of outcome_names; index as i">
+                        <div class="add_tems" *ngIf="i == outcome_names.length - 1">
+                            <input type="text" [formControlName]="i">
+                            <button (click)="addName()">&nbsp;</button>
+                        </div>
+                        <div class="more_input" *ngIf="i < outcome_names.length - 1">
+                            <input type="text" [formControlName]="i">
+                        </div>
+                    </ng-container>
+                </ng-container>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Тематическая группа <span>(1)</span>:</p>
+                    <!-- <div class="desc_item3"> Тематическая группа - нужен текст от Ольги </div> -->
+                </div>              
+                <div class="check_block">
+                    <div class="row" formArrayName="thematic_group_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let tg of thematicGroups; index as i" class="container_checked" style="text-align: left;"> {{tg.name}}
+                                <input type="checkbox" [formControlName]="i">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Целевые группы <span>(2)</span>:</p>
+                    <!-- <div class="desc_item3"> Нужен текст от Ольги </div> -->
+                </div>
+                <div class="block_list">
+                    <div class="check_block">
+                        <div class="row" formArrayName="target_refs" style="text-align: left;">
+                            <div class="col-12">
+                                <ng-container *ngFor="let target of targets; index as i"> 
+                                    <label class="container_checked" style="text-align: left;" *ngIf="!target.parent_ref">
+                                        {{target.name}}
+                                        <input type="checkbox" [formControlName]="i">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <div *ngIf="editForm.value.target_refs[i] && !targets[i].parent_ref">
+                                        <div *ngFor="let child of targets; index as j" class="col">
+                                            <div style="padding-left: 3rem;" *ngIf="child.parent_ref == targets[i].id">
+                                                <label class="container_checked" style="text-align: left;">
+                                                    {{child.name}}
+                                                    <input type="checkbox" [formControlName]="j">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Тип практики <span>(3)</span>:</p>
+                    <!-- <div _ngcontent-flw-c49="" class="desc_item3"> Нужен текст от Ольги </div> -->
+                </div>
+                <div class="block_list">
+                    <div class="check_block">
+                        <div class="row" formArrayName="practice_refs">
+                            <div class="col-md-12">
+                                <label *ngFor="let practice of practices; index as i" class="container_checked" style="text-align: left;"> {{practice.name}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Показатели <span>(4)</span>:</p>
+                    <!-- <div _ngcontent-flw-c49="" class="desc_item3"> Нужен текст от Ольги </div> -->
+                </div>
+                <div class="block_list" *ngIf="mplInd && mplInd.length">
+                    <div class="check_block">
+                        <div class="row" formArrayName="indicators">
+                            <div class="col-md-12" *ngFor="let mplItem of mplInd; index as i">
+                                <label class="container_checked" style="text-align: left;"> 
+                                    {{mplItem.indicator}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Методы и инструменты сбора данных <span>(5)</span>:</p>
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;"><i>После создания социального результата вы также сможете прикрепить его к инструменту из библиотеки инструментов</i></p>
+                    <!-- <div _ngcontent-flw-c49="" class="desc_item3">  Нужен текст от Ольги </div> -->
+                </div>
+                <div class="block_list" *ngIf="mplMeth && mplMeth.length">
+                    <div class="check_block">
+                        <div class="row" formArrayName="methods">
+                            <div class="col-md-12" *ngFor="let mplItem of mplMeth; index as i">
+                                <label class="container_checked" style="text-align: left;"> 
+                                    {{mplItem.tool}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" [disabled]="editForm.disabled || editForm.invalid" (click)="openForm3()">Далее</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

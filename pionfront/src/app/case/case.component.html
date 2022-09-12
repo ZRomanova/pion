@@ -1,0 +1,674 @@
+<section class="block_form">
+    <div>
+        <div class="row blank_li">
+            <div class="col-5" [ngClass]="{'deactive': displayMyLibrary}" name="block_lib"
+                (click)="selectMyLibrary(false)">Библиотека кейсов</div>
+            <div *ngIf="authenticated" class="col-5" [ngClass]="{'deactive': !displayMyLibrary}" name="block_my"
+                (click)="selectMyLibrary(true)">Моя библиотека кейсов</div>
+            <div class="col-2 add_block" (click)="addForm($event)" *ngIf="toLoad <= 0 && authenticated">
+              Добавить
+            </div>
+        </div>
+
+        <ng-container *ngIf="toLoad <= 0; else load">
+            <div class="content_block block_my lib" *ngIf="displayMyLibrary">
+                <div class="row">
+                    <div class="col-5 border_right">
+                        <form [formGroup]="myFilterRoot">
+                        <br>
+                        <label class="container_checked"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE3IDIwIj4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iNi44ODkiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iMi44NDIiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPHBhdGggc3Ryb2tlPSIjOUEyNTI1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuMyIgZD0iTTMuMTg4IDEyLjY0OUwuNjU4IDE2LjE5aDMuMDM2bDEuMDEyIDMuMDM2IDMuMDM1LTQuNTU0TTEzLjgxMyAxMi42NDlsMi41MyAzLjU0MWgtMy4wMzZsLTEuMDEyIDMuMDM2LTMuMDM2LTQuNTU0Ii8+PC9zdmc+"> Верифицированные практики
+                            <input type="checkbox" (change)="onMyVerifiedChange()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <br>
+                        <label class="container_checked">
+                            <b>Тематическая группа:</b>
+                            <input type="checkbox" formControlName="tg">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.tg">
+                            <label *ngFor="let tg of thematicGroups" class="container_checked">{{tg.name}}({{myCounter('thematic_group', tg)}})
+                                <input type="checkbox" [value]="tg.id"
+                                    (change)="onMyCheckChange('tgFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Целевые группы:</b>
+                            <input type="checkbox" formControlName="target">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.target">
+                            <ng-container *ngFor="let target of targets">
+                                <label class="container_checked" *ngIf="!target.parent_ref ">{{target.name}}({{myCounter('target', target)}})
+                                    <input type="checkbox" [value]="target.id" (change)="onMyCheckChange('targetFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="target.checkedMy">
+                                    <div *ngFor="let child of targets" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == target.id">
+                                            <label class="container_checked">{{child.name}}({{myCounter('target', child)}})
+                                                <input type="checkbox" [value]="child.id" (change)="onMyCheckChange('targetFilters', $event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Практика:</b>
+                            <input type="checkbox" formControlName="practice">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.practice">
+                            <label *ngFor="let practice of practices" class="container_checked">{{practice.name}}({{myCounter('practice', practice)}})
+                                <input type="checkbox" [value]="practice.id"
+                                    (change)="onMyCheckChange('practiceFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Элементы системы мониторинга и оценки в кейсе:</b>
+                            <input type="checkbox" formControlName="me">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.me">
+                            <label *ngFor="let me of monitoringElements" class="container_checked">{{me.name}}({{myCounter('monitoring_element', me)}})
+                                <input type="checkbox" [value]="me.id"
+                                    (change)="onMyCheckChange('meFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Виды деятельности организации в кейсе:</b>
+                            <input type="checkbox" formControlName="oa">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="myFilterRoot.value.oa">
+                            <label *ngFor="let oa of organizationActivities" class="container_checked">{{oa.name}}({{myCounter('organization_activity', oa)}})
+                                <input type="checkbox" [value]="oa.id"
+                                    (change)="onMyCheckChange('oaFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        </form>
+                    </div>
+                    <div class="col-7 block_method_search">
+                        <!-- <input class="search_input" placeholder="Поиск по ключевым словам" ctype="text" name=""> -->
+                        <h2>кейсы:</h2>
+
+                        <div class="item_seatchMethod" *ngFor="let caseItem of myCases">
+                            <div class="name_block open_accessadd" (click)="openAddPersonal(caseItem)"
+                            [ngClass]="{'check': transport.user && (!caseItem.createdby || caseItem.createdby.id != transport.user.id) && caseItem.current_user_library, 
+                            'checkMy': caseItem.createdby && transport.user && caseItem.createdby.id == transport.user.id && caseItem.current_user_library,
+                            'uncheck': !caseItem.current_user_library && (!caseItem.createdby || !transport.user || caseItem.createdby.id != transport.user.id), 
+                            'uncheckMy': caseItem.createdby && transport.user && !caseItem.current_user_library && caseItem.createdby.id == transport.user.id}">
+                                <img *ngIf="caseItem.verification_info"
+                                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE3IDIwIj4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iNi44ODkiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iMi44NDIiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPHBhdGggc3Ryb2tlPSIjOUEyNTI1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuMyIgZD0iTTMuMTg4IDEyLjY0OUwuNjU4IDE2LjE5aDMuMDM2bDEuMDEyIDMuMDM2IDMuMDM1LTQuNTU0TTEzLjgxMyAxMi42NDlsMi41MyAzLjU0MWgtMy4wMzZsLTEuMDEyIDMuMDM2LTMuMDM2LTQuNTU0Ii8+PC9zdmc+"><br>
+                                <p>{{caseItem.name}}</p>
+                            </div>
+                            <div (click)="openDetails(caseItem)" class="more_info">
+
+                                <p class="center"><img src="/newpion/static/pionfront/assets/img/info_mini.png">Подробнее</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_block block_lib" *ngIf="!displayMyLibrary">
+                <div class="row">
+                    <div class="col-5 border_right">
+                        <br>
+                        <form [formGroup]="filterRoot">
+                        <label class="container_checked"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE3IDIwIj4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iNi44ODkiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iMi44NDIiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPHBhdGggc3Ryb2tlPSIjOUEyNTI1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuMyIgZD0iTTMuMTg4IDEyLjY0OUwuNjU4IDE2LjE5aDMuMDM2bDEuMDEyIDMuMDM2IDMuMDM1LTQuNTU0TTEzLjgxMyAxMi42NDlsMi41MyAzLjU0MWgtMy4wMzZsLTEuMDEyIDMuMDM2LTMuMDM2LTQuNTU0Ii8+PC9zdmc+"> Верифицированные практики
+                            <input type="checkbox" (change)="onVerifiedChange()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <br>
+                        <label class="container_checked">
+                            <b>Тематическая группа:</b>
+                            <input type="checkbox" formControlName="tg">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.tg">
+                            <label *ngFor="let tg of thematicGroups" class="container_checked">{{tg.name}}({{counter('thematic_group', tg)}})
+                                <input type="checkbox" [value]="tg.id"
+                                    (change)="onCheckChange('tgFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Целевые группы:</b>
+                            <input type="checkbox" formControlName="target" (change)="changeRoot()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.target">
+                            <ng-container *ngFor="let target of targets">
+                                <label class="container_checked" *ngIf="!target.parent_ref">{{target.name}}({{counter('target', target)}})
+                                    <input type="checkbox" [value]="target.id" (change)="onCheckChange('targetFilters', $event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="target.checked">
+                                    <div *ngFor="let child of targets" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == target.id">
+                                            <label class="container_checked">{{child.name}}({{counter('target', child)}})
+                                                <input type="checkbox" [value]="child.id" (change)="onCheckChange('targetFilters', $event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Практика:</b>
+                            <input type="checkbox" formControlName="practice">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.practice">
+                            <label *ngFor="let practice of practices" class="container_checked">{{practice.name}}({{counter('practice', practice)}})
+                                <input type="checkbox" [value]="practice.id"
+                                    (change)="onCheckChange('practiceFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Элементы системы мониторинга и оценки в кейсе:</b>
+                            <input type="checkbox" formControlName="me">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.me">
+                            <label *ngFor="let me of monitoringElements" class="container_checked">{{me.name}}({{counter('monitoring_element', me)}})
+                                <input type="checkbox" [value]="me.id"
+                                    (change)="onCheckChange('meFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        <br>
+                        <label class="container_checked">
+                            <b>Виды деятельности организации в кейсе:</b>
+                            <input type="checkbox" formControlName="oa">
+                            <span class="checkmark"></span>
+                        </label>
+                        <ng-container *ngIf="filterRoot.value.oa">
+                            <label *ngFor="let oa of organizationActivities" class="container_checked">{{oa.name}}({{counter('organization_activity', oa)}})
+                                <input type="checkbox" [value]="oa.id"
+                                    (change)="onCheckChange('oaFilters', $event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </ng-container>
+                        </form>
+                    </div>
+                    <div class="col-7 block_method_search">
+                        <!-- <input class="search_input" placeholder="Поиск по ключевым словам" ctype="text" name=""> -->
+                        <h2>кейсы:</h2>
+
+                        <div class="item_seatchMethod" *ngFor="let caseItem of cases">
+                            <div class="name_block open_accessadd" (click)="openAddPersonal(caseItem)"
+                            [ngClass]="{'check': transport.user && (!caseItem.createdby || caseItem.createdby.id != transport.user.id) && caseItem.current_user_library, 
+                            'checkMy': caseItem.createdby && transport.user && caseItem.createdby.id == transport.user.id && caseItem.current_user_library,
+                            'uncheck': !caseItem.current_user_library && (!caseItem.createdby || !transport.user || caseItem.createdby.id != transport.user.id), 
+                            'uncheckMy': caseItem.createdby && transport.user && !caseItem.current_user_library && caseItem.createdby.id == transport.user.id}">
+                                <img *ngIf="caseItem.verification_info"
+                                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE3IDIwIj4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iNi44ODkiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPGNpcmNsZSBjeD0iOC43NTMiIGN5PSI3LjU4OSIgcj0iMi44NDIiIHN0cm9rZT0iIzlBMjUyNSIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4gICAgPHBhdGggc3Ryb2tlPSIjOUEyNTI1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuMyIgZD0iTTMuMTg4IDEyLjY0OUwuNjU4IDE2LjE5aDMuMDM2bDEuMDEyIDMuMDM2IDMuMDM1LTQuNTU0TTEzLjgxMyAxMi42NDlsMi41MyAzLjU0MWgtMy4wMzZsLTEuMDEyIDMuMDM2LTMuMDM2LTQuNTU0Ii8+PC9zdmc+"><br>
+                                <p>{{caseItem.name}}</p>
+                            </div>
+                            <div (click)="openDetails(caseItem)" class="more_info">
+
+                                <p class="center"><img src="/newpion/static/pionfront/assets/img/info_mini.png">Подробнее</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #load>
+            <div class="content_block">
+                <h4 class="center">{{status}}</h4>
+            </div>
+        </ng-template>
+    </div>
+</section>
+
+
+<div class="popap_kontst dark_block blue_head big_form" *ngIf="formPage == 1">
+    <div>
+        <div class="head">
+            <p class="close_btn">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png" (click)="closeForm()">
+            </p>
+            <p class="center font_500">{{createCaseForm.value.isNew ? 'Добавление нового' : 'Редактирование'}} кейса</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="createCaseForm">
+                <p class="line_descSel">Название кейса:</p>
+                <textarea class="text_item" formControlName="name"></textarea>
+
+                <p class="line_descSel">Название организации:</p>
+                <textarea class="text_item" formControlName="organization"></textarea>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Тип практики <span>(1)</span>:</p>
+                    <!-- <div class="desc_item3"> Тип практики - нужен текст от Ольги </div> -->
+                </div>
+
+                <select class="big_sellect" formControlName="practice_ref"> 
+                    <option value="" disabled>Выберите тип практики</option>
+                    <option *ngFor="let practice of practices" [value]="practice.id">{{practice.name}}</option>
+                </select>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Тематическая группа <span>(2)</span>:</p>
+                    <!-- <div class="desc_item3"> Тематическая группа - нужен текст от Ольги </div> -->
+                </div>              
+                <select class="big_sellect" formControlName="thematic_group_ref"> 
+                    <option value="" disabled>Выберите тематическую группу</option>
+                    <option *ngFor="let group of thematicGroups" [value]="group.id">{{group.name}}</option>
+                </select>
+                
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Целевые группы <span>(3)</span>:</p>
+                    <!-- <div class="desc_item3"> Целевая группа - нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block">
+                    <div class="row" formArrayName="target_refs" style="text-align: left;">
+                        <div class="col-12">
+                            <ng-container *ngFor="let target of targets; index as i"> 
+                                <label class="container_checked" style="text-align: left;" *ngIf="!target.parent_ref">
+                                    {{target.name}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="createCaseForm.value.target_refs[i] && !targets[i].parent_ref">
+                                    <div *ngFor="let child of targets; index as j" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == targets[i].id">
+                                            <label class="container_checked" style="text-align: left;">
+                                                {{child.name}}
+                                                <input type="checkbox" [formControlName]="j">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Элементы системы мониторинга и оценки <span>(4)</span>:</p>
+                    <!-- <div class="desc_item3"> Текст от Ольги  </div> -->
+                </div>
+
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="monitoring_element_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let me of monitoringElements; index as i" class="container_checked" style="text-align: left;"> 
+                                {{me.name}}
+                                <input type="checkbox" [formControlName]="i">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Виды деятельности (активностей) организации <span>(5)</span>:</p>
+                    <!-- <div class="desc_item3"> Текст от Ольги </div> -->
+                </div>
+
+                
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="organization_activity_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let oa of organizationActivities; index as i" class="container_checked" style="text-align: left;"> 
+                                {{oa.name}}
+                                <input type="checkbox" [formControlName]="i">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="block_year">
+                    <p class="line_descSel">Сведения о верификации практики, в рамках которой реализовывалась программа:</p>
+                    <p class="date_list">
+                        Прошла верификацию в <input type="number" formControlName="verification_info"> г.
+                    </p>
+                </div>
+
+                <p class="line_descSel">Регламентированность практики:</p>
+                <select  class="big_sellect" formControlName="verification_level_regularity">
+                    <option value="">Выберите из списка</option>
+                    <option value="Начальный">Начальный</option>
+                    <option value="Базовый">Базовый</option>
+                    <option value="Продвинутый">Продвинутый</option>
+                </select>
+
+                <p class="line_descSel">Обоснованность практики:</p>
+                <select  class="big_sellect" formControlName="verification_level_validity">
+                    <option value="">Выберите из списка</option>
+                    <option value="Начальный">Начальный</option>
+                    <option value="Базовый">Базовый</option>
+                    <option value="Продвинутый">Продвинутый</option>
+                </select>
+
+                <p class="line_descSel">Достижение социальных результатов:</p>
+                <select  class="big_sellect" formControlName="verification_level_outcome_accessibility">
+                    <option value="">Выберите из списка</option>
+                    <option value="Начальный">Начальный</option>
+                    <option value="Базовый">Базовый</option>
+                    <option value="Продвинутый">Продвинутый</option>
+                </select>
+
+                <p class="line_descSel">Обоснованность данных о социальных результатах:</p>
+                <select  class="big_sellect" formControlName="verification_level_outcome_validity">
+                    <option value="">Выберите из списка</option>
+                    <option value="Начальный">Начальный</option>
+                    <option value="Базовый">Базовый</option>
+                    <option value="Продвинутый">Продвинутый</option>
+                </select>
+
+                <p class="line_descSel">Cсылка на кейс:</p>
+                <textarea class="text_item" formControlName="url"></textarea>
+
+                <div class="row class_btns">
+                    <div class="col-12">
+                        <input type="file" style="display: none;" #file_input (change)="caseFileUpload($event)">
+                        <button (click)="triggerFile()" class="center"
+                        [ngClass]="{'selected_file': file || (currentCase && currentCase.case_file), 'no_file': !file && !(currentCase && currentCase.case_file)}"
+                        >Загрузить кейс </button>
+                    </div>
+                </div>
+
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="onSubmit($event, true)" [disabled]="createCaseForm.disabled || createCaseForm.invalid">Добавить отчёт</button>
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="onSubmit($event, false)" [disabled]="createCaseForm.disabled || createCaseForm.invalid">Сохранить без отчёта</button>
+                <p class="line_descSel" style=" margin-bottom: 0px !important;" *ngIf="!createCaseForm.value.isNew"><i>Уже опубликованный отчёт вы можете редактировать на странице отчёта</i></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_kontst dark_block blue_head big_form" *ngIf="formPage == 2">
+    <div>
+        <div class="head">
+            <p class="close_btn">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png" (click)="closeForm()">
+            </p>
+            <p class="center font_500">Добавление отчёта к кейсу</p>
+        </div>
+        <div class="text_block">
+            <form [formGroup]="addReportForm">
+                <p class="line_descSel">Название кейса:</p>
+                <br><span class="font_500">
+                    {{currentCase.name}}
+                </span>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Оценка внешняя или внутренняя <span>(1)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <select class="big_sellect" formControlName="type"> 
+                    <option value="" disabled>Выберите</option>
+                    <option value="Внешняя">Внешняя</option>
+                    <option value="Внутренняя">Внутренняя</option>
+                </select>
+              
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Вид оценки <span>(2)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <select class="big_sellect" formControlName="evaluation_type_ref" (change)="changeEvType()"> 
+                    <option value="" disabled>Выберите вид оценки</option>
+                    <option *ngFor="let et of evaluationTypes" [value]="et.id">{{et.name}}</option>
+                </select>
+                <ng-container *ngIf="otherEvType">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_evaluation_type"></textarea>
+                </ng-container>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Ключевые вопросы оценки <span>(3)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <textarea class="text_item" formControlName="key_questions"></textarea>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Социальный результат <span>(4)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="outcome_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let outcome of outcomes; index as i" class="container_checked" style="text-align: left;"> 
+                                {{outcome.name}}
+                                <input type="checkbox" [formControlName]="i">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Другие результаты <span>(5)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <textarea class="text_item" formControlName="other_results"></textarea>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Методы <span>(6)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block">
+                    <div class="row" formArrayName="method_refs" style="text-align: left;">
+                        <div class="col-12">
+                            <ng-container *ngFor="let method of methods; index as i"> 
+                                <label class="container_checked" style="text-align: left;" *ngIf="!method.parent_ref">
+                                    {{method.name}}
+                                    <input type="checkbox" [formControlName]="i" (change)="changeMethod()">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div *ngIf="addReportForm.value.method_refs[i] && !methods[i].parent_ref">
+                                    <div *ngFor="let child of methods; index as j" class="col">
+                                        <div style="padding-left: 3rem;" *ngIf="child.parent_ref == methods[i].id">
+                                            <label class="container_checked" style="text-align: left;">
+                                                {{child.name}}
+                                                <input type="checkbox" [formControlName]="j" (change)="changeMethod()">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="otherMethod">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_method"></textarea>
+                </ng-container>
+
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Метод анализа данных <span>(7)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="analysis_method_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let am of analysisMethods; index as i" class="container_checked" style="text-align: left;"> 
+                                {{am.name}}
+                                <input type="checkbox" [formControlName]="i" (change)="changeAnMethod()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="otherAnMethod">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_analysis_method"></textarea>
+                </ng-container>
+
+                <div class="item_wDesc">
+                    <p class="line_descSel" style=" margin-bottom: 0px !important;">Вид представления данных в отчете <span>(8)</span>:</p>
+                    <!-- <div class="desc_item3"> нужен текст от Ольги </div> -->
+                </div>
+                <div class="check_block" style="text-align: left;">
+                    <div class="row" formArrayName="representation_method_refs">
+                        <div class="col-md-12">
+                            <label *ngFor="let rm of representationMethods; index as i" class="container_checked" style="text-align: left;"> 
+                                {{rm.name}}
+                                <input type="checkbox" [formControlName]="i" (change)="changeRepMethod()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="otherRepMethod">
+                    <p class="line_descSel">Укажите другое:</p>
+                    <textarea class="text_item" formControlName="other_representation_method"></textarea>
+                </ng-container>
+
+                <div class="row class_btns">
+                    <div class="col-12">
+                        <input type="file" style="display: none;" #file_rep (change)="repFileUpload($event)">
+                        <button (click)="triggerRepFile()" class="center"
+                        [ngClass]="{'selected_file': repFile, 'no_file': !repFile}"
+                        >Загрузить отчёт </button>
+                    </div>
+                </div>
+
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="methodsSubmit(true, $event)" [disabled]="addReportForm.disabled || addReportForm.invalid">Добавить ещё отчёт</button>
+                <button class="add_button" style="width: auto; margin-bottom: 20px;" (click)="methodsSubmit(false, $event)" [disabled]="addReportForm.disabled || addReportForm.invalid">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_kontst dark_block blue_head" *ngIf="formPage == 3">
+    <div>
+        <div class="head">
+            <p class="close_btn">
+                <img src="/newpion/static/pionfront/assets/img/close_btn.png" (click)="closeForm()">
+            </p>
+            <p class="center font_500">Кейс</p>
+        </div>
+        <div class="text_block">
+            <form class="ng-untouched ng-pristine ng-invalid block_sendfor">
+                <div class="midle_text">
+                    <img src="/newpion/static/pionfront/assets/img/info.png">
+                    <p>Кейс успешно добавлен. Опубликовать в общей библиотеке?</p>
+                </div>
+                <button class="add_button" style="width: auto;" (click)="addToAllLibrary($event)">Да</button>
+                <button class="add_button" style="width: auto;" (click)="closeForm()">Нет</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popap_projInfo dark_block blue_head" *ngIf="displayDetails">
+    <div>
+        <div class="head">
+            <p (click)="closeDetails()" class="close_btn"><img
+                    src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+            <p class="center font_500">Кейс</p>
+        </div>
+        <div class="text_block">
+            <p>Название кейса:<br><strong><span class="project_name">{{currentCase.name}}</span></strong></p>
+            <p>Организация:<br><strong><span class="organization">{{currentCase.organization}}</span></strong></p>
+            <p>Тематическая группа:<br><span class="font_500" *ngIf="currentCase.thematic_group_ref">
+                {{currentCase.thematic_group_ref.name}}
+            </span></p>
+            <p>Целевая группа:<br>
+                <span *ngFor="let target of targets">
+                <span class="font_500" *ngIf="findTarget(target)">
+                    {{target.parent_ref ? '➤ ': ''}}{{target.name}}
+                <br></span>
+                </span></p>
+            <p>Тип практики:<span *ngIf="currentCase.practice_ref"><br><span
+                        class="type font_500">{{currentCase.practice_ref.name}}</span></span></p>
+            
+            <p>Сведения о верификации практики, в рамках которой реализовывалась программа:<br><span
+                    class="info font_500">{{currentCase.verification_info}}</span></p>
+            <p class="no_bottom">Уровни доказанности:</p>
+            <div class="level font_500">
+                <p>Регламентированность практики: <strong>{{currentCase.verification_level_regularity}}</strong></p>
+                <p>Обоснованность практики: <strong>{{currentCase.verification_level_validity}}</strong></p>
+                <p>Достижение социальных результатов:
+                    <strong>{{currentCase.verification_level_outcome_accessibility}}</strong></p>
+                <p>Обоснованность данных о социальных результатах:
+                    <strong>{{currentCase.verification_level_outcome_validity}}</strong></p>
+            </div>
+
+            <p>Виды деятельности (активностей) организации, представленные в кейсе:
+                <span *ngFor="let oa of currentCase.organization_activity_refs"><br><span
+                class="group font_500">{{oa.name}}</span></span></p>
+
+            <p>Элементы системы мониторинга и оценки, представленные в кейсе:
+                <span *ngFor="let me of currentCase.monitoring_element_refs"><br><span
+                class="group font_500">{{me.name}}</span></span></p>
+
+            <div class="row" *ngIf="currentCase.case_file && authenticated">
+                <div class="col-12">
+                    <button (click)="downloadFile(currentCase.case_file)" class="add_button">
+                        <img src="/newpion/static/pionfront/assets/img/cloud_save.png">Открыть кейс
+                    </button>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="currentCase.url">
+                <div class="col-12">
+                    <button (click)="downloadFile(currentCase.url)" class="add_button">
+                        <img src="/newpion/static/pionfront/assets/img/cloud_save.png">Открыть ссылку на кейс
+                    </button>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="findReports().length">
+                <div class="col-12" *ngFor="let report of findReports(); index as i">
+                    <button (click)="openReport(report.id)" class="add_button">
+                        <img src="/newpion/static/pionfront/assets/img/arrow_open.png">Открыть отчёт {{i+1}}
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="popap_accessadd dark_block" *ngIf="displayAddPersonal">
+    <div>
+        <p (click)="closeAddPersonal()" class="close_btn"><img
+                src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/info.png">
+            <p>Включить в личную библиотеку инструментов{{currentCase.createdby && currentCase.createdby.id == transport.user.id ? ' или редактировать' : ''}}?</p>
+            <button (click)="addToLibrary()" style="width: auto;" class="add_button">Включить</button>
+            <button *ngIf="currentCase.createdby && currentCase.createdby.id == transport.user.id" (click)="editForm($event)" style="width: auto;" class="add_button">Редактировать</button>
+        </div>
+    </div>
+</div>
+<div class="popap_accessadd dark_block" *ngIf="displayRemovePersonal">
+    <div>
+        <p (click)="closeAddPersonal()" class="close_btn"><img
+                src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+        <div class="text_block">
+            <img src="/newpion/static/pionfront/assets/img/info.png">
+            <p>Исключить из личной библиотеки инструментов{{currentCase.createdby && currentCase.createdby.id == transport.user.id ? ' или редактировать' : ''}}?</p>
+            <button (click)="removeFromLibrary()" style="width: auto;" class="add_button">Исключить</button>
+            <button *ngIf="currentCase.createdby && currentCase.createdby.id == transport.user.id" (click)="editForm($event)" style="width: auto;" class="add_button">Редактировать</button>
+        </div>
+    </div>
+</div>

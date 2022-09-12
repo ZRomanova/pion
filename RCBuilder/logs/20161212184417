@@ -1,0 +1,17 @@
+[12/Dec/2016 15:44:10] "GET /portal/create/ HTTP/1.1" 200 10266
+[12/Dec/2016 15:44:10] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[12/Dec/2016 15:44:10] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[12/Dec/2016 15:44:10] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[12/Dec/2016 15:44:10] "GET /static/css/main.css HTTP/1.1" 200 9160
+[12/Dec/2016 15:44:10] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[12/Dec/2016 15:44:10] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[12/Dec/2016 15:44:10] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[12/Dec/2016 15:44:10] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[12/Dec/2016 15:44:10] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[12/Dec/2016 15:44:10] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[12/Dec/2016 15:44:10] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[12/Dec/2016 15:44:10] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[12/Dec/2016 15:44:10] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[12/Dec/2016 15:44:10] "GET /static/js/main.js HTTP/1.1" 200 1554
+[12/Dec/2016 15:44:10] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[12/Dec/2016 15:44:10] "GET /static/img/logo.png HTTP/1.1" 200 18815

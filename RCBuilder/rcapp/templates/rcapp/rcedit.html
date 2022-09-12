@@ -1,0 +1,487 @@
+{%load static%} {%load fk_filters%}
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>ЦР: {{ object.name }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link rel="stylesheet" href='{% static "css/prettyPhoto.css" %}'>
+    <link rel="stylesheet" href='{% static "css/owl.carousel.css" %}'>
+    <link rel="stylesheet" href='{% static "css/main.css" %}'>
+    <link rel="stylesheet" href='{% static "css/responsive.css" %}'>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script src='{% static "js/edit-scripts.js" %}'></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                dateFormat: 'dd.mm.yy'
+            }).mask('99.99.9999');
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Навигация</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- LOGO -->
+                    <a class="navbar-brand page-scroll" href="/">
+                        <img width="234" height="40" src='{% static "img/logo-2.png"%}' alt="">
+                    </a>
+                    <!-- END LOGO -->
+
+                </div>
+
+                <!-- TOGGLE NAV -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li><a class="color-black page-scroll" href="https://pion.org.ru/portal/new_helper/rc" target="_blank">Руководство пользователя</a>
+                        </li>
+                        <li><a class="color-black page-scroll" href="/portal/{{object.pk}}">Выйти из режима редактирования</a>
+                        </li>
+                        {% if not is_authenticated %}
+                        <li><a class="library-button" href="https://pion.org.ru/newpion/select-library">Библиотека</a></li><li><a class="login-button" href="https://pion.org.ru/newpion/auth/login">Вход</a>
+                        </li>
+                        <li><a class="regtr-button" href="https://pion.org.ru/newpion/auth/registration">Регистрация</a>
+                        </li>
+                        {% else %}
+                        <li><a class="create-button" href="/portal/">Мои программы</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- TOGGLE NAV -->
+
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- END NAVIGATION -->
+    </header>
+
+    <section id="main" class="section text-center">
+        <div class="container">
+            <h2 class="section-title">Основная информация <i class="fa fa-info-circle cursor-pointer" data-toggle="modal" data-target="#example-ModalCenter"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="example-ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{helper_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/rc" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            <form action="" method="post">
+                <table class="table">
+                    {% csrf_token %} {{ form }}
+                </table>
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Сохранить изменения" />
+            </form>
+            <form action="/portal/assign/{{object.pk}}" method="POST">
+                <p>Выберите пользователя, чтобы предоставить ему доступ к данной цепочке</p>
+                <select name="userpk">
+                    {% for curuser in users %}<option value="{{curuser.pk}}">{{curuser.username}}</option> {% endfor %}
+                </select> {% csrf_token %}
+                <input type="submit" value="Предоставить доступ">
+            </form>
+            <!--Targets-->
+            <h2 folded="unfolded" id="targets-table" class="section-title section-title-pointer"><img id='targets-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='targets-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Целевые группы <i class="fa fa-info-circle cursor-pointer" data-toggle="modal"
+                    data-target="#target_before"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="target_before" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{target_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/targets" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            {% if target %} {% for trg in target %}
+            <a class="targets-element" href="/portal/edit/{{ object.pk }}/target-edit/{{ trg.pk }}">
+                <h4 class="hard-h4">{% ifequal trg.value "custom" %} {{ trg.custom_value }} {% else %} {{ trg.value }} {% endifequal %}</h4>
+            </a>
+            {% endfor %} {% endif %}
+            <a class="targets-element" href="/portal/edit/{{ object.pk }}/target-create">
+                <h4 class="mid-h4">Добавить целевую группу</h4>
+            </a>
+            <!--Targets end-->
+            <!--Resources-->
+            <br>
+            <h2 folded="unfolded" id="resources-table" class="section-title section-title-pointer"><img id='resources-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='resources-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Ресурсы <i class="fa fa-info-circle cursor-pointer" data-toggle="modal"
+                    data-target="#resource_before"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="resource_before" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{resource_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/resources" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            {% if resource %} {% for rsc in resource %}
+            <a class="resources-element" href="/portal/edit/{{ object.pk }}/resource-edit/{{ rsc.pk }}">
+                <h4 class="hard-h4">{% ifequal rsc.value "custom" %} {{ rsc.custom_value }} {% else %} {{ rsc.value }} {% endifequal %}</h4>
+            </a>
+            {% endfor %} {% endif %}
+            <a class="resources-element" href="/portal/edit/{{ object.pk }}/resource-create">
+                <h4 class="mid-h4">Добавить ресурс</h4>
+            </a>
+            <!--Resources end-->
+            <!-- Activities  -->
+            <br>
+            <h2 folded="unfolded" id="activities-table" class="section-title section-title-pointer"><img id='activities-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='activities-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Деятельность <i class="fa fa-info-circle cursor-pointer" data-toggle="modal"
+                    data-target="#activity_before"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="activity_before" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{activity_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/activities" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            {% if activity %} {% for act in activity %}
+            <a class="activities-element" href="/portal/edit/{{ object.pk }}/activity-edit/{{ act.pk }}">
+                <h4 class="hard-h4">{{ act.value }}</h4>
+            </a>
+            {% endfor %} {% endif %}
+            <a class="activities-element" href="/portal/edit/{{ object.pk }}/activity-create">
+                <h4 class="mid-h4">Добавить деятельность</h4>
+            </a>
+            <!-- Непосредственные результаты -->
+            <br>
+            <h2 folded="unfolded" id="outputs-table" class="section-title section-title-pointer"><img id='outputs-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='outputs-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Непосредственные результаты <i class="fa fa-info-circle cursor-pointer"
+                    data-toggle="modal" data-target="#outputs_before"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="outputs_before" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{outputs_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/outputs" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            {% if output %} {% for opt in output %}
+            <div class="outputs-element" class="single-item-with-bg">
+                <a href="/portal/edit/{{ object.pk }}/output-edit/{{ opt.pk }}">
+                    <h4 class="hard-h4">{% ifequal opt.value "custom" %} {{ opt.custom_value }} {% else %} {{ opt.value }} {% endifequal %}</h4>
+                </a>
+
+                <h4 class="text-left">Показатели</h4>
+                {% for ind in output_indicator|with_ref_to_output:opt %}
+                <table class="table selectable-table table-bordered" onclick="window.document.location='/portal/edit/{{object.pk}}/output-edit/{{ opt.pk }}/indicator-edit/{{ ind.pk }}'">
+                    <!-- Показатель -->
+                    <tr>
+                        <th colspan="2">Показатель</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{% ifequal ind.value "custom" %} {{ ind.custom_value }} {% else %} {{ ind.value }} {% endifequal %}</td>
+                    </tr>
+                    <!-- ПланФакт -->
+                    <tr>
+                        <th width="50%">План</th>
+                        <th width="50%">Факт</th>
+                    </tr>
+                    <tr>
+                        <td>{{ind.plan}}</td>
+                        <td>{{ind.fact}}</td>
+                    </tr>
+                    <!-- Метод -->
+                    {% if output_indicator_methods|with_ref_to_output_indicator:ind %}
+                    <tr>
+                        <th colspan="2">Методы сбора данных</th>
+                    </tr>
+                    {% for ind_method in output_indicator_methods|with_ref_to_output_indicator:ind %}
+                    <tr>
+                        <td colspan="2">&bull; {{ind_method.value}}<br></td>
+                    </tr>
+                    {% endfor %} {% endif %}
+                </table>
+                {% endfor %}
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <a href="/portal/edit/{{object.pk}}/output-edit/{{ opt.pk }}/indicator-create">
+                                <h4 class="min-h4">Добавить показатель
+                                </h4>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+            </div>{% endfor %} {% endif %}
+            <a class="outputs-element" href="/portal/edit/{{ object.pk }}/new-output-create-activities">
+                <h4 class="mid-h4">Добавить непосредственный результат</h4>
+            </a>
+            <!-- Конец непосредственных результатов -->
+
+            <!-- Социальные результаты -->
+
+            <br>
+            <h2 folded="unfolded" id="outcomes-table" class="section-title section-title-pointer"><img id='outcomes-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='outcomes-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Социальные результаты <i class="fa fa-info-circle cursor-pointer" data-toggle="modal"
+                    data-target="#outcome_before"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="outcome_before" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{outcome_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/outcomes" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            {% if outcome %} {% for ocm in outcome %}
+            <div class="outcomes-element" class="single-item-with-bg">
+                <a href="/portal/edit/{{ object.pk }}/outcome-edit/{{ ocm.pk }}">
+                    <h4 class="hard-h4">{% ifequal ocm.value "custom" %} {{ ocm.custom_value }} {% else %} {{ ocm.value }} {% endifequal %}</h4>
+                </a>
+                <h4 class="text-left">Показатели</h4>
+                {% for ind in outcome_indicator|with_ref_to_outcome:ocm %}
+                <table class="table selectable-table table-bordered" onclick="window.document.location='/portal/edit/{{object.pk}}/outcome-edit/{{ ocm.pk }}/indicator-edit/{{ ind.pk }}'">
+                    <!-- Показатель -->
+                    <tr>
+                        <th colspan="2">Показатель</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{% ifequal ind.value "custom" %} {{ ind.custom_value }} {% else %} {{ ind.value }} {% endifequal %}</td>
+                    </tr>
+                    <!-- ПланФакт -->
+                    <tr>
+                        <th width="50%">План</th>
+                        <th width="50%">Факт</th>
+                    </tr>
+                    <tr>
+                        <td>{{ind.plan}}</td>
+                        <td>{{ind.fact}}</td>
+                    </tr>
+                    <!-- Метод -->
+                    {% if outcome_indicator_methods|with_ref_to_outcome_indicator:ind %}
+                    <tr>
+                        <th colspan="2">Методы сбора данных</th>
+                    </tr>
+                    {% for ind_method in outcome_indicator_methods|with_ref_to_outcome_indicator:ind %}
+                    <tr>
+                        <td colspan="2">&bull; {{ind_method.value}}<br></td>
+                    </tr>
+                    {% endfor %} {% endif %}
+                </table>
+                {% endfor %}
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <a href="/portal/edit/{{object.pk}}/outcome-edit/{{ ocm.pk }}/indicator-create">
+                                <h4 class="min-h4">Добавить показатель
+                                </h4>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+            </div>
+            {% endfor %} {% endif %}
+            <a class="outcomes-element" href="/portal/edit/{{ object.pk }}/outcome-create">
+                <h4 class="mid-h4">Добавить социальный результат</h4>
+            </a>
+
+
+            <!-- Конец соц.результатов -->
+
+
+            <!-- Социальные эффекты -->
+
+            <br>
+            <h2 folded="unfolded" id="impacts-table" class="section-title section-title-pointer"><img id='impacts-folded' class="folder-img" src='{% static "img/folded.png"%}'><img hidden id='impacts-unfolded' class="folder-img" src='{% static "img/unfolded.png"%}'>Социальные эффекты <i class="fa fa-info-circle cursor-pointer" data-toggle="modal"
+                    data-target="#impact_before"></i> </h2>
+            <!-- modal -->
+            <div class="modal fade" id="impact_before" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Информация</h5>
+                        </div>
+                        <div class="modal-body">
+                            {% autoescape off %}{{impact_before}}{% endautoescape %}
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" href="https://pion.org.ru/portal/new_helper/impacts" target="blank">Посмотреть полное руководство</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть и продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+            {% if impact %} {% for imp in impact %}
+
+            <div class="impacts-element" class="single-item-with-bg">
+                <a href="/portal/edit/{{ object.pk }}/impact-edit/{{ imp.pk }}">
+                    <h4 class="hard-h4">{% ifequal imp.value "custom" %} {{ imp.custom_value }} {% else %} {{ imp.value }} {% endifequal %}</h4>
+                </a>
+
+                <h4 class="text-left">Показатели</h4>
+                {% for ind in impact_indicator|with_ref_to_impact:imp %}
+                <table class="table selectable-table table-bordered" onclick="window.document.location='/portal/edit/{{object.pk}}/impact-edit/{{ imp.pk }}/indicator-edit/{{ ind.pk }}'">
+                    <!-- Показатель -->
+                    <tr>
+                        <th colspan="2">Показатель</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{% ifequal ind.value "custom" %} {{ ind.custom_value }} {% else %} {{ ind.value }} {% endifequal %}</td>
+                    </tr>
+                    <!-- ПланФакт -->
+                    <tr>
+                        <th width="50%">План</th>
+                        <th width="50%">Факт</th>
+                    </tr>
+                    <tr>
+                        <td>{{ind.plan}}</td>
+                        <td>{{ind.fact}}</td>
+                    </tr>
+                    <!-- Метод -->
+                </table>
+                {% endfor %}
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <a href="/portal/edit/{{object.pk}}/impact-edit/{{ imp.pk }}/indicator-create">
+                                <h4 class="min-h4">Добавить показатель
+                                </h4>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+            </div> {% endfor %} {% endif %}
+            <a class="impacts-element" href="/portal/edit/{{ object.pk }}/impact-create">
+                <h4 class="mid-h4">Добавить социальный эффект</h4>
+            </a>
+
+
+            <!-- Конец соц.эффектов -->
+        </div>
+        {% if delete_link %}
+        <br><br><a href="{{delete_link}}" class="btn btn-danger">Удалить программу</a> {% endif %}
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <!-- FOOTER MENU -->
+                <div class="col-md-6">
+                    <div class="footer-menu">
+                        <ul class="list-inline">
+                            <li><a class="page-scroll" href="#top">Вверх</a>
+                            </li>
+                            <li><a class="page-scroll" href="/portal/">Мои программы</a>
+                            </li>
+                            <li><a class="page-scroll" href="/">Главная</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="comment_create" target="_blank">Добавить комментарий</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END FOOTER MENU -->
+
+                <!-- FOOTER CONTENT -->
+                <div class="col-md-6">
+                    <div class="footer-content text-right">
+                    </div>
+                </div>
+                <!-- END FOOTER CONTENT -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- ./container -->
+    </footer>
+
+    <script src='{% static "js/plugins.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/wow.min.js" %}'></script>
+    <script src='{% static "js/prettyPhoto.js" %}'></script>
+    <script src='{% static "js/owl.carousel.min.js" %}'></script>
+    <script src='{% static "js/main.js" %}'></script>
+</body>
+
+</html>

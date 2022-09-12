@@ -1,0 +1,75 @@
+[11/Dec/2016 14:08:36] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 14:08:36] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 14:08:36] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 14:08:36] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 14:08:36] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 14:08:36] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 14:08:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 14:08:36] "GET /static/js/main.js HTTP/1.1" 200 1554
+Internal Server Error: /portal/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/utils.py", line 65, in __getitem__
+    return self._engines[alias]
+KeyError: 'django'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 126, in get_package_libraries
+    module = import_module(entry[1])
+  File "/usr/lib/python3.4/importlib/__init__.py", line 109, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 2254, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 2237, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 2226, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1200, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1129, in _exec
+  File "<frozen importlib._bootstrap>", line 1471, in exec_module
+  File "<frozen importlib._bootstrap>", line 321, in _call_with_frames_removed
+  File "/etc/side_projects/RCBuilder/rcapp/templatetags/fk_filters.py", line 2, in <module>
+    from .models import ResultsChain, Target, Resource, Activity, Output, OutputIndicator, OutputPlanFact, OutputMethod, Outcome, OutcomeIndicator, OutcomePlanFact, OutcomeMethod, Impact, ImpactIndicator, ImpactPlanFact
+ImportError: No module named 'rcapp.templatetags.models'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 109, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 84, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/response.py", line 66, in resolve_template
+    return select_template(template, using=self.using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 44, in select_template
+    engines = _engine_list(using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 72, in _engine_list
+    return engines.all() if using is None else [engines[using]]
+  File "/usr/local/lib/python3.4/dist-packages/django/template/utils.py", line 89, in all
+    return [self[alias] for alias in self]
+  File "/usr/local/lib/python3.4/dist-packages/django/template/utils.py", line 89, in <listcomp>
+    return [self[alias] for alias in self]
+  File "/usr/local/lib/python3.4/dist-packages/django/template/utils.py", line 80, in __getitem__
+    engine = engine_cls(params)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 30, in __init__
+    options['libraries'] = self.get_templatetag_libraries(libraries)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 48, in get_templatetag_libraries
+    libraries = get_installed_libraries()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 113, in get_installed_libraries
+    for name in get_package_libraries(pkg):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 130, in get_package_libraries
+    "trying to load '%s': %s" % (entry[1], e)
+django.template.library.InvalidTemplateLibrary: Invalid template library specified. ImportError raised when trying to load 'rcapp.templatetags.fk_filters': No module named 'rcapp.templatetags.models'
+[11/Dec/2016 14:08:36] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 14:08:36] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 14:08:36] "GET /static/css/main.css HTTP/1.1" 200 8828
+[11/Dec/2016 14:08:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 14:08:36] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 14:08:36] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 14:08:36] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 14:08:36] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 14:08:36] "GET /portal/1 HTTP/1.1" 500 134195

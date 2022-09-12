@@ -1,0 +1,94 @@
+[11/Dec/2016 10:22:13] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 10:22:13] "GET / HTTP/1.1" 200 12119
+[11/Dec/2016 10:22:13] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 10:22:13] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 10:22:13] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 10:22:13] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 10:22:14] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[11/Dec/2016 10:22:14] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 10:22:14] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 10:22:14] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 10:22:14] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 10:22:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 10:22:14] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 10:22:14] "GET /static/css/main.css HTTP/1.1" 200 8828
+[11/Dec/2016 10:22:14] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 10:22:14] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 10:22:14] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 10:22:14] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 10:22:14] "GET / HTTP/1.1" 200 12119
+[11/Dec/2016 10:22:14] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[11/Dec/2016 10:22:14] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[11/Dec/2016 10:22:14] "GET /static/css/main.css HTTP/1.1" 200 8828
+[11/Dec/2016 10:22:14] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[11/Dec/2016 10:22:14] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[11/Dec/2016 10:22:14] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[11/Dec/2016 10:22:14] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[11/Dec/2016 10:22:14] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[11/Dec/2016 10:22:14] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[11/Dec/2016 10:22:14] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[11/Dec/2016 10:22:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[11/Dec/2016 10:22:14] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[11/Dec/2016 10:22:14] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[11/Dec/2016 10:22:14] "GET /static/js/main.js HTTP/1.1" 200 1554
+[11/Dec/2016 10:22:14] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[11/Dec/2016 10:22:14] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[11/Dec/2016 10:22:14] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[11/Dec/2016 10:22:15] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[11/Dec/2016 10:22:16] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[11/Dec/2016 10:22:20] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /portal/ HTTP/1.1" 200 10528
+[11/Dec/2016 10:22:20] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/animate.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/main.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Dec/2016 10:22:20] "GET /static/img/logo.png HTTP/1.1" 304 0
+[11/Dec/2016 10:22:24] "GET /portal/1 HTTP/1.1" 200 9873
+[11/Dec/2016 10:22:24] "GET /portal/1 HTTP/1.1" 200 9873
+Not Found: /http:/azenv.net/
+[11/Dec/2016 11:31:19] "GET http://azenv.net/ HTTP/1.0" 404 1642
+Not Found: /script
+[11/Dec/2016 12:17:55] "GET /script HTTP/1.1" 404 2398
+[11/Dec/2016 13:36:45] "GET / HTTP/1.1" 200 12083
+Not Found: /HNAP1/
+[11/Dec/2016 13:36:46] "GET /HNAP1/ HTTP/1.1" 404 2398
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 10:22:02
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 11, 2016 - 14:05:44
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

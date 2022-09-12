@@ -1,0 +1,512 @@
+{%load static%} {%load fk_filters%}
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>{% if object.name %}ЦР: {{ object.name }}{% else %}ПИОН{% endif %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts - which you want to use - (rest you can just remove) -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link rel="stylesheet" href='{% static "css/prettyPhoto.css" %}'>
+    <link rel="stylesheet" href='{% static "css/owl.carousel.css" %}'>
+    <link rel="stylesheet" href='{% static "css/main.css" %}'>
+    <link rel="stylesheet" href='{% static "css/responsive.css" %}'>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                dateFormat: 'dd.mm.yy'
+            });
+            select_changed();
+            subtitle_select_changed();
+        });
+    </script>
+    <script>
+        function set_select() {
+            //{{ compare1 }}
+            var classes = document.getElementsByClassName("selector_from_context");
+            if (classes.length > 0) {
+                var elem = classes[0];
+                elem.innerHTML = '{% autoescape off %}{{ resulting_choices_html }}{% endautoescape %}';
+            }
+            select_changed();
+        }
+    </script>
+
+    <style>
+        input:invalid {
+            outline: 2px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Навигация</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- LOGO -->
+                    <a class="navbar-brand page-scroll" href="/">
+                        <img width="234" height="40" src='{% static "img/logo-2.png"%}' alt="">
+                    </a>
+                    <!-- END LOGO -->
+
+                </div>
+
+                <!-- TOGGLE NAV -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        {% if not is_authenticated %}
+                        <li><a class="library-button" href="https://pion.org.ru/newpion/select-library">Библиотека</a></li><li><a class="login-button" href="https://pion.org.ru/newpion/auth/login">Вход</a>
+                        </li>
+                        <li><a class="regtr-button" href="https://pion.org.ru/newpion/auth/registration">Регистрация</a>
+                        </li>
+                        {% else %}
+                        <li><a class="create-button" href="/portal/">Мои программы</a>
+                        </li>
+                        <!--
+                        <li><a class="logout-button" href="/accounts/logout/">Выйти</a>
+                        </li>
+                        -->
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- TOGGLE NAV -->
+
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- END NAVIGATION -->
+    </header>
+
+    <section id="main" class="section text-center">
+        <div class="container">
+
+            {% if results_chain %}
+            <h2 class="section_title">Сейчас вы редактируете</h2><br>
+            <table class="table">
+                <tr>
+                    <td>Программа</td>
+                    <td>{{ results_chain.name }}</td>
+                </tr>
+                {% if parent_entity %}
+                <tr>
+                    <td>{{ parent_entity_name }}</td>
+                    <td>
+                        {% ifequal parent_entity.value "custom" %} {{ parent_entity.custom_value }} {% else %} {{ parent_entity.value }} {% endifequal %}
+                    </td>
+                </tr>
+                {% endif %}
+            </table>
+
+            {% endif %}
+            <!--<h4 class="wow fadeInLeft" data-wow-duration="1s">Архив цепочек результатов</h4>-->
+            <h2 class="section-title">{{ entity_name }}</h2>
+            {% if entity_name.lower == "показатель непосредственного результата" %}
+            <div class="text-center" style="margin-bottom: 15px;">
+                Посмотрите примеры в <a target="_blank" href="/portal/indicators_library?content=outputindicators">библиотеке показателей</a>
+            </div>
+            {% endif %}
+            {% if entity_name.lower == "показатель социального результата" %}
+            <div class="text-center" style="margin-bottom: 15px;">
+                Посмотрите примеры в <a target="_blank" href="/portal/indicators_library?content=outcomeindicators">библиотеке показателей</a>
+            </div>
+            {% endif %}
+            {% if entity_name.lower == "показатель социального эффекта" %}
+            <div class="text-center" style="margin-bottom: 15px;">
+                Посмотрите примеры в <a target="_blank" href="/portal/indicators_library?content=impactindicators">библиотеке показателей</a>
+            </div>
+            {% endif %}
+            <form action="" method="post" enctype='multipart/form-data'>
+                <table class="table" id="form-table">
+                    {% csrf_token %} {{ form }} 
+
+                    <!-- {% if show_methods %} -->
+                    <tr>
+                        <th>
+                            <label for="methods">Ссылка на используемую методику:</label>
+                        </th>
+                        <td>
+                        </td>
+                    </tr>
+                    <!-- {% if methods and methods|length > 0 %}  -->
+                    <!-- {% for method in methods %} -->
+                    <tr>
+                        <th>
+                        </th>
+                        <td>
+                            <input type="text" name="methods" id="methods" value="{{method.value}}">
+                        </td>
+                    </tr>
+                    <!-- {% endfor %}  -->
+                    <!-- {% else %} -->
+                    <tr>
+                        <th>
+                        </th>
+                        <td>
+                            <input type="text" name="methods" id="methods">
+                        </td>
+                    </tr>
+                    <!-- {% endif %} -->
+                    <tr id="button-row">
+                        <th></th>
+                        <td>
+                            <div id="add-method">Дополнительная ссылка</div>
+                        </td>
+                    </tr>
+                    <!-- {% endif %} -->
+
+                </table>
+                <!-- {% if display_user_agreement %} -->
+                Регистрируясь я подтверждаю согласие с <a href='{% static "files/user_agreement.pdf" %}' target="_blank">пользовательским соглашением</a>.
+<br><br>
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="6Ld_G9kUAAAAAMiApqaCdBQ1Qg24b5mcN5IOvxn_"></div>
+                <!-- {% endif %} -->
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="{% if display_user_agreement %}Зарегистрироваться{% else %}Сохранить{% if results_chain %} и продолжить{% endif %}{% endif %}" />
+                <!-- {% if results_chain %} -->
+                <a class="btn btn-lg btn-info btn-block" href="{% if results_chain %}/portal/edit/{{ results_chain.pk }}{% else %}/portal{% endif %}">Выйти без сохранения</a>
+                <!-- {% endif %} -->
+            </form>
+            {% if delete_link %}
+            <br><br><a href="{{delete_link}}" class="btn btn-danger">Удалить</a> {% endif %}
+        </div>
+    </section>
+
+    <br><br><br>
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <!-- FOOTER MENU -->
+                <div class="col-md-6">
+                    <div class="footer-menu">
+                        <ul class="list-inline">
+                            <li><a class="page-scroll" href="#top">Вверх</a>
+                            </li>
+                            <li><a class="page-scroll" href="/portal/">Мои программы</a>
+                            </li>
+                            <li><a class="page-scroll" href="/">Главная</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="comment_create" target="_blank">Добавить комментарий</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END FOOTER MENU -->
+
+                <!-- FOOTER CONTENT -->
+                <div class="col-md-6">
+                    <div class="footer-content text-right">
+                        <!--<p>&copy; 2016 All Rights Reserved, 
+                            <a href=""></a>
+                        </p>-->
+                    </div>
+                </div>
+                <!-- END FOOTER CONTENT -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- ./container -->
+    </footer>
+
+
+
+    <!--<script src='{% static "js/vendor/jquery-1.10.2.min.js" %}'></script>-->
+    <script src='{% static "js/plugins.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/wow.min.js" %}'></script>
+    <script src='{% static "js/prettyPhoto.js" %}'></script>
+    <script src='{% static "js/owl.carousel.min.js" %}'></script>
+    <script src='{% static "js/main.js" %}'></script>
+
+    <script>
+        function findLableForControlWithId(el) {
+            labels = document.getElementsByTagName('label');
+            for (var i = 0; i < labels.length; i++) {
+                if (labels[i].htmlFor == el)
+                    return labels[i];
+            }
+        }
+        if (document.getElementsByClassName("selector")[0].innerHTML == '\n<option value="custom">Введите свой вариант</option>\n') {
+            document.getElementsByClassName("selector")[0].parentNode.parentNode.style.visibility = "hidden";
+            var label = findLableForControlWithId("id_custom_value");
+            label.innerHTML = 'Введите свой вариант:';
+        }
+
+        function custom_changed() {
+            if (document.getElementById("id_custom_value").value != '') {
+                document.getElementsByClassName("selector")[0].value = "custom";
+            }
+        }
+
+        function methodChanged() {
+            if (document.getElementById("id_custom_method").value != '') {
+                document.getElementById("method_select").value = "custom";
+            }
+        }
+        function methodChanged2() {
+            if (document.getElementById("id_custom_method2").value != '') {
+                document.getElementById("method_select2").value = "custom";
+            }
+        }
+        function methodChanged3() {
+            if (document.getElementById("id_custom_method3").value != '') {
+                document.getElementById("method_select3").value = "custom";
+            }
+        }
+
+        function dataSourceChanged() {
+            if (document.getElementById("id_data_source_custom").value != '') {
+                document.getElementById("data_source_select").value = "custom";
+            }
+        }
+
+        document.getElementById("id_custom_value").oninput = custom_changed;
+        document.getElementById("id_custom_method").oninput = methodChanged;
+        document.getElementById("id_custom_method2").oninput = methodChanged2;
+        document.getElementById("id_custom_method3").oninput = methodChanged3;
+        document.getElementById("id_data_source_custom").oninput = dataSourceChanged;
+
+        function select_changed() {}
+    </script>
+
+    <script>
+        if (document.getElementsByClassName("subtitle_selector")[0].innerHTML == '\n<option value="Другое">Введите свой вариант</option>\n') {
+            document.getElementsByClassName("subtitle_selector")[0].parentNode.parentNode.style.visibility = "hidden";
+        }
+
+        function custom_subtitle_changed() {
+            if (document.getElementById("id_custom_subtitle").value != '') {
+                document.getElementsByClassName("subtitle_selector")[0].value = "Другое";
+                document.getElementsByClassName("subtitle_selector")[0].disabled = true;
+            } else {
+                document.getElementsByClassName("subtitle_selector")[0].disabled = false;
+            }
+        }
+
+        document.getElementById("id_custom_subtitle").oninput = custom_subtitle_changed;
+
+        function subtitle_select_changed() {}
+    </script>
+    <script>
+        function add_method() {
+            var addMethodButtonRow = document.getElementById("button-row");
+
+            var parentNode = addMethodButtonRow.parentNode;
+
+            var createdElement = document.createElement('tr');
+
+            createdElement.innerHTML = '<th></th><td><input type="text" name="methods" id="methods"></td>';
+
+            parentNode.insertBefore(createdElement, addMethodButtonRow);
+        }
+
+        function on_load() {
+
+            //{% if registration_form %}
+            alert("Уважаемые коллеги!\nБольшое спасибо за интерес к онлайн- сервису ПИОН. В настоящее время мы идет редизайн сервиса , который , как мы планируем, закончится  во второй половине 2020 года. Пока что мы работаем только с уже зарегистрированными организациями. Если вы хотите оставить нам свои координаты, чтобы мы персонально уведомили вас о возобновлении работы , вы можете зарегистрироваться.\nИзвините за неудобства.");
+            //{% endif %}
+            
+            set_select();
+            //{% if selected_passed %}
+            document.getElementsByClassName("selector")[0].value = "{{selected_passed}}";
+            //{% endif %}
+            document.getElementById("id_custom_value").style.width = "100%";
+
+            var addMethodButton = document.getElementById("add-method");
+
+            addMethodButton.onclick = add_method;
+
+        }
+        window.onload = on_load;
+    </script>
+    <script>
+        function insertAfter(newNode, referenceNode) {
+            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        }
+
+        function fillHiddenList() {
+            var current_frequency = $(".indicator-value").length;
+            var resultingString = "";
+            for (var i = 0; i < current_frequency; i++) {
+                if (i > 0) resultingString += ",";
+                resultingString += $("#indicator-value-" + i).val();
+            }
+            $("#hidden-values-array").val(resultingString);
+        }
+
+        function fillHiddenListPlan() {
+            var current_frequency = $(".indicator-value-plan").length;
+            var resultingString = "";
+            for (var i = 0; i < current_frequency; i++) {
+                if (i > 0) resultingString += ",";
+                resultingString += $("#indicator-value-plan-" + i).val();
+            }
+            $("#hidden-values-array-plan").val(resultingString);
+        }
+
+        function changeFieldsNumber() {
+            var required_frequency = $("#frequency").val();
+            var current_frequency = $(".indicator-value").length;
+            if (required_frequency > current_frequency) {
+                if (current_frequency == 0) {
+                    $("#form-table").append('<tr id="indicator-values-title"><th><label for="values-part">Значения:</label></th><td></td></tr>');
+                }
+                for (; current_frequency < required_frequency; current_frequency++) {
+                    $("#form-table").append('<tr id="indicator-value-container-' + current_frequency + '"><th>Период ' + (current_frequency + 1) + '</th><td><input placeholder="Плановое значение" class="indicator-value-plan" type="text" name="values-part-plan" id="indicator-value-plan-' + current_frequency + '" value=""><input placeholder="Фактическое значение" class="indicator-value" type="text" name="values-part" id="indicator-value-' + current_frequency + '" value=""></td></tr>');
+                }
+            } else if (required_frequency < current_frequency) {
+                for (; --current_frequency >= required_frequency;) {
+                    $("#indicator-value-container-" + current_frequency).remove();
+                }
+                if (required_frequency == 0) {
+                    $("#indicator-values-title").remove();
+                }
+            }
+            fillHiddenList();
+            fillHiddenListPlan();
+        }
+
+        $(() => {
+            $(document).on('input', '#id_plan', function() {
+                var $item = $(this);
+                var value = $item.val();
+                var regexp = new RegExp("[^\\d.]");
+                var newVal = value.replace(regexp, "");
+                $item.val(newVal);
+            });
+            $(document).on('input', '#id_fact', function() {
+                var $item = $(this);
+                var value = $item.val();
+                var regexp = new RegExp("[^\\d.]");
+                var newVal = value.replace(regexp, "");
+                $item.val(newVal);
+            });
+            $(document).on('input', '.indicator-value', function() {
+                var $item = $(this);
+                var value = $item.val();
+                var regexp = new RegExp("[^\\d.]");
+                var newVal = value.replace(regexp, "");
+                $item.val(newVal);
+            });
+            $(document).on('input', '.indicator-value-plan', function() {
+                var $item = $(this);
+                var value = $item.val();
+                var regexp = new RegExp("[^\\d.]");
+                var newVal = value.replace(regexp, "");
+                $item.val(newVal);
+            });
+            $("#frequency").change(changeFieldsNumber);
+
+            $("#form-table").on('keyup', '.indicator-value', fillHiddenList);
+            $("#form-table").on('change', '.indicator-value', fillHiddenList);
+            $("#form-table").on('keyup', '.indicator-value-plan', fillHiddenListPlan);
+            $("#form-table").on('change', '.indicator-value-plan', fillHiddenListPlan);
+
+            if ($("#frequency").length) {
+                var frequency_value = $("#frequency").val();
+                if (frequency_value != undefined && frequency_value != null && frequency_value > 0) {
+                    $("#form-table").append('<tr id="indicator-values-title"><th><label for="values">Значения:</label></th><td></td></tr>');
+                }
+                if ($("#hidden-values-array").length) {
+                    var values_string = $("#hidden-values-array").val();
+                    var splitted_values = values_string.split(',');
+                    var values_string_plan = $("#hidden-values-array-plan").val();
+                    if (!values_string_plan) {
+                        values_string_plan = "";
+                    }
+                    var splitted_values_plan = values_string_plan.split(',');
+                    var inc = splitted_values_plan.length;
+                    while (inc < splitted_values.length) {
+                        splitted_values_plan.push('');
+                        inc += 1;
+                    }
+                    var periodNames = [
+                        //{% for period_name in period_names %}
+                        "{{period_name}}",
+                        //{% endfor %}
+                    ];
+                    var counter = 0;
+                    while (counter < splitted_values.length) {
+                        var periodName = 'Период ' + (counter + 1);
+                        if (periodNames.length > counter) {
+                            periodName = periodNames[counter];
+                        }
+                        $("#form-table").append('<tr id="indicator-value-container-' + counter + '"><th>' + periodName + '</th><td><input placeholder="Плановое значение" class="indicator-value-plan" type="text" name="values-part-plan" id="indicator-value-plan-' + counter + '" value="' + splitted_values_plan[counter] + '"> <input placeholder="Фактическое значение" class="indicator-value" type="text" name="values-part" id="indicator-value-' + counter + '" value="' + splitted_values[counter] + '"></td></tr>');
+                        counter += 1;
+                    }
+                }
+                changeFieldsNumber();
+            }
+
+            // {% if pfs %}
+            pfs = {
+                // {% for pf in pfs %}
+                "{{pf.year}}": ["{{pf.plan}}", "{{pf.fact}}"],
+                // {% endfor %}
+            };
+
+            $("#year").change(() => {
+                var $item = $("#year");
+                var value = $item.val();
+
+                var pf = pfs[value];
+                if (pf) {
+                    $('#id_plan').val(pf[0]);
+                    $('#id_fact').val(pf[1]);
+                } else {
+                    $('#id_plan').val('');
+                    $('#id_fact').val('');
+                }
+            });
+            // {% endif %}
+
+            var elem = document.getElementById("id_username");
+            if (elem) {
+                var username_field_spec = document.createElement("span");
+                username_field_spec.innerHTML = " Может содержать строчные латинские буквы, цифры, тире и нижнее подчеркивание";
+
+                insertAfter(username_field_spec, elem);
+            }
+
+            var passelem = document.getElementById("id_password");
+            if (passelem) {
+                var password_field_spec = document.createElement("span");
+                password_field_spec.innerHTML = " Может содержать строчные латинские буквы, цифры, тире и нижнее подчеркивание";
+
+                insertAfter(password_field_spec, passelem);
+            }
+        });
+    </script>
+</body>
+
+</html>

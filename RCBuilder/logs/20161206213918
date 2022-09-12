@@ -1,0 +1,115 @@
+[05/Dec/2016 11:18:10] "GET / HTTP/1.1" 200 12067
+[05/Dec/2016 11:18:10] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[05/Dec/2016 11:18:10] "GET /static/css/prettyPhoto.css HTTP/1.1" 200 19930
+[05/Dec/2016 11:18:10] "GET /static/css/owl.carousel.css HTTP/1.1" 200 3149
+[05/Dec/2016 11:18:10] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 200 15414
+[05/Dec/2016 11:18:10] "GET /static/css/main.css HTTP/1.1" 200 8033
+[05/Dec/2016 11:18:10] "GET /static/css/responsive.css HTTP/1.1" 200 1013
+[05/Dec/2016 11:18:10] "GET /static/css/animate.css HTTP/1.1" 200 59839
+[05/Dec/2016 11:18:10] "GET /static/js/plugins.js HTTP/1.1" 200 733
+[05/Dec/2016 11:18:10] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 31819
+[05/Dec/2016 11:18:10] "GET /static/js/wow.min.js HTTP/1.1" 200 7083
+[05/Dec/2016 11:18:10] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[05/Dec/2016 11:18:11] "GET /static/js/owl.carousel.min.js HTTP/1.1" 200 23890
+[05/Dec/2016 11:18:11] "GET /static/js/main.js HTTP/1.1" 200 1554
+[05/Dec/2016 11:18:11] "GET /static/js/prettyPhoto.js HTTP/1.1" 200 22060
+[05/Dec/2016 11:18:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 116743
+[05/Dec/2016 11:18:11] "GET /static/img/app-preview-empty.png HTTP/1.1" 200 43649
+[05/Dec/2016 11:18:11] "GET /static/img/logo.png HTTP/1.1" 200 18815
+[05/Dec/2016 11:18:12] "GET /static/img/header-bg.jpg HTTP/1.1" 200 2383551
+[05/Dec/2016 11:18:24] "GET /accounts/login/ HTTP/1.1" 200 524
+[05/Dec/2016 11:18:27] "POST /accounts/login/ HTTP/1.1" 200 704
+[05/Dec/2016 11:20:15] "POST /accounts/login/ HTTP/1.1" 302 0
+Not Found: /portal/
+[05/Dec/2016 11:20:15] "GET /portal/ HTTP/1.1" 404 2293
+[05/Dec/2016 11:20:25] "GET / HTTP/1.1" 200 11472
+[05/Dec/2016 11:20:25] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:25] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:25] "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:25] "GET /static/css/main.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:25] "GET /static/css/animate.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:25] "GET /static/css/prettyPhoto.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/css/responsive.css HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/vendor/modernizr-2.6.2.min.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/wow.min.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/vendor/jquery-1.10.2.min.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/owl.carousel.min.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/main.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/js/prettyPhoto.js HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/img/logo.png HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/img/app-preview-empty.png HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET /static/img/header-bg.jpg HTTP/1.1" 304 0
+[05/Dec/2016 11:20:26] "GET / HTTP/1.1" 200 11472
+[05/Dec/2016 11:20:31] "GET /admin/rcb/description/ HTTP/1.1" 200 3097
+[05/Dec/2016 11:20:31] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[05/Dec/2016 11:20:32] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[05/Dec/2016 11:20:32] "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[05/Dec/2016 11:20:32] "GET /static/admin/css/base.css HTTP/1.1" 200 15937
+[05/Dec/2016 11:20:32] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6117
+[05/Dec/2016 11:20:32] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[05/Dec/2016 11:20:32] "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[05/Dec/2016 11:20:32] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[05/Dec/2016 11:20:32] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6577
+[05/Dec/2016 11:20:32] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[05/Dec/2016 11:20:32] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[05/Dec/2016 11:20:32] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[05/Dec/2016 11:20:32] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[05/Dec/2016 11:20:32] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[05/Dec/2016 11:20:32] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[05/Dec/2016 11:20:32] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[05/Dec/2016 11:20:33] "GET /admin/ HTTP/1.1" 200 5067
+[05/Dec/2016 11:20:33] "GET /admin/ HTTP/1.1" 200 5067
+[05/Dec/2016 11:20:33] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 434
+[05/Dec/2016 11:20:33] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[05/Dec/2016 11:20:33] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[05/Dec/2016 11:20:33] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[05/Dec/2016 11:20:41] "GET /admin/rcapp/resultschain/ HTTP/1.1" 200 3227
+[05/Dec/2016 11:20:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[05/Dec/2016 11:20:43] "GET /admin/rcapp/resultschain/add/ HTTP/1.1" 200 6692
+[05/Dec/2016 11:20:43] "GET /static/admin/css/forms.css HTTP/1.1" 200 7750
+[05/Dec/2016 11:20:43] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[05/Dec/2016 11:20:43] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[05/Dec/2016 11:20:43] "GET /static/admin/js/change_form.js HTTP/1.1" 200 698
+[05/Dec/2016 11:20:43] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+Not Found: /http:/www.baidu.com/favicon.ico
+[05/Dec/2016 13:24:53] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/www.google.com/reader/about/
+[05/Dec/2016 16:23:10] "GET http://www.google.com/reader/about/ HTTP/1.1" 404 1701
+[05/Dec/2016 19:03:33] "GET / HTTP/1.0" 200 12067
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[05/Dec/2016 20:04:47] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /http:/www.baidu.com/favicon.ico
+[05/Dec/2016 22:05:07] "GET http://www.baidu.com/favicon.ico HTTP/1.1" 404 1691
+Not Found: /http:/testp4.pospr.waw.pl/testproxy.php
+[05/Dec/2016 22:23:32] "GET http://testp4.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+[06/Dec/2016 01:37:08] "GET / HTTP/1.1" 200 12067
+Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+[06/Dec/2016 05:49:58] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 1727
+Not Found: /manager/html
+[06/Dec/2016 08:40:38] "GET /manager/html HTTP/1.1" 404 2411
+[06/Dec/2016 09:08:43] "GET / HTTP/1.1" 200 12067
+Not Found: /HNAP1/
+[06/Dec/2016 09:08:44] "GET /HNAP1/ HTTP/1.1" 404 2398
+Not Found: /http:/testp3.pospr.waw.pl/testproxy.php
+[06/Dec/2016 10:44:48] "GET http://testp3.pospr.waw.pl/testproxy.php HTTP/1.1" 404 1721
+Not Found: /iismedia
+[06/Dec/2016 16:19:27] "GET /iismedia HTTP/1.0" 404 2406
+[06/Dec/2016 18:00:43] "GET / HTTP/1.1" 200 12067
+Not Found: /HNAP1/
+[06/Dec/2016 18:00:43] "GET /HNAP1/ HTTP/1.1" 404 2398
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 05, 2016 - 11:18:08
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 06, 2016 - 18:39:07
+Django version 1.10, using settings 'RCBuilder.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.

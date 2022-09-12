@@ -1,0 +1,109 @@
+<section class="block_registration" alock="true">
+    <div>
+        <h1>РЕГИСТРАЦИЯ</h1>
+        <form  [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">E-mail:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Фамилия:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="lastname">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Имя:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="firstname">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Отчество:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="middlename">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Регион:</p>
+            </div>
+            <div class="col-4">
+                <input type="text" name="user_name" formControlName="region">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Организация:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="organization">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Веб-сайт или адрес организации<br>в социальных сетях:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="website">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Должность:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="position">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-5">
+                <p class="desc_p">Пароль:</p>
+            </div>
+            <div class="col-4 input_necessary">
+                <input type="text" name="user_name" formControlName="password">
+            </div>
+        </div>
+
+        <p class="polit_block">Регистрируясь, я подтверждаю согласие с <a target="_blank" href="{{baseUrl}}/custom/10">пользовательским соглашением</a>.</p>
+        <p class="polit_block">В настоящий момент зарегистрироваться могут только представители организаций, предоставляющие  социальные услуги семьям и детям.</p>
+        <p class="polit_block"><button type="submit" class="add_button">Зарегистрироваться</button> <a class="login_button" routerLink="/auth/login">Войти</a></p>
+        </form>
+    </div>
+</section>
+
+<div class="popap_rega dark_block"  style="display: none;">
+<div>
+    <p class="close_btn" ><img src="/newpion/static/pionfront/assets/img/close_btn.png"></p>
+    <div class="text_block">
+        <img src="/newpion/static/pionfront/assets/img/info.png">
+        <p>Вы не завершили регистрацию, введенные данные будут утеряны!</p>
+        <p id="access_link" ><a href="">Всё равно перейти</a></p>
+    </div>
+</div>
+</div>
